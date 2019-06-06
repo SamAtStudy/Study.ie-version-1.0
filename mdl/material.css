@@ -385,6 +385,7 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+
 html {
   color: rgba(0,0,0, 0.87);
   font-size: 1em;
@@ -823,6 +824,7 @@ main {
 /* Shadows */
 /* Animations */
 /* Dialog */
+
 html, body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;

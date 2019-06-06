@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link rel="stylesheet" href="mdl/material.min.css">
+    <link rel="stylesheet" href="css/courseCss.css">
     <script src="mdl/material.min.js"></script>
     <style>
         /*Vertical Tabs*/
@@ -69,28 +69,41 @@
     </style>
 </head>
 <body>
-<div class="navbar-fixed">
-    <nav class="white" role="navigation">
-        <div class="nav-wrapper">
-
-            <a href="index.html" class="brand-logo left"><img src="img/Logo1.png" alt="Study.ie" style = margin-top:9px style= margin-left:25px width ="45" height="auto"></a>
-
-
-            <ul id="nav-mobile" class="right hide-on-med">
-
-                <li><a href="https://www.jquery-az.com/jquery-tips/">About</a></li>
-
-                <li><a href="https://www.jquery-az.com/css-tutorials/">Updates</a></li>
-
-                <li><a href="https://www.jquery-az.com/javascript-tutorials/">Courses</a></li>
-
-                <li><a href="https://www.jquery-az.com/html-tutorials/">Login/Sign up</a></li>
-
+<header class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper white">
+            <a href="index.html" class="brand-logo"><img src="img/StudyLogo.png" style="margin-left:25px; margin-top: 9px; height: 45px; width: 45px;"></a>
+            <div id="searchBox"  class="row">
+                <div id="searchBar" class="col s12" style="height:30px;">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons icon-teal" style="margin-top:-18px; color:teal;">search</i></label>
+                            <i class="material-icons" style="margin-top:-18px;">close</i>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links" style="float: right;">
+                <i class="material-icons icon-teal">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="courses.html" id="headerText">Courses</a></li>
+                <li><a href="updates.html" id="headerText">Updates</a></li>
+                <li><a href="about.html" id="headerText">About</a></li>
+                <li><a href="signin.html" id="headerText">Sign-In</a></li>
             </ul>
-
         </div>
     </nav>
-</div>
+
+    <ul id="mobile-links" class="sidenav">
+        <li><a href="courses.html" id="headerText">Courses</a></li>
+        <li><a href="updates.html" id="headerText">Updates</a></li>
+        <li><a href="about.html" id="headerText">About</a></li>
+        <li><a href="signin.html" id="headerText">Sign-In</a></li>
+    </ul>
+
+</header>
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
         <div class="container">
@@ -178,6 +191,8 @@
                     </a>
                 </div>
             </div>
+            <link rel="stylesheet" href="mdl/material.css">
+            <div id="slider">
             <div class="mdl-cell mdl-cell--10-col">
                 <div class="mdl-tabs__panel is-active" id="tab1-panel">
                     <img src='https://i0.wp.com/www.thebuttonsmashers.com/wp-content/uploads/2015/10/one_punch_man_short_animation__by_astralnovas-d89p2rx.gif' alt='One Punch Man' width='250'>
@@ -195,6 +210,7 @@
                     <img src='https://media.giphy.com/media/yqMtk0TfjRa5W/giphy.gif' height='150' />
                 </div>
             </div>
+                </div>
         </div>
     </div>
 </div>
