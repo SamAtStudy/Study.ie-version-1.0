@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Parallax Template - Materialize</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="mdl/material.min.css">
+    <script src="mdl/material.min.js"></script>
+    <style>
+        /*Vertical Tabs*/
+        .mdl-tabs__panel {
+            display: none;
+        }
+        .vertical-mdl-tabs {
+            margin-top: 30px;
+        }
+        .vertical-mdl-tabs .mdl-tabs__tab-bar {
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            padding-bottom: 35px;
+            height: inherit;
+            border-bottom: none;
+            border-right: 1px solid rgba(10, 11, 49, 0.20);
+        }
+
+        .vertical-mdl-tabs .mdl-tabs__tab {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            box-sizing: border-box;
+            letter-spacing: 2px;
+        }
+
+        .vertical-mdl-tabs .mdl-tabs__tab:hover {
+            background: rgba(158, 158, 158, 0.34);
+            color: black;
+        }
+
+        .vertical-mdl-tabs.mdl-tabs.is-upgraded a.mdl-tabs__tab.is-active {
+            border-right: 3px solid #00aaa5;
+        }
+        .vertical-mdl-tabs.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
+            content: inherit;
+            height: 0;
+        }
+
+        .vertical-mdl-tabs.mdl-tabs.is-upgraded .mdl-tabs__panel.is-active, .mdl-tabs__panel {
+            padding: 0 30px;
+        }
+
+        .vertical-mdl-tabs.mdl-tabs .mdl-tabs__tab {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+            color: #6cb4b0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper">
+
+            <a href="index.html" class="brand-logo left"><img src="img/Logo1.png" alt="Study.ie" style = margin-top:9px style= margin-left:25px width ="45" height="auto"></a>
+
+
+            <ul id="nav-mobile" class="right hide-on-med">
+
+                <li><a href="https://www.jquery-az.com/jquery-tips/">About</a></li>
+
+                <li><a href="https://www.jquery-az.com/css-tutorials/">Updates</a></li>
+
+                <li><a href="https://www.jquery-az.com/javascript-tutorials/">Courses</a></li>
+
+                <li><a href="https://www.jquery-az.com/html-tutorials/">Login/Sign up</a></li>
+
+            </ul>
+
+        </div>
+    </nav>
+</div>
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Study.ie</h1>
+            <div class="row center">
+                <h5 class="header col s12 light"></h5>
+            </div>
+            <div class="row center">
+                <li class="search">
+                    <div class="search-wrapper">
+                        <input id="search" placeholder="Search" STYLE="color: #00aaa5"><i class="material-icons white-text">search</i>
+                        <div class="search-results"></div>
+                    </div>
+                </li>        </div>
+
+        </div>
+    </div>
+    <div class="parallax"><img src="img/background3.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
+
+<br><br>
+
+
+<div class="row">
+    <div class = "col s2"></div>
+    <div class = "col s1"><img src ="img/search.png" width ="150"></div>
+    <div class = "col s6">
+        To make the searching experience more appealing to our users, we went out and collected all of the most popular, recommended,
+        and highly regarded courses from all over the internet. This can all be search from our top of the line search bar, on top of
+        that if you have any course recommendations which you would like to pass please let us know.
+    </div>
+    <div class = "col s5"></div>
+</div>
+<div class="row">
+    <div class = "col s3"></div>
+    <div class = "col s6">
+        We then want to further comfort our users by allowing them to personalise their search
+        and results through price and the location in which they want to learn if it an offline course.
+        Course reviews are then the cherry on top, as you get to decide what's right for you based on what you can compare.
+    </div>
+    <div class = "col s2"><img src ="img/compare.png" width ="150"></div>
+</div>
+<div class="row">
+    <div class = "col s2"></div>
+    <div class = "col s1"><img src ="img/hand.png" width ="150"></div>
+    <div class = "col s6">
+        In order to begin on your newly encountered learning path, simply book the course and be on your
+        way. You may then return to our website to track your learning on your Study account.
+    </div>
+    <div class = "col s5"></div>
+</div>
+
+
+<br><br>
+
+
+<h4 class='text-center' style='color: #00aaa5'>Courses recommended by our trusted users </h4>
+<div class ="row">
+    <div class = "col s2"></div>
+    <div class="mdl-tabs vertical-mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell mdl-cell--2-col">
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#tab1-panel" class="mdl-tabs__tab is-active">
+                        <span class="hollow-circle"></span>
+                        Java
+                    </a>
+                    <a href="#tab2-panel" class="mdl-tabs__tab">
+                        <span class="hollow-circle"></span>
+                        Python
+                    </a>
+                    <a href="#tab3-panel" class="mdl-tabs__tab">
+                        <span class="hollow-circle"></span>
+                        C++
+                    </a>
+                    <a href="#tab1-panel" class="mdl-tabs__tab">
+                        <span class="hollow-circle"></span>
+                        Computer Architecture
+                    </a>
+                    <a href="#tab1-panel" class="mdl-tabs__tab">
+                        <span class="hollow-circle"></span>
+                        Web Development
+                    </a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--10-col">
+                <div class="mdl-tabs__panel is-active" id="tab1-panel">
+                    <img src='https://i0.wp.com/www.thebuttonsmashers.com/wp-content/uploads/2015/10/one_punch_man_short_animation__by_astralnovas-d89p2rx.gif' alt='One Punch Man' width='250'>
+                </div>
+                <div class="mdl-tabs__panel" id="tab2-panel">
+                    <img src='https://media.giphy.com/media/bGmzbqDKcmvyU/giphy.gif' alt='Luffy the Pirate king' height='150'>
+                </div>
+                <div class="mdl-tabs__panel" id="tab3-panel">
+                    <img src='https://media.giphy.com/media/yqMtk0TfjRa5W/giphy.gif' height='150' />
+                </div>
+                <div class="mdl-tabs__panel" id="tab3-pane4">
+                    <img src='https://media.giphy.com/media/yqMtk0TfjRa5W/giphy.gif' height='150' />
+                </div>
+                <div class="mdl-tabs__panel" id="tab3-pane5">
+                    <img src='https://media.giphy.com/media/yqMtk0TfjRa5W/giphy.gif' height='150' />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br><br>
+
+
+<footer class="page-footer teal">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12 center">
+                <h5 class="white-text">Contact Us</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+            </div>
+            <div class="col l3 s12 center">
+                <ul>
+                    <li><a class="white-text" href="#!">Home</a>
+                        <a>&nbsp;&nbsp;&nbsp;</a>
+                        <a class="white-text" href="#!">Updates</a></li>
+                    <li><a class="white-text" href="#!">About</a>
+                        <a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <a class="white-text" href="#!">Courses</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>
