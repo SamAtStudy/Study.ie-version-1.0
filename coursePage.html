@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+
+    <!-- Unminified MaterializeCSS -->
+    <link rel="stylesheet" href="css/materialize.css">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- front-End CSS -->
+    <link rel="stylesheet" href="css/courseCss.css">
+
+</head>
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper white">
+                    <a href="index.html" class="brand-logo"><img src="img/StudyLogo.png" style="margin-left:25px; margin-top: 9px; height: 45px; width: 45px;"></a>
+                    <div id="searchBox"  class="row">
+                        <div id="searchBar" class="col s12" style="height:30px;">
+                            <form>
+                                <div class="input-field">
+                                    <input id="search" type="search" required>
+                                    <label class="label-icon" for="search"><i class="material-icons icon-teal" style="margin-top:-18px; color:teal;">search</i></label>
+                                    <i class="material-icons" style="margin-top:-18px;">close</i>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links" style="float: right;">
+                    <i class="material-icons icon-teal">menu</i>
+                </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="courses.html" id="headerText">Courses</a></li>
+                        <li><a href="updates.html" id="headerText">Updates</a></li>
+                        <li><a href="about.html" id="headerText">About</a></li>
+                        <li><a href="signin.html" id="headerText">Sign-In</a></li>
+                    </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <ul id="mobile-links" class="sidenav">
+        <li><a href="courses.html" id="headerText">Courses</a></li>
+        <li><a href="updates.html" id="headerText">Updates</a></li>
+        <li><a href="about.html" id="headerText">About</a></li>
+        <li><a href="signin.html" id="headerText">Sign-In</a></li>
+    </ul>
+
+    <!-- Filters -->
+    <div class="row z-depth-1" id="filterContainer">
+        <div class="parallax-container" style="height:200px;">
+            <div class="parallax"><img id="backdrop" src="img/coursesBackground.png"></div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div class="row" style="height:500px;">
+        <table style="margin: 25px 10vw 25px 10vw; width: 80vw;">
+            <tr>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>  
+            </td>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+            </tr>
+
+            <!-- row 2 -->
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="img/java.jpg">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </td>
+        </table>
+    </div>
+
+    <!-- Table Results -->
+    <!--
+    <div class="row" style="height:500px;">
+        <table style="margin: 25px 10vw 25px 10vw; width: 80vw;">
+            <td>
+                <div style="height:25vh; border: 2px solid teal; padding-right: 10px;">
+                    <div class="row" style="line-height:14vh">
+                        s
+                    </div>
+                    <div class="row" style="line-height:7vh;">
+                        s
+                    </div>
+                    <div class="row" style="line-height:2.5vh;">
+                        s
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="height:25vh; border: 2px solid teal; padding-right: 10px;">
+                    <div class="row" style="line-height:14vh">
+                        s
+                    </div>
+                    <div class="row" style="line-height:7vh;">
+                        s
+                    </div>
+                    <div class="row" style="line-height:2.5vh;">
+                        s
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="height:25vh; border: 2px solid teal; padding-right: 10px;">
+                    <div class="row" style="line-height:14vh">
+                        s
+                    </div>
+                    <div class="row" style="line-height:7vh;">
+                        s
+                    </div>
+                    <div class="row" style="line-height:2.5vh;">
+                        s
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="height:25vh; border: 2px solid teal; padding-right: 10px;">
+                    <div class="row" style="line-height:14vh">
+                        s
+                    </div>
+                    <div class="row" style="line-height:7vh;">
+                        s
+                    </div>
+                    <div class="row" style="line-height:2.5vh;">
+                        s
+                    </div>
+                </div>
+            </td>
+        </table>
+    </div>
+    -->
+
+    <!-- Scripts -->
+
+    <!-- Compiled and Minified Jquery-->
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0js/materialize.min.js"></script>
+
+    <!-- Front end JS -->
+    <script src="js/courseJs.js"></script>
+
+</body>
+</html>
