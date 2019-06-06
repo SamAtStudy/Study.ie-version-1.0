@@ -1,0 +1,33 @@
+#headerText{
+    color: teal;
+    font-size: 1rem;
+    font-weight: Bold;
+}
+
+#searchBox{
+    width: 27vw;
+    margin-left: 27vw;
+    padding-top: 19px;
+    float:left;
+}
+
+#searchBar{
+    border: 2px solid teal;
+    border-radius: 10px;
+}
+
+#backdrop {
+    filter: brightness(90%);
+}
+
+.card.small{
+    height:175px;
+}
+
+i.icon-teal {
+    color: teal;
+}
+
+.row{
+    margin-bottom: 0px;
+}
