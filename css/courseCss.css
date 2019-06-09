@@ -7,7 +7,7 @@
 #searchBox{
     width: 27vw;
     margin-left: 27vw;
-    padding-top: 19px;
+    padding-top: 1.9vh;
     float:left;
 }
 
@@ -30,4 +30,33 @@ i.icon-teal {
 
 .row{
     margin-bottom: 0px;
+}
+
+.modal{
+    margin-top: 4%;
+    max-height:100%;
+    overflow:hidden;
+    width:50%;
+    top:1%; !important;
+}
+
+#loginHeader{
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+#accLoginBtn, #accCreateBtn{
+    width: 100%;
+    height: 60px;
+    margin-left:25%;
+    margin-bottom:20px;
+    font-size: 1.3rem;
+}
+
+#loginLine{
+    margin-bottom:35px;
+}
+
+#loginLabel{
+    font-size: 1.20rem;
 }
