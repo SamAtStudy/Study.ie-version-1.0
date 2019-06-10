@@ -1,7 +1,27 @@
+html{
+    font-family: "Varela Round";
+}
+
 #headerText{
     color: teal;
     font-size: 1rem;
     font-weight: Bold;
+    text-decoration: none;
+    position: relative;
+}
+
+#headerText:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 2px solid teal;
+    transition: 0.4s;
+}
+
+#headerText:hover:after {
+    width: 100%;
 }
 
 #searchBox{
@@ -21,7 +41,7 @@
 }
 
 .card.small{
-    height:175px;
+    /*height:175px;*/
 }
 
 i.icon-teal {
@@ -43,6 +63,10 @@ i.icon-teal {
 #loginHeader{
     margin-bottom: 50px;
     font-weight: bold;
+}
+
+#loginBox, #createAccBox{
+    max-height: 70vh;
 }
 
 #accLoginBtn, #accCreateBtn{
@@ -83,12 +107,89 @@ i.icon-teal {
     font-size: 1rem;
     font-weight: Bold;
     text-transform: capitalize;
-    /*margin-left: 84%;*/
     border: 3px solid teal;
     border-radius: 15px;
     height:4.5vh;
     min-height: 42px;
-    z-index: 100;
     margin-top: -0.6vh;
     margin-right: -0.3vw;
+}
+
+.card .card-action{
+    padding: 8px 24px;
+}
+
+.card .card-content{
+    padding: 12px 24px;
+}
+
+#cardRec{
+    text-transform: lowercase;
+    color: lightseagreen;
+}
+
+#recIcon{
+    font-size: 18px;
+}
+
+#cardTime{
+    text-transform: lowercase;
+    color: grey;
+}
+
+#timeIcon{
+    font-size: 20px;
+}
+
+#courseAuthor{
+    color: grey;
+}
+
+#cardImgDivider{
+    margin-bottom: 12px;
+}
+
+.cardDescOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: darkgrey;
+}
+
+.card-image:hover .cardDescOverlay {
+    opacity: 1;
+}
+
+.cardDesc {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#aboutLogo{
+    width: 19vw;
+    height: 11vh;
+    margin-left: 37.5vw;
+}
+
+iframe{
+    border: 2px solid teal;
+}
+
+#teamContainer .parallax-container .parallax img {
+    min-width: 20%;
+    height:20px;
+    bottom: -25px;
 }

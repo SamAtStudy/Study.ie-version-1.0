@@ -13,6 +13,9 @@
     <!-- front-End CSS -->
     <link rel="stylesheet" href="css/courseCss.css">
 
+    <!-- Google's Valera Round Font -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Varela+Round" />
+
 </head>
 <body style="background: #EEFCFB;">
 
@@ -22,7 +25,7 @@
             <div class="nav-wrapper white">
                     <a href="index.html" class="brand-logo"><img src="img/StudyLogo.png" style="margin-left:2vw; margin-top: 0.75vh; height: 40px; width: 40px;"></a>
                     <div id="searchBox"  class="row">
-                        <div id="searchBar" class="col s12" style="height:4.5vh;">
+                        <div id="searchBar" class="col s12" style="height:4.75vh;">
                             <form>
                                 <div class="input-field">
                                     <input id="search" type="search" required>
@@ -204,70 +207,94 @@
             </div>
     </ul>
 
-    <!-- RESULTS -->
+    <!-- CARD RESULTS -->
     <div class="row" style="height:500px;">
         <table style="margin: 25px 10vw 25px 10vw; width: 80vw;">
             <tr>
-            <td>
-                <div class="card small hoverable hoverable">
-                    <div class="card-image">
-                        <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
+                <td>
+                    <div class="card small hoverable">
+                        <div class="card-image">
+                            <img src="img/java.jpg">
+                            <span class="card-title"></span>
+                            <div class="cardDescOverlay">
+                                <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div id="cardImgDivider" class="divider"></div>
+                            <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                            <p id="courseAuthor"> By Aidan Mooney</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                            <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                            <!-- FIX : timer floating right with bad order. -->
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                </td>
+                <td>
+                    <div class="card small hoverable">
+                        <div class="card-image">
+                            <img src="img/java.jpg">
+                            <span class="card-title"></span>
+                            <div class="cardDescOverlay">
+                                <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div id="cardImgDivider" class="divider"></div>
+                            <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                            <p id="courseAuthor"> By Aidan Mooney</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                            <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                            <!-- FIX : timer floating right with bad order. -->
+                        </div>
                     </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
+                </td>
+                <td>
+                    <div class="card small hoverable">
+                        <div class="card-image">
+                            <img src="img/java.jpg">
+                            <span class="card-title"></span>
+                            <div class="cardDescOverlay">
+                                <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div id="cardImgDivider" class="divider"></div>
+                            <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                            <p id="courseAuthor"> By Aidan Mooney</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                            <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                            <!-- FIX : timer floating right with bad order. -->
+                        </div>
                     </div>
-                </div>  
-            </td>
-            <td>
-                <div class="card small hoverable">
-                    <div class="card-image">
-                        <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
+                </td>
+                <td>
+                    <div class="card small hoverable">
+                        <div class="card-image">
+                            <img src="img/java.jpg">
+                            <span class="card-title"></span>
+                            <div class="cardDescOverlay">
+                                <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div id="cardImgDivider" class="divider"></div>
+                            <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                            <p id="courseAuthor"> By Aidan Mooney</p>
+                        </div>
+                        <div class="card-action">
+                            <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                            <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                            <!-- FIX : timer floating right with bad order. -->
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="card small hoverable">
-                    <div class="card-image">
-                        <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="card small hoverable">
-                    <div class="card-image">
-                        <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </td>
+                </td>
             </tr>
 
             <!-- ROW 2 -->
@@ -275,14 +302,20 @@
                 <div class="card small hoverable">
                     <div class="card-image">
                         <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
+                        <span class="card-title"></span>
+                        <div class="cardDescOverlay">
+                            <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <div id="cardImgDivider" class="divider"></div>
+                        <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                        <p id="courseAuthor"> By Aidan Mooney</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                        <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                        <!-- FIX : timer floating right with bad order. -->
                     </div>
                 </div>
             </td>
@@ -290,14 +323,20 @@
                 <div class="card small hoverable">
                     <div class="card-image">
                         <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
+                        <span class="card-title"></span>
+                        <div class="cardDescOverlay">
+                            <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <div id="cardImgDivider" class="divider"></div>
+                        <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                        <p id="courseAuthor"> By Aidan Mooney</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                        <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                        <!-- FIX : timer floating right with bad order. -->
                     </div>
                 </div>
             </td>
@@ -305,14 +344,20 @@
                 <div class="card small hoverable">
                     <div class="card-image">
                         <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
+                        <span class="card-title"></span>
+                        <div class="cardDescOverlay">
+                            <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <div id="cardImgDivider" class="divider"></div>
+                        <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                        <p id="courseAuthor"> By Aidan Mooney</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                        <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                        <!-- FIX : timer floating right with bad order. -->
                     </div>
                 </div>
             </td>
@@ -320,17 +365,24 @@
                 <div class="card small hoverable">
                     <div class="card-image">
                         <img src="img/java.jpg">
-                        <span class="card-title">Card Title</span>
+                        <span class="card-title"></span>
+                        <div class="cardDescOverlay">
+                            <div class="cardDesc">This course introduces you to the fundamentals of java.</div>
+                        </div>
                     </div>
                     <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                        <div id="cardImgDivider" class="divider"></div>
+                        <p id="courseTitle" style="font-weight: bold;">Java - Basic Introduction</p>
+                        <p id="courseAuthor"> By Aidan Mooney</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <a class="subheader" id="cardRec"><i class="material-icons" id="recIcon">favorite_border</i><span id="recNum"> 0</span></a>
+                        <a class="subheader" id="cardTime"><span id="timeNum" class="right">0:00</span><i class="material-icons right" id="timeIcon">timer</i></a>
+                        <!-- FIX : timer floating right with bad order. -->
                     </div>
                 </div>
             </td>
+
         </table>
     </div>
 

@@ -24,6 +24,11 @@ $(document).ready(function(){
     $('select').formSelect();
 });
 
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.chips');
     var instances = M.Chips.init(elems,);
