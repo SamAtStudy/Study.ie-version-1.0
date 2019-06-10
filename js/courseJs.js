@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.chips');
-    var instances = M.Chips.init(elems, options);
+    var instances = M.Chips.init(elems,);
 });
 
 function createAccOption(){
