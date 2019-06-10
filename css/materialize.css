@@ -4297,7 +4297,7 @@ nav .input-field label.active i {
 
 .navbar-fixed {
     position: relative;
-    height: 56px;
+    height: 8.5vh; /* EDITED */
     z-index: 997
 }
 
@@ -4307,17 +4307,18 @@ nav .input-field label.active i {
 
 @media only screen and (min-width: 601px) {
     nav.nav-extended .nav-wrapper {
-        min-height: 64px
+        min-height: 26px
     }
     nav,
     nav .nav-wrapper i,
     nav a.sidenav-trigger,
     nav a.sidenav-trigger i {
-        height: 64px;
-        line-height: 64px
+        height: 8.5vh; /* EDITED */
+        line-height: 8.5vh /* EDITED */
     }
     .navbar-fixed {
-        height: 64px
+        /*height: 64px*/
+        height: 8.5vh; /* EDITED */
     }
 }
 
