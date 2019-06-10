@@ -20,6 +20,15 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
 });
 
+$(document).ready(function(){
+    $('select').formSelect();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.chips');
+    var instances = M.Chips.init(elems, options);
+});
+
 function createAccOption(){
     $('.modal').modal('close');
     $('#createAccBox').modal('open');
