@@ -4,7 +4,7 @@ html{
 
 #headerText{
     color: teal;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: Bold;
     text-decoration: none;
     position: relative;
@@ -94,7 +94,7 @@ i.icon-teal {
 #filterBar{
     border: 4px solid teal;
     border-radius: 15px;
-    height:4.5vh;
+    height:6.5vh;
     min-height: 42px;
     background: white;
     opacity: 0.99;
@@ -103,15 +103,16 @@ i.icon-teal {
 #filterButton{
     background-color: white;
     color: teal;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: Bold;
     text-transform: capitalize;
     border: 3px solid teal;
     border-radius: 15px;
-    height:4.5vh;
+    height:6.5vh;
     min-height: 42px;
     margin-top: -0.6vh;
     margin-right: -0.3vw;
+    padding-top: 1vh;
 }
 
 .card .card-action{

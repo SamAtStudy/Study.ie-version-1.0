@@ -23,7 +23,7 @@
 <header class="navbar-fixed">
     <nav>
         <div class="nav-wrapper white">
-            <a href="index.html" class="brand-logo"><img src="img/StudyLogo.png" style="margin-left:2vw; margin-top: 0.75vh; height: 40px; width: 40px;"></a>
+            <a href="index.html" class="brand-logo"><img src="img/StudyLogo.png" style="margin-left:2vw; margin-top: 0.75vh; height: 6vh; width: 6vh;"></a>
             <div id="searchBox"  class="row">
                 <div id="searchBar" class="col s12" style="height:4.75vh;">
                     <form>
@@ -182,67 +182,65 @@
 
     <!-- About Course -->
     <div class="col s5 white z-depth-2" style="max-height: 500px; height:60vh; border: 4px solid teal; border-radius: 15px;">
-        <div class="row" style="height: 30%; background-color: teal">
+        <div class="row teal" style="height: 30%;">
             <div id="coursePageImgBox" class="col s4">
                 <img id="coursePageImg" src="img/java.jpg" style="height:100%; width:100%;">
             </div>
             <div class="col s8" style="height:100%;">
                 <br>
-                    <span id="courseTitle" style="font-weight: bold;">Java Basics - For Complete Beginners &#10;</span>
+                    <span id="courseTitle" style="font-weight: bold; font-size: 1.3rem; color: white">Java Basics - For Complete Beginners &#10;</span>
                     <br>
-                    <span id="courseAuthor"> By Grant Klimaytys</span>
+                    <span id="courseAuthor" style="font-size: 1.20rem; color: white"> By Grant Klimaytys</span>
             </div>
         </div>
         <div class="row">
-
+            <div>
+                <h5 class="center flow-text" style="font-weight: bold;">Course Overview</h5>
+                <div class="divider" style="width: 40%; margin: auto"></div>
+                <p id="courseDesc" style="font-size: 1.1rem; padding: 10px 20px;">Testing</p>
+            </div>
         </div>
     </div>
 
-    <div class="col s2"></div>
+    <div class="col s2"></div> <!-- FUTURE: space between should be less space from side -->
 
     <!-- Course price and reviews -->
     <div class="col s3 white z-depth-2" style="max-height: 500px; height:60vh; border: 4px solid teal; border-radius: 15px;">
         <div class="row" style="height: 30%;">
-            <ul class="collection">
-                <li class="collection-item">Price</li>
-                <li class="collection-item">Price</li>
-                <li class="collection-item">Price</li>
-            </ul>
+            <br>
+            <div class="center" style="font-size: 1.5rem;"><span style="font-weight: bold;">Price: </span>$100 Annually</div>
+            <div class="center"><a href="#" style="font-size: 1.5rem; font-weight: bold;">Link To Course</a></div>
+            <div class="center"><a onclick="M.toast({html: 'Course added to List!'})" class="waves-effect waves-white btn-flat grey lighten-2" style="font-size: 1.25rem; text-transform: capitalize;"><i class="material-icons right">turned_in_not</i>Add To List</a></div>
+            <br>
         </div>
         <div class="divider"></div>
         <div class="row">
+            <br>
+            <div class="center" style="font-size: 1.5rem; font-weight: bold;">Reviews</div>
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="images/yuna.jpg" alt="" class="circle">
+                    <img src="img/yuna.jpg" alt="" class="circle">
                     <span class="title">Title</span>
                     <p>First Line <br>
                         Second Line
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    <a class="secondary-content"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_half</i></a>
                 </li>
                 <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
+                    <i class="material-icons circle">person</i>
                     <span class="title">Title</span>
                     <p>First Line <br>
                         Second Line
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    <a class="secondary-content"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_border</i></a>
                 </li>
                 <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
+                    <i class="material-icons circle">person</i>
                     <span class="title">Title</span>
                     <p>First Line <br>
                         Second Line
                     </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                        Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    <a class="secondary-content"><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_border</i></a>
                 </li>
             </ul>
         </div>
@@ -269,7 +267,7 @@
                 </ul>
             </div>
 
-            <!-- Course Conent -->
+            <!-- Course Content -->
             <div id="tab1" class="col s12">
                 <ul class="collapsible"> <!-- change icon to have expand less with Materialze js -->
                     <li>
@@ -308,7 +306,7 @@
     <div class="col s2"></div>
 
     <!-- Binary Tree -->
-    <div class="col s3 white z-depth-2" >
+    <div class="col s3 white z-depth-2 center" >
         Binary Tree Container
     </div>
 
