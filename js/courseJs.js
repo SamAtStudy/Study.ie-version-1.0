@@ -28,6 +28,9 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
 });
 
+$(document).ready(function(){
+    $('.tabs').tabs();
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.chips');
