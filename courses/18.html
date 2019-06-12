@@ -26,7 +26,7 @@
             <a href="../index.html" class="brand-logo"><img src="../img/StudyLogo.png" style="margin-left:2vw; margin-top: 0.75vh; height: 6vh; width: 6vh;"></a>
             <div id="searchBox"  class="row">
                 <div id="searchBar" class="col s12" style="height:4.75vh;">
-                    <form>
+                    <form onkeydown="redirectCourses()" >
                         <div class="input-field">
                             <input id="search" type="search" required>
                             <label class="label-icon" for="search"><i class="material-icons icon-teal" style="margin-top:-2vh; color:teal;">search</i></label>
@@ -79,7 +79,7 @@
                 <div class="row">
                     <div class="col s8">
                         <button id="accLoginBtn" type="submit" class="btn waves-effect waves-light tooltipped"
-                                data-position="bottom" data-tooltip="Login to an existing account">Login</button>
+                                data-position="bottom" data-tooltip="Login to an existing account" onclick="M.toast({html: 'Logged In'}); $('.modal').modal('close');">Login</button>
                     </div>
                 </div>
                 <div id="loginLine" class="row">
@@ -155,7 +155,7 @@
                 <div class="row">
                     <div class="col s8">
                         <button id="accCreateBtn" type="submit" class="btn waves-effect waves-light tooltipped"
-                                data-position="bottom" data-tooltip="Create an account">Sign Up</button>
+                                data-position="bottom" data-tooltip="Create an account" onclick="M.toast({html: 'Created An Account!'}); $('.modal').modal('close');">Sign Up</button>
                     </div>
                 </div>
             </form>
@@ -169,7 +169,7 @@
     <br>
     <li><a class="subheader">Options</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="1.html" id="headerText" class="modal-trigger waves-effect waves-light">Courses</a></li>
+    <li><a href="coursePage.html" id="headerText" class="modal-trigger waves-effect waves-light">Courses</a></li>
     <li><a href="updates.html" id="headerText" class="modal-trigger waves-effect waves-light">Updates</a></li>
     <li><a href="about.html" id="headerText" class="modal-trigger waves-effect waves-light">About</a></li>
     <li><a href="#loginBox" id="headerText" class="modal-trigger waves-effect waves-light">Sign-In</a></li>
@@ -181,23 +181,23 @@
     <div class="col s1"></div>
 
     <!-- About Course -->
-    <div class="col s5 white z-depth-2" style="max-height: 500px; height:60vh; border: 4px solid teal; border-radius: 15px;">
+    <div class="col s5 white z-depth-2" style="max-height: 500px; height:60vh; border: 8px solid teal; border-radius: 15px;">
         <div class="row teal" style="height: 30%;">
             <div id="coursePageImgBox" class="col s4">
-                <img id="coursePageImg" src="../img/java.jpg" style="height:100%; width:100%;">
+                <img id="coursePageImg" src="../img/Courses/Udemy/WebDev/bootcamp.jpg" style="height:100%; width:100%;">
             </div>
             <div class="col s8" style="height:100%;">
                 <br>
-                    <span id="courseTitle" style="font-weight: bold; font-size: 1.3rem; color: white">Java Basics - For Complete Beginners &#10;</span>
+                    <span id="courseTitle" style="font-weight: bold; font-size: 1.3rem; color: white">The Web Developer Bootcamp &#10;</span>
                     <br>
-                    <span id="courseAuthor" style="font-size: 1.20rem; color: white"> By Grant Klimaytys</span>
+                    <span id="courseAuthor" style="font-size: 1.20rem; color: white"> By Colt Steele</span>
             </div>
         </div>
         <div class="row">
             <div>
                 <h5 class="center flow-text" style="font-weight: bold;">Course Overview</h5>
                 <div class="divider" style="width: 40%; margin: auto"></div>
-                <p id="courseDesc" style="font-size: 1.1rem; padding: 10px 20px;">Testing</p>
+                <p id="courseDesc" style="font-size: 1.1rem; padding: 10px 20px;">The only course you need to learn web development - HTML, CSS, JS, Node, and More!</p>
             </div>
         </div>
     </div>
@@ -205,7 +205,7 @@
     <div class="col s2"></div> <!-- FUTURE: space between should be less space from side -->
 
     <!-- Course price and reviews -->
-    <div class="col s3 white z-depth-2" style="max-height: 500px; height:60vh; border: 4px solid teal; border-radius: 15px;">
+    <div class="col s3 white z-depth-2" style="max-height: 500px; height:60vh; border: 8px solid teal; border-radius: 15px;">
         <div class="row" style="height: 30%;">
             <br>
             <div class="center" style="font-size: 1.5rem;"><span style="font-weight: bold;">Price: </span>$100 Annually</div>

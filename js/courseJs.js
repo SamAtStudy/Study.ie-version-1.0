@@ -2,6 +2,8 @@
 //var instances = M.Sidenav.init(elems, options);
 //would be for eg. var instances = M.Sidenav.init(elems, {edges:'left',btn:'true'});
 
+var userResult={1:"Java,Pyhton",2:"Java,Pyhton"};
+
 $(document).ready(function(){
     $('.parallax').parallax();
 });
@@ -41,3 +43,9 @@ function createAccOption(){
     $('.modal').modal('close');
     $('#createAccBox').modal('open');
 }
+
+function redirectCourses(){
+    //window.location.replace("http://study.ie/Demo/courses.html"); //SITE LIVE VERSION
+    window.location.replace("http://localhost:63342/Study.ie/courses.html"); //LOCAL VERSION
+}
+

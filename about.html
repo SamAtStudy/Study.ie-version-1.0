@@ -26,7 +26,7 @@
             <a href="index.html" class="brand-logo"><img src="img/StudyLogo.png" style="margin-left:2vw; margin-top: 0.75vh; height: 6vh; width: 6vh;"></a>
             <div id="searchBox"  class="row">
                 <div id="searchBar" class="col s12" style="height:4.75vh;">
-                    <form>
+                    <form onkeydown="redirectCourses()" >
                         <div class="input-field">
                             <input id="search" type="search" required>
                             <label class="label-icon" for="search"><i class="material-icons icon-teal" style="margin-top:-2vh; color:teal;">search</i></label>
@@ -169,7 +169,7 @@
     <br>
     <li><a class="subheader">Options</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="courses.html" id="headerText" class="modal-trigger waves-effect waves-light">Courses</a></li>
+    <li><a href="coursePage.html" id="headerText" class="modal-trigger waves-effect waves-light">Courses</a></li>
     <li><a href="updates.html" id="headerText" class="modal-trigger waves-effect waves-light">Updates</a></li>
     <li><a href="about.html" id="headerText" class="modal-trigger waves-effect waves-light">About</a></li>
     <li><a href="#loginBox" id="headerText" class="modal-trigger waves-effect waves-light">Sign-In</a></li>
