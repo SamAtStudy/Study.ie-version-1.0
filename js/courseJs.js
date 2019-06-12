@@ -45,7 +45,7 @@ function createAccOption(){
 }
 
 function redirectCourses(){
-    //window.location.replace("http://study.ie/Demo/courses.html"); //SITE LIVE VERSION
-    window.location.replace("http://localhost:63342/Study.ie/courses.html"); //LOCAL VERSION
+    window.location.replace("http://study.ie/Demo/courses.html"); //SITE LIVE VERSION
+    //window.location.replace("http://localhost:63342/Study.ie/courses.html"); //LOCAL VERSION
 }
 
