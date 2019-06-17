@@ -5,9 +5,9 @@
  * Date: 09/04/2019
  * Time: 20:01
  */
-include_once 'sqlConnectUsers.php';
+include_once 'dbConnection.php';
 
-if(!$connectUser){
+if(!$dbCon){
     echo "<h1>Failed to connect to MySQL: Error" . mysqli_connect_errno() . "</h1>";
 }
 

@@ -5,7 +5,7 @@
  * Date: 09/04/2019
  * Time: 21:30
  */
-include_once 'sqlConnectUsers.php';
+include_once 'dbConnection.php';
 //use require instead?
 
 if(!$connectUser){
