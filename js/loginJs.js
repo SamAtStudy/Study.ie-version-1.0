@@ -1,28 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     $("#accCreateBtn").click(function(){
-        var username=$("#username").val();
-        var pass=$("#pass").val();
+        var username=$("#createUsername").val();
+        var email=$("#email").val();
+        var pass=$("#createPass").val();
+        var conPass=$("#confirmPass").val();
+        var option="create";
 
-        $.post("accCreate.php",{
-            username: username,
-            password: pass
+
+        $.post("accRetrieval.php",{
+            userName: username,
+            userEmail: email,
+            userPass: pass,
+            userConPass: conPass,
+            option: option
         },function(data,status){
             //alert("Data: " + data + "\nStatus: " + status);
             if(data==="already exists"){
                 alert("Username is taken, Please enter a unique username");
             }else if(data==="created"){
-                var tempJSON=JSON.stringify(userResult);
-                var user=username;
-
-                $.post("updateUser.php",{
-                    username: user,
-                    userRes: tempJSON
-                },function(data,status){
-                    alert("Data: " + data + "\nStatus: " + status);
-                });
-
                 alert("Account Created Successfully, Please log in");
+            }else{
+                alert(data);
             }
         });
     });
@@ -33,8 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $("#accLoginBtn").click(function(){
         var username=$("#username").val();
         var pass=$("#pass").val();
+        var option="login";
 
-        $.post("accLogin.php",{
+        $.post("accRetrieval.php",{
+            option: option,
             username: username,
             password: pass
         },function(data,status){
@@ -68,3 +69,11 @@ function loginStatus(x) {
         $('#sidebarBtn').show();
     }
 }
+
+$("#createForm").submit(function(e) {
+    e.preventDefault();
+});
+
+$("#loginForm").submit(function(e) {
+    e.preventDefault();
+});

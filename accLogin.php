@@ -8,10 +8,6 @@
 include_once 'dbConnection.php';
 //use require instead?
 
-if(!$connectUser){
-    echo "<h1>Failed to connect to MySQL: Error" . mysqli_connect_errno() . "</h1>";
-}
-
 $username='';
 $password='';
 
