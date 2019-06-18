@@ -30,14 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
 
     $("#accLoginBtn").click(function(){
-        var username=$("#username").val();
+        var mailUsername=$("#mailUsername").val();
         var pass=$("#pass").val();
         var option="login";
 
         $.post("accRetrieval.php",{
             option: option,
-            username: username,
-            password: pass
+            mailUsername: mailUsername,
+            userPass: pass
         },function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
             if(data==="login success"){

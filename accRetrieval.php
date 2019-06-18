@@ -6,8 +6,6 @@
  * Time: 16:13
  */
 
-include_once 'dbConnection.php';
-
 if(isset($_POST['option'])){
     $option=$_POST['option'];
 
@@ -16,10 +14,13 @@ if(isset($_POST['option'])){
     }else if($option=='create'){
         create();
     }
+}else{
+    header("Location: ../index.html");
+    exit();
 }
 
 function create(){
-    include_once 'dbConnection.php';
+    include 'dbConnection.php';
 
     $name=$_POST['userName'];
     $email=$_POST['userEmail'];
@@ -28,11 +29,89 @@ function create(){
 
     if(empty($name)||empty($email)||empty($pass)||empty($conPass)){
         echo ("empty");
-        //header("Location: /?signUpBad");
-        //exit();
+    }else if(!filter_var($email,FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/",$name)){
+        echo ("invalid params");
+    }else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        echo ("invalid email");
+    }else if(!preg_match("/^[a-zA-Z0-9]*$/",$name)){
+        echo ("invalid username,".$email); //send back email to refill input field.
+    }else if($pass !== $conPass){
+        echo ("password mismatch");
+    }else{
+
+        $sql="SELECT userId FROM userlogin WHERE userName=?";
+        $stmt=mysqli_stmt_init($dbCon);
+
+        if(!mysqli_stmt_prepare($stmt,$sql)){
+            echo("sql error");
+        }else{
+            mysqli_stmt_bind_param($stmt,"s",$name);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $resCheck=mysqli_stmt_num_rows($stmt);
+
+            if($resCheck>0){
+                echo ("name taken");
+            }else{
+                $sql="INSERT INTO userlogin (userName, userEmail, userPass) VALUES ( ?, ?, ?)";
+                $stmt=mysqli_stmt_init($dbCon);
+                if(!mysqli_stmt_prepare($stmt,$sql)) {
+                    echo("sql error");
+                }else{
+                    $hashPass=password_hash($pass, PASSWORD_DEFAULT);
+
+                    mysqli_stmt_bind_param($stmt,"sss",$name,$email, $hashPass);
+                    mysqli_stmt_execute($stmt);
+                    echo("create success");
+                }
+
+            }
+        }
     }
+
+    mysqli_stmt_close($stmt);
+    mysqli_close($dbCon);
+
 }
 
 function login(){
-    include_once 'dbConnection.php';
+    include 'dbConnection.php';
+
+    $mailUname=$_POST['mailUsername'];
+    $pass=$_POST['userPass'];
+
+    if(empty($mailUname)||empty($pass)){
+        echo ("empty");
+    }else{
+        $sql="SELECT * FROM userlogin WHERE userName=? OR userEmail=?;";
+        $stmt=mysqli_stmt_init($dbCon);
+
+        if(!mysqli_stmt_prepare($stmt,$sql)) {
+            echo("sql error");
+        }else{
+            mysqli_stmt_bind_param($stmt,"ss",$mailUname,$mailUname);
+            mysqli_stmt_execute($stmt);
+            $result=mysqli_stmt_get_result($stmt);
+
+            if($row=mysqli_fetch_assoc($result)){
+                $passCheck=password_verify($pass,$row['userPass']);
+
+                if($passCheck==false){
+                    echo("wrong password");
+                }else if($passCheck==true){
+                    session_start();
+                    $_SESSION['userId']=$row['userId'];
+                    $_SESSION['userName']=$row['userName'];
+
+                    echo("login success");
+                }else{
+                    echo("login error");
+                }
+
+            }else{
+                echo("no user");
+            }
+        }
+    }
+
 }
