@@ -9,9 +9,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
     <style>
+
+
+
+        h1,h2 {
+            font-weight: 200;
+        }
+        h1 {
+            position: absolute;
+            left: 740px;
+            top: 150px;
+            font-size: 3.5em;
+        }
+        h2 {
+
+            color: #;
+            font-size: 2em;
+        }
         body
         {
             font-family: 'Varela Round', sans-serif;
+            font-size: 18px;
+            color: #6ECBB7;
             background-color: #F3EADA;
         }
         .navbar-custom
@@ -22,10 +41,10 @@
         .parallaxa {
             /* The image used */
             background-image: url("img/book-1659717_1920.jpg");
-            opacity:0.4;
+            opacity:1;
 
             /* Set a specific height */
-            min-height: 1080px;
+            min-height: 880px;
 
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
@@ -47,9 +66,10 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+
     </style>
 </head>
-<div>
 <!-- <h1>Hello, world!</h1>-->
 <!-- Nav Bar-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
@@ -83,10 +103,28 @@
 </nav>
 <!--First Parallax image-->
 <div class="parallaxa">
+    <!--TypeWriter-->
+    <!--https://codepen.io/CheeseTurtle/pen/jzdgI-->
+    <!--
+    <div>
+    <h1 align="justify">
+  <span
+          class="txt-rotate"
+          data-period="2000"
+          data-rotate='[ " I am here to....", "I want to..." ]'></span>
+    </h1>
+    </div>
+    -->
+    <div class="container">
+        <div class="row">
+            <!-- Online learning Card-->
+
+    </div>
+    </div>
 </div>
     <br>
     <h2>Online Learning</h2>
-    <div style="height:400px;background-color:#F3EADA;font-size:12px;position:relative;left:10px;">
+    <div style="height:400px;background-color:#F3EADA;font-size:12px;position:relative;">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Duis nec pellentesque nisl, ultricies efficitur elit. Vestibulum ante ipsum primis in
@@ -100,6 +138,67 @@
         </p>
     </div>
     <div class="parallaxb">
+    </div>
+    <script>
+
+        var TxtRotate = function(el, toRotate, period) {
+            this.toRotate = toRotate;
+            this.el = el;
+            this.loopNum = 0;
+            this.period = parseInt(period, 10) || 2000;
+            this.txt = '';
+            this.tick();
+            this.isDeleting = false;
+        };
+
+        TxtRotate.prototype.tick = function() {
+            var i = this.loopNum % this.toRotate.length;
+            var fullTxt = this.toRotate[i];
+
+            if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+            } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+            }
+
+            this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+            var that = this;
+            var delta = 300 - Math.random() * 100;
+
+            if (this.isDeleting) { delta /= 2; }
+
+            if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+            } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+            }
+
+            setTimeout(function() {
+                that.tick();
+            }, delta);
+        };
+
+        window.onload = function() {
+            var elements = document.getElementsByClassName('txt-rotate');
+            for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+            }
+            // INJECT CSS
+            var css = document.createElement("style");
+            css.type = "text/css";
+            css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+            document.body.appendChild(css);
+        };
+
+    </script>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
