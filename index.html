@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Googles Valera Round Font -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
     <style>
 
@@ -23,7 +25,6 @@
         }
         h2 {
 
-            color: #;
             font-size: 2em;
         }
         body
@@ -41,10 +42,10 @@
         .parallaxa {
             /* The image used */
             background-image: url("img/book-1659717_1920.jpg");
-            opacity:1;
+            opacity: 0.7;
 
             /* Set a specific height */
-            min-height: 880px;
+            /*min-height: 880px;*/
 
             /* Create the parallax scrolling effect */
             background-attachment: fixed;
@@ -65,12 +66,29 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            z-index: -1;
+            margin-top:-35vh;
+            position:relative;
+        }.parallaxc {
+            /* The image used */
+            background-image: url("img/background3.jpg");
+            opacity:0.4;
+
+            /* Set a specific height */
+            min-height: 1080px;
+
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
         }
 
 
     </style>
 </head>
-<!-- <h1>Hello, world!</h1>-->
+
 <!-- Nav Bar-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.html">
@@ -102,7 +120,7 @@
     </div>
 </nav>
 <!--First Parallax image-->
-<div class="parallaxa">
+<div class="parallaxa" style="width:100%; height:86vh;border-bottom-right-radius: 15vw;">
     <!--TypeWriter-->
     <!--https://codepen.io/CheeseTurtle/pen/jzdgI-->
     <!--
@@ -122,23 +140,20 @@
     </div>
     </div>
 </div>
+<div class="parallaxa" style="width:100%; height:35vh;"></div>
+<div style="border-top-left-radius: 15vw;border-bottom-left-radius: 15vw; background-color: #F3EADA; height:100vh;font-size:12px;position:relative; margin-top:-35vh; border-bottom:solid 2px;border-bottom-color: red">
     <br>
-    <h2>Online Learning</h2>
-    <div style="height:400px;background-color:#F3EADA;font-size:12px;position:relative;">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Duis nec pellentesque nisl, ultricies efficitur elit. Vestibulum ante ipsum primis in
-            faucibus orci luctus et ultrices posuere cubilia Curae; Quisque in massa neque. Nam
-            facilisis vitae nunc eu egestas. Donec dictum gravida justo aliquam faucibus.
-            Praesent vel fringilla nibh. Cras vestibulum nibh nunc, eget efficitur libero gravida at.
-            Aliquam a sem sapien. Aenean lorem mi, lobortis nec nisl eu, molestie scelerisque nisi.
-            Curabitur nunc magna, cursus sed mi et,
-            euismod vehicula urna. Maecenas ut eros porta, fermentum.<p></p>
-        Tip: Try to remove the background-attachment property to remove the scrolling effect.
-        </p>
-    </div>
-    <div class="parallaxb">
-    </div>
+    <div style="margin-left:15%; margin-top:5vh; width: 70%;">
+    <h2 class="d-flex justify-content-center">About</h2>
+    <p style="margin-left:10px;">
+        words
+    </p>
+</div>
+</div>
+    <div class="parallaxb"></div>
+    <div class="parallaxc"></div>
+
+
     <script>
 
         var TxtRotate = function(el, toRotate, period) {
