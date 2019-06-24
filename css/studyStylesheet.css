@@ -7,7 +7,6 @@ body {
 #typeWriter {
     font-weight: 200;
     position: absolute;
-    left: 740px;
     top: 150px;
     font-size: 3.5em;
 }
