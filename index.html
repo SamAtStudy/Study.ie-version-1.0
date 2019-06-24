@@ -31,17 +31,17 @@
         {
             font-family: 'Varela Round', sans-serif;
             font-size: 18px;
-            color: #6ECBB7;
+            color: #63cbb7;
             background-color: #F3EADA;
         }
         .navbar-custom
         {
             color: #000000;
-            background-color: #6ECBB7;
+            background-color: #63cbb7;
         }
         .parallaxa {
             /* The image used */
-            background-image: url("img/book-1659717_1920.jpg");
+            background-image: url("img/background1.jpg");
             opacity: 0.7;
 
             /* Set a specific height */
@@ -53,38 +53,75 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        .parallaxb {
-            /* The image used */
-            background-image: url("img/background3.jpg");
-            opacity:0.4;
 
-            /* Set a specific height */
-            min-height: 1080px;
-
-            /* Create the parallax scrolling effect */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1;
-            margin-top:-35vh;
-            position:relative;
-        }.parallaxc {
-            /* The image used */
-            background-image: url("img/background3.jpg");
-            opacity:0.4;
-
-            /* Set a specific height */
-            min-height: 1080px;
-
-            /* Create the parallax scrolling effect */
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            z-index: -1;
+        .cards-list {
+            z-index: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
+        .card {
+            margin: 30px auto;
+            width: 300px;
+            height: 150px;
+            border-radius: 40px;
+            box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+            cursor: pointer;
+            transition: 0.4s;
+            background: #63cbb7;
+        }
+
+        .card .card_image {
+            width: inherit;
+            height: inherit;
+            border-radius: 40px;
+        }
+
+        .card .card_image img {
+            width: inherit;
+            height: inherit;
+            border-radius: 40px;
+            object-fit: cover;
+        }
+
+        .card .card_title {
+            text-align: center;
+            border-radius: 0px 0px 40px 40px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+            margin-top: -80px;
+            height: 40px;
+        }
+
+        .card:hover{
+            transform: scale(0.9, 0.9);
+            box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+            -5px -5px 30px 15px rgba(0,0,0,0.22);
+            background: #6cb4b0;
+        }
+
+        .title-white {
+            color: white;
+        }
+
+
+        @media all and (max-width: 500px) {
+            .card-list {
+                /* On small screens, we are no longer using row direction but column */
+                flex-direction: column;
+            }
+        }
+        .button-center {
+            position: absolute;
+            right: 50px;
+            left:50px;
+            top: 100px;
+            width: 300px;
+            padding: 10px;
+        }
 
     </style>
 </head>
@@ -133,12 +170,29 @@
     </h1>
     </div>
     -->
-    <div class="container">
-        <div class="row">
-            <!-- Online learning Card-->
+    <br style="line-height: 9vh;">
+    <div class="cards-list">
 
-    </div>
-    </div>
+        <div class="card 1">
+            <div class="card_image"></div>
+            <div class="button-center"></div>
+            <div class="card_title title-white">
+                <p>Learn In Person</p>
+            </div>
+        </div>
+        <div class="card 1">
+            <div class="card_image"></div>
+            <div class="card_title title-white">
+                <p>Learn Online</p>
+            </div>
+        </div>
+        <div class="card 1">
+            <div class="card_image"></div>
+            <div class="card_title title-white">
+                <p>Track you learning</p>
+            </div>
+        </div>
+</div>
 </div>
 <div class="parallaxa" style="width:100%; height:35vh;"></div>
 <div style="border-top-left-radius: 15vw;border-bottom-left-radius: 15vw; background-color: #F3EADA; height:100vh;font-size:12px;position:relative; margin-top:-35vh; border-bottom:solid 2px;border-bottom-color: red">
@@ -150,9 +204,16 @@
     </p>
 </div>
 </div>
-    <div class="parallaxb"></div>
-    <div class="parallaxc"></div>
-
+<br style="line-height: 350px;">
+<div style="border-top-left-radius: 15vw;border-bottom-left-radius: 15vw; background-color: #F3EADA; height:100vh;font-size:12px;position:relative; margin-top:-35vh; border-bottom:solid 2px;border-bottom-color: red">
+    <br>
+    <div style="margin-left:15%; margin-top:5vh; width: 70%;">
+        <h2 class="d-flex justify-content-center">About</h2>
+        <p style="margin-left:10px;">
+            words
+        </p>
+    </div>
+</div>
 
     <script>
 
