@@ -18,6 +18,7 @@ body
     font-size: 18px;
     color: #63cbb7;
     background-color: #F3EADA;
+    margin:2rem;
 }
 .navbar-custom
 {
@@ -115,4 +116,24 @@ body
     top: 100px;
     width: 300px;
     padding: 10px;
+}
+.modal-dialog {
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+
+.modal-body {
+    position:relative;
+    padding:0px;
+}
+.close {
+    position:absolute;
+    right:-30px;
+    top:0;
+    z-index:999;
+    font-size:2rem;
+    font-weight: normal;
+    color:#fff;
+    opacity:1;
 }
