@@ -2,13 +2,19 @@ body {
     font-family: 'Varela Round', sans-serif;
     font-size: 18px;
     color: #63cbb7;
-    background-color: #F3EADA;
+    background-color: #f3fefd;
 }
 #typeWriter {
     font-weight: 200;
     position: absolute;
     top: 150px;
     font-size: 3.5em;
+}
+#sectionOneBox{
+    border-bottom:solid 15px;
+    border-right: solid 9px;
+    border-right-color: #6ECBB7;
+    border-bottom-color: #6ECBB7;
 }
 #sectionTwoHeader {
     font-weight: 200;
@@ -17,13 +23,17 @@ body {
 #sectionTwoBox{
     border-top-left-radius: 15vw;
     border-bottom-left-radius: 15vw;
-    background-color: #E7FEFC;
+    background-color: #f3fefd;
     height:97vh;
     font-size:12px;
     position:relative;
-    margin-top:-35vh;
-    border-bottom:solid 2px;
-    border-bottom-color: #6ECBB7
+    margin-top:-37vh;
+    border-top:solid 15px;
+    border-top-color: #6ECBB7;
+    border-bottom:solid 15px;
+    border-left: solid 9px;
+    border-left-color: #6ECBB7;
+    border-bottom-color: #6ECBB7;
 }
 #sectionTwoContent{
     margin-left:15%;
@@ -32,16 +42,21 @@ body {
 }
 #sectionThreeBox{
     border-top-right-radius: 15vw;
-    background-color:#F3EADA;
-    height:97vh;font-size:12px;
+    background-color: #E7FEFC;
+    height:97vh;
+    font-size:12px;
     position:relative;
-    border-top:solid 2px;
+    border-top:solid 15px;
     border-top-color: #6ECBB7;
+    border-right: solid 9px;
+    border-right-color: #6ECBB;
+    margin-top: -15px;
+    z-index: -1;
 }
 #sectionFourBox{
     background-color:#6ECBB7;
     height:15vh;font-size:12px;
-    border-top:solid 2px;
+    border-top:solid 15px;
     border-top-color: #6ECBB7;
 }
 #optionButtonText{
@@ -94,8 +109,10 @@ body {
     height:35vh;
 }
 .gap-down{
-    z-index:-1;
+    z-index:0;
+    position: relative;
     height:35vh;
+    margin-top:-15px;
 }
 
 .card .card_image {
