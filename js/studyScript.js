@@ -8,7 +8,7 @@ var TxtRotate = function(el, toRotate, period) {
     this.isDeleting = false;
 };
 
-//hey
+
 
 TxtRotate.prototype.tick = function() {
     var i = this.loopNum % this.toRotate.length;
@@ -57,8 +57,6 @@ window.onload = function() {
     document.body.appendChild(css);
 };
 
-
-
 $(document).ready(function() {
 
 // Gets the video src from the data-src on each button
@@ -88,5 +86,7 @@ $(document).ready(function() {
 
 // document ready
 });
+
+
 
 
