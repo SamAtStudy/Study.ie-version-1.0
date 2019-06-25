@@ -167,9 +167,21 @@ body {
     color:#fff;
     opacity:1;
 }
-.button{
+.button1{
     position: absolute;
-    top: 27%;
-    left: 22%;
+    top: 15vh;
+    left: 14.5vw;
+
+}
+.button2{
+    position: absolute;
+    top:46vh;
+    right: 18vw;
+
+}
+.button3{
+    position: absolute;
+    top: 77vh;
+    left: 14.5vw;
 
 }
