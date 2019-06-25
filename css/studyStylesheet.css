@@ -1,7 +1,6 @@
 body {
     font-family: 'Varela Round', sans-serif;
     font-size: 18px;
-    color: #63cbb7;
     background-color: #f3fefd;
 }
 #typeWriter {
@@ -49,9 +48,10 @@ body {
     border-top:solid 15px;
     border-top-color: #6ECBB7;
     border-right: solid 9px;
-    border-right-color: #6ECBB;
+    border-right-color: #6ECBB7;
     margin-top: -15px;
     z-index: -1;
+    color: #63cbb7;
 }
 #sectionFourBox{
     background-color:#6ECBB7;
@@ -203,8 +203,11 @@ body {
 }
 
 #socialLinkBox{
-    background-color: blue;
     height:5vh;
     margin:auto;
-    width:500px;
+    width:270px;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #b4e4da !important;
 }
