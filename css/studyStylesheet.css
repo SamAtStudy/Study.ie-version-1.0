@@ -7,7 +7,6 @@ body {
 #typeWriter {
     font-weight: 200;
     position: absolute;
-    left: 740px;
     top: 150px;
     font-size: 3.5em;
 }
@@ -42,7 +41,7 @@ body {
 #sectionFourBox{
     background-color:#6ECBB7;
     height:15vh;font-size:12px;
-    border-top:solid 2px
+    border-top:solid 2px;
     border-top-color: #6ECBB7;
 }
 #optionButtonText{
@@ -167,4 +166,10 @@ body {
     font-weight: normal;
     color:#fff;
     opacity:1;
+}
+.button{
+    position: absolute;
+    top: 27%;
+    left: 22%;
+
 }
