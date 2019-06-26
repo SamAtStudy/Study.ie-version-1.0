@@ -26,6 +26,7 @@ body {
     height:97vh;
     font-size:12px;
     position:relative;
+    z-index: 5;
     margin-top:-37vh;
     border-top:solid 15px;
     border-top-color: #6ECBB7;
@@ -44,13 +45,11 @@ body {
     background-color: #E7FEFC;
     height:97vh;
     font-size:12px;
-    position:relative;
     border-top:solid 15px;
     border-top-color: #6ECBB7;
     border-right: solid 9px;
     border-right-color: #6ECBB7;
     margin-top: -15px;
-    z-index: -1;
     color: #63cbb7;
 }
 #sectionFourBox{
@@ -103,13 +102,12 @@ body {
     background: #63cbb7;
 }
 .gap-up{
-    z-index:-1;
+    position:relative;
+    z-index: 1;
     margin-top: -35vh;
     height:35vh;
 }
 .gap-down{
-    z-index:0;
-    position: relative;
     height:35vh;
     margin-top:-15px;
 }
@@ -186,12 +184,12 @@ body {
 .button1{
     position: relative;
     top: 6vh;
-    left: -14.5vw;
+    left: -10.5vw;
 }
 .button2{
     position: relative;
     top:6vh;
-    right: -14vw;
+    right: -18vw;
 }
 
 
