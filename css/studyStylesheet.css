@@ -184,23 +184,16 @@ body {
     opacity:1;
 }
 .button1{
-    position: absolute;
-    top: 15vh;
-    left: 14.5vw;
-
+    position: relative;
+    top: 6vh;
+    left: -14.5vw;
 }
 .button2{
-    position: absolute;
-    top:46vh;
-    right: 18vw;
-
+    position: relative;
+    top:6vh;
+    right: -14vw;
 }
-.button3{
-    position: absolute;
-    top: 77vh;
-    left: 14.5vw;
 
-}
 
 #socialLinkBox{
     height:5vh;
