@@ -6,8 +6,9 @@ body {
 #typeWriter {
     font-weight: 200;
     position: absolute;
-    top: 150px;
-    font-size: 3.5em;
+    top: 25vh;
+    font-size: 3.5rem;
+    color: white;
 }
 #sectionOneBox{
     border-bottom:solid 15px;
@@ -66,6 +67,8 @@ body {
 {
     color: #000000;
     background-color: #63cbb7;
+    min-height:56px;
+    max-height:6vh;
 }
 .parallaxa {
     /* The image used */
@@ -84,11 +87,11 @@ body {
     background-size: cover;
 }
 .cards-list {
-    z-index: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin-top:20vh;
 }
 
 .card {
