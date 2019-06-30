@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta http-equiv="refresh" content="5" /> -->
+     <!--- <meta http-equiv="refresh" content="5" /> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -30,6 +30,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#">Courses<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" aria-disabled="true">Blog</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,9 +40,6 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Create an account</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sign-In</a>
             </li>
         </ul>
     </div>
@@ -50,7 +50,7 @@
 
     <!-- TypeWriter-->
     <!--https://codepen.io/CheeseTurtle/pen/jzdgI-->
-    <div style="margin-left:39%">
+    <div id="typeWriterBox">
     <h1 id="typeWriter" align="justify">
         <span
           class="txt-rotate"
@@ -63,7 +63,7 @@
    <br style="line-height: 24vh;">
 
     <!-- Buttons -->
-    <div class="cards-list">
+    <div class="cards-list container-fluid">
         <div class="card 1">
             <div class="card_image"></div>
             <div class="button-center"></div>
@@ -123,17 +123,19 @@
 
         <!-- ROW 1 -->
         <div class="row" style="margin-bottom: 10vh;">
-            <div class="col-5">
+            <div class="col-3">
                 <!-- Button trigger modal -->
-                <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
+                <submit type="image" class="btn button1 btn-success video-btn" style="font-size:60%;" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
                     Play
                 </submit>
-                <img src="img/Vid.jpg" align="left" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+                <img src="img/Vid.jpg" class="img-fluid" align="left" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+            </div>
+            <div class="col-2">
             </div>
             <div class="col-7">
                 <!-- Side Blurb -->
-                <h1 style="font-size: 50px;">Offline Learning</h1>
-                <p>
+                <h1 id="sectionThreeHeaders">Offline Learning</h1>
+                <p id="sectionThreeContent">
                     Offline learning is the act of learning offline in an offline scenario not online completely offline
                 </p>
             </div>
@@ -159,17 +161,19 @@
         <div class="row" style="margin-bottom: 10vh ;">
             <div class="col-7">
                 <!-- Side Blurb -->
-                <h1 style="font-size: 50px;">Offline Learning</h1>
-                <p>
+                <h1 id="sectionThreeHeaders">Offline Learning</h1>
+                <p id="sectionThreeContent">
                     Offline learning is the act of learning offline in an offline scenario not online completely offline
                 </p>
             </div>
-            <div class="col-5">
+            <div class="col-2">
+            </div>
+            <div class="col-3">
                 <!-- Button trigger modal -->
                 <submit type="image" class="btn button2 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
                     Play
                 </submit>
-                <img src="img/Vid.jpg" align="right" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+                <img src="img/Vid.jpg" class="img-fluid" align="right" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
             </div>
 
             <!-- Modal 2-->
@@ -192,17 +196,19 @@
 
         <!-- ROW 3 -->
         <div class="row">
-            <div class="col-5">
-                <!-- Button trigger modal -->
-                <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
-                    Play
-                </submit>
-                <img src="img/Vid.jpg" align="left" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+            <div class="col-3">
+                    <!-- Button trigger modal -->
+                    <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
+                        Play
+                    </submit>
+                <img src="img/Vid.jpg" class="img-fluid" align="left" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+            </div>
+            <div class="col-2">
             </div>
             <div class="col-7">
                 <!-- Side Blurb -->
-                <h1 style="font-size: 50px;">Offline Learning</h1>
-                <p>
+                <h1 id="sectionThreeHeaders">Offline Learning</h1>
+                <p id="sectionThreeContent">
                     Offline learning is the act of learning offline in an offline scenario not online completely offline
                 </p>
             </div>
@@ -249,4 +255,38 @@
 
 
 </body>
+
+<!--<div>
+    <div style="background-color:#f3fefd; float:right;height: 0.05vh; width:9.4vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.1vh; width:9.35vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.15vh; width:9.3vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.20vh; width:9.25vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.25vh; width:9.2vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.30vh; width:9.15vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.35vh; width:9.1vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.40vh; width:9.05vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.45vh; width:9vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.50vh; width:8.95vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.55vh; width:8.9vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.60vh; width:8.85vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.65vh; width:8.8vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.70vh; width:8.75vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.75vh; width:8.7vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.80vh; width:8.65vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.85vh; width:8.6vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.90vh; width:8.55vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 0.95vh; width:8.5vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1vh; width:8.45vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.05vh; width:8.4vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.10vh; width:8.35vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.15vh; width:8.3vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.20vh; width:8.25vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.25vh; width:8.2vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.30vh; width:8.15vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.35vh; width:8.1vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.40vh; width:8.05vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.45vh; width:8vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.50vh; width:7.95vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+    <div style="background-color:#f3fefd; float:right;height: 1.55vh; width:7.9vw; margin-top: -15px; z-index: 10; position: relative;"></div>
+</div> -->
 </html>
