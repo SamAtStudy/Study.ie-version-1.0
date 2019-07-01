@@ -50,10 +50,10 @@ body {
     border-right-color: #6ECBB7;
     margin-top: -15px;
     color: #63cbb7;
-    height:89vh;
+    height:94vh;
 }
 #sectionThreeHeaders{
-    font-size:3vw;
+    font-size:2vw;
 }
 #sectionThreeContent{
     font-size:1.2vw;
@@ -61,7 +61,8 @@ body {
 
 #sectionFourBox{
     background-color:#6ECBB7;
-    height:17vh;font-size:12px;
+    height:20vh;
+    font-size:12px;
     border-top:solid 15px;
     border-top-color: #6ECBB7;
 }
@@ -76,6 +77,10 @@ body {
     max-height:6vh;
 }
 
+.nav-link{
+    color: red; !important;
+}
+
 .navbar-collapse {
     background: #63cbb7;
     border-bottom-left-radius:25px;
@@ -87,9 +92,8 @@ body {
     background-image: url("../img/background1.jpg");
 
     /* Set a specific height */
-    /*min-height: 880px;*/
     width:100%;
-    height:89vh;
+    height:91vh;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -115,7 +119,7 @@ body {
     width: 250px;
     height: 126px;
     border-radius: 40px;
-    box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     transition: 0.4s;
     background: #63cbb7;
@@ -147,18 +151,14 @@ body {
 
 .card .card_title {
     text-align: center;
-    border-radius: 0px 0px 40px 40px;
-    font-family: sans-serif;
     font-weight: bold;
     font-size: 30px;
     margin-top: -80px;
-    height: 10vh;
 }
 
 .card:hover{
     transform: scale(0.9, 0.9);
-    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
-    -5px -5px 30px 15px rgba(0,0,0,0.22);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25);
     background: #6cb4b0;
 }
 
@@ -214,6 +214,24 @@ body {
     width:270px;
 }
 
+#socialBox{
+    margin-top:2vh;
+}
+
+#sectionThreeStep{
+    margin-left:15vw;
+    margin-top:8vh;
+    width:70vw;
+    font-size:20px;
+}
+
+#buttonLeft{
+    border-radius: 12px;
+    background-color:white;
+    border-color: #b4e4da;
+    margin-left:20px;
+}
+
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #b4e4da !important;
 }
@@ -230,30 +248,82 @@ body {
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 567px) {
     #typeWriter {
-        font-size: 2.5rem;
-        top:20vh;
+        font-size: 1.5rem;
     }
 
     #typeWriterBox{
-        margin-left:32vw;
+        margin-left:26vw;
     }
 
     .cards-list{
         /* On small screens, we are no longer using row direction but column */
         flex-direction: column;
-
-        margin-top:2vh;
+        margin-top:8vh;
     }
 
     .card{
         margin:10px auto;
-        width:225px;
-        height:100px;
+        width:50vw;
+        height:10vh;
     }
 
-    .img-fluid{
-        max-width: 22vw;
+    .card .card_title{
+        margin-top:-7vh;
+    }
+
+    .card:hover{
+        transform: scale(0.9, 0.9);
+        box-shadow: 1px 5px 15px 1px rgba(0,0,0,0.25);
+        background: #6cb4b0;
+    }
+
+    #optionButtonText{
+        font-size:4vw;
+    }
+
+    .button1{
+        font-size:8px;
+    }
+
+    #sectionThreeHeaders{
+        text-align:center;
+        margin-top:1vh;
+        font-size:8vw;
+    }
+
+    #sectionThreeContent{
+        text-align:center;
+        font-size:100%;
+    }
+
+    #sectionThreeBox{
+        height:200vh;
+    }
+
+    #socialBox h4{
+        font-size: 100%;
+    }
+
+    #socialLinkBox{
+        width:100%;
+    }
+
+    #socialLinkBox button {
+        border-radius: 8px;
+    }
+
+    #socialLinkBox .btn{
+        padding:3px;
+    }
+
+    #buttonLeft{
+        margin-left:5px;
+    }
+
+    #socialLinkBox button img{
+        width:5px;
     }
 }
+
