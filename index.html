@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
+    <!-- EDIT SCSS TO REMOVE PADDING ON ROWS -->
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta http-equiv="refresh" content="5" /> -->
+     <!--- <meta http-equiv="refresh" content="5" /> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap-reboot.css">
@@ -34,7 +36,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Courses<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#"><span id="wow">Courses</span><span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" aria-disabled="true">Blog</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
@@ -43,9 +48,6 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Create an account</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sign-In</a>
             </li>
         </ul>
     </div>
@@ -56,37 +58,36 @@
 
     <!-- TypeWriter-->
     <!--https://codepen.io/CheeseTurtle/pen/jzdgI-->
-    <div style="margin-left:39%">
+    <div id="typeWriterBox">
     <h1 id="typeWriter" align="justify">
         <span
           class="txt-rotate"
           data-period="2000"
-          data-rotate='[ " I am here to....", "I want to..." ]'>
-
+          data-rotate='[ "I am here to....", "   I want to..." ]'>
         </span>
     </h1>
     </div>
    <br style="line-height: 24vh;">
 
     <!-- Buttons -->
-    <div class="cards-list">
+    <div class="cards-list container-fluid">
         <div class="card 1">
             <div class="card_image"></div>
             <div class="button-center"></div>
             <div class="card_title title-white">
-                <p style="font-family: 'Varela Round', sans-serif; font-size: 22px;"><a href="#sectionThreeBox">Learn In Person</a></p>
+                <p id="optionButtonText">Learn In Person</p>
             </div>
         </div>
         <div class="card 1">
             <div class="card_image"></div>
             <div class="card_title title-white">
-                <p id="optionButtonText" style="font-family: 'Varela Round', sans-serif; font-size: 22px;"><a href="#sectionThreeBox">Learn Online</a></p>
+                <p id="optionButtonText">Learn Online</p>
             </div>
         </div>
         <div class="card 1">
             <div class="card_image"></div>
             <div class="card_title title-white">
-                <p style="font-family: 'Varela Round', sans-serif; font-size: 22px;"><a href="#sectionThreeBox">Track you learning</a></p>
+                <p id="optionButtonText">Track Learning</p>
             </div>
         </div>
     </div>
@@ -135,21 +136,23 @@
     <!-- SECTION 3 EXPLANATIONS -->
 <div class="gap-up" style="background-color: #E7FEFC;">&nbsp</div>
 <div id="sectionThreeBox">
-    <div style="margin-left:15vw; margin-top:8vh; width:70vw;font-size:20px;">
+    <div id="sectionThreeStep">
 
         <!-- ROW 1 -->
         <div class="row" style="margin-bottom: 10vh;">
-            <div class="col-5">
+            <div class="col-xl-3 col-md-auto">
                 <!-- Button trigger modal -->
                 <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
                     Play
                 </submit>
-                <img src="img/Vid.jpg" align="left" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+                <img src="img/Vid.jpg" class="img-fluid" align="left" style="box-shadow: 0px 5px 15px 0px rgba(0,0,0,.3);">
             </div>
-            <div class="col-7">
+            <div class="col-xl-2">
+            </div>
+            <div class="col-xl-7 col-md-auto">
                 <!-- Side Blurb -->
-                <h1 style="font-size: 50px;">Offline Learning</h1>
-                <p>
+                <h1 id="sectionThreeHeaders">Offline Learning</h1>
+                <p id="sectionThreeContent">
                     Offline learning is the act of learning offline in an offline scenario not online completely offline
                 </p>
             </div>
@@ -169,24 +172,29 @@
                         </div>
                     </div>
                 </div>
-            </div></div>
+            </div>
+        </div>
 
         <!-- ROW 2 -->
         <div class="row" style="margin-bottom: 10vh ;">
-            <div class="col-7">
-                <!-- Side Blurb -->
-                <h1 style="font-size: 50px;">Offline Learning</h1>
-                <p>
-                    Offline learning is the act of learning offline in an offline scenario not online completely offline
-                </p>
-            </div>
-            <div class="col-5">
+            <div class="col-xl-3 col-md-auto order-md-5">
                 <!-- Button trigger modal -->
                 <submit type="image" class="btn button2 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
                     Play
                 </submit>
-                <img src="img/Vid.jpg" align="right" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+                <img src="img/Vid.jpg" class="img-fluid" align="right" style="box-shadow: 0px 5px 15px 0px rgba(0,0,0,.3);">
             </div>
+            <div class="col-xl-2">
+            </div>
+            <div class="col-xl-7 col-md-auto order-md-1">
+                <!-- Side Blurb -->
+                <h1 id="sectionThreeHeaders">Offline Learning</h1>
+                <p id="sectionThreeContent">
+                    Offline learning is the act of learning offline in an offline scenario not online completely offline
+                </p>
+            </div>
+
+
 
             <!-- Modal 2-->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -208,17 +216,19 @@
 
         <!-- ROW 3 -->
         <div class="row">
-            <div class="col-5">
-                <!-- Button trigger modal -->
-                <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
-                    Play
-                </submit>
-                <img src="img/Vid.jpg" align="left" style="box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), -5px -5px 30px 15px rgba(0,0,0,0.22);">
+            <div class="col-xl-3 col-md-auto">
+                    <!-- Button trigger modal -->
+                    <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
+                        Play
+                    </submit>
+                <img src="img/Vid.jpg" class="img-fluid" align="left" style="box-shadow: 0px 5px 15px 0px rgba(0,0,0,.3);">
             </div>
-            <div class="col-7">
+            <div class="col-xl-2">
+            </div>
+            <div class="col-xl-7 col-md-auto">
                 <!-- Side Blurb -->
-                <h1 style="font-size: 50px;">Offline Learning</h1>
-                <p>
+                <h1 id="sectionThreeHeaders">Offline Learning</h1>
+                <p id="sectionThreeContent">
                     Offline learning is the act of learning offline in an offline scenario not online completely offline
                 </p>
             </div>
@@ -245,15 +255,50 @@
 
     <!--SECTION 4 FOOTER -->
 <div id="sectionFourBox">
-    <h4 style="color:white; text-align: center;">Follow Us On</h4>
-    <div id="socialLinkBox" class="justify-content-center align-items-center">
-        &nbsp
-        <button class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="img/fbLogo.svg"></button>
-        <button class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da; margin-left:20px;"><img src="img/twitterLogo.svg"></button>
-        <button class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da; margin-left:20px;"><img src="img/googleLogo.svg"></button>
-        <button class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da; margin-left:20px;"><img src="img/fbLogo.svg"></button>
+    <div class="row">
+    <div class="col-4">
+        <div id="aboutUsBox" style="margin:auto; width:10vw; margin-top: 4vh;">
+            <img src="img/Logo2White.png" style="width:100%;">
+            <a href="#" style="text-align: center; margin-top:10px; margin-left:2.5vw; color:white; font-size:1vw; opacity: 0.8;" data-toggle="modal" data-target="#aboutModal" > Who Are We? </a>
+        </div>
+
+        <!-- About Us Modal-->
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div id="aboutModalContent" style="height:80vh;">
+                           <h4 style="text-align: center;">About Us</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div style="text-align: center"><a href="https://google.com">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com">Terms of Use</a></div>
+    <div class="col-4">
+        <div id="socialBox">
+        <h4 style="color:white; text-align: center;">Follow Us On</h4>
+        <div id="socialLinkBox" class="justify-content-center align-items-center">
+            &nbsp
+            <button class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="img/fbLogo.svg"></button>
+            <button id="buttonLeft" class="btn btn-primary" ><img src="img/twitterLogo.svg"></button>
+            <button id="buttonLeft" class="btn btn-primary" ><img src="img/googleLogo.svg"></button>
+            <button id="buttonLeft" class="btn btn-primary"><img src="img/fbLogo.svg"></button>
+        </div>
+        <div style="text-align: center; font-size: 0.8vw; color:white; opacity: 0.8;"><a href="https://google.com" style="color:white; opacity: 0.8;">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com" style="color:white; opacity: 0.8;">Terms of Use</a></div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div style="margin:auto; width:20vw; margin-top: 5vh;">
+            <span style="text-align: center; color:white; font-size:.8vw; opacity: 0.8;" > Contact: studyDev@study.ie</span>
+            <br>
+            <span style="text-align: center; color:white; font-size:.8vw; opacity: 0.8;" > Copyright © 2019 Study.ie. All rights reserved. </span>
+        </div>
+    </div>
+    </div>
 </div>
 
 <!-- SCRIPTS -->
