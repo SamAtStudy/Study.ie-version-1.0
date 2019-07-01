@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,13 +7,19 @@
     <!-- <meta http-equiv="refresh" content="5" /> -->
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <!--Googles Valera Round Font -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
     <!-- Study.ie Stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/studyStylesheet.css">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
 <!-- NAV BAR-->
@@ -68,19 +74,19 @@
             <div class="card_image"></div>
             <div class="button-center"></div>
             <div class="card_title title-white">
-                <p style="font-family: 'Varela Round', sans-serif; font-size: 22px;">Learn In Person</p>
+                <p style="font-family: 'Varela Round', sans-serif; font-size: 22px;"><a href="#sectionThreeBox">Learn In Person</a></p>
             </div>
         </div>
         <div class="card 1">
             <div class="card_image"></div>
             <div class="card_title title-white">
-                <p id="optionButtonText" tyle="font-family: 'Varela Round', sans-serif; font-size: 22px;">Learn Online</p>
+                <p id="optionButtonText" style="font-family: 'Varela Round', sans-serif; font-size: 22px;"><a href="#sectionThreeBox">Learn Online</a></p>
             </div>
         </div>
         <div class="card 1">
             <div class="card_image"></div>
             <div class="card_title title-white">
-                <p style="font-family: 'Varela Round', sans-serif; font-size: 22px;">Track you learning</p>
+                <p style="font-family: 'Varela Round', sans-serif; font-size: 22px;"><a href="#sectionThreeBox">Track you learning</a></p>
             </div>
         </div>
     </div>
@@ -89,13 +95,23 @@
     <!-- SECTION 2 ABOUT -->
 <div class="parallaxa gap-down" style="width:100%;"></div>
 <div id="sectionTwoBox">
-    <br>
+    <br style="line-height: 10vh">
+    <h2 id="sectionTwoHeader" class="d-flex justify-content-center">What is Study.ie</h2>
     <div id="sectionTwoContent">
-    <h2 id="sectionTwoHeader" class="d-flex justify-content-center">What we do</h2>
-        <br>
-    <p style="margin-left:10px; text-align:center;">
-        We do Stuff.
+    <h5 style="margin-left:10px; text-align:center;">Study is for learners as we reduce the amount of steps someone needs to take to find learning.
+    </h5>
+        <h6 style="margin-left:10px; text-align:left; font-size: 30px;">Search</h6>
+    <p style="margin-left:10px; text-align:center; width:50vw; font-size: 1rem">
+        To make the searching experience more appealing to our users, we went out and collected all of the most popular, recommended, and highly regarded courses from all over the internet. This can all be search from our top of the line search bar, on top of that if you have any course recommendations which you would like to pass please let us know.
     </p>
+        <h6 style="margin-left:10px; text-align:left; font-size: 30px;">Refine and Compare</h6>
+        <p style="margin-left:10px; text-align:center; width:50vw; font-size: 1rem;">
+            We then want to further comfort our users by allowing them to personalise their search and results through price and the location in which they want to learn if it an offline course. Course reviews are then the cherry on top, as you get to decide what's right for you based on what you can compare.
+        </p>
+        <h6 style="margin-left:10px; text-align:left; font-size: 30px;">Book</h6>
+        <p style="margin-left:10px; text-align:center; width:50vw; font-size: 1rem; margin-bottom: 30px ">
+            In order to begin on your newly encountered learning path, simply book the course and be on your way. You may then return to our website to track your learning on your Study account.
+        </p>
     </div>
 </div>
 <div style=" z-index: 5; position: relative; ">
