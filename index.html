@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
+    <title>Study.ie</title>
+    <link rel="icon" href="img/Logo1.png">
     <!-- EDIT SCSS TO REMOVE PADDING ON ROWS -->
 
     <!-- Required meta tags -->
@@ -19,6 +21,7 @@
 
 </head>
 <body>
+
 <!-- NAV BAR-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.html">
@@ -30,14 +33,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
-            <li class="nav-item active">
-                <a class="nav-link" href="#" ><span id="wow">Courses</span><span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="courses-home.html" ><span id="wow">Courses</span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="blog-home.html">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Log in</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log in</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" style="visibility: hidden;"></a>
@@ -46,6 +49,60 @@
     </div>
 </nav>
 
+<!-- Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div id="loginModalBody">
+                    <div class="form-title text-center">
+                        <h4>Login</h4>
+                    </div>
+
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email1" placeholder="Your email address...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password1" placeholder="Your password...">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <a class="text-left" href="#" style="color:black;">Remember me</a>
+                                <span class="text-right" style="color:black;">Don't Have an account? <a href="#">Create One!</a></span>
+                            </div>
+                            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
+                        </form>
+
+                        <div class="d-flex flex-column text-center">
+                            <a href="#" style="color:black;">Forgot password?</a>
+                        </div>
+
+                        <!-- Or Divider -->
+                        <div class="strike">
+                            <span>Or</span>
+                        </div>
+
+                        <div id="loginSocialBox">
+                            <button class="btn btn-primary">
+                                <img src="img/twitterLogo.svg">
+                            </button>
+                            <button class="btn btn-primary">
+                                <img src="img/twitterLogo.svg">
+                            </button>
+                            <button class="btn btn-primary">
+                                <img src="img/twitterLogo.svg">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- SECTION 1 OPTIONS -->
 <div id="sectionOneBox" class="parallaxa">
@@ -90,21 +147,23 @@
     <!-- SECTION 2 ABOUT -->
 <div class="parallaxa gap-down" style="width:100%;"></div>
 <div id="sectionTwoBox">
-    <br style="line-height: 10vh">
-    <h2 id="sectionTwoHeader" class="d-flex justify-content-center">What is Study.ie</h2>
     <div id="sectionTwoContent">
-    <h5 style="margin-left:10px; text-align:center;">Study is for learners as we reduce the amount of steps someone needs to take to find learning.
-    </h5>
-        <h6 style="margin-left:10px; text-align:left; font-size: 30px;">Search</h6>
-    <p style="margin-left:10px; text-align:center; width:50vw; font-size: 1rem">
+        <h2 id="sectionTwoHeader" class="d-flex justify-content-center">What is Study.ie?</h2>
+        <br>
+        <h5 style="margin-left:10px; text-align:center;">Study is for learners as we reduce the amount of steps someone needs to take to find learning.</h5>
+        <br style="line-height:10vh;">
+        <h5 id="sectionTwoContentHeaders">Search</h5>
+    <p id="sectionTwoPara">
         To make the searching experience more appealing to our users, we went out and collected all of the most popular, recommended, and highly regarded courses from all over the internet. This can all be search from our top of the line search bar, on top of that if you have any course recommendations which you would like to pass please let us know.
     </p>
-        <h6 style="margin-left:10px; text-align:left; font-size: 30px;">Refine and Compare</h6>
-        <p style="margin-left:10px; text-align:center; width:50vw; font-size: 1rem;">
+        <br>
+        <h5 id="sectionTwoContentHeaders">Refine and Compare</h5>
+        <p id="sectionTwoPara">
             We then want to further comfort our users by allowing them to personalise their search and results through price and the location in which they want to learn if it an offline course. Course reviews are then the cherry on top, as you get to decide what's right for you based on what you can compare.
         </p>
-        <h6 style="margin-left:10px; text-align:left; font-size: 30px;">Book</h6>
-        <p style="margin-left:10px; text-align:center; width:50vw; font-size: 1rem; margin-bottom: 30px ">
+        <br>
+        <h5 id="sectionTwoContentHeaders">Book</h5>
+        <p id="sectionTwoPara" style="margin-bottom: 30px ">
             In order to begin on your newly encountered learning path, simply book the course and be on your way. You may then return to our website to track your learning on your Study account.
         </p>
     </div>
@@ -264,18 +323,18 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <div id="aboutModalContent">
+                        <div id="aboutModalContent" style="margin:auto; width:90%;">
 
                             <!--Our Mission-->
                             <h4 style="text-align: center; margin-top: 2vh; color:#6ECBB7">Our Mission</h4>
                             <hr style="width: 40%">
                             <div class="row">
                                 <div class="col">
-                                    <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center; color:#6ECBB7; opacity: 0.8;">
+                                    <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center;">
                                         Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
                                     </div>
                                     <br/>
-                                    <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; text-align: center; color:#6ECBB7; opacity: 0.8;">
+                                    <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; text-align: center; opacity: 0.8;">
                                         *If you can think, you are a learner.
                                     </div>
                                 </div>
@@ -284,7 +343,6 @@
 
                             <!-- About Study -->
                            <h4 style="text-align: center; margin-top: 5vh; color:#6ECBB7">About Study</h4>
-                            <hr style="width: 40%">
                             <div class="row">
                                 <div class="col">
                                     <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center">
@@ -299,7 +357,6 @@
 
                             <!-- Our Team -->
                             <h4 style="text-align: center; margin-top: 5vh; color:#6ECBB7">Our Team</h4>
-                            <hr style="width: 40%">
                             <div class="row">
                                 <div class="col">
                                     <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center">
@@ -326,7 +383,7 @@
             <button id="buttonLeft" class="btn btn-primary" ><img src="img/googleLogo.svg"></button>
             <button id="buttonLeft" class="btn btn-primary"><img src="img/fbLogo.svg"></button>
         </div>
-        <div style="text-align: center; font-size: 0.8vw; color:white; opacity: 0.8;"><a href="https://google.com" style="color:white; opacity: 0.8;">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com" style="color:white; opacity: 0.8;">Terms of Use</a></div>
+        <div style="text-align: center; font-size: 0.8vw; color:white; opacity: 0.8;margin-top:5px;"><a href="https://google.com" style="color:white; opacity: 0.8;">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com" style="color:white; opacity: 0.8;">Terms of Use</a></div>
         </div>
     </div>
     <div class="col-4">
@@ -345,7 +402,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/studyScript.js"></script>
-
+<!-- <script>
+    $(document).ready(function(){
+        $("#loginModal").modal()
+    });
+</script> -->
 
 </body>
 </html>
