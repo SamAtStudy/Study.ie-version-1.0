@@ -22,7 +22,9 @@ body {
 
 #sectionTwoHeader {
     font-weight: 200;
-    font-size: 2em;
+    font-size: 2.5rem;
+    color: #6ECBB7;
+    opacity:1;
 }
 #sectionTwoBox{
     border-top-left-radius: 15vw;
@@ -46,17 +48,35 @@ body {
     margin-top:10vh;
     width: 70%;
 }
-#sectionTwoPara{
+
+.sectionTwoContentBr{
+    line-height:10vh;
+}
+
+.sectionTwoPara{
     margin:auto;
     text-align:center;
     width:70vw;
     font-size: 1rem;
 }
 
-#sectionTwoContentHeaders{
+#sectionTwoSubHeader:after{
+    content: "";
+    float: left;
+    margin-left:15%;
+    background: #6ECBB7;
+    width: 70%;
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 5px;
+}
+
+.sectionTwoContentHeaders{
     margin-left:10px;
     text-align:center;
     font-size:30px;
+    color: #6ECBB7;
+    opacity:1;
 }
 
 .modal {
@@ -347,8 +367,19 @@ body {
     margin-left: 15px;
 }
 
+#aboutUsBox{
+    margin:auto;
+    width:10vw;
+    margin-top: 4vh;
+}
+
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #b4e4da !important;
+}
+
+#socialLinkHeader{
+    color:white;
+    text-align: center;
 }
 
 @media screen and (min-width: 992px) {
@@ -430,10 +461,6 @@ body {
         height:200vh;
     }
 
-    #socialBox h4{
-        font-size: 100%;
-    }
-
     #socialLinkBox{
         width:100%;
     }
@@ -463,12 +490,63 @@ body {
         left: 35%;
     }
 
-    #sectionTwoPara{
+    .sectionTwoPara{
         font-size:10px;
     }
 
-    #sectionTwoContent br{
+    .sectionTwoContentBr{
         line-height:50px;
+    }
+
+    #sectionTwoContent{
+        margin-top:7vh;
+        margin-left:5%;
+        width:90%;
+    }
+
+    #sectionTwoHeader{
+        font-size: 1.75rem;
+    }
+
+    #sectionTwoSubHeader{
+        font-size:1rem;
+    }
+
+    #sectionTwoSubHeader:after{
+        float: initial;
+    }
+
+    #sectionFourBox{
+        height: auto;
+    }
+
+    #aboutUsBox{
+        width:50vw;
+        margin-top:2vh;
+    }
+
+    #aboutUsBtn{
+        font-size: 4vw;
+        text-align: center;
+        margin-top:20px;
+        margin-left:15vw;
+        color:white;
+        opacity: 0.8;
+    }
+
+    #sectionFourBox .col-12{
+        margin-bottom:6vh;
+    }
+
+    #socialLinkHeader{
+        color:white;
+        text-align: center;
+        font-size:6vw;
+    }
+
+    #socialLinkBox{
+        margin-left:50%;
+        transform:translate(-50%,0%);
     }
 }
 
