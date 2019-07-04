@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Varela Round', sans-serif;
     font-size: 18px;
@@ -9,6 +13,7 @@ body {
     top: 25vh;
     font-size: 3.5rem;
     color: white;
+    z-index: 1;
 }
 
 #typeWriterBox{
@@ -34,12 +39,41 @@ body {
     border-left: solid 9px;
     border-left-color: #6ECBB7;
     border-bottom-color: #6ECBB7;
+    text-align: center;
 }
 #sectionTwoContent{
     margin-left:15%;
     margin-top:10vh;
     width: 70%;
 }
+#sectionTwoPara{
+    margin:auto;
+    text-align:center;
+    width:70vw;
+    font-size: 1rem;
+}
+
+#sectionTwoContentHeaders{
+    margin-left:10px;
+    text-align:center;
+    font-size:30px;
+}
+
+.modal {
+    top:5%;
+    width:80%;
+    left:10%;
+}
+
+.row{
+    margin-left:  0px;
+    margin-right: 0px;
+}
+
+.modal-content{
+    height:80vh;
+}
+
 #sectionThreeBox{
     border-top-right-radius: 15vw;
     background-color: #E7FEFC;
@@ -77,23 +111,57 @@ body {
     max-height:6vh;
 }
 
-.nav-link{
-    color: red; !important;
+.navbar-light .navbar-nav .nav-link{
+    color:white;
+    opacity:0.75;
+}
+
+.navbar-nav > li {
+    float: left;
+    position: relative;
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active, .navbar-nav .nav-item:hover .nav-link {
+    color:white;
+    opacity: 1;
+}
+
+.navbar-light .navbar-nav a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 3px;
+    left: 0;
+    background: white;
+    visibility: hidden;
+    border-radius: 16px;
+    transform: scaleX(0);
+    transition: .21s linear;
+}
+.navbar-light .navbar-nav a:hover:before,
+.navbar-light .navbar-nav a:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
 }
 
 .navbar-collapse {
     background: #63cbb7;
     border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
     text-align: center;
-    margin-left:60vw;
+    z-index: 5;
 }
+
+/*FUTURE add navbar overlay when mobile mavbar toggle clicked, like modal. */
+
 .parallaxa {
     /* The image used */
     background-image: url("../img/background1.jpg");
 
     /* Set a specific height */
     width:100%;
-    height:91vh;
+    height:96vh;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -179,11 +247,15 @@ body {
     margin: 30px auto;
 }
 
+body {
+    padding-right: 0 !important
+}
 
 .modal-body {
     position:relative;
     padding:0px;
 }
+
 .close {
     position:absolute;
     right:-30px;
@@ -215,7 +287,7 @@ body {
 }
 
 #socialBox{
-    margin-top:2vh;
+    margin-top:1.5vh;
 }
 
 #sectionThreeStep{
@@ -230,6 +302,49 @@ body {
     background-color:white;
     border-color: #b4e4da;
     margin-left:20px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding:0px;
+}
+
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: black;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -338,5 +453,23 @@ body {
     #socialLinkBox button img{
         width:5px;
     }
+
+    .navbar-light .navbar-nav .nav-link{
+        opacity:1;
+    }
+
+    .navbar-light .navbar-nav a:before {
+        width: 30%;
+        left: 35%;
+    }
+
+    #sectionTwoPara{
+        font-size:10px;
+    }
+
+    #sectionTwoContent br{
+        line-height:50px;
+    }
 }
+
 
