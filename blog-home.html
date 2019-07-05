@@ -34,14 +34,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
-            <li class="nav-item">
-                <a class="nav-link" href="courses-home.html" ><span id="wow">Courses</span></a>
+            <li class="nav-item" id="courseNav">
+                <a class="nav-link" href="courses-home.html">Courses</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="blog-home.html">Blog<span class="sr-only">(current)</span></a>
+            <li class="nav-item ">
+                <a class="nav-link" href="blog-home.html">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log in</a>
+                <a class="nav-link disabled" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" style="visibility: hidden;"></a>
@@ -235,7 +235,19 @@
 <!-- FOOTER -->
 <div id="sectionFourBox">
     <div class="row">
-        <div class="col-12 col-xl-4">
+        <div class="col-12 col-xl-4 order-md-2">
+            <div id="socialBox">
+                <h4 id="socialLinkHeader">Follow Us On</h4>
+                <div id="socialLinkBox" class="d-flex justify-content-center">
+                    &nbsp
+                    <button id="fbBtn" class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="icons/fbLogo.svg"></button>
+                    <button id="twBtn" class="btn btn-primary buttonLeft" ><img src="icons/twitterLogo.svg"></button>
+                    <button id="inBtn" class="btn btn-primary buttonLeft" ><img src="icons/Instagram.svg"></button>
+                    <button id="lnBtn" class="btn btn-primary buttonLeft"><img src="icons/linkedin-logo.svg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 order-md-1">
             <div id="aboutUsBox">
                 <img src="img/Logo2White.png" style="width:100%;">
                 <a href="#" id="aboutUsBtn" data-toggle="modal" data-target="#aboutModal" > Who Are We? </a>
@@ -249,18 +261,18 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <div id="aboutModalContent" style="margin:auto; width:90%;">
+                            <div id="aboutModalContent">
 
                                 <!--Our Mission-->
-                                <h4 style="text-align: center; margin-top: 2vh; color:#6ECBB7">Our Mission</h4>
+                                <h4>Our Mission</h4>
                                 <hr style="width: 40%">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center;">
+                                        <div class="container-fluid" id="aboutUsText">
                                             Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
                                         </div>
                                         <br/>
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; text-align: center; opacity: 0.8;">
+                                        <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
                                             *If you can think, you are a learner.
                                         </div>
                                     </div>
@@ -268,10 +280,10 @@
 
 
                                 <!-- About Study -->
-                                <h4 style="text-align: center; margin-top: 5vh; color:#6ECBB7">About Study</h4>
+                                <h4>About Study</h4>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center">
+                                        <div class="container-fluid" id="aboutUsText">
                                             We believe in the learner's natural need for the best learning.<br/>
                                             <br/>
                                             We quench this thirst by having all the best resources in one searchable location<br/>
@@ -282,10 +294,10 @@
                                 </div>
 
                                 <!-- Our Team -->
-                                <h4 style="text-align: center; margin-top: 5vh; color:#6ECBB7">Our Team</h4>
+                                <h4>Our Team</h4>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center">
+                                        <div class="container-fluid" id="aboutUsText">
                                             A small bunch on college students who are determined to help individuals see the value in what they're learning,
                                             and how their learning can take them to their deepest goals. You could call us the 'Avengers of Learning',
                                             or more realistically just your regular local boyband.
@@ -299,19 +311,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-xl-4">
-            <div id="socialBox">
-                <h4 id="socialLinkHeader">Follow Us On</h4>
-                <div id="socialLinkBox" class="d-flex justify-content-center">
-                    &nbsp
-                    <button class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="icons/fbLogo.svg"></button>
-                    <button id="buttonLeft" class="btn btn-primary" ><img src="icons/twitterLogo.svg"></button>
-                    <button id="buttonLeft" class="btn btn-primary" ><img src="icons/Instagram.svg"></button>
-                    <button id="buttonLeft" class="btn btn-primary"><img src="icons/linkedin-logo.svg"></button>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-xl-4" style="margin-top:4vh;">
+        <div class="col-12 col-xl-4 order-md-3" style="margin-top:4vh;">
             <div style="margin:auto; margin-left:10px;">
                 <span class="footerMiscInfo" > Contact: sam@study.ie</span>
                 <br>
