@@ -86,3 +86,21 @@ $(document).ready(function() {
 
 // document ready
 });
+
+$(document).ready(function(){
+    $("#fbBtn").click(function(){
+        window.location.href = "https://www.facebook.com/studyire/";
+    });
+
+    $("#twBtn").click(function(){
+        window.location.href = "https://twitter.com/realstudyie";
+    });
+
+    $("#inBtn").click(function(){
+        window.location.href = "https://www.instagram.com/realstudyie";
+    });
+
+    $("#lnBtn").click(function(){
+        window.location.href = "https://www.linkedin.com/company/study-ie/";
+    });
+});
