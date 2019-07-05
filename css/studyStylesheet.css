@@ -406,6 +406,10 @@ body {
     font-size:0.9vw;
 }
 
+#sectionThreeRowTwo, #sectionThreeRowOne{
+    margin-bottom:10vh;
+}
+
 @media screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
         margin-left: -77px;
@@ -482,7 +486,7 @@ body {
     }
 
     #sectionThreeBox{
-        height:200vh;
+        height:auto;
     }
 
     #socialLinkBox{
@@ -575,6 +579,23 @@ body {
         font-size:3vw;
     }
 
+    .sectionTwoPara{
+        width:100%;
+        font-size:3.2vw;
+    }
+
+    #sectionTwoBox{
+        height:auto;
+    }
+
+
+    #sectionThreeRowOne .col-xl-3{
+        margin-top:7vh;
+    }
+
+    #sectionThreeRowThree .col-xl-7{
+        margin-bottom:7vh;
+    }
 }
 
 
