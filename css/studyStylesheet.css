@@ -307,7 +307,7 @@ body {
 }
 
 #socialBox{
-    margin-top:1.5vh;
+    margin-top:2.5vh;
 }
 
 #sectionThreeStep{
@@ -373,6 +373,21 @@ body {
     margin-top: 4vh;
 }
 
+.footerMiscInfo{
+    text-align: left;
+    color:white;
+    opacity: 0.8;
+    font-size:0.8vw;
+}
+
+#privacyPolicySmall{
+    display:block;
+}
+
+#privacyPolicyLarge{
+    display:none;
+}
+
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #b4e4da !important;
 }
@@ -380,6 +395,15 @@ body {
 #socialLinkHeader{
     color:white;
     text-align: center;
+}
+
+#socialLinkBox button img{
+    width:22px;
+}
+
+#aboutUsBtn{
+    margin-left:3vw;
+    font-size:0.9vw;
 }
 
 @media screen and (min-width: 992px) {
@@ -470,7 +494,7 @@ body {
     }
 
     #socialLinkBox .btn{
-        padding:3px;
+        padding-top:3px;
     }
 
     #buttonLeft{
@@ -478,7 +502,7 @@ body {
     }
 
     #socialLinkBox button img{
-        width:5px;
+        width:15px;
     }
 
     .navbar-light .navbar-nav .nav-link{
@@ -535,7 +559,7 @@ body {
     }
 
     #sectionFourBox .col-12{
-        margin-bottom:6vh;
+        margin-bottom:4vh;
     }
 
     #socialLinkHeader{
@@ -544,10 +568,13 @@ body {
         font-size:6vw;
     }
 
-    #socialLinkBox{
-        margin-left:50%;
-        transform:translate(-50%,0%);
+    .footerMiscInfo{
+        text-align: left;
+        color:white;
+        opacity: 0.8;
+        font-size:3vw;
     }
+
 }
 
 
