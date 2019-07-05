@@ -60,7 +60,11 @@ div > .footerMiscInfo{
     margin:auto;
     text-align:center;
     width:70vw;
-    font-size: 1rem;
+    font-size: 1vw;
+}
+
+#courseNav{
+    display:none;
 }
 
 /* #sectionTwoSubHeader:after{
@@ -73,18 +77,23 @@ div > .footerMiscInfo{
     margin-top: 5px;
 } */
 
+#sectionTwoSubHeader{
+    text-decoration: underline;
+}
+
 .sectionTwoContentHeaders{
     margin-left:10px;
     text-align:center;
     font-size:30px;
     color: #6ECBB7;
     opacity:1;
+    margin-top:20px;
 }
 
 .modal {
     top:5%;
-    width:80%;
-    left:10%;
+    width:85%;
+    left:7.5%;
 }
 
 .row{
@@ -109,10 +118,12 @@ div > .footerMiscInfo{
     height:94vh;
 }
 #sectionThreeHeaders{
-    font-size:2vw;
+    font-size:3rem;
 }
 #sectionThreeContent{
     font-size:1.2vw;
+    color: #6dcab6;
+    opacity: 0.7;
 }
 
 #sectionFourBox{
@@ -213,8 +224,13 @@ div > .footerMiscInfo{
     cursor: pointer;
     transition: 0.4s;
     background: #63cbb7;
-
 }
+
+#sectionThreeStep .col-xl-3 img{
+    width:100%;
+}
+
+
 .gap-up{
     position:relative;
     z-index: 1;
@@ -412,6 +428,33 @@ body {
     margin-bottom:10vh;
 }
 
+#aboutModalContent h4{
+    text-align: center;
+    margin-top: 5vh;
+    color:#6ECBB7;
+}
+
+#aboutModalContent{
+    margin:auto;
+    width:90%;
+}
+
+#aboutUsText{
+    text-align:center;
+}
+
+.iconFrame{
+    background-color:#6ECBB7;
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+    margin:auto;
+}
+
+.icon{
+    width:100px;
+}
+
 @media screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
         margin-left: -77px;
@@ -484,7 +527,7 @@ body {
 
     #sectionThreeContent{
         text-align:center;
-        font-size:100%;
+        font-size:80%;
     }
 
     #sectionThreeBox{
@@ -597,6 +640,35 @@ body {
 
     #sectionThreeRowThree .col-xl-7{
         margin-bottom:7vh;
+    }
+
+    #aboutUsText{
+        font-size:3vw;
+        text-align:center;
+    }
+
+    hr{
+        margin-top:0px;
+        margin-bottom:10px;
+    }
+
+    #aboutModalContent h4{
+        font-size:6vw;
+        margin-top:3vh;
+        width:auto;
+    }
+
+    #aboutModalContent br{
+        font-size:6px;
+    }
+
+    .iconFrame{
+        width:150px;
+        height:150px;
+    }
+
+    .icon{
+        width:75px;
     }
 }
 

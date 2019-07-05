@@ -33,8 +33,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
-            <li class="nav-item">
-                <a class="nav-link" href="courses-home.html" ><span id="wow">Courses</span></a>
+            <li class="nav-item" id="courseNav">
+                <a class="nav-link" href="courses-home.html">Courses</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.html">Blog</a>
@@ -159,11 +159,17 @@
             <h5 id="sectionTwoSubHeader">Study is for learners as we reduce the amount of steps someone needs to take to find learning.</h5>
         </div>
         <br class="sectionTwoContentBr">
+        <div class="iconFrame">
+            <img class="icon" src="icons/law.png" style="margin-top: 25%;">
+        </div>
         <h5 class="sectionTwoContentHeaders">Search</h5>
     <p class="sectionTwoPara">
         To make the searching experience more appealing to our users, we went out and collected all of the most popular, recommended, and highly regarded courses from all over the internet. This can all be search from our top of the line search bar, on top of that if you have any course recommendations which you would like to pass please let us know.
     </p>
         <br class="sectionTwoContentBr">
+        <div class="iconFrame">
+            <img class="icon" src="icons/search.png" style="margin-top: 25%;">
+        </div>
         <h5 class="sectionTwoContentHeaders">Refine and Compare</h5>
         <p class="sectionTwoPara">
             We then want to further comfort our users by allowing them to personalise their search and results through price and the location in which they want to learn if it an offline course. Course reviews are then the cherry on top, as you get to decide what's right for you based on what you can compare.
@@ -201,18 +207,14 @@
         <!-- ROW 1 -->
         <div class="row" id="sectionThreeRowOne">
             <div class="col-xl-3 col-md-auto">
-                <!-- Button trigger modal -->
-                <submit type="image" class="btn button1 btn-success video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/8GGAcc9Q744" data-target="#myModal">
-                    Play
-                </submit>
-                <img src="img/Vid.jpg" class="img-fluid" align="left" style="box-shadow: 0px 5px 15px 0px rgba(0,0,0,.3);">
+                <img src="img/TrackGraphic.png">
             </div>
             <div class="col-xl-1">
             </div>
             <div class="col-xl-7 col-md-auto">
                 <!-- Side Blurb -->
-                <h1 id="sectionThreeHeaders" style="font-size: 3rem; color: #00AAA5;">Online Learning</h1>
-                <p id="sectionThreeContent" style="color: #5ea2d7; opacity: 0.7;">
+                <h1 id="sectionThreeHeaders" style=" color: #00AAA5;">Online Learning</h1>
+                <p id="sectionThreeContent">
                     Any form of learning, Personal development, or up-skilling done over the internet. At Study.ie we curate courses to meet your needs, search through our database of courses handpicked by experienced learners.
                 </p>
             </div>
@@ -244,12 +246,12 @@
                 </submit>
                 <img src="img/Vid.jpg" class="img-fluid" align="right" style="box-shadow: 0px 5px 15px 0px rgba(0,0,0,.3);">
             </div>
-            <div class="col-xl-2">
+            <div class="col-xl-2 order-md-2">
             </div>
             <div class="col-xl-7 col-md-auto order-md-1">
                 <!-- Side Blurb -->
-                <h1 id="sectionThreeHeaders" style="font-size: 3rem; color: #00AAA5;">Offline Learning</h1>
-                <p id="sectionThreeContent" style="color: #5ea2d7; opacity: 0.7;">
+                <h1 id="sectionThreeHeaders" style="color: #00AAA5;">Offline Learning</h1>
+                <p id="sectionThreeContent">
                     Is learning with a group or 1 on 1 more comfortable? At study.ie find an in person course to best suit your needs recommended by other users who learn the same way you do.
                 </p>
             </div>
@@ -287,8 +289,8 @@
             </div>
             <div class="col-xl-7 col-md-auto">
                 <!-- Side Blurb -->
-                <h1 id="sectionThreeHeaders" style="font-size: 3rem; color: #00AAA5;">Track your learning</h1>
-                <p id="sectionThreeContent" style="color: #5ea2d7; opacity: 0.7;">
+                <h1 id="sectionThreeHeaders" style=" color: #00AAA5;">Track your learning</h1>
+                <p id="sectionThreeContent">
                     Follow your learning journey, starting from the beginning keep track and showcase your skills and knowledge. See what you know and what you need to know to reach your goals.
 
                 </p>
@@ -343,18 +345,18 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <div id="aboutModalContent" style="margin:auto; width:90%;">
+                            <div id="aboutModalContent">
 
                                 <!--Our Mission-->
-                                <h4 style="text-align: center; margin-top: 2vh; color:#6ECBB7">Our Mission</h4>
+                                <h4>Our Mission</h4>
                                 <hr style="width: 40%">
                                 <div class="row">
                                     <div class="col">
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center;">
+                                        <div class="container-fluid" id="aboutUsText">
                                             Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
                                         </div>
                                         <br/>
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; text-align: center; opacity: 0.8;">
+                                        <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
                                             *If you can think, you are a learner.
                                         </div>
                                     </div>
@@ -362,10 +364,10 @@
 
 
                                 <!-- About Study -->
-                                <h4 style="text-align: center; margin-top: 5vh; color:#6ECBB7">About Study</h4>
+                                <h4>About Study</h4>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center">
+                                        <div class="container-fluid" id="aboutUsText">
                                             We believe in the learner's natural need for the best learning.<br/>
                                             <br/>
                                             We quench this thirst by having all the best resources in one searchable location<br/>
@@ -376,10 +378,10 @@
                                 </div>
 
                                 <!-- Our Team -->
-                                <h4 style="text-align: center; margin-top: 5vh; color:#6ECBB7">Our Team</h4>
+                                <h4>Our Team</h4>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="container-fluid" id="aboutUsText" style="font-size:1vw; text-align: center">
+                                        <div class="container-fluid" id="aboutUsText">
                                             A small bunch on college students who are determined to help individuals see the value in what they're learning,
                                             and how their learning can take them to their deepest goals. You could call us the 'Avengers of Learning',
                                             or more realistically just your regular local boyband.
