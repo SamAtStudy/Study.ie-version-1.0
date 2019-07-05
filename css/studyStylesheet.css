@@ -7,6 +7,16 @@ body {
     font-size: 18px;
     background-color: #f3fefd;
 }
+
+a{
+    color:white;
+}
+
+a:hover{
+    color:white;
+    text-decoration:none;
+}
+
 #typeWriter {
     font-weight: 200;
     position: absolute;
@@ -115,7 +125,6 @@ div > .footerMiscInfo{
     border-right-color: #6ECBB7;
     margin-top: -15px;
     color: #63cbb7;
-    height:94vh;
 }
 #sectionThreeHeaders{
     font-size:3rem;
@@ -229,7 +238,6 @@ div > .footerMiscInfo{
 #sectionThreeStep .col-xl-3 img{
     width:100%;
 }
-
 
 .gap-up{
     position:relative;
@@ -449,6 +457,10 @@ body {
     width:200px;
     height:200px;
     margin:auto;
+}
+
+#sectionThreeRowThree .col-xl-7{
+    margin-bottom:10vh;
 }
 
 .icon{
