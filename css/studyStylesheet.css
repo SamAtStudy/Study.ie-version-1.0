@@ -77,6 +77,14 @@ div > .footerMiscInfo{
     display:none;
 }
 
+#desktopCurve{
+    display:block;
+}
+
+#mobileCurve{
+    display:none;
+}
+
 /* #sectionTwoSubHeader:after{
     content: "";
     float: left;
@@ -430,6 +438,12 @@ body {
 #aboutUsBtn{
     margin-left:3vw;
     font-size:0.9vw;
+    border:2px solid #6ECBB7;
+    border-radius: 12px;
+    padding: 4px;
+    background-color: #E7FEFC;
+    color:#6ECBB7;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
 #sectionThreeRowTwo, #sectionThreeRowOne{
@@ -482,6 +496,10 @@ body {
 @media screen and (max-width: 567px) {
     #typeWriter {
         font-size: 1.5rem;
+    }
+
+    .parallaxa {
+        background-attachment: scroll;
     }
 
     #typeWriterBox{
@@ -615,8 +633,8 @@ body {
         text-align: center;
         margin-top:20px;
         margin-left:15vw;
-        color:white;
         opacity: 0.8;
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
     }
 
     #sectionFourBox .col-12{
@@ -681,6 +699,20 @@ body {
 
     .icon{
         width:75px;
+    }
+
+    #desktopCurve{
+        display:none;
+    }
+
+    #mobileCurve{
+        display:block;
+    }
+
+    .close{
+        right:20px;
+        top:5px;
+        color:teal;
     }
 }
 
