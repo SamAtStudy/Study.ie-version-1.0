@@ -684,7 +684,7 @@ body {
 
     #aboutModalContent h4{
         font-size:6vw;
-        margin-top:3vh;
+        margin-top:2vh;
         width:auto;
     }
 
@@ -713,6 +713,7 @@ body {
         right:20px;
         top:5px;
         color:teal;
+        font-size: 3rem;
     }
 }
 
