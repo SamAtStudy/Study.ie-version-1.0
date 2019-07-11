@@ -19,8 +19,7 @@ a:hover{
 
 #typeWriter {
     font-weight: 200;
-    position: absolute;
-    top: 25vh;
+    padding-top:25vh;
     font-size: 3.5rem;
     color: white;
     z-index: 1;
@@ -496,6 +495,7 @@ body {
 @media screen and (max-width: 567px) {
     #typeWriter {
         font-size: 1.5rem;
+        padding-top:12vh;
     }
 
     .parallaxa {
@@ -509,7 +509,7 @@ body {
     .cards-list{
         /* On small screens, we are no longer using row direction but column */
         flex-direction: column;
-        margin-top:8vh;
+        margin-top:16vh;
     }
 
     .card{
