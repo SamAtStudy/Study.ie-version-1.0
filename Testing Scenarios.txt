@@ -1,0 +1,6 @@
+For mobile Testing we will use the Iphone 7, given its popularity, mid to modern css view pixels and testing on an
+apple device.
+
+for Desktop testing, two versions will be used. One is a screen with 768p resolution, one 1080p screen.
+
+For Tablet testing, a resolution of 768 x 1024 will be used.

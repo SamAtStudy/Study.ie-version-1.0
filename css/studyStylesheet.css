@@ -73,7 +73,7 @@ div > .footerMiscInfo{
 }
 
 #courseNav{
-    display:none;
+    display:block;
 }
 
 #desktopCurve{
@@ -162,7 +162,6 @@ div > .footerMiscInfo{
 
 .navbar-light .navbar-nav .nav-link{
     color:white;
-    opacity:0.75;
 }
 
 .navbar-nav > li {
@@ -714,6 +713,11 @@ body {
         top:5px;
         color:teal;
         font-size: 3rem;
+    }
+
+    #sectionTwoSubHeader{
+        text-decoration: none;
+        font-weight:600;
     }
 }
 
