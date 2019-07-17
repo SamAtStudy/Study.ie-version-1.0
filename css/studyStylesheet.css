@@ -3,7 +3,7 @@ html{
 }
 
 body {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round','Nunito', sans-serif;
     font-size: 18px;
     background-color: #f3fefd;
 }
@@ -144,7 +144,7 @@ div > .footerMiscInfo{
     opacity: 0.7;
 }
 
-#sectionFourBox{
+#footerBox{
     background-color:#6ECBB7;
     height:20vh;
     font-size:12px;
@@ -620,7 +620,7 @@ body {
         float: initial;
     }
 
-    #sectionFourBox{
+    #footerBox{
         height: auto;
     }
 
@@ -638,7 +638,7 @@ body {
         box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
     }
 
-    #sectionFourBox .col-12{
+    #footerBox .col-12{
         margin-bottom:4vh;
     }
 

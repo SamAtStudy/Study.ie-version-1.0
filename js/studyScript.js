@@ -58,6 +58,11 @@ window.onload = function() {
 };
 
 $(document).ready(function(){
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     $("#fbBtn").click(function(){
         window.location.href = "https://www.facebook.com/studyire/";
     });
@@ -98,8 +103,47 @@ $(document).ready(function(){
         });
     });
 
+    $(".bookmarkIcon").click(function(){
+        if($(this).attr("value")==="notBookmarked"){
+            $(this).attr("src", "icons/bookmark.png");
+            $(this).attr("value", "bookmarked");
+            $(this).tooltip('disable');
+        }else if($(this).attr("value")==="bookmarked"){
+            $(this).attr("src", "icons/unbookmark.png");
+            $(this).attr("value", "notBookmarked");
+            $(this).tooltip('enable');
+        }
+    });
+
+    $(".bookmarkIcon").hover(function(){
+        if($(this).attr("value")==="notBookmarked"){
+            $(this).attr("src", "icons/bookmark.png");
+        }
+    },function(){
+        if($(this).attr("value")==="notBookmarked"){
+            $(this).attr("src", "icons/unBookmark.png");
+        }
+    });
+
+    $(".recommendIcon").click(function(){
+        if($(this).attr("value")==="notRecommended"){
+            $(this).attr("src", "icons/Recommend.svg");
+            $(this).attr("value", "recommended");
+            $(this).tooltip('disable');
+        }else if($(this).attr("value")==="recommended"){
+            $(this).attr("src", "icons/recommend.svg");
+            $(this).attr("value", "notRecommended");
+            $(this).tooltip('enable');
+        }
+    });
+
+    $(".recommendIcon").hover(function(){
+        if($(this).attr("value")==="notRecommended"){
+            $(this).attr("src", "icons/recommend.svg");
+        }
+    },function(){
+        if($(this).attr("value")==="notRecommended"){
+            $(this).attr("src", "icons/unRecommend.svg");
+        }
+    });
 });
-
-
-
-
