@@ -19,71 +19,12 @@ a:hover{
     text-decoration:none;
 }
 
-#typeWriter {
-    font-weight: 200;
-    padding-top:25vh;
-    font-size: 3.5rem;
-    color: white;
-    z-index: 1;
-}
-
-#typeWriterBox{
-    margin-left:39%
-}
-
-#sectionTwoHeader {
-    font-weight: 200;
-    font-size: 2.5rem;
-    color: #6ECBB7;
-    opacity:1;
-}
-#sectionTwoBox{
-    border-top-left-radius: 15vw;
-    border-bottom-left-radius: 15vw;
-    background-color: #f3fefd;
-    font-size:12px;
-    position:relative;
-    z-index: 5;
-    margin-top:-37vh;
-    border-top:solid 15px;
-    border-top-color: #6ECBB7;
-    border-bottom:solid 15px;
-    border-left: solid 9px;
-    border-left-color: #6ECBB7;
-    border-bottom-color: #6ECBB7;
-    text-align: center;
-}
-#sectionTwoContent{
-    margin-left:15%;
-    margin-top:10vh;
-    width: 70%;
-}
-
 div > .footerMiscInfo{
     text-align: center;
 }
 
-.sectionTwoContentBr{
-    line-height:10vh;
-}
-
-.sectionTwoPara{
-    margin:auto;
-    text-align:center;
-    width:70vw;
-    font-size: 1vw;
-}
-
 #courseNav{
     display:block;
-}
-
-#desktopCurve{
-    display:block;
-}
-
-#mobileCurve{
-    display:none;
 }
 
 /* #sectionTwoSubHeader:after{
@@ -96,18 +37,6 @@ div > .footerMiscInfo{
     margin-top: 5px;
 } */
 
-#sectionTwoSubHeader{
-    text-decoration: underline;
-}
-
-.sectionTwoContentHeaders{
-    margin-left:10px;
-    text-align:center;
-    font-size:30px;
-    color: #6ECBB7;
-    opacity:1;
-    margin-top:20px;
-}
 
 .modal {
     top:5%;
@@ -124,37 +53,6 @@ div > .footerMiscInfo{
     height:80vh;
 }
 
-#sectionThreeBox{
-    border-top-right-radius: 15vw;
-    background-color: #E7FEFC;
-    font-size:12px;
-    border-top:solid 15px;
-    border-top-color: #6ECBB7;
-    border-right: solid 9px;
-    border-right-color: #6ECBB7;
-    margin-top: -15px;
-    color: #63cbb7;
-}
-#sectionThreeHeaders{
-    font-size:3rem;
-}
-#sectionThreeContent{
-    font-size:1.2vw;
-    color: #6dcab6;
-    opacity: 0.7;
-}
-
-#sectionFourBox{
-    background-color:#6ECBB7;
-    height:20vh;
-    font-size:12px;
-    border-top:solid 15px;
-    border-top-color: #6ECBB7;
-}
-#optionButtonText{
-    font-family: 'Varela Round', sans-serif;
-    font-size: 22px;
-}
 .navbar-custom
 {
     background-color: #63cbb7;
@@ -205,83 +103,8 @@ div > .footerMiscInfo{
 
 /*FUTURE add navbar overlay when mobile mavbar toggle clicked, like modal. */
 
-.parallaxa {
-    /* The image used */
-    background-image: url("../img/background1.jpg");
-
-    /* Set a specific height */
-    width:100%;
-    height:96vh;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.cards-list {
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top:20vh;
-    margin-left:10vw;
-}
-
 .dropdown-item{
     text-align:center;
-}
-
-.card {
-    margin: 30px auto;
-    width: 250px;
-    height: 126px;
-    border-radius: 40px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-    transition: 0.4s;
-    background: #63cbb7;
-}
-
-#sectionThreeStep .col-xl-3 img{
-    width:100%;
-}
-
-.gap-up{
-    position:relative;
-    z-index: 1;
-    margin-top: -35vh;
-    height:35vh;
-}
-.gap-down{
-    height:35vh;
-    margin-top:-15px;
-}
-
-.card .card_image {
-    width: inherit;
-    height: inherit;
-    border-radius: 40px;
-}
-
-.card .card_image img {
-    width: inherit;
-    height: inherit;
-    border-radius: 40px;
-    object-fit: cover;
-}
-
-.card .card_title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    margin-top: -80px;
-}
-
-.card:hover{
-    transform: scale(0.9, 0.9);
-    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25);
-    background: #6cb4b0;
 }
 
 .title-white {
@@ -320,19 +143,6 @@ body {
     color:#fff;
     opacity:1;
 }
-.button1{
-    position: absolute;
-    top:45%;
-    left:35%;
-    transform: translate(-50%,-50%);
-}
-
-.button2{
-    position: absolute;
-    top:45%;
-    left:63%;
-    transform: translate(-50%,-50%);
-}
 
 #socialLinkBox{
     height:6vh;
@@ -342,13 +152,6 @@ body {
 
 #socialBox{
     margin-top:2.5vh;
-}
-
-#sectionThreeStep{
-    margin-left:15vw;
-    margin-top:8vh;
-    width:70vw;
-    font-size:20px;
 }
 
 .buttonLeft{
@@ -465,20 +268,13 @@ body {
     text-align:center;
 }
 
-.iconFrame{
-    background-color:#6ECBB7;
-    border-radius: 50%;
-    width:200px;
-    height:200px;
-    margin:auto;
-}
-
-#sectionThreeRowThree .col-xl-7{
-    margin-bottom:15vh;
-}
-
 .icon{
     width:100px;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
 }
 
 @media screen and (min-width: 992px) {
@@ -494,76 +290,6 @@ body {
 }
 
 @media screen and (max-width: 567px) {
-    #typeWriter {
-        font-size: 1.5rem;
-        padding-top:12vh;
-    }
-
-    .parallaxa {
-        background-attachment: scroll;
-    }
-
-    #typeWriterBox{
-        margin-left:26vw;
-    }
-
-    .cards-list{
-        /* On small screens, we are no longer using row direction but column */
-        flex-direction: column;
-        margin-top:16vh;
-    }
-
-    .card{
-        margin:10px auto;
-        width:50vw;
-        height:10vh;
-    }
-
-    .card .card_title{
-        margin-top:-7vh;
-    }
-
-    .card:hover{
-        transform: scale(0.9, 0.9);
-        box-shadow: 1px 5px 15px 1px rgba(0,0,0,0.25);
-        background: #6cb4b0;
-    }
-
-    #optionButtonText{
-        font-size:4vw;
-    }
-
-    .button1{
-        font-size:8px;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-
-    .button2{
-        font-size:8px;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-
-
-    #sectionThreeHeaders{
-        text-align:center;
-        margin-top:1vh;
-        font-size:8vw;
-    }
-
-    #sectionThreeContent{
-        text-align:center;
-        font-size:80%;
-    }
-
-    #sectionThreeBox{
-        height:auto;
-    }
 
     #socialLinkBox{
         width:100%;
@@ -594,35 +320,6 @@ body {
         left: 35%;
     }
 
-    .sectionTwoPara{
-        font-size:10px;
-    }
-
-    .sectionTwoContentBr{
-        line-height:50px;
-    }
-
-    #sectionTwoContent{
-        margin-top:7vh;
-        margin-left:5%;
-        width:90%;
-    }
-
-    #sectionTwoHeader{
-        font-size: 1.75rem;
-    }
-
-    #sectionTwoSubHeader{
-        font-size:1rem;
-    }
-
-    #sectionTwoSubHeader:after{
-        float: initial;
-    }
-
-    #sectionFourBox{
-        height: auto;
-    }
 
     #aboutUsBox{
         width:50vw;
@@ -638,10 +335,6 @@ body {
         box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
     }
 
-    #sectionFourBox .col-12{
-        margin-bottom:4vh;
-    }
-
     #socialLinkHeader{
         color:white;
         text-align: center;
@@ -653,29 +346,6 @@ body {
         color:white;
         opacity: 0.8;
         font-size:3vw;
-    }
-
-    .sectionTwoPara{
-        width:100%;
-        font-size:3.2vw;
-    }
-
-    #sectionTwoBox{
-        height:auto;
-    }
-
-
-    #sectionThreeRowOne .col-xl-3{
-        margin-top:7vh;
-    }
-
-    #sectionThreeRowThree .col-xl-7{
-        margin-bottom:7vh;
-    }
-
-    #aboutUsText{
-        font-size:3vw;
-        text-align:center;
     }
 
     hr{
@@ -693,34 +363,10 @@ body {
         font-size:6px;
     }
 
-    .iconFrame{
-        width:150px;
-        height:150px;
-    }
-
-    .icon{
-        width:75px;
-    }
-
-    #desktopCurve{
-        display:none;
-    }
-
-    #mobileCurve{
-        display:block;
-    }
-
     .close{
         right:20px;
         top:5px;
         color:teal;
         font-size: 3rem;
     }
-
-    #sectionTwoSubHeader{
-        text-decoration: none;
-        font-weight:600;
-    }
 }
-
-

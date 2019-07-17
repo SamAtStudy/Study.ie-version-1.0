@@ -67,7 +67,7 @@ $(document).ready(function(){
     });
 
     $("#inBtn").click(function(){
-        window.location.href = "https://www.instagram.com/realstudyie";
+        window.location.href = "https://www.instagram.com/study.ie_";
     });
 
     $("#lnBtn").click(function(){
