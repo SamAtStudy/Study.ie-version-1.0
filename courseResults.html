@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <!-- These meta tags Prevents Caching of web page: Good for development, Not so great for consumer. -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>Study.ie</title>
+    <link rel="icon" href="img/Logo1.png">
+    <!-- EDIT SCSS TO REMOVE PADDING ON ROWS -->
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta http-equiv="refresh" content="5" /> -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+    <!--Googles Valera Round Font -->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <!--<link rel="stylesheet" type="text/css" href="css/studyStylesheet.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="css/courseResults.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142230907-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-142230907-4');
+    </script>
+
+</head>
+<body>
+
+<!-- NAV BAR-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <a class="navbar-brand" href="index.html">
+        <img src=img/Logo2White.png alt="Study.ie" width="115" height="36" style="margin-left:15px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" style="margin-left:15px;">
+            <li class="nav-item" id="courseNav">
+                <a class="nav-link" href="courseResults.html">Courses</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="blog-home.html">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="visibility: hidden;"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div id="loginModalBody">
+                    <div class="form-title text-center">
+                        <h4>Login</h4>
+                    </div>
+
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email1" placeholder="Your email address...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password1" placeholder="Your password...">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <a class="text-left" href="#" style="color:black;">Remember me</a>
+                                <span class="text-right" style="color:black;">Don't Have an account? <a href="#">Create One!</a></span>
+                            </div>
+                            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
+                        </form>
+
+                        <div class="d-flex flex-column text-center">
+                            <a href="#" style="color:black;">Forgot password?</a>
+                        </div>
+
+                        <!-- Or Divider -->
+                        <div class="strike">
+                            <span>Or</span>
+                        </div>
+
+                        <div id="loginSocialBox">
+                            <button class="btn btn-primary">
+                                <img src="icons/twitterLogo.svg">
+                            </button>
+                            <button class="btn btn-primary">
+                                <img src="icons/twitterLogo.svg">
+                            </button>
+                            <button class="btn btn-primary">
+                                <img src="icons/twitterLogo.svg">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="courseResHeader">
+    <!-- <img src=""> -->
+    <div style="background-color: teal; width: 100%; height:60vh; position: relative;">
+        <div class="container h-100">
+            <div class="d-flex justify-content-center h-100">
+                <div class="searchbar">
+                    <input class="search_input" type="text" name="" placeholder="Search...">
+                    <a href="#" class="search_icon"><img src="icons/search.svg" style="height:70%;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--FUTURE: Replace with SVG. Draw PNG then convert to SVG -->
+<div style=" position: absolute; z-index: 5; margin-top: -15vh; border-top-left-radius: 15vw; border-top-right-radius: 15vw; width: 100%; height:15vh;background-color: #f3fefd;"></div>
+
+<div id="courseResContainer" style="margin-left:15%; margin-right: 15%;">
+    <div class="container-fluid">
+        <!--FIX: Data target removed from a tags surrounding course thread icon until unique selector is fixed ' href="#collapseExample" '-->
+        <div class="row">
+            <div class="col-12 mt-5 mx-auto">
+                <div class="card gmd-1 courseTile">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                        </div>
+                        <div class="card-body" style="position: relative;">
+                            <h3>Card Title</h3>
+                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="courseBotTileInfo">
+                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
+                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
+                            </div>
+                        </div>
+                        <div class="courseSideTileInfo">
+                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
+                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body courseTileThread">
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5 mx-auto">
+                <div class="card gmd-1 courseTile">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                        </div>
+                        <div class="card-body" style="position: relative;">
+                            <h3>Card Title</h3>
+                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="courseBotTileInfo">
+                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
+                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
+                            </div>
+                        </div>
+                        <div class="courseSideTileInfo">
+                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
+                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body courseTileThread">
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5 mx-auto">
+                <div class="card gmd-1 courseTile">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                        </div>
+                        <div class="card-body" style="position: relative;">
+                            <h3>Card Title</h3>
+                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="courseBotTileInfo">
+                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
+                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
+                            </div>
+                        </div>
+                        <div class="courseSideTileInfo">
+                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
+                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body courseTileThread">
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-5 mx-auto">
+                <div class="card gmd-1 courseTile">
+                    <div class="card-horizontal">
+                        <div class="img-square-wrapper">
+                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                        </div>
+                        <div class="card-body" style="position: relative;">
+                            <h3>Card Title</h3>
+                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <div class="courseBotTileInfo">
+                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
+                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
+                            </div>
+                        </div>
+                        <div class="courseSideTileInfo">
+                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
+                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body courseTileThread">
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-11 mt-3 mx-auto">
+                                <div class="card card-body threadTile px-4">
+                                    <h5>Thread Title</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 my-5 mx-auto">
+            <h1 class="text-center my-5"> No More Results . . .</h1>
+        </div>
+    </div>
+</div>
+
+<!--SECTION 4 FOOTER -->
+<div id="footerBox">
+    <div class="row">
+        <div class="col-12 col-xl-4 order-md-2">
+            <div id="socialBox">
+                <h4 id="socialLinkHeader">Follow Us On</h4>
+                <div id="socialLinkBox" class="d-flex justify-content-center">
+                    &nbsp
+                    <button id="fbBtn" class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="icons/fbLogo.svg"></button>
+                    <button id="twBtn" class="btn btn-primary buttonLeft"><img src="icons/twitterLogo.svg"></button>
+                    <button id="inBtn" class="btn btn-primary buttonLeft" ><img src="icons/Instagram.svg"></button>
+                    <button id="lnBtn" class="btn btn-primary buttonLeft"><img src="icons/linkedin-logo.svg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 order-md-1">
+            <div id="aboutUsBox">
+                <img src="img/Logo2White.png" style="width:100%;">
+                <a href="#" id="aboutUsBtn" data-toggle="modal" data-target="#aboutModal" > Who Are We? </a>
+            </div>
+
+            <!-- About Us Modal-->
+            <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div id="aboutModalContent">
+
+                                <!--Our Mission-->
+                                <h4>Our Mission</h4>
+                                <hr style="width: 40%">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="container-fluid" id="aboutUsText">
+                                            Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
+                                        </div>
+                                        <br/>
+                                        <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
+                                            *If you can think, you are a learner.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- About Study -->
+                                <h4>About Study</h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="container-fluid" id="aboutUsText">
+                                            We believe in the learner's natural need for the best learning.<br/>
+                                            <br/>
+                                            We quench this thirst by having all the best resources in one searchable location<br/>
+                                            <br/>
+                                            We then help them track not only what they've done in the past and present, but more importantly where their learning can advance to in the future.<br/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Our Team -->
+                                <h4>Our Team</h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="container-fluid" id="aboutUsText">
+                                            A small bunch on college students who are determined to help individuals see the value in what they're learning,
+                                            and how their learning can take them to their deepest goals. You could call us the 'Avengers of Learning',
+                                            or more realistically just your regular local boyband.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 order-md-3" style="margin-top:4vh;">
+            <div style="margin:auto; margin-left:10px;">
+                <span class="footerMiscInfo" > Contact: sam@study.ie</span>
+                <br>
+                <span class="footerMiscInfo" ><a href="https://google.com" style="color:white;">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com" style="color:white;">Terms of Use</a></span>
+                <br>
+                <span class="footerMiscInfo" > Copyright © 2019 Study.ie. All rights reserved. </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/studyScript.js"></script>
+<!-- <script>
+    $(document).ready(function(){
+        $("#loginModal").modal()
+    });
+</script> -->
+
+</body>
+</html>

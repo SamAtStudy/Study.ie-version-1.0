@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
+
+    <!-- These meta tags Prevents Caching of web page: Good for development, Not so great for consumer. -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <title>Study.ie</title>
     <link rel="icon" href="img/Logo1.png">
     <!-- EDIT SCSS TO REMOVE PADDING ON ROWS -->
@@ -15,6 +21,8 @@
 
     <!--Googles Valera Round Font -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 
     <!-- Study.ie Stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/studyStylesheet.css">
@@ -44,7 +52,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
-                <a class="nav-link" href="courses-home.html">Courses</a>
+                <a class="nav-link" href="courseResults.html">Courses</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.html">Blog</a>
@@ -128,32 +136,26 @@
         </span>
     </h1>
     </div>
-   <br style="line-height: 24vh;">
+   <br>
 
     <!-- Buttons -->
     <div class="cards-list container-fluid">
-        <div class="card 1">
+        <div class="card 1" id="learnOnlineFocus">
             <div class="card_image"></div>
             <div class="card_title title-white">
-                <a href="#sectionThreeBox">
-                <p id="optionButtonText">Learn In Person</p>
-                </a>
-            </div>
-        </div>
-        <div class="card 1">
-            <div class="card_image"></div>
-            <div class="card_title title-white">
-                <a href="#sectionThreeBox">
                 <p id="optionButtonText">Learn Online</p>
-                </a>
             </div>
         </div>
-        <div class="card 1">
+        <div class="card 1" id="learInPersonFocus">
             <div class="card_image"></div>
             <div class="card_title title-white">
-                <a href="#sectionThreeBox">
+                <p id="optionButtonText">Learn In Person</p>
+            </div>
+        </div>
+        <div class="card 1" id="trackLearningFocus">
+            <div class="card_image"></div>
+            <div class="card_title title-white">
                 <p id="optionButtonText">Track Learning</p>
-                </a>
             </div>
         </div>
     </div>
@@ -188,7 +190,7 @@
         </p>
     </div>
 </div>
-<div style=" z-index: 5; position: relative; ">
+<div id="desktopCurve" style=" z-index: 5; position: relative; ">
     <div style="background-color:#f3fefd; float:right;height: 15px; width:10.2vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
     <div style="background-color:#f3fefd; float:right;height: 14px; width:10.4vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
     <div style="background-color:#f3fefd; float:right;height: 13px; width:10.6vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
@@ -204,6 +206,24 @@
     <div style="background-color:#f3fefd; float:right;height: 3px; width:13.6vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
     <div style="background-color:#f3fefd; float:right;height: 2px; width:14.2vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
     <div style="background-color:#f3fefd; float:right;height: 1px; width:15vw; margin-top: -15px; z-index: 100; position: relative;">&nbsp</div>
+</div>
+
+<div id="mobileCurve" style=" z-index: 5; position: relative; ">
+    <div style="background-color:#f3fefd; float:right;height: 15px; width:5.2vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 14px; width:5.4vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 13px; width:5.6vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 12px; width:6vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 11px; width:6.4vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 10px; width:6.8vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 9px; width:7.2vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 8px; width:7.6vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 7px; width:8vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 6px; width:8.5vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 5px; width:9vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 4px; width:10.2vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 3px; width:11vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 2px; width:12.2vw; margin-top: -15px; z-index: 10; position: relative;">&nbsp</div>
+    <div style="background-color:#f3fefd; float:right;height: 1px; width:14vw; margin-top: -15px; z-index: 100; position: relative;">&nbsp</div>
 </div>
 
     <!-- SECTION 3 EXPLANATIONS -->
@@ -231,7 +251,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button id="aboutUsClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                             <!-- 16:9 aspect ratio -->
@@ -316,7 +336,7 @@
 </div>
 
     <!--SECTION 4 FOOTER -->
-<div id="sectionFourBox">
+<div id="footerBox">
     <div class="row">
     <div class="col-12 col-xl-4 order-md-2">
         <div id="socialBox">

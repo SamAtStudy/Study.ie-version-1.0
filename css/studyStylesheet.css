@@ -3,10 +3,12 @@ html{
 }
 
 body {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round','Nunito', sans-serif;
     font-size: 18px;
     background-color: #f3fefd;
 }
+
+/* look into bounce animations when things are clicked */
 
 a{
     color:white;
@@ -19,8 +21,7 @@ a:hover{
 
 #typeWriter {
     font-weight: 200;
-    position: absolute;
-    top: 25vh;
+    padding-top:25vh;
     font-size: 3.5rem;
     color: white;
     z-index: 1;
@@ -74,6 +75,14 @@ div > .footerMiscInfo{
 }
 
 #courseNav{
+    display:block;
+}
+
+#desktopCurve{
+    display:block;
+}
+
+#mobileCurve{
     display:none;
 }
 
@@ -135,7 +144,7 @@ div > .footerMiscInfo{
     opacity: 0.7;
 }
 
-#sectionFourBox{
+#footerBox{
     background-color:#6ECBB7;
     height:20vh;
     font-size:12px;
@@ -155,7 +164,6 @@ div > .footerMiscInfo{
 
 .navbar-light .navbar-nav .nav-link{
     color:white;
-    opacity:0.75;
 }
 
 .navbar-nav > li {
@@ -430,6 +438,12 @@ body {
 #aboutUsBtn{
     margin-left:3vw;
     font-size:0.9vw;
+    border:2px solid #6ECBB7;
+    border-radius: 12px;
+    padding: 4px;
+    background-color: #E7FEFC;
+    color:#6ECBB7;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
 #sectionThreeRowTwo, #sectionThreeRowOne{
@@ -482,6 +496,11 @@ body {
 @media screen and (max-width: 567px) {
     #typeWriter {
         font-size: 1.5rem;
+        padding-top:12vh;
+    }
+
+    .parallaxa {
+        background-attachment: scroll;
     }
 
     #typeWriterBox{
@@ -491,7 +510,7 @@ body {
     .cards-list{
         /* On small screens, we are no longer using row direction but column */
         flex-direction: column;
-        margin-top:8vh;
+        margin-top:16vh;
     }
 
     .card{
@@ -601,7 +620,7 @@ body {
         float: initial;
     }
 
-    #sectionFourBox{
+    #footerBox{
         height: auto;
     }
 
@@ -615,11 +634,11 @@ body {
         text-align: center;
         margin-top:20px;
         margin-left:15vw;
-        color:white;
         opacity: 0.8;
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
     }
 
-    #sectionFourBox .col-12{
+    #footerBox .col-12{
         margin-bottom:4vh;
     }
 
@@ -666,7 +685,7 @@ body {
 
     #aboutModalContent h4{
         font-size:6vw;
-        margin-top:3vh;
+        margin-top:2vh;
         width:auto;
     }
 
@@ -681,6 +700,26 @@ body {
 
     .icon{
         width:75px;
+    }
+
+    #desktopCurve{
+        display:none;
+    }
+
+    #mobileCurve{
+        display:block;
+    }
+
+    .close{
+        right:20px;
+        top:5px;
+        color:teal;
+        font-size: 3rem;
+    }
+
+    #sectionTwoSubHeader{
+        text-decoration: none;
+        font-weight:600;
     }
 }
 
