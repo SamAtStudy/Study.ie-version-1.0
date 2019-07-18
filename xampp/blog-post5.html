@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <title>Study.ie</title>
+    <link rel="icon" href="img/Logo1.png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <meta name="description" content="A minimalist Bootstrap theme by StartBootstrap. Contains everything you need to get started building your website. All you have to do is change the text and images.">
+    <link href="blogcss/modern-business.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Googles Valera Round Font -->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <!-- Study.ie Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/studyStylesheet.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142230907-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-142230907-4');
+    </script>
+
+</head>
+
+<body>
+
+<!-- NAV BAR-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <a class="navbar-brand" href="index.html">
+        <img src=img/Logo2White.png alt="Study.ie" width="115" height="36" style="margin-left:15px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto" style="margin-left:15px;">
+            <li class="nav-item">
+                <a class="nav-link" href="courses-home" ><span id="wow">Courses</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="blog-home.html">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Log in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="visibility: hidden;"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div id="aboutModalContent">
+
+                    <div id="modalBox" class="modal-content center">
+                        <h4 id="loginHeader">Login</h4>
+
+                        <!-- form submit refreshes page with is what causes the user not to be logged in-->
+                        <form action="#">
+                            <div id="loginLine" class="input-field">
+                                <i class="material-icons prefix">person</i>
+                                <input type="text" id="username">
+                                <label for="username">Username</label>
+                            </div>
+                            <div id="loginLine" class="input-field">
+                                <i class="material-icons prefix">lock</i>
+                                <input type="password" id="pass">
+                                <label for="pass">Password</label>
+                            </div>
+                            <div id="loginLine" class="row">
+                                <div class="left" style="margin-left:20px;">
+                                    <label>
+                                        <input id="remCheck" type="checkbox" class="filled-in" checked="checked"/>
+                                        <span id="loginLabel" class="flow-text">&nbspRemember me</span> <!--get rid of nbsp for css-->
+                                    </label>
+                                </div>
+                                <div class="right" style="margin-right:20px;">
+                                    <span id="loginLabel" class="flow-text">Don't have an account? <a href="#!" onclick="createAccOption()">Create One!&nbsp</a></span> <!--get rid of nbsp for css-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s8">
+                                    <button id="accLoginBtn" type="submit" class="btn waves-effect waves-light tooltipped"
+                                            data-position="bottom" data-tooltip="Login to an existing account">Login</button>
+                                </div>
+                            </div>
+                            <div id="loginLine" class="row">
+                                <div class="center" style="margin-right:20px;">
+                                    <span id="loginLabel" class="flow-text"><a href="#!">Forgot Password?</a></span> <!--get rid of nbsp for css-->
+                                </div>
+                            </div>
+                            <br>
+                            <!-- <fieldset class="hr-line"><legend align="center">or</legend></fieldset> -->
+                            <h5 id="loginLine" style="margin-top:-15px; font-weight: Bold;"> Or Sign In With...</h5>
+                            <div class="row">
+                                <div class="col s4">
+                                    <button class="btn teal" style="width: 100%; height: 60px;"><img src="icons/fbLogo.svg">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFacebook</button>
+                                </div>
+                                <div class="col s4">
+                                    <button class="btn teal" style="width: 100%; height: 60px;"><img src="icons/twitterLogo.svg">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTwitter</button>
+                                </div>
+                                <div class="col s4">
+                                    <button class="btn teal" style="width: 100%; height: 60px;"><img src="icons/googleLogo.svg">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGoogle</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Diary of a student entrepreneur
+                <br><small>by  Andriy Babiy
+                </small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Blog Post Content Column -->
+        <div class="col-lg-8">
+
+            <!-- Blog Post -->
+
+            <hr>
+
+            <!-- Date/Time -->
+            <p><i class="fa fa-clock-o"></i> Posted on July 2, 2019 at 8:00 PM</p>
+
+            <hr>
+
+            <!-- Preview Image -->
+            <img class="img-responsive" src="blogimg/MykolaBoring.jpg" alt="">
+
+
+
+            <!-- Post Content -->
+            <p class="lead">I was driven to start Study.ie in 2017, after failing to find a peer-reviewed Spanish course in Valencia. After searching through Google and sifting through offerings I was overwhelmed by all of the different website designs and content layouts. I was looking for a recommendation from a peer similar to the way I would find a hotel based on user reviews and that was nowhere to be found. So we started Study.ie.</p>
+            <p>Study.ie is a learning resource aggregator that is simplifying the search process and allowing people to record and share their learning experience in order to both track what they did and share it with others. Being a Trinity student, it’s a great opportunity to take part in LaunchBox, Tangent’s Student Accelerator. In addition to the funding, the opportunity to work with like-minded individuals was one of the core reasons why I decided to apply. During the first few weeks, LaunchBox really stress-tested our idea. Each week on the programme a different team runs a peer session. You have to present on a challenge you’re facing, or a product feature you’d like tested – anything that means you’re open to feedback and criticism, and that pulls you out of your startup bubble.</p>
+            <p>So how did I find out where to start learning to code. Back in 2014 I did what most of Generation Z does to find an answer, I googled it and I what I got back was an avalanche of information well into the hundreds of thousands of search results. That’s when I realised the problem wasn’t with what I was searching. I asked and google answered the problem was how I was searching. So that was my next question for the internet “how do I search on google” and what I learned from that simple search has affected the way I learn throughout my whole life. Secondary school through college onwards.</p>
+            <h2>“Study.ie is a learning resource aggregator that is simplifying the search process and allowing people to record and share their learning experience”</h2>
+            <p>It was both a blessing and a curse to have our session early; it pushed us to get our website prototype done faster and to have the cohort use it and give us some feedback which really opened our eyes to what people wanted. Even though the session shook me and the Study.ie team to the core, and showed me that there is still a lot to learn, the insights from the other LaunchBox startups in conjunction with the guest founders has really given me confidence. Sometimes done is better than perfect.</p>
+
+        </div>
+
+
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Begin Mailchimp Signup Form -->
+                <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+
+                <div id="mc_embed_signup">
+                    <form action="https://study.us3.list-manage.com/subscribe/post?u=356003aa71f77fe544914887a&amp;id=278ef6b74c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                            <label for="mce-EMAIL">Subscribe to be notified of our blogs</label>
+                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_356003aa71f77fe544914887a_278ef6b74c" tabindex="-1" value=""></div>
+                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<div id="sectionFourBox">
+    <div class="row">
+        <div class="col-12 col-xl-4 order-md-2">
+            <div id="socialBox">
+                <h4 id="socialLinkHeader">Follow Us On</h4>
+                <div id="socialLinkBox" class="d-flex justify-content-center">
+                    &nbsp
+                    <button id="fbBtn" class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="icons/fbLogo.svg"></button>
+                    <button id="twBtn" class="btn btn-primary buttonLeft" ><img src="icons/twitterLogo.svg"></button>
+                    <button id="inBtn" class="btn btn-primary buttonLeft" ><img src="icons/Instagram.svg"></button>
+                    <button id="lnBtn" class="btn btn-primary buttonLeft"><img src="icons/linkedin-logo.svg"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 order-md-1">
+            <div id="aboutUsBox">
+                <img src="img/Logo2White.png" style="width:100%;">
+                <a href="#" id="aboutUsBtn" data-toggle="modal" data-target="#aboutModal" > Who Are We? </a>
+            </div>
+
+            <!-- About Us Modal-->
+            <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div id="aboutModalContent">
+
+                                <!--Our Mission-->
+                                <h4>Our Mission</h4>
+                                <hr style="width: 40%">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="container-fluid" id="aboutUsText">
+                                            Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
+                                        </div>
+                                        <br/>
+                                        <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
+                                            *If you can think, you are a learner.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- About Study -->
+                                <h4>About Study</h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="container-fluid" id="aboutUsText">
+                                            We believe in the learner's natural need for the best learning.<br/>
+                                            <br/>
+                                            We quench this thirst by having all the best resources in one searchable location<br/>
+                                            <br/>
+                                            We then help them track not only what they've done in the past and present, but more importantly where their learning can advance to in the future.<br/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Our Team -->
+                                <h4>Our Team</h4>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="container-fluid" id="aboutUsText">
+                                            A small bunch on college students who are determined to help individuals see the value in what they're learning,
+                                            and how their learning can take them to their deepest goals. You could call us the 'Avengers of Learning',
+                                            or more realistically just your regular local boyband.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 order-md-3" style="margin-top:4vh;">
+            <div style="margin:auto; margin-left:10px;">
+                <span class="footerMiscInfo" > Contact: sam@study.ie</span>
+                <br>
+                <span class="footerMiscInfo" ><a href="https://google.com" style="color:white;">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com" style="color:white;">Terms of Use</a></span>
+                <br>
+                <span class="footerMiscInfo" > Copyright © 2019 Study.ie. All rights reserved. </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/studyScript.js"></script>
+<!-- jQuery -->
+<script src="blogjs/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="blogjs/bootstrap.min.js"></script>
+
+</body>
+
+</html>
