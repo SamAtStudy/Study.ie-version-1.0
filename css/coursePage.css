@@ -3,9 +3,10 @@ html{
 }
 
 body {
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round','Nunito', sans-serif;
     font-size: 18px;
     background-color: #f3fefd;
+    padding-right: 0 !important
 }
 
 /* look into bounce animations when things are clicked */
@@ -18,44 +19,59 @@ a:hover{
     color:white;
     text-decoration:none;
 }
+#sectionTwoHeader {
+    font-weight: 200;
+    font-size: 2.5rem;
+    color: #6ECBB7;
+    opacity:1;
+}
+#sectionTwoBox{
+    border-top-left-radius: 15vw;
+    border-bottom-left-radius: 15vw;
+    background-color: #f3fefd;
+    font-size:12px;
+    position:relative;
+    z-index: 5;
+    margin-top:-34vh;
+    border-top:solid 15px;
+    border-top-color: #6ECBB7;
+    border-bottom:solid 15px;
+    border-left: solid 9px;
+    border-left-color: #6ECBB7;
+    border-bottom-color: #6ECBB7;
+    text-align: center;
+}
+#sectionTwoContent{
+    margin-left:15%;
+    margin-top:15vh;
+    width: 70%;
+}
 
 div > .footerMiscInfo{
     text-align: center;
+}
+
+.sectionTwoContentBr{
+    line-height:10vh;
+}
+
+.sectionTwoPara{
+    margin:auto;
+    text-align:center;
+    width:70vw;
+    font-size: 1vw;
 }
 
 #courseNav{
     display:block;
 }
 
-.searchbar{
-    margin-top: 15%;
-    height: 60px;
-    background-color:  #4c5467;
-    border-radius: 30px;
-    padding: 10px;
+#desktopCurve{
+    display:block;
 }
 
-.search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 450px;
-    caret-color:teal;
-    line-height: 40px;
-    padding: 0 10px;
-}
-
-.search_icon{
-    height: 40px;
-    width: 40px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: #e74c3c;
-    background: white;
+#mobileCurve{
+    display:none;
 }
 
 /* #sectionTwoSubHeader:after{
@@ -68,6 +84,18 @@ div > .footerMiscInfo{
     margin-top: 5px;
 } */
 
+#sectionTwoSubHeader{
+    text-decoration: underline;
+}
+
+.sectionTwoContentHeaders{
+    margin-left:10px;
+    text-align:center;
+    font-size:30px;
+    color: #6ECBB7;
+    opacity:1;
+    margin-top:20px;
+}
 
 .modal {
     top:5%;
@@ -84,6 +112,37 @@ div > .footerMiscInfo{
     height:80vh;
 }
 
+#sectionThreeBox{
+    border-top-right-radius: 15vw;
+    background-color: #E7FEFC;
+    font-size:12px;
+    border-top:solid 15px;
+    border-top-color: #6ECBB7;
+    border-right: solid 9px;
+    border-right-color: #6ECBB7;
+    margin-top: -15px;
+    color: #63cbb7;
+}
+#sectionThreeHeaders{
+    font-size:3rem;
+}
+#sectionThreeContent{
+    font-size:1.2vw;
+    color: #6dcab6;
+    opacity: 0.7;
+}
+
+#footerBox{
+    background-color:#6ECBB7;
+    height:20vh;
+    font-size:12px;
+    border-top:solid 15px;
+    border-top-color: #6ECBB7;
+}
+#optionButtonText{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 22px;
+}
 .navbar-custom
 {
     background-color: #63cbb7;
@@ -134,8 +193,27 @@ div > .footerMiscInfo{
 
 /*FUTURE add navbar overlay when mobile mavbar toggle clicked, like modal. */
 
+#sectionOneBox {
+    width:100%;
+}
+
 .dropdown-item{
     text-align:center;
+}
+
+#sectionThreeStep .col-xl-3 img{
+    width:100%;
+}
+
+.gap-up{
+    position:relative;
+    z-index: 1;
+    margin-top: -35vh;
+    height:35vh;
+}
+.gap-down{
+    height:35vh;
+    margin-top:-15px;
 }
 
 .title-white {
@@ -153,10 +231,6 @@ div > .footerMiscInfo{
 .modal-dialog {
     max-width: 800px;
     margin: 30px auto;
-}
-
-body {
-    padding-right: 0 !important
 }
 
 .modal-body {
@@ -183,6 +257,13 @@ body {
 
 #socialBox{
     margin-top:2.5vh;
+}
+
+#sectionThreeStep{
+    margin-left:15vw;
+    margin-top:8vh;
+    width:70vw;
+    font-size:20px;
 }
 
 .buttonLeft{
@@ -288,6 +369,7 @@ body {
     text-align: center;
     margin-top: 5vh;
     color:#6ECBB7;
+    font-size:3.5vh;
 }
 
 #aboutModalContent{
@@ -297,147 +379,23 @@ body {
 
 #aboutUsText{
     text-align:center;
+    font-size: 2vh;
+}
+
+.iconFrame{
+    background-color:#6ECBB7;
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+    margin:auto;
+}
+
+#sectionThreeRowThree .col-xl-7{
+    margin-bottom:15vh;
 }
 
 .icon{
     width:100px;
-}
-
-.card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-}
-
-#footerBox{
-    background-color:#6ECBB7;
-    height:20vh;
-    font-size:12px;
-    border-top:solid 15px;
-    border-top-color: #6ECBB7;
-}
-
-
-.tooltip .arrow {
-    display: none;
-}
-
-.courseTile{
-    padding:20px;
-    border-radius:30px;
-}
-
-.courseSideTileInfo{
-    padding: 20px;
-    position: relative;
-}
-
-.courseBotTileInfo{
-    position: absolute;
-    bottom: 0;
-    opacity: 0.7;
-    font-size: .9rem;
-}
-
-.courseTilePrice{
-    position: absolute;
-    bottom: 0;
-    transform: translate(-50%,0%);
-    font-size:1.5rem;
-}
-
-.bookmarkIcon{
-    height:55px;
-}
-
-.courseTileImg{
-    border-radius:20px;
-}
-
-.courseTileIconBottom{
-    height:32px;
-}
-
-.courseTileIconSide{
-    position: absolute;
-    transform: translate(-50%,-50%);
-}
-
-.courseTileDesc{
-    opacity:0.8;
-}
-
-.courseTileIconSide:hover{
-    cursor: pointer;
-}
-
-.courseTileIconBottom{
-    cursor: pointer;
-}
-
-.courseTileThread{
-    padding:20px;
-    border-bottom-left-radius:30px;
-    border-bottom-right-radius:30px;
-    background-color: #d9d9d9;
-}
-
-.threadTile{
-    border-radius:20px;
-}
-
-/* GOOGLE MATERIAL DESIGN SHADOWS */
-
-.gmd-1 {
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
-}
-
-.gmd-1:hover {
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-.gmd-2 {
-    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.gmd-3 {
-    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-.gmd-4 {
-    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    -ms-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    -o-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.gmd-5 {
-    -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 @media screen and (min-width: 992px) {
@@ -453,13 +411,23 @@ body {
 }
 
 @media screen and (max-width: 567px) {
-
-    #footerBox{
-        height: auto;
+    #optionButtonText{
+        font-size:4vw;
     }
 
-    #footerBox .col-12{
-        margin-bottom:4vh;
+    #sectionThreeHeaders{
+        text-align:center;
+        margin-top:1vh;
+        font-size:8vw;
+    }
+
+    #sectionThreeContent{
+        text-align:center;
+        font-size:80%;
+    }
+
+    #sectionThreeBox{
+        height:auto;
     }
 
     #socialLinkBox{
@@ -491,6 +459,35 @@ body {
         left: 35%;
     }
 
+    .sectionTwoPara{
+        font-size:10px;
+    }
+
+    .sectionTwoContentBr{
+        line-height:50px;
+    }
+
+    #sectionTwoContent{
+        margin-top:7vh;
+        margin-left:5%;
+        width:90%;
+    }
+
+    #sectionTwoHeader{
+        font-size: 1.75rem;
+    }
+
+    #sectionTwoSubHeader{
+        font-size:1rem;
+    }
+
+    #sectionTwoSubHeader:after{
+        float: initial;
+    }
+
+    #footerBox{
+        height: auto;
+    }
 
     #aboutUsBox{
         width:50vw;
@@ -506,6 +503,10 @@ body {
         box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
     }
 
+    #footerBox .col-12{
+        margin-bottom:4vh;
+    }
+
     #socialLinkHeader{
         color:white;
         text-align: center;
@@ -517,6 +518,29 @@ body {
         color:white;
         opacity: 0.8;
         font-size:3vw;
+    }
+
+    .sectionTwoPara{
+        width:100%;
+        font-size:3.2vw;
+    }
+
+    #sectionTwoBox{
+        height:auto;
+    }
+
+
+    #sectionThreeRowOne .col-xl-3{
+        margin-top:7vh;
+    }
+
+    #sectionThreeRowThree .col-xl-7{
+        margin-bottom:7vh;
+    }
+
+    #aboutUsText{
+        font-size:3vw;
+        text-align:center;
     }
 
     hr{
@@ -534,10 +558,32 @@ body {
         font-size:6px;
     }
 
+    .iconFrame{
+        width:150px;
+        height:150px;
+    }
+
+    .icon{
+        width:75px;
+    }
+
+    #desktopCurve{
+        display:none;
+    }
+
+    #mobileCurve{
+        display:block;
+    }
+
     .close{
         right:20px;
         top:5px;
         color:teal;
         font-size: 3rem;
+    }
+
+    #sectionTwoSubHeader{
+        text-decoration: none;
+        font-weight:600;
     }
 }

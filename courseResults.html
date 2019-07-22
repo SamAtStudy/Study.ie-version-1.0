@@ -123,7 +123,7 @@
 
 <div id="courseResHeader">
     <!-- <img src=""> -->
-    <div style="background-color: teal; width: 100%; height:60vh; position: relative;">
+    <div style="background-color: teal; width: 100%; height:60vh; position: relative; z-index: 0;">
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
                 <div class="searchbar">
@@ -136,210 +136,70 @@
 </div>
 
 <!--FUTURE: Replace with SVG. Draw PNG then convert to SVG -->
-<div style=" position: absolute; z-index: 5; margin-top: -15vh; border-top-left-radius: 15vw; border-top-right-radius: 15vw; width: 100%; height:15vh;background-color: #f3fefd;"></div>
+<div style=" position: absolute; margin-top: -15vh; border-top-left-radius: 15vw; border-top-right-radius: 15vw; width: 100%; height:15vh;background-color: #f3fefd;"></div>
 
-<div id="courseResContainer" style="margin-left:15%; margin-right: 15%;">
-    <div class="container-fluid">
-        <!--FIX: Data target removed from a tags surrounding course thread icon until unique selector is fixed ' href="#collapseExample" '-->
-        <div class="row">
-            <div class="col-12 mt-5 mx-auto">
-                <div class="card gmd-1 courseTile">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
-                        </div>
-                        <div class="card-body" style="position: relative;">
-                            <h3>Card Title</h3>
-                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="courseBotTileInfo">
-                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
-                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
-                            </div>
-                        </div>
-                        <div class="courseSideTileInfo">
-                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
-                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body courseTileThread">
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 mt-5 mx-auto">
-                <div class="card gmd-1 courseTile">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
-                        </div>
-                        <div class="card-body" style="position: relative;">
-                            <h3>Card Title</h3>
-                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="courseBotTileInfo">
-                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
-                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
-                            </div>
-                        </div>
-                        <div class="courseSideTileInfo">
-                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
-                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body courseTileThread">
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 mt-5 mx-auto">
-                <div class="card gmd-1 courseTile">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
-                        </div>
-                        <div class="card-body" style="position: relative;">
-                            <h3>Card Title</h3>
-                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="courseBotTileInfo">
-                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
-                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
-                            </div>
-                        </div>
-                        <div class="courseSideTileInfo">
-                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
-                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body courseTileThread">
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 mt-5 mx-auto">
-                <div class="card gmd-1 courseTile">
-                    <div class="card-horizontal">
-                        <div class="img-square-wrapper">
-                            <img class="courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
-                        </div>
-                        <div class="card-body" style="position: relative;">
-                            <h3>Card Title</h3>
-                            <p class="card-text courseTileDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <div class="courseBotTileInfo">
-                                <img class="courseTileIconBottom recommendIcon" src="icons/unRecommend.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
-                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
-                            </div>
-                        </div>
-                        <div class="courseSideTileInfo">
-                            <div class="courseTileIconSide"><img class="bookmarkIcon" src="icons/unBookmark.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
-                            <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body courseTileThread">
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-11 mt-3 mx-auto">
-                                <div class="card card-body threadTile px-4">
-                                    <h5>Thread Title</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div id="courseResContainer" style="margin-left:15%; margin-right: 15%; margin-top: -10vh;">
+    <div class="container-fluid" id="resContainerStep">
     </div>
     <div class="row">
         <div class="col-12 my-5 mx-auto">
-            <h1 class="text-center my-5"> No More Results . . .</h1>
+            <button id="loadMoreResults" onclick="courseResults();" type="button" class="mx-auto btn btn-lrg my-5 gmd-1" style="display:block; width:60%; background: teal; color:white; border-radius: 30px; height:70px; font-size: 1.5rem; padding:10px;">Load More</button>
+            <h1 id="noResults" class="my-5 text-center" style="display:none;"> No More Results . . .</h1>
         </div>
     </div>
 </div>
+
+<!-- FUTURE: Expandable thread preview tile-->
+<!-- FIX: Data target removed from a tags surrounding course thread icon until unique selector is fixed 'href="#collapseExample" '-->
+<!--
+<div class="row">
+    <div class="col-12 mt-5 mx-auto">
+        <div class="card gmd-1 courseTile">
+            <div class="card-horizontal">
+                <div class="img-square-wrapper">
+                    <img class="courseImg courseTileImg" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                </div>
+                <div class="card-body" style="position: relative;">
+                    <h3 class="courseTitle">Card Title</h3>
+                    <p class="card-text courseDesc">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="courseBotTileInfo">
+                        <img class="courseTileIconBottom recommendIcon courseRecommend" src="icons/notRecommended.svg" value="notRecommended" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended
+                        <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">0</span> Threads
+                    </div>
+                </div>
+                <div class="courseSideTileInfo">
+                    <div class="courseTileIconSide"><img class="bookmarkIcon courseBookmark" src="icons/notBookmarked.png" value="notBookmarked" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>
+                    <div class="align-items-end courseTilePrice"><span id="coursePrice">€0</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body courseTileThread">
+                <div class="row">
+                    <div class="col-11 mt-3 mx-auto">
+                        <div class="card card-body threadTile px-4">
+                            <h5>Thread Title</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-11 mt-3 mx-auto">
+                        <div class="card card-body threadTile px-4">
+                            <h5>Thread Title</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-11 mt-3 mx-auto">
+                        <div class="card card-body threadTile px-4">
+                            <h5>Thread Title</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 
 <!--SECTION 4 FOOTER -->
 <div id="footerBox">
