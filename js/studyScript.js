@@ -214,6 +214,7 @@ function createTile(){
     $("#resContainerStep").append(div);
 }
 
+
 function courseData(req){
 
     if(req==="tile"){
