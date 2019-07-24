@@ -6,7 +6,7 @@ include 'Server.php';
 }*/
 
 
-if(isset($_POST['typeData'])) {
+if(isset($_POST['courseID'])) {
     retrieve();
 }
 
