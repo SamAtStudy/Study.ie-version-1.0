@@ -33,7 +33,7 @@
 <body>
 
 <!-- NAV BAR-->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+<nav class="navbar navbar-expand-xl navbar-light navbar-custom">
     <a class="navbar-brand" href="index.html">
         <img src=img/Logo2White.png alt="Study.ie" width="115" height="36" style="margin-left:15px;">
     </a>
@@ -44,7 +44,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
-                <a class="nav-link" href="courses-home.html">Courses</a>
+                <a class="nav-link" href="courseResults.html">Courses</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.html">Blog</a>
@@ -67,63 +67,47 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <div id="aboutModalContent">
-
-                    <div id="modalBox" class="modal-content center">
-                        <h4 id="loginHeader">Login</h4>
-
-                        <!-- form submit refreshes page with is what causes the user not to be logged in-->
-                        <form action="#">
-                            <div id="loginLine" class="input-field">
-                                <i class="material-icons prefix">person</i>
-                                <input type="text" id="username">
-                                <label for="username">Username</label>
-                            </div>
-                            <div id="loginLine" class="input-field">
-                                <i class="material-icons prefix">lock</i>
-                                <input type="password" id="pass">
-                                <label for="pass">Password</label>
-                            </div>
-                            <div id="loginLine" class="row">
-                                <div class="left" style="margin-left:20px;">
-                                    <label>
-                                        <input id="remCheck" type="checkbox" class="filled-in" checked="checked"/>
-                                        <span id="loginLabel" class="flow-text">&nbspRemember me</span> <!--get rid of nbsp for css-->
-                                    </label>
-                                </div>
-                                <div class="right" style="margin-right:20px;">
-                                    <span id="loginLabel" class="flow-text">Don't have an account? <a href="#!" onclick="createAccOption()">Create One!&nbsp</a></span> <!--get rid of nbsp for css-->
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s8">
-                                    <button id="accLoginBtn" type="submit" class="btn waves-effect waves-light tooltipped"
-                                            data-position="bottom" data-tooltip="Login to an existing account">Login</button>
-                                </div>
-                            </div>
-                            <div id="loginLine" class="row">
-                                <div class="center" style="margin-right:20px;">
-                                    <span id="loginLabel" class="flow-text"><a href="#!">Forgot Password?</a></span> <!--get rid of nbsp for css-->
-                                </div>
-                            </div>
-                            <br>
-                            <!-- <fieldset class="hr-line"><legend align="center">or</legend></fieldset> -->
-                            <h5 id="loginLine" style="margin-top:-15px; font-weight: Bold;"> Or Sign In With...</h5>
-                            <div class="row">
-                                <div class="col s4">
-                                    <button class="btn teal" style="width: 100%; height: 60px;"><img src="icons/fbLogo.svg">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFacebook</button>
-                                </div>
-                                <div class="col s4">
-                                    <button class="btn teal" style="width: 100%; height: 60px;"><img src="icons/twitterLogo.svg">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTwitter</button>
-                                </div>
-                                <div class="col s4">
-                                    <button class="btn teal" style="width: 100%; height: 60px;"><img src="icons/googleLogo.svg">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGoogle</button>
-                                </div>
-                            </div>
-
-                        </form>
+                <div id="loginModalBody">
+                    <div class="form-title text-center">
+                        <h4>Login</h4>
                     </div>
 
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email1" placeholder="Your email address...">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password1" placeholder="Your password...">
+                            </div>
+                            <div class="d-flex flex-column">
+                                <a class="text-left" href="#" style="color:black;">Remember me</a>
+                                <span class="text-right" style="color:black;">Don't Have an account? <a href="#">Create One!</a></span>
+                            </div>
+                            <button type="button" class="btn btn-info btn-block btn-round">Login</button>
+                        </form>
+
+                        <div class="d-flex flex-column text-center">
+                            <a href="#" style="color:black;">Forgot password?</a>
+                        </div>
+
+                        <!-- Or Divider -->
+                        <div class="strike">
+                            <span>Or</span>
+                        </div>
+
+                        <div id="loginSocialBox">
+                            <button class="btn btn-primary">
+                                <img src="icons/twitterLogo.svg">
+                            </button>
+                            <button class="btn btn-primary">
+                                <img src="icons/twitterLogo.svg">
+                            </button>
+                            <button class="btn btn-primary">
+                                <img src="icons/twitterLogo.svg">
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,36 +174,15 @@
 
     </div>
     <!-- /.row -->
+    <br>
+    <br>
 
-    <hr>
-
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Begin Mailchimp Signup Form -->
-                <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-
-                <div id="mc_embed_signup">
-                    <form action="https://study.us3.list-manage.com/subscribe/post?u=356003aa71f77fe544914887a&amp;id=278ef6b74c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                        <div id="mc_embed_signup_scroll">
-                            <label for="mce-EMAIL">Subscribe to be notified of our blogs</label>
-                            <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_356003aa71f77fe544914887a_278ef6b74c" tabindex="-1" value=""></div>
-                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 </div>
 <!-- /.container -->
 
-<!-- Footer -->
-<div id="sectionFourBox">
+<!--SECTION 4 FOOTER -->
+<div id="footerBox">
     <div class="row">
         <div class="col-12 col-xl-4 order-md-2">
             <div id="socialBox">
@@ -251,7 +214,7 @@
 
                                 <!--Our Mission-->
                                 <h4>Our Mission</h4>
-                                <hr style="width: 40%">
+                                <!-- <hr style="width: 40%"> -->
                                 <div class="row">
                                     <div class="col">
                                         <div class="container-fluid" id="aboutUsText">

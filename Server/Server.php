@@ -1,8 +1,14 @@
 <?php
-$servername = "mysql4205int.cp.blacknight.com";
-$username = "u1459480_study";
-$password = "hT6RFxgd";
+//header("Access-Control-Allow-Origin: *");
+$dbServername = "mysql4205int.cp.blacknight.com";
+$dbUsername = "u1459480_study";
+$dbPassword = "hT6RFxgd";
 
 // Create connection
-$connectDB = new mysqli($servername, $username, $password);
+$dbName='db1459480_SamAJ';
+
+$connectDB=mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
+
+//Set mysqli charset as UTF-8
+mysqli_set_charset($connectDB,"utf8");
 

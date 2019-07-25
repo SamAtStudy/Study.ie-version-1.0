@@ -107,32 +107,32 @@ var TxtRotate = function(el, toRotate, period) {
 
 
 TxtRotate.prototype.tick = function() {
-    var i = this.loopNum % this.toRotate.length;
-    var fullTxt = this.toRotate[i];
+(function() {    var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
 
-    if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
 
-    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
-    var that = this;
-    var delta = 300 - Math.random() * 100;
+        var that = this;
+        var delta = 300 - Math.random() * 100;
 
-    if (this.isDeleting) { delta /= 2; }
+        if (this.isDeleting) { delta /= 2; }
 
-    if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-    }
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
 
-    setTimeout(function() {
+        setTimeout
         that.tick();
     }, delta);
 };
@@ -155,7 +155,16 @@ window.onload = function() {
 
 function checkResults(){
     /* Number of results/rows is cached here */
-    return 6;
+    //return 6;
+    /*var amount="all";
+    $.post("https://study.ie/Server/api.php",{
+        amount: amount
+    },function(data,status){
+        data=data.substring(1,data.length-1);
+        alert("JSON Data: " + data + "\nStatus: " + status);
+
+    });*/
+    return 2000;
 }
 
 function GetURLParameter(sParam)
@@ -171,9 +180,10 @@ function GetURLParameter(sParam)
         }
     }
 }
+var resNum=2000;
 
 function courseResults(){
-    var resNum=checkResults();
+    //var resNum=checkResults();
 
     if(resNum==0){
 
@@ -190,7 +200,7 @@ function courseResults(){
         $("#noResults").show();
         $("#loadMoreResults").hide();
     }else{
-        for(i=resNum; i>0; i--){
+        for(i=6; i>0; i--){
             createTile();
         }
         courseTileFunctions();
@@ -200,7 +210,8 @@ function courseResults(){
 //FUTURE: script for applying a relevant image for a particular Course Topic if no image available
 function createTile(){
 
-    var ar=courseData("tile");
+    var ar={courseImg:"https://via.placeholder.com/320x180",courseTitle:"Tile Title",courseDesc:"Tile Description",
+        coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
 
     var div = $('<div class="row">' +
         '<div class="col-12 mt-5 mx-auto">\n' +
@@ -210,7 +221,7 @@ function createTile(){
         '                            <img class="courseImg courseTileImg" src="'+ar['courseImg']+'" alt="Card image cap">\n' +
         '                        </div>\n' +
         '                        <div class="card-body" style="position: relative;">\n' +
-        '                            <a href="course.html?44"><h3 class="courseTitle">'+ar['courseTitle']+'</h3></a>\n' +
+        '                            <a class="removeColor" href="course.html?id='+resNum+'"><h3 class="courseTitle">'+ar['courseTitle']+'</h3></a>\n' +
         '                            <p class="card-text courseDesc">'+ar['courseDesc']+'</p>\n' +
         '                            <div class="courseBotTileInfo">\n' +
         '                                <img class="courseTileIconBottom recommendIcon courseRecommend" src="icons/'+ar['courseRecommend']+'.svg" value="'+ar['courseRecommend']+'" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended\n' +
@@ -224,96 +235,89 @@ function createTile(){
         '                    </div>\n' +
         '                </div>' +
         '</div>');
+    resNum=resNum-1;
 
     $("#resContainerStep").append(div);
 }
 
 function createCoursePage(){
 
-    var ar=courseData("page");
-    //look into caching selectors for improved performance
+    var data={courseID:0,courseImg:"https://via.placeholder.com/320x180",courseTitle:"Course Title",
+        courseDesc:"Course Description", courseProvider:"Course Provider",coursePrice:"€0",courseRecommend:"notRecommended",
+        courseThread:"0", courseBookmark:"notBookmarked", courseSubjects:"Course Subjects/Modules",
+        courseFeeInfo:"Info on Fees",courseDuration:"Info on duration", courseLink:"https://www.google.com/search?q=study.ie",
+        courseCode:"XY000",coursePoints:"000", courseLocation:"Course Location",courseSetting:"Online",courseType:"Learning"};
 
-    $(".courseTitle").html(ar['courseTitle']);
-    $("#courseImg").attr("src",ar['courseImg']);
-    $("#courseSetting").html(ar['courseSetting']);
-    $("#courseDesc").html(ar['courseDesc']);
-    $("#courseProvider").html(ar['courseProvider']);
-    $("#courseSubjects").html(ar['courseSubjects']);
+    var strSplit;
 
-    var moreInfo="";
-    /*
-    if(ar['courseFee'].length<2 && ar['courseDuration'].length<2){
-        moreInfo="More Information can be found on the course providers website.";
-        alert("Hi");
-    }else if(ar['courseDuration'].length<2){
-        moreInfo=ar['courseFee'];
-    }else if(ar['courseFee'].length<2){
-        moreInfo=ar['courseDuration'];
-    }*/
+    var courseId=GetURLParameter('id');
 
-    $("#courseMoreInfo").html(moreInfo);
-    $("#courseBookmark").attr("value",ar['courseBookmark']);
-    var bookmarkImg="icons/"+ar['courseBookmark']+".png";
-    $("#courseBookmark").attr("src",bookmarkImg);
-    $("#coursePrice").html(ar['coursePrice']);
-    $("#courseLink").attr("href",ar['courseLink']);
+    $.post("https://study.ie/Server/api.php",{
+        courseID: courseId
+    },function(dbData,status){
+
+        if(dbData.indexOf("Failed to connect") !==-1){
+            console.log("Database Error"); //This is not working...
+        }else{
+            dbData=dbData.substring(1,dbData.length-1);
+            var decodedJSON=JSON.parse(dbData);
+            alert("JSON Data: " + dbData + "\nStatus: " + status);
+
+            //look into caching selectors for improved performance
+            $(".courseTitle").html(decodedJSON['courseTitle']);
+
+            //These features have to be added to the database
+            //$("#courseImg").attr("src",decodedJSON['courseImg']);
+            //$("#courseSetting").html(decodedJSON['courseSetting']);
+            //$("#courseBookmark").attr("value",decodedJSON['courseBookmark']);
+            //var bookmarkImg="icons/"+decodedJSON['courseBookmark']+".png";
+            //$("#courseBookmark").attr("src",bookmarkImg);
+
+            if(decodedJSON['courseDesc'].length<2){
+                $("#courseDesc").html("Course Description Not Available.");
+            }else{
+                $("#courseDesc").html(decodedJSON['courseDesc']);
+
+            }
+
+            if(decodedJSON['courseProvider'].length<2){
+                $("#courseProvider").html("Course Provider n/a");
+            }else{
+                $("#courseProvider").html(decodedJSON['courseProvider']);
+            }
+
+            if(decodedJSON['courseSubjects'].length<2){
+                $("#courseSubjects").html("Course Structure n/a");
+            }else{
+                $("#courseSubjects").html(decodedJSON['courseSubjects']);
+            }
+
+            var moreInfo="";
+            alert(decodedJSON['courseFee'].length);
+            if(decodedJSON['courseFee'].length<2 || decodedJSON['courseDuration'].length<2){
+                moreInfo=moreInfo+decodedJSON['courseFee'];
+                moreInfo=moreInfo+decodedJSON['courseDuration'];
+                moreInfo=moreInfo+"<br><br>More Information can be found on the course providers website.";
+            }else{
+                moreInfo=moreInfo+decodedJSON['courseDuration']+"<br><br>";
+                moreInfo=moreInfo+decodedJSON['courseFee'];
+            }
 
 
-    //FUTURE: script for applying a relevant image for a particular course provider
+            $("#courseMoreInfo").html(moreInfo);
+            if(decodedJSON['courseFee'].indexOf("€") !==-1){
+                strSplit=decodedJSON['courseFee'].split("€");
+                strSplit=strSplit[1].split(" ");
+                $("#coursePrice").html("€"+strSplit[0]);
+            }else{
+                $("#coursePrice").html("n/a");
+            }
 
-}
+            strSplit=decodedJSON['courseLink'].split("~");
+            $("#courseLink").attr("href",strSplit[strSplit.length-1]);
 
-function courseData(req){
-
-    var data={};
-
-    if(req==="tile"){
-        data={courseImg:'https://via.placeholder.com/320x180',courseTitle:'Tile Title',courseDesc:'Tile Description',
-            coursePrice:'€0',courseRecommend:'notRecommended',courseThread:'0',courseBookmark:'notBookmarked'};
-
-        //data["courseImg"]=;
-        //data["courseTitle"]=;
-        //data["courseDesc"]=;
-        //data["coursePrice"]=;
-        //data["courseRecommend"]=;
-        //data["courseThread"]=;
-        //data["courseBookmark"]=;
-
-        return data;
-    }else if(req==="page"){
-        data={courseImg:'https://via.placeholder.com/320x180',courseTitle:'Course Title',courseDesc:'Course Description',
-            courseProvider:'Course Provider',coursePrice:'€0',courseRecommend:'notRecommended',courseThread:'0',courseBookmark:'notBookmarked',
-            courseSubjects:'Course Subjects/Modules',courseFeeInfo:'Info on Fees',courseDuration:'Info on duration',
-            courseLink:'https://www.google.com/search?q=study.ie',courseCode:'XY000',coursePoints:'000',
-            courseLocation:'Course Location',courseSetting:'Online',courseType:'Learning'};
-
-        var courseId=GetURLParameter('id');
-
-        $.post("https://study.ie/Server/api.php",{
-            courseID: courseId
-        },function(data,status){
-            //data=data.substring(1,data.length-1);
-            alert("JSON Data: " + data + "\nStatus: " + status);
-            $(".courseTitle").html(data);
-
-            /*
-            decodedJSON=JSON.parse(data);
-            //FUTURE: need to add columns and tables for recomnedation system and threads to database for this functionality
-            data["courseTitle"]=decodedJSON.courseName;
-            data["courseProvider"]=decodedJSON.courseProvider;
-            data["courseDesc"]=decodedJSON.courseContent;
-            data["courseSubjects"]=decodedJSON.subjectsTaught;
-            data["coursePrice"]=decodedJSON.courseFee;
-            data["courseLocation"]=decodedJSON.courseLocation;
-            data["courseType"]=decodedJSON.courseType;
-            data["courseDuration"]=decodedJSON.courseDuration;
-            data["courseLink"]=decodedJSON.courseLink;
-            data["courseCode"]=decodedJSON.courseCode;
-            data["coursePoints"]=decodedJSON.coursePoints;
-             */
-        });
-
-        return data;
-    }
-
+            //FUTURE: need to add columns and tables for recommendation system and threads to database for this functionality
+            //FUTURE: script for applying a relevant image for a particular course provider
+        }
+    });
 }
