@@ -247,7 +247,7 @@ function createTile(tilesShown){
                     strSplit=strSplit[0].split(".");
                     decodedJSON[i]['coursePrice']="€"+strSplit[0];
                 }else{
-                    decodedJSON[i]['coursePrice']="n/a";
+                    decodedJSON[i]['coursePrice']=" ";
                 }
 
                 if(decodedJSON[i]['courseDesc'].length<2){
