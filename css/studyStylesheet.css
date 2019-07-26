@@ -421,6 +421,7 @@ div > .footerMiscInfo{
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #b4e4da !important;
+    border-color: #b4e4da;
 }
 
 #socialLinkHeader{
@@ -578,6 +579,7 @@ div > .footerMiscInfo{
 
     .buttonLeft{
         margin-left:5px;
+        border-color: teal;
     }
 
     #socialLinkBox button img{

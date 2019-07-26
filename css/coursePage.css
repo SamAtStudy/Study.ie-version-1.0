@@ -458,6 +458,10 @@ div > .footerMiscInfo{
     margin-bottom:15vh;
 }
 
+#courseBookmark:hover{
+    cursor: pointer;
+}
+
 .icon{
     width:100px;
 }
