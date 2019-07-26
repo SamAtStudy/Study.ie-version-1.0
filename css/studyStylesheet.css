@@ -518,8 +518,8 @@ div > .footerMiscInfo{
     .blogPostImg{
         object-fit: cover;
         object-position: 100% 0;
-        width: 750px;
-        height: 422px;
+        width: 340px;
+        height: 191px;
         border-radius: 20px;
     }
 
