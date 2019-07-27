@@ -503,6 +503,16 @@ div > .footerMiscInfo{
 }
 
 @media screen and (max-width: 567px) {
+    .page-header{
+        font-size:1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .fa-clock-o{
+        font-size:12px;
+    }
+
     .readMoreBtn{
         display: block;
         margin-left: auto;
@@ -518,8 +528,8 @@ div > .footerMiscInfo{
     .blogPostImg{
         object-fit: cover;
         object-position: 100% 0;
-        width: 340px;
-        height: 191px;
+        width: 300px;
+        height: 169px;
         border-radius: 20px;
     }
 
