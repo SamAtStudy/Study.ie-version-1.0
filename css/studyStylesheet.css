@@ -317,19 +317,6 @@ div > .footerMiscInfo{
     color:#fff;
     opacity:1;
 }
-.button1{
-    position: absolute;
-    top:45%;
-    left:35%;
-    transform: translate(-50%,-50%);
-}
-
-.button2{
-    position: absolute;
-    top:45%;
-    left:63%;
-    transform: translate(-50%,-50%);
-}
 
 #socialLinkBox{
     height:6vh;
@@ -421,7 +408,25 @@ div > .footerMiscInfo{
 
 .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #b4e4da !important;
+    border-color: #b4e4da;
 }
+
+.blogPostImg{
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 750px;
+    height: 422px;
+    border-radius: 20px;
+}
+
+.blogHomeImg{
+    object-fit: cover;
+    object-position: 100% 0;
+    width: 600px;
+    height: 337px;
+    border-radius: 20px;
+}
+
 
 #socialLinkHeader{
     color:white;
@@ -480,6 +485,11 @@ div > .footerMiscInfo{
     width:100px;
 }
 
+.readMoreBtn{
+    border-radius: 15px;
+}
+
+
 @media screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
         margin-left: -77px;
@@ -493,9 +503,32 @@ div > .footerMiscInfo{
 }
 
 @media screen and (max-width: 567px) {
+    .readMoreBtn{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height:40px;
+    }
+
     #typeWriter {
         font-size: 1.5rem;
         padding-top:12vh;
+    }
+
+    .blogPostImg{
+        object-fit: cover;
+        object-position: 100% 0;
+        width: 340px;
+        height: 191px;
+        border-radius: 20px;
+    }
+
+    .blogHomeImg{
+        object-fit: cover;
+        object-position: 100% 0;
+        width: 370px;
+        height: 208px;
+        border-radius: 20px;
     }
 
     .parallaxa {
@@ -532,22 +565,6 @@ div > .footerMiscInfo{
         font-size:4vw;
     }
 
-    .button1{
-        font-size:8px;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-
-    .button2{
-        font-size:8px;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-
 
     #sectionThreeHeaders{
         text-align:center;
@@ -578,6 +595,7 @@ div > .footerMiscInfo{
 
     .buttonLeft{
         margin-left:5px;
+        border-color: teal;
     }
 
     #socialLinkBox button img{

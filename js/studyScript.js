@@ -244,9 +244,10 @@ function createTile(tilesShown){
                 if(decodedJSON[i]['courseFee'].indexOf("€") !==-1){
                     strSplit=decodedJSON[i]['courseFee'].split("€");
                     strSplit=strSplit[1].split(" ");
+                    strSplit=strSplit[0].split(".");
                     decodedJSON[i]['coursePrice']="€"+strSplit[0];
                 }else{
-                    decodedJSON[i]['coursePrice']="n/a";
+                    decodedJSON[i]['coursePrice']=" ";
                 }
 
                 if(decodedJSON[i]['courseDesc'].length<2){
@@ -353,14 +354,16 @@ function createCoursePage(){
             if(decodedJSON['courseFee'].indexOf("€") !==-1){
                 strSplit=decodedJSON['courseFee'].split("€");
                 strSplit=strSplit[1].split(" ");
+                strSplit=strSplit[0].split(".");
                 $("#coursePrice").html("€"+strSplit[0]);
             }else{
-                $("#coursePrice").html("n/a");
+                $("#coursePrice").html("");
             }
 
             strSplit=decodedJSON['courseLink'].split("~");
             $("#courseLink").attr("href",strSplit[strSplit.length-1]);
 
+            courseTileFunctions();
             //FUTURE: need to add columns and tables for recommendation system and threads to database for this functionality
             //FUTURE: script for applying a relevant image for a particular course provider
         }
