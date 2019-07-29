@@ -14,6 +14,10 @@ if(isset($_POST['courseID'])) {
 if(isset($_POST['tiles']) && isset($_POST['numRows'])) {
     retrieveTiles();
 }
+if(isset($_POST['email'])){
+Updatemail();
+}
+
 
 function retrieveTiles(){
     //$tiles=$_POST['tiles'];
@@ -63,4 +67,16 @@ function retrieveCourse(){
     //header("Location: ./index.html?bookInfo=success");
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
+function Updatemail(){
+    include 'Server.php';
+    $email = $_POST['email'];
+    $sql = "INSERT INTO `mlistdata`(`email`) VALUES ('$email')";
+    if(mysqli_query($connectDB, $sql)) {
+
+    }
+    else{
+        echo mysqli_error($connectDB);
+    }
+    }
+
 
