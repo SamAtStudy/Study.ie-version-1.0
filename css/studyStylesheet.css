@@ -644,10 +644,6 @@ div > .footerMiscInfo{
         left: 35%;
     }
 
-    .sectionTwoPara{
-        font-size:10px;
-    }
-
     .sectionTwoContentBr{
         line-height:50px;
     }
@@ -707,7 +703,7 @@ div > .footerMiscInfo{
 
     .sectionTwoPara{
         width:100%;
-        font-size:3.2vw;
+        font-size:1rem;
     }
 
     #sectionTwoBox{
