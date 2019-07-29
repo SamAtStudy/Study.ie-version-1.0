@@ -92,6 +92,59 @@ function courseTileFunctions(){
     });
 }
 
+function coursePageFunctions(){
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    $(".bookmarkIcon").click(function(){
+        if($(this).attr("value")==="notBookmarked"){
+            $(this).attr("src", "icons/bookmark.png");
+            $(this).attr("value", "bookmarked");
+            $(this).tooltip('disable');
+        }else if($(this).attr("value")==="bookmarked"){
+            $(this).attr("src", "icons/unbookmark.png");
+            $(this).attr("value", "notBookmarked");
+            $(this).tooltip('enable');
+        }
+    });
+
+    $(".bookmarkIcon").hover(function(){
+        if($(this).attr("value")==="notBookmarked"){
+            $(this).attr("src", "icons/bookmark.png");
+        }
+    },function(){
+        if($(this).attr("value")==="notBookmarked"){
+            $(this).attr("src", "icons/notBookmarked.png");
+        }
+    });
+
+    $(".recommendIcon").click(function(){
+        if($(this).attr("value")==="notRecommended"){
+            $(this).attr("src", "icons/Recommend.svg");
+            $(this).attr("value", "recommended");
+            $(this).tooltip('disable');
+        }else if($(this).attr("value")==="recommended"){
+            $(this).attr("src", "icons/recommend.svg");
+            $(this).attr("value", "notRecommended");
+            $(this).tooltip('enable');
+        }
+    });
+
+    $(".recommendIcon").hover(function(){
+        if($(this).attr("value")==="notRecommended"){
+            $(this).attr("src", "icons/recommend.svg");
+        }
+    },function(){
+        if($(this).attr("value")==="notRecommended"){
+            $(this).attr("src", "icons/notRecommended.svg");
+        }
+    });
+
+
+}
+
 var TxtRotate = function(el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
@@ -189,27 +242,12 @@ function courseResults(){
         $("#noResults").show();
         $("#loadMoreResults").hide();
     }else if(totalRows<6){
-
         createTile(totalRows);
 
-        /*
-        for(i=totalRows; i>0; i--){
-            createTile();
-        }
-
-        // add functionality to course tiles
-        courseTileFunctions();*/
         $("#noResults").show();
         $("#loadMoreResults").hide();
     }else{
-
         createTile(6);
-
-        /*
-        for(i=6; i>0; i--){
-            createTile();
-        }
-        courseTileFunctions();*/
     }
 }
 
@@ -250,10 +288,11 @@ function createTile(tilesShown){
                     decodedJSON[i]['coursePrice']=" ";
                 }
 
+                //Truncates Card Desc
                 if(decodedJSON[i]['courseDesc'].length<2){
                     decodedJSON[i]['courseDesc']="Course Description Not Available.";
                 }else if(decodedJSON[i]['courseDesc'].length>250){
-                    decodedJSON[i]['courseDesc']=decodedJSON[i]['courseDesc'].substr(0,300)+". . .";
+                    decodedJSON[i]['courseDesc']=decodedJSON[i]['courseDesc'].substr(0,238)+". . .";
                 }
 
                 div = $('<div class="row">' +
@@ -264,7 +303,7 @@ function createTile(tilesShown){
                     '                            <img class="courseImg courseTileImg" src="'+ar['courseImg']+'" alt="Card image cap">\n' +
                     '                        </div>\n' +
                     '                        <div class="card-body" style="position: relative;">\n' +
-                    '                            <a class="removeColor" href="course.html?id='+numRows+'"><h3 class="courseTitle">'+decodedJSON[i]['courseTitle']+'</h3></a>\n' +
+                    '                            <a class="removeColor" href="course.html?id='+numRows+'"><h3 class="courseTitle">'+decodedJSON[i]['courseTitle']+'<br><span style="opacity:0.8; font-size:1rem;">'+decodedJSON[i]['courseProvider']+' </span></h3></a>\n' +
                     '                            <p class="card-text courseDesc">'+decodedJSON[i]['courseDesc']+'</p>\n' +
                     '                            <div class="courseBotTileInfo">\n' +
                     '                                <img class="courseTileIconBottom recommendIcon courseRecommend" src="icons/'+ar['courseRecommend']+'.svg" value="'+ar['courseRecommend']+'" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended\n' +
@@ -282,6 +321,7 @@ function createTile(tilesShown){
                 $("#resContainerStep").append(div);
             }
 
+            // add functionality to course tiles
             courseTileFunctions();
         }
     });
@@ -363,7 +403,8 @@ function createCoursePage(){
             strSplit=decodedJSON['courseLink'].split("~");
             $("#courseLink").attr("href",strSplit[strSplit.length-1]);
 
-            courseTileFunctions();
+            // add functionality to course page
+            coursePageFunctions();
             //FUTURE: need to add columns and tables for recommendation system and threads to database for this functionality
             //FUTURE: script for applying a relevant image for a particular course provider
         }

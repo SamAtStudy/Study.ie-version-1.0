@@ -489,6 +489,13 @@ div > .footerMiscInfo{
     border-radius: 15px;
 }
 
+.blogHomeTitle{
+    font-weight:600;
+}
+
+.studyLogo{
+    margin-left:15px;
+}
 
 @media screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
@@ -503,6 +510,21 @@ div > .footerMiscInfo{
 }
 
 @media screen and (max-width: 567px) {
+    .page-header{
+        font-size:1.5rem;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .studyLogo{
+        margin-left:0px;
+        margin-top:-0.5vh;
+    }
+
+    .blogDate{
+        font-size:12px;
+    }
+
     .readMoreBtn{
         display: block;
         margin-left: auto;
@@ -521,6 +543,10 @@ div > .footerMiscInfo{
         width: 340px;
         height: 191px;
         border-radius: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom:0.5rem;
     }
 
     .blogHomeImg{
@@ -528,7 +554,14 @@ div > .footerMiscInfo{
         object-position: 100% 0;
         width: 370px;
         height: 208px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom:1rem;
         border-radius: 20px;
+    }
+
+    .blogHomeImgBox{
+        text-align: center;
     }
 
     .parallaxa {
@@ -595,7 +628,7 @@ div > .footerMiscInfo{
 
     .buttonLeft{
         margin-left:5px;
-        border-color: teal;
+        border-color: #b4e4da;
     }
 
     #socialLinkBox button img{
