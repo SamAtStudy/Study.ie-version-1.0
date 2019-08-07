@@ -39,7 +39,63 @@ $(document).ready(function(){
             behavior: "smooth"
         });
     });
+
+    $('#loginModal').modal('show');
+
+    $("#accLoginBtn").click(function(){
+        var mailUsername=$("#mailUsername").val();
+        var pass=$("#pass").val();
+        var option="login";
+        /*alert(option);
+        alert(mailUsername);
+        alert(pass);*/
+
+        $.post("https://study.ie/Server/accRetrieval.php",{
+            option: option,
+            mailUsername: mailUsername,
+            userPass: pass
+        },function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+            if(data==="login success"){
+                sessionStorage.setItem("logged",username);
+                //alert(sessionStorage.getItem("logged"));
+                getUserData(sessionStorage.getItem("logged"));
+                $('#loginBox').modal('close');
+                loginStatus();
+            }else{
+                alert("Username/Password is incorrect");
+            }
+        });
+
+    });
 });
+
+/*
+document.addEventListener('DOMContentLoaded', function() {
+
+    $("#accLoginBtn").click(function(){
+        var mailUsername=$("#mailUsername").val();
+        var pass=$("#pass").val();
+        var option="login";
+
+        $.post("accRetrieval.php",{
+            option: option,
+            mailUsername: mailUsername,
+            userPass: pass
+        },function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+            if(data==="login success"){
+                sessionStorage.setItem("logged",username);
+                //alert(sessionStorage.getItem("logged"));
+                getUserData(sessionStorage.getItem("logged"));
+                $('#loginBox').modal('close');
+                loginStatus();
+            }else{
+                alert("Username/Password is incorrect");
+            }
+        });
+    });
+});*/
 
 function courseTileFunctions(){
 
@@ -237,7 +293,6 @@ function courseResults(){
     //var totalRows=checkResults();
 
     if(totalRows==0){
-
         /*Hide load more btn and show no more results txt*/
         $("#noResults").show();
         $("#loadMoreResults").hide();
@@ -410,3 +465,40 @@ function createCoursePage(){
         }
     });
 }
+
+function showResult(str) {
+    if (str.length==0) {
+        document.getElementById("livesearch").innerHTML="";
+        document.getElementById("livesearch").style.border="0px";
+        return;
+    }
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    } else {  // code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function() {
+        if (this.readyState==4 && this.status==200) {
+            document.getElementById("livesearch").innerHTML=this.responseText;
+            document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+        }
+    }
+    xmlhttp.open("GET","https://study.ie/Server/search.php?q="+str,true);
+    xmlhttp.send();
+}
+
+function delay(callback, ms) {
+    var timer = 0;
+    return function() {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            callback.apply(context, args);
+        }, ms || 0);
+    };
+}
+
+$('#input').keyup(delay(function (e) {
+    showResult(this.value);
+}, 500));
