@@ -329,7 +329,7 @@ function createTile(tilesShown){
             //alert(tilesShown);
             //console.log(decodedJSON); //Use Console Log to Debug array structure
             //alert(decodedJSON);
-            //$('#test').html(decodedJSON[1]['courseTitle']);
+            //$('#test').php(decodedJSON[1]['courseTitle']);
             var strSplit;
 
             for(i=5; i>=0; i--){
@@ -358,7 +358,7 @@ function createTile(tilesShown){
                     '                            <img class="courseImg courseTileImg" src="'+ar['courseImg']+'" alt="Card image cap">\n' +
                     '                        </div>\n' +
                     '                        <div class="card-body" style="position: relative;">\n' +
-                    '                            <a class="removeColor" href="course.html?id='+numRows+'"><h3 class="courseTitle">'+decodedJSON[i]['courseTitle']+'<br><span style="opacity:0.8; font-size:1rem;">'+decodedJSON[i]['courseProvider']+' </span></h3></a>\n' +
+                    '                            <a class="removeColor" href="course.php?id='+numRows+'"><h3 class="courseTitle">'+decodedJSON[i]['courseTitle']+'<br><span style="opacity:0.8; font-size:1rem;">'+decodedJSON[i]['courseProvider']+' </span></h3></a>\n' +
                     '                            <p class="card-text courseDesc">'+decodedJSON[i]['courseDesc']+'</p>\n' +
                     '                            <div class="courseBotTileInfo">\n' +
                     '                                <img class="courseTileIconBottom recommendIcon courseRecommend" src="icons/'+ar['courseRecommend']+'.svg" value="'+ar['courseRecommend']+'" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended\n' +
@@ -407,31 +407,31 @@ function createCoursePage(){
             //alert("JSON Data: " + dbData + "\nStatus: " + status);
 
             //look into caching selectors for improved performance
-            $(".courseTitle").html(decodedJSON['courseTitle']);
+            $(".courseTitle").php(decodedJSON['courseTitle']);
 
             //These features have to be added to the database
             //$("#courseImg").attr("src",decodedJSON['courseImg']);
-            //$("#courseSetting").html(decodedJSON['courseSetting']);
+            //$("#courseSetting").php(decodedJSON['courseSetting']);
             //$("#courseBookmark").attr("value",decodedJSON['courseBookmark']);
             //var bookmarkImg="icons/"+decodedJSON['courseBookmark']+".png";
             //$("#courseBookmark").attr("src",bookmarkImg);
 
             if(decodedJSON['courseDesc'].length<2){
-                $("#courseDesc").html("Course Description Not Available.");
+                $("#courseDesc").php("Course Description Not Available.");
             }else{
-                $("#courseDesc").html(decodedJSON['courseDesc']);
+                $("#courseDesc").php(decodedJSON['courseDesc']);
             }
 
             if(decodedJSON['courseProvider'].length<2){
-                $("#courseProvider").html("Course Provider n/a");
+                $("#courseProvider").php("Course Provider n/a");
             }else{
-                $("#courseProvider").html(decodedJSON['courseProvider']);
+                $("#courseProvider").php(decodedJSON['courseProvider']);
             }
 
             if(decodedJSON['courseSubjects'].length<2){
-                $("#courseSubjects").html("Course Structure n/a");
+                $("#courseSubjects").php("Course Structure n/a");
             }else{
-                $("#courseSubjects").html(decodedJSON['courseSubjects']);
+                $("#courseSubjects").php(decodedJSON['courseSubjects']);
             }
 
             var moreInfo="";
@@ -445,14 +445,14 @@ function createCoursePage(){
             }
 
 
-            $("#courseMoreInfo").html(moreInfo);
+            $("#courseMoreInfo").php(moreInfo);
             if(decodedJSON['courseFee'].indexOf("€") !==-1){
                 strSplit=decodedJSON['courseFee'].split("€");
                 strSplit=strSplit[1].split(" ");
                 strSplit=strSplit[0].split(".");
-                $("#coursePrice").html("€"+strSplit[0]);
+                $("#coursePrice").php("€"+strSplit[0]);
             }else{
-                $("#coursePrice").html("");
+                $("#coursePrice").php("");
             }
 
             strSplit=decodedJSON['courseLink'].split("~");

@@ -18,7 +18,7 @@ if(isset($_POST['option'])){
         echo "create";
     }
 }else{
-    header("Location: ../Study.ieV2/index.html");
+    header("Location: ../Study.ieV2/index.php");
     exit();
 }
 /*

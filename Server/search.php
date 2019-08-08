@@ -18,13 +18,13 @@ if (strlen($q) > 2) {
     while ( $row = $result->fetch_assoc()){
         //$resultAr[]=$row;
         if ($hint=="") {
-            $hint="<a href='https://www.study.ie/course.html?id=" .
+            $hint="<a href='https://www.study.ie/course.php?id=" .
                 $row['courseID'] .
                 "' target='_blank'>" .
                 $row['courseTitle'] . " (" . $row['courseProvider'] . ")" . "</a>";
             $resultNum++;
         } else {
-            $hint=$hint . "<br /><a href='https://www.study.ie/course.html?id=" .
+            $hint=$hint . "<br /><a href='https://www.study.ie/course.php?id=" .
                 $row['courseID'] .
                 "' target='_blank'>" .
                 $row['courseTitle'] . " (" . $row['courseProvider'] . ")" . "</a>";
@@ -35,7 +35,7 @@ if (strlen($q) > 2) {
     //Debugging array
     //print_r($resultAr);
 
-    //header("Location: ./index.html?bookInfo=success");
+    //header("Location: ./index.php?bookInfo=success");
     //echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
     //$hint=json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
@@ -45,7 +45,7 @@ if (strlen($q) > 2) {
 if ($hint == "") {
     $response = "No Suggestions";
 } else {
-    /*$hint=$hint . "<br /><a href='https://www.study.ie/courseResults.html?q=" .
+    /*$hint=$hint . "<br /><a href='https://www.study.ie/courseResults.php?q=" .
         $q .
         "' target='_blank'>" . "Show More" ."</a>"; */
     $response = $hint;

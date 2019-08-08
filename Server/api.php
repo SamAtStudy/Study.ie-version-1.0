@@ -44,7 +44,7 @@ function retrieveTiles(){
     //Debugging array
     //print_r($resultAr);
 
-    //header("Location: ./index.html?bookInfo=success");
+    //header("Location: ./index.php?bookInfo=success");
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
 
@@ -64,7 +64,7 @@ function retrieveCourse(){
     //Debugging array
     //print_r($resultAr);
 
-    //header("Location: ./index.html?bookInfo=success");
+    //header("Location: ./index.php?bookInfo=success");
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
 function Updatemail(){
