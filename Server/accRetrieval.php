@@ -37,7 +37,7 @@ function create(){
     }else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
         echo ("invalid email");
     }else if(!preg_match("/^[a-zA-Z0-9]*$/",$name)){
-        echo ("invalid username,".$email); //send back email to refill input field.
+        echo ("invalid username".$email); //send back email to refill input field.
     }else if($pass !== $conPass){
         echo ("password mismatch");
     }else{
@@ -93,12 +93,12 @@ function login(){
             echo("sql error");
             //echo "Error: ".mysqli_error($connectDB);
         }else{
-            /*mysqli_stmt_bind_param($stmt,"ss",$mailUname,$mailUname);
+            mysqli_stmt_bind_param($stmt,"ss",$mailUname,$mailUname);
             mysqli_stmt_execute($stmt);
-            $result=mysqli_stmt_get_result($stmt); */
+            $result=mysqli_stmt_get_result($stmt);
 
-            $sql ="SELECT * FROM userlogin WHERE userName='".$mailUname."' OR userEmail='".$mailUname."';";
-            $result = mysqli_query($connectDB, $sql);
+            /*$sql ="SELECT * FROM userlogin WHERE userName='".$mailUname."' OR userEmail='".$mailUname."';";
+            $result = mysqli_query($connectDB, $sql); */
 
             if($row=mysqli_fetch_assoc($result)){
                 $passCheck=password_verify($pass,$row['userPass']);

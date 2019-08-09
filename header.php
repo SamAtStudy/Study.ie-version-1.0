@@ -57,8 +57,17 @@
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.php">Blog</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+            <li class="nav-item" id="navLogin">
+                <a id="loginModalBtn" class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+            </li>
+            <li class="nav-item dropdown" id="navProfile" style="display:none">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
+                    <a class="dropdown-item disabled" href="#">Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" id="navLogOut">Log Out</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#" style="visibility: hidden;"></a>
@@ -98,7 +107,7 @@
                                                 <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Username / Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password!" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password" placeholder="Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="custom-control custom-checkbox mr-auto">
@@ -141,23 +150,23 @@
                                     <div class="d-flex flex-column">
                                         <form id="loginFormContainer">
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="createUsername" placeholder="Username">
+                                                <input type="email" class="form-control loginForm" id="createUsername" data-toggle="tooltip" data-placement="right" title="Username Shouldn't Contain Any Special Characters" placeholder="Username">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="createEmail" placeholder="Email">
+                                                <input type="email" class="form-control loginForm" id="createEmail" data-toggle="tooltip" data-placement="right" title="Invalid Email Address" placeholder="Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="createPassword" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="createPass" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Password">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="confirmPassword" placeholder="Confirm Password">
+                                                <input type="password" class="form-control loginForm" id="confirmPass" data-toggle="tooltip" data-placement="right" title="Passwords Doesn't Match" placeholder="Confirm Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="mx-auto">
                                                     <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="#" style="color:blue;">User Agreement</a><span>
                                                 </div>
                                             </div>
-                                            <button style="background-color: grey; border-color: grey; border-radius:10px; font-size:1.3rem;" type="button" class="btn btn-info btn-block btn-round">Create Account</button>
+                                            <button id="accCreateBtn" type="button" class="btn btn-info btn-block btn-round">Create Account</button>
                                         </form>
 
                                         <!-- Or Divider -->

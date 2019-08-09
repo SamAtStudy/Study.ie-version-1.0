@@ -42,6 +42,20 @@ $(document).ready(function(){
 
     $('#loginModal').modal('show');
 
+    $('#pills-home').click(function(){
+        loginStyle("revert");
+    });
+
+    $('#pills-profile-tab').click(function(){
+        loginStyle("revert");
+    });
+
+    $('#navLogOut').click(function(){
+        alert("logging you out");
+        $('#navProfile').hide();
+        $('#navLogin').show();
+    });
+
     $("#accLoginBtn").click(function(){
         var mailUsername=$("#mailUsername").val();
         var pass=$("#pass").val();
@@ -52,29 +66,21 @@ $(document).ready(function(){
             mailUsername: mailUsername,
             userPass: pass
         },function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
+            //alert("Data: " + data + "\nStatus: " + status);
             if(data==="login success"){
                 sessionStorage.setItem("logged",mailUsername);
-                alert(sessionStorage.getItem("logged"));
+                //alert(sessionStorage.getItem("logged"));
                 //getUserData(sessionStorage.getItem("logged"));
-                $('#pass').tooltip('disable');
-                $('#mailUsername').tooltip('disable');
-                $('#loginModal').modal('hide')
+                loginStyle("revert");
+                loginStyle("clear");
+                $('#loginModal').modal('hide');
+                $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
+                $('#navProfile').show();
+                $('#navLogin').hide();
                 //loginStatus();
-            }else if(data==="empty"){
-                $('#pass').tooltip('disable');
-                $('#mailUsername').tooltip('disable');
-                $('#mailUser').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%);");
-                $('#pass').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%);");
-            }else if(data==="no user"){
-                $('#pass').tooltip('disable');
-                $('#mailUser').tooltip('enable');
-                $('#mailUser').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%);");
-            }else if(data==="wrong password"){
-
             }else{
-                $('#pass').tooltip('disable');
-                alert("Error! Oh no...");
+                loginStyle("revert");
+                loginStyle(data);
             }
         });
     });
@@ -82,11 +88,10 @@ $(document).ready(function(){
 
     $("#accCreateBtn").click(function(){
         var username=$("#createUsername").val();
-        var email=$("#email").val();
+        var email=$("#createEmail").val();
         var pass=$("#createPass").val();
         var conPass=$("#confirmPass").val();
         var option="create";
-
 
         $.post("https://167.71.136.73/Server/accRetrieval.php",{
             userName: username,
@@ -96,12 +101,11 @@ $(document).ready(function(){
             option: option
         },function(data,status){
             //alert("Data: " + data + "\nStatus: " + status);
-            if(data==="already exists"){
-                alert("Username is taken, Please enter a unique username");
-            }else if(data==="created"){
+            if(data==="create success"){
                 alert("Account Created Successfully, Please log in");
             }else{
-                alert(data);
+                loginStyle("revert");
+                loginStyle(data);
             }
         });
     });
@@ -112,19 +116,61 @@ $(document).ready(function(){
 
     $('#pass').tooltip('disable');
     $('#mailUsername').tooltip('disable');
-
+    $('#createUsername').tooltip('disable');
+    $('#createEmail').tooltip('disable');
+    $('#createPass').tooltip('disable');
+    $('#confirmPass').tooltip('disable');
 });
 
 function loginStyle(x){
+    var $tooltip=$('.tooltip');
 
     if(x==="revert"){
         $('#mailUsername').tooltip('disable');
         $('#pass').tooltip('disable');
-        $('.form-control').css("box-shadow","none");
+        $('#createUsername').tooltip('disable');
+        $('#createEmail').tooltip('disable');
+        $('#createPass').tooltip('disable');
+        $('#confirmPass').tooltip('disable');
+        $('.form-control').css("box-shadow","");
+    }else if(x==="clear"){
+        $('.form-control').attr("value","");
     }else if(x==="wrong password"){
-        $('#mailUsername').tooltip('disable');
         $('#pass').tooltip('enable');
         $('#pass').css("box-shadow","0 0 0 0.2rem hsl(0, 71%, 53%)");
+    }else if(x==="no user"){
+        $('#mailUsername').tooltip('enable');
+        $('#mailUsername').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+    }else if(x==="empty"){
+        $('.form-control').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+    }else if(x==="warning tooltip"){
+        //Tooltip colors are currently working.
+        $tooltip.css("background-color","hsla(44, 95%, 85%, 1)");
+        $tooltip.css("color","hsl(43, 64%, 34%)");
+        $$tooltip.css("font-weight","700");
+    }else if(x==="danger tooltip"){
+        $tooltip.css("background-color","hsla(0, 89%, 77%, 1)");
+        $tooltip.css("color","hsl(0, 56%, 36%)");
+        $tooltip.css("font-weight","700");
+    }else if(x==="name taken"){
+        /* $('#createUsername').tooltip('enable'); */
+        $('#createUsername').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+    }else if(x==="invalid username"){
+        $('#createUsername').tooltip('enable');
+        $('#createUsername').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+    }else if(x==="invalid email"){
+        $('#createEmail').tooltip('enable');
+        $('#createEmail').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+    }else if(x==="invalid params"){
+        $('#createUsername').tooltip('enable');
+        $('#createEmail').tooltip('enable');
+        $('#createUsername').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+        $('#createEmail').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%)");
+    }else if(x==="password mismatch"){
+        $('#confirmPass').tooltip('enable');
+        $('#confirmPass').css("box-shadow","0 0 0 0.2rem hsl(0, 71%, 53%)");
+    }else{
+        alert("Error! Oh no...\nLooks like its a "+x);
     }
 }
 
@@ -360,7 +406,7 @@ function createTile(tilesShown){
             //alert(tilesShown);
             //console.log(decodedJSON); //Use Console Log to Debug array structure
             //alert(decodedJSON);
-            //$('#test').php(decodedJSON[1]['courseTitle']);
+            //$('#test').html(decodedJSON[1]['courseTitle']);
             var strSplit;
 
             for(i=5; i>=0; i--){
@@ -438,31 +484,31 @@ function createCoursePage(){
             //alert("JSON Data: " + dbData + "\nStatus: " + status);
 
             //look into caching selectors for improved performance
-            $(".courseTitle").php(decodedJSON['courseTitle']);
+            $(".courseTitle").html(decodedJSON['courseTitle']);
 
             //These features have to be added to the database
             //$("#courseImg").attr("src",decodedJSON['courseImg']);
-            //$("#courseSetting").php(decodedJSON['courseSetting']);
+            //$("#courseSetting").html(decodedJSON['courseSetting']);
             //$("#courseBookmark").attr("value",decodedJSON['courseBookmark']);
             //var bookmarkImg="icons/"+decodedJSON['courseBookmark']+".png";
             //$("#courseBookmark").attr("src",bookmarkImg);
 
             if(decodedJSON['courseDesc'].length<2){
-                $("#courseDesc").php("Course Description Not Available.");
+                $("#courseDesc").html("Course Description Not Available.");
             }else{
-                $("#courseDesc").php(decodedJSON['courseDesc']);
+                $("#courseDesc").html(decodedJSON['courseDesc']);
             }
 
             if(decodedJSON['courseProvider'].length<2){
-                $("#courseProvider").php("Course Provider n/a");
+                $("#courseProvider").html("Course Provider n/a");
             }else{
-                $("#courseProvider").php(decodedJSON['courseProvider']);
+                $("#courseProvider").html(decodedJSON['courseProvider']);
             }
 
             if(decodedJSON['courseSubjects'].length<2){
-                $("#courseSubjects").php("Course Structure n/a");
+                $("#courseSubjects").html("Course Structure n/a");
             }else{
-                $("#courseSubjects").php(decodedJSON['courseSubjects']);
+                $("#courseSubjects").html(decodedJSON['courseSubjects']);
             }
 
             var moreInfo="";
@@ -476,14 +522,14 @@ function createCoursePage(){
             }
 
 
-            $("#courseMoreInfo").php(moreInfo);
+            $("#courseMoreInfo").html(moreInfo);
             if(decodedJSON['courseFee'].indexOf("€") !==-1){
                 strSplit=decodedJSON['courseFee'].split("€");
                 strSplit=strSplit[1].split(" ");
                 strSplit=strSplit[0].split(".");
-                $("#coursePrice").php("€"+strSplit[0]);
+                $("#coursePrice").html("€"+strSplit[0]);
             }else{
-                $("#coursePrice").php("");
+                $("#coursePrice").html("");
             }
 
             strSplit=decodedJSON['courseLink'].split("~");

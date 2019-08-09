@@ -39,6 +39,10 @@ a:hover{
     opacity:1;
 }
 
+.form-controlL:{
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
 .loginForm{
     font-weight: bold;
     width: 400px;
@@ -116,15 +120,10 @@ a:hover{
     margin:auto;
 }
 
-.tooltip-inner {
-    background-color: hsla(0, 89%, 77%, 1);
-    color:hsl(0, 56%, 36%);
-    font-weight:700;
-}
-
+/*
 .tooltip .arrow {
     display: none;
-}
+} */
 
 #accLoginBtn, #accCreateBtn{
     background-color: grey;
