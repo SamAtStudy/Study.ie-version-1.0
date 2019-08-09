@@ -1,45 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-
-    <!-- These meta tags Prevents Caching of web page: Good for development, Not so great for consumer. -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-
-    <title>Study.ie</title>
-    <link rel="icon" href="img/Logo1.png">
-    <!-- EDIT SCSS TO REMOVE PADDING ON ROWS -->
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta http-equiv="refresh" content="5" /> -->
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
-    <!--Googles Valera Round Font -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,700&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-
-    <!-- Study.ie Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="css/studyStylesheet.css">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142230907-4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-142230907-4');
-    </script>
-
-</head>
-<body>
-
 <!-- NAV BAR-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.php">
@@ -95,10 +53,10 @@
                                                  <input type="email" class="form-control loginForm" id="email1" placeholder="Email">
                                              </div> -->
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Username / Email">
+                                                <input type="email" class="form-control loginForm" id="mailUsername" placeholder="Username / Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password!" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="pass" placeholder="Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="custom-control custom-checkbox mr-auto">

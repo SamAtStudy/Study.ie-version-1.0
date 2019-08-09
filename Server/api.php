@@ -77,6 +77,6 @@ function Updatemail(){
     else{
         echo mysqli_error($connectDB);
     }
-    }
+}
 
 

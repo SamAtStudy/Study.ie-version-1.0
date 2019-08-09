@@ -14,14 +14,14 @@ if(isset($_POST['option'])){
     if($option=='login'){
         login();
     }else if($option=='create'){
-        //create();
-        echo "create";
+        create();
     }
 }else{
-    header("Location: ../Study.ieV2/index.php");
+    //header("Location: ../index.html");
+    echo "oh noo";
     exit();
 }
-/*
+
 function create(){
     include 'Server.php';
 
@@ -47,6 +47,7 @@ function create(){
 
         if(!mysqli_stmt_prepare($stmt,$sql)){
             echo("sql error");
+            //echo "Error: ".mysqli_error($connectDB);
         }else{
             mysqli_stmt_bind_param($stmt,"s",$name);
             mysqli_stmt_execute($stmt);
@@ -74,9 +75,7 @@ function create(){
 
     mysqli_stmt_close($stmt);
     mysqli_close($connectDB);
-
 }
-*/
 
 function login(){
     include 'Server.php';
@@ -92,10 +91,11 @@ function login(){
 
         if(!mysqli_stmt_prepare($stmt,$sql)) {
             echo("sql error");
+            //echo "Error: ".mysqli_error($connectDB);
         }else{
             /*mysqli_stmt_bind_param($stmt,"ss",$mailUname,$mailUname);
             mysqli_stmt_execute($stmt);
-            $result=mysqli_stmt_get_result($stmt);*/
+            $result=mysqli_stmt_get_result($stmt); */
 
             $sql ="SELECT * FROM userlogin WHERE userName='".$mailUname."' OR userEmail='".$mailUname."';";
             $result = mysqli_query($connectDB, $sql);

@@ -116,7 +116,17 @@ a:hover{
     margin:auto;
 }
 
-#accLoginBtn{
+.tooltip-inner {
+    background-color: hsla(0, 89%, 77%, 1);
+    color:hsl(0, 56%, 36%);
+    font-weight:700;
+}
+
+.tooltip .arrow {
+    display: none;
+}
+
+#accLoginBtn, #accCreateBtn{
     background-color: grey;
     border-color: grey;
     border-radius:10px;
@@ -857,5 +867,3 @@ div > .footerMiscInfo{
         font-weight:600;
     }
 }
-
-

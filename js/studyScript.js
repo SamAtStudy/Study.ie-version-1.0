@@ -46,56 +46,87 @@ $(document).ready(function(){
         var mailUsername=$("#mailUsername").val();
         var pass=$("#pass").val();
         var option="login";
-        /*alert(option);
-        alert(mailUsername);
-        alert(pass);*/
 
-        $.post("https://study.ie/Server/accRetrieval.php",{
+        $.post("https://167.71.136.73/Server/accRetrieval.php",{
             option: option,
             mailUsername: mailUsername,
             userPass: pass
         },function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
             if(data==="login success"){
-                sessionStorage.setItem("logged",username);
-                //alert(sessionStorage.getItem("logged"));
-                getUserData(sessionStorage.getItem("logged"));
-                $('#loginBox').modal('close');
-                loginStatus();
+                sessionStorage.setItem("logged",mailUsername);
+                alert(sessionStorage.getItem("logged"));
+                //getUserData(sessionStorage.getItem("logged"));
+                $('#pass').tooltip('disable');
+                $('#mailUsername').tooltip('disable');
+                $('#loginModal').modal('hide')
+                //loginStatus();
+            }else if(data==="empty"){
+                $('#pass').tooltip('disable');
+                $('#mailUsername').tooltip('disable');
+                $('#mailUser').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%);");
+                $('#pass').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%);");
+            }else if(data==="no user"){
+                $('#pass').tooltip('disable');
+                $('#mailUser').tooltip('enable');
+                $('#mailUser').css("box-shadow","0 0 0 0.2rem hsl(44, 90%, 80%);");
+            }else if(data==="wrong password"){
+
             }else{
-                alert("Username/Password is incorrect");
+                $('#pass').tooltip('disable');
+                alert("Error! Oh no...");
             }
         });
-
     });
+
+
+    $("#accCreateBtn").click(function(){
+        var username=$("#createUsername").val();
+        var email=$("#email").val();
+        var pass=$("#createPass").val();
+        var conPass=$("#confirmPass").val();
+        var option="create";
+
+
+        $.post("https://167.71.136.73/Server/accRetrieval.php",{
+            userName: username,
+            userEmail: email,
+            userPass: pass,
+            userConPass: conPass,
+            option: option
+        },function(data,status){
+            //alert("Data: " + data + "\nStatus: " + status);
+            if(data==="already exists"){
+                alert("Username is taken, Please enter a unique username");
+            }else if(data==="created"){
+                alert("Account Created Successfully, Please log in");
+            }else{
+                alert(data);
+            }
+        });
+    });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    $('#pass').tooltip('disable');
+    $('#mailUsername').tooltip('disable');
+
 });
 
-/*
-document.addEventListener('DOMContentLoaded', function() {
+function loginStyle(x){
 
-    $("#accLoginBtn").click(function(){
-        var mailUsername=$("#mailUsername").val();
-        var pass=$("#pass").val();
-        var option="login";
-
-        $.post("accRetrieval.php",{
-            option: option,
-            mailUsername: mailUsername,
-            userPass: pass
-        },function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
-            if(data==="login success"){
-                sessionStorage.setItem("logged",username);
-                //alert(sessionStorage.getItem("logged"));
-                getUserData(sessionStorage.getItem("logged"));
-                $('#loginBox').modal('close');
-                loginStatus();
-            }else{
-                alert("Username/Password is incorrect");
-            }
-        });
-    });
-});*/
+    if(x==="revert"){
+        $('#mailUsername').tooltip('disable');
+        $('#pass').tooltip('disable');
+        $('.form-control').css("box-shadow","none");
+    }else if(x==="wrong password"){
+        $('#mailUsername').tooltip('disable');
+        $('#pass').tooltip('enable');
+        $('#pass').css("box-shadow","0 0 0 0.2rem hsl(0, 71%, 53%)");
+    }
+}
 
 function courseTileFunctions(){
 
@@ -310,7 +341,7 @@ function courseResults(){
 function createTile(tilesShown){
 
     var ar={courseImg:"https://via.placeholder.com/320x180",courseTitle:"Tile Title",courseDesc:"Tile Description",
-    coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
+        coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
 
     var div;
     var numRows=""+totalRows;
