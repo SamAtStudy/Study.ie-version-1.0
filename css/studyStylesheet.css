@@ -3,7 +3,7 @@ html{
 }
 
 body {
-    font-family: 'Varela Round','Nunito', sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 18px;
     background-color: #f3fefd;
     padding-right: 0 !important
@@ -38,6 +38,100 @@ a:hover{
     color: #6ECBB7;
     opacity:1;
 }
+
+/*.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+} */
+
+.loginForm{
+    font-weight: bold;
+    width: 400px;
+    height: 45px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background: #F6F7F9;
+    color: #748194;
+    font-size: 16px;
+}
+
+#loginSocialBox button{
+    font-size:1.3rem;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 30px;
+    background-color: grey;
+    border-color: grey;
+    width:150px;
+}
+
+#loginSocialBox img{
+    margin-top:-5px;
+    margin-right:7px;
+}
+
+/*
+// enable absolute positioning
+.inner-addon {
+    position: relative;
+}
+
+//  style glyph
+.inner-addon .glyph {
+    position: absolute;
+    padding:10px;
+    pointer-events: none;
+}
+
+// align glyph
+.left-addon .glyph  { left:  0px;}
+.right-addon .glyph { right: 0px;}
+
+// add padding
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+*/
+
+#loginModalContent{
+    padding:55px;
+    transform:translate(18%,0%);
+    width:600px;
+}
+
+.modal-content{
+    border-radius:1.2rem;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: lightgray;
+}
+
+.nav-pills .nav-link, .nav-pills .show > .nav-link {
+    font-weight: 700;
+    font-size:1.4rem;
+}
+
+#modalTitle{
+    margin-bottom:20px;
+    font-weight: 700;
+}
+
+#loginFormContainer{
+    margin:auto;
+}
+
+/*
+.tooltip .arrow {
+    display: none;
+} */
+
+#accLoginBtn, #accCreateBtn{
+    background-color: grey;
+    border-color: grey;
+    border-radius:10px;
+    font-size:1.3rem;
+}
+
 #sectionTwoBox{
     border-top-left-radius: 15vw;
     border-bottom-left-radius: 15vw;
@@ -112,17 +206,11 @@ div > .footerMiscInfo{
 
 .modal {
     top:5%;
-    width:85%;
-    left:7.5%;
 }
 
 .row{
     margin-left:  0px;
     margin-right: 0px;
-}
-
-.modal-content{
-    height:80vh;
 }
 
 #sectionThreeBox{
@@ -307,14 +395,20 @@ div > .footerMiscInfo{
     padding:0px;
 }
 
+#loginClose{
+    color:green;
+    font-size:3rem;
+    margin-top:-30px;
+}
+
 .close {
     position:absolute;
-    right:-30px;
-    top:0;
+    right:-20px;
+    top:-20px;
     z-index:999;
-    font-size:2rem;
+    font-size:2.7rem;
     font-weight: normal;
-    color:#fff;
+    color:green;
     opacity:1;
 }
 
@@ -389,6 +483,10 @@ div > .footerMiscInfo{
     margin:auto;
     width:10vw;
     margin-top: 4vh;
+}
+
+#aboutUsContent{
+    height:80vh;
 }
 
 .footerMiscInfo{
@@ -831,5 +929,3 @@ div > .footerMiscInfo{
         font-weight:600;
     }
 }
-
-
