@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="https://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 
     <!-- These meta tags Prevents Caching of web page: Good for development, Not so great for consumer. -->

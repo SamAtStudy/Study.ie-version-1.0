@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
     <!--<link rel="stylesheet" type="text/css" href="css/studyStylesheet.css"> -->
+    <!-- ADD COURSE RESULTS STYLE SHEET TO MAIN CSS -->
 
     <link rel="stylesheet" type="text/css" href="css/courseResults.css">
 
