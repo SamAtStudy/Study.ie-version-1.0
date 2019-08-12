@@ -11,6 +11,10 @@ body {
 
 /* look into bounce animations when things are clicked */
 
+.swal-footer {
+    text-align: center;
+}
+
 a{
     color:white;
 }

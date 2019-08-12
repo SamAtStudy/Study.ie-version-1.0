@@ -104,7 +104,7 @@ $(document).ready(function(){
                     title: "Logged In!",
                     text: " ",
                     icon:"success",
-                    timer: 2500,
+                    timer: 2100,
                     //showConfirmButton: false
                     buttons:false
                 });
