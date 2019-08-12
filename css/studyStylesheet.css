@@ -120,6 +120,10 @@ a:hover{
     margin:auto;
 }
 
+.swal-footer {
+    text-align: center;
+}
+
 /*
 .tooltip .arrow {
     display: none;

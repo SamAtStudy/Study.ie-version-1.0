@@ -24,6 +24,8 @@ $(document).ready(function(){
         });
     });
 
+    loginStatus();
+
     $('#learInPersonFocus').on('click', function() {
         //this scroll withour animations in chrome
         $('#sectionThreeRowTwo').get(0).scrollIntoView({
@@ -40,8 +42,6 @@ $(document).ready(function(){
         });
     });
 
-    $('#loginModal').modal('show');
-
     $('#pills-home').click(function(){
         loginStyle("revert");
     });
@@ -51,9 +51,32 @@ $(document).ready(function(){
     });
 
     $('#navLogOut').click(function(){
-        alert("logging you out");
-        $('#navProfile').hide();
-        $('#navLogin').show();
+        swal({
+                title: "Are you sure?",
+                text: " ",
+                icon: "info",
+                buttons: {
+                    cancel: true,
+                    confirm: {
+                        text: "Log Out",
+                        value: true,
+                        visible: true,
+                        className: "",
+                        closeModal: true
+                    }
+                }
+        }).then(function(){
+                swal({
+                    title: "Logged Out!",
+                    text: " ",
+                    icon:"success",
+                    timer: 2500,
+                    buttons:false
+                });
+                $('#navProfile').hide();
+                $('#navLogin').show();
+                sessionStorage.setItem("logged","none");
+        });
     });
 
     $("#accLoginBtn").click(function(){
@@ -69,7 +92,7 @@ $(document).ready(function(){
             //alert("Data: " + data + "\nStatus: " + status);
             if(data==="login success"){
                 sessionStorage.setItem("logged",mailUsername);
-                //alert(sessionStorage.getItem("logged"));
+                //alert(sessionStorage.getItem("logged"))f;
                 //getUserData(sessionStorage.getItem("logged"));
                 loginStyle("revert");
                 loginStyle("clear");
@@ -77,6 +100,14 @@ $(document).ready(function(){
                 $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
                 $('#navProfile').show();
                 $('#navLogin').hide();
+                swal({
+                    title: "Logged In!",
+                    text: " ",
+                    icon:"success",
+                    timer: 2500,
+                    //showConfirmButton: false
+                    buttons:false
+                });
                 //loginStatus();
             }else{
                 loginStyle("revert");
@@ -102,7 +133,14 @@ $(document).ready(function(){
         },function(data,status){
             //alert("Data: " + data + "\nStatus: " + status);
             if(data==="create success"){
-                alert("Account Created Successfully, Please log in");
+                swal({
+                    title: "Account Created!",
+                    text:"Now that you have an account, please log in",
+                    icon:"success",
+                    timer: 2500,
+                    //showConfirmButton: false
+                    buttons:false
+                });
             }else{
                 loginStyle("revert");
                 loginStyle(data);
@@ -122,6 +160,18 @@ $(document).ready(function(){
     $('#confirmPass').tooltip('disable');
 });
 
+function loginStatus(){
+    if(sessionStorage.getItem("logged")==="none" || sessionStorage.getItem("logged")===null){
+        sessionStorage.setItem("logged","none");
+        return "No User Logged In";
+    }else{
+        $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
+        $('#navProfile').show();
+        $('#navLogin').hide();
+        return "User "+sessionStorage.getItem("logged")+" is logged in.";
+    }
+}
+
 function loginStyle(x){
     var $tooltip=$('.tooltip');
 
@@ -134,7 +184,7 @@ function loginStyle(x){
         $('#confirmPass').tooltip('disable');
         $('.form-control').css("box-shadow","");
     }else if(x==="clear"){
-        $('.form-control').attr("value","");
+        $('.form-control').val("");
     }else if(x==="wrong password"){
         $('#pass').tooltip('enable');
         $('#pass').css("box-shadow","0 0 0 0.2rem hsl(0, 71%, 53%)");
