@@ -83,6 +83,11 @@ $(document).ready(function(){
         var mailUsername=$("#mailUsername").val();
         var pass=$("#pass").val();
         var option="login";
+        // Remember ME box ticked
+        fillByMemory()
+        if ($('#customCheck1').val()) {
+            rememberMe();
+        }
 
         $.post("https://167.71.136.73/Server/accRetrieval.php",{
             option: option,
@@ -158,7 +163,24 @@ $(document).ready(function(){
     $('#createEmail').tooltip('disable');
     $('#createPass').tooltip('disable');
     $('#confirmPass').tooltip('disable');
+
+    //Remember Me Cookie Function
+
+
 });
+// Remember me function
+function rememberMe() {
+    $.cookie('mU',$('#mailUsername').val());
+    $.cookie('P', $('#pass').val());
+
+}
+function fillByMemory() {
+    if (!!$.cookie('mU'))
+        $('#mailUsername').val($.cookie('mU'));
+
+    if (!!$.cookie('P'))
+        $('#pass').val($.cookie('P'));
+}
 
 function loginStatus(){
     if(sessionStorage.getItem("logged")==="none" || sessionStorage.getItem("logged")===null){
@@ -223,6 +245,8 @@ function loginStyle(x){
         alert("Error! Oh no...\nLooks like its a "+x);
     }
 }
+
+
 
 function courseTileFunctions(){
 
