@@ -363,9 +363,67 @@ div > .footerMiscInfo{
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25);
     background: #6cb4b0;
 }*/
+.custom-control-lg .custom-control-label::before,
+.custom-control-lg .custom-control-label::after {
+    top: 0.1rem !important;
+    left: -2rem !important;
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+.custom-control-lg .custom-control-label {
+    margin-left: 0.5rem !important;
+    font-size: 1.2rem !important;
+}
+
+#commentCollapse{
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+#commentCollapse .card-body{
+    background-color: hsl(210, 17%, 98%);
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border:none;
+}
 
 .classTile{
     border-radius:30px;
+}
+
+.classTileTitle{
+    font-weight: 700;
+}
+
+.classTileSubtitle{
+    font-size: 18px;
+}
+
+.classTileIcon{
+    height:20px;
+    margin-right:5px;
+    margin-bottom: 6px;
+}
+
+#classTileUpdate{
+    font-weight:700;
+    background-color: hsl(206, 100%, 97%);
+    padding:10px 30px;
+    border-style:solid;
+    border-width:2px;
+    border-color: hsl(206, 79%, 81%);
+    color:hsl(207, 53%, 15%);
+    border-radius: 25px;
+}
+
+.classTileUpdateIcon{
+    height:25px;
+    margin-bottom:3px;
+}
+
+.classTileCommentIcon{
+    height:32px;
 }
 
 #sectionThreeStep .col-xl-3 img{
@@ -681,6 +739,83 @@ div > .footerMiscInfo{
 }
 
 @media screen and (max-width: 567px) {
+    .custom-control-lg .custom-control-label::before,
+    .custom-control-lg .custom-control-label::after {
+        top: 0.1rem !important;
+        left: -0.5rem !important;
+        width: 0.5rem !important;
+        height: 0.5rem !important;
+    }
+
+    .custom-control-lg .custom-control-label {
+        margin-left: 0.1rem !important;
+        font-size: 0.25rem !important;
+    }
+
+    .classTile{
+        border-radius:30px;
+    }
+
+    .classTileTitle{
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .classTileSubtitle{
+        font-size: 8px;
+    }
+
+    .classTileUpdate{
+        margin-left:0px;
+        margin-right:0px;
+    }
+
+    #classTileTopic{
+        font-size:20px;
+    }
+
+    #classTileUpdateText{
+        font-size:8px;
+    }
+
+    .classTileUpdateStep{
+        line-height:0.5;
+    }
+
+    .classTileIcon{
+        height: 10px;
+        margin-right: 2px;
+        margin-bottom: 6px;
+    }
+
+    #classTileUpdate{
+        font-weight:700;
+        background-color: hsl(206, 100%, 97%);
+        padding:0px;
+        border-style:solid;
+        border-width:2px;
+        border-color: hsl(206, 79%, 81%);
+        color:hsl(207, 53%, 15%);
+        border-radius: 25px;
+    }
+
+    #taskDropdownMenu{
+        font-size:10px;
+        padding:5px;
+    }
+
+    .classTileBody{
+        font-size:8px;
+    }
+
+    .classTileUpdateIcon{
+        height:12px;
+    }
+
+    .classTileCommentIcon{
+        height:32px;
+    }
+
     .page-header{
         font-size:1.5rem;
         text-decoration: none;
