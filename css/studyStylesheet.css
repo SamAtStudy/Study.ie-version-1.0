@@ -364,6 +364,10 @@ div > .footerMiscInfo{
     background: #6cb4b0;
 }*/
 
+.classTile{
+    border-radius:30px;
+}
+
 #sectionThreeStep .col-xl-3 img{
     width:100%;
 }
