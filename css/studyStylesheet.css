@@ -450,6 +450,18 @@ div > .footerMiscInfo{
     height: 20px;
 }
 
+#classTileOptionsDropdown{
+    top: -30px !important;
+    left: -140px !important;
+}
+
+#classTileOptionsIcon{
+    position:absolute;
+    height:25px;
+    right:0%;
+    cursor:pointer;
+}
+
 #sectionThreeStep .col-xl-3 img{
     width:100%;
 }
@@ -789,6 +801,7 @@ div > .footerMiscInfo{
 
     .classTileSubtitle{
         font-size: 12px;
+        line-height:0.8;
     }
 
     #classTileTopic{
@@ -800,7 +813,7 @@ div > .footerMiscInfo{
     }
 
     .classTileAnnounceStep{
-        line-height: 0.85;
+        line-height: 0.8;
         /* margin-left: 0.5rem; */
         /* margin-right: 0.5rem; */
     }
