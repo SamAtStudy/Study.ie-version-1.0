@@ -208,18 +208,23 @@
 <div id="bodyContainer" style="min-height: 75vh;">
     <div id="classTileContainer">
         <div class="row">
-            <div class="col-10 col-xl-7 mx-auto my-5">
+            <div class="col-11 col-xl-7 mx-auto my-5">
                 <div class="classTile card text-center gmd-1">
-                    <div class="card-body m-2">
+                    <div class="card-body m-xl-2">
                         <div class="classTileHeader">
                             <h3 class="card-title classTileTitle" id="classTileName">Python</h3>
                             <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/calendar.svg" class="classTileIcon" id="classTileDate">Aug 13th, 7:30 - 9:30 pm </p>
                             <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/location-point.svg" class="classTileIcon" id="classTileLocation">Castleknock Community Centre, Castleknock</p>
-                            <h3 class="card-title mt-3" id="classTileTopic">Week 3 - Variables</h3>
+                            <h3 class="card-title mt-xl-3 mt-2" id="classTileTopic">Week 3 - Variables</h3>
                         </div>
-                        <div class="mt-xl-4 mx-xl-5 text-center" id="classTileUpdate">
-                            <div class="classTileUpdateStep">
-                                <p style="margin-bottom:-3px;"><img src="img/icons/information.svg" class="mr-1 classTileUpdateIcon"> <span id="classTileUpdateText">Info: Todays Class will finish at 9:30pm due to dental appointment. </span> </p>
+                        <div class="mt-xl-4 mx-xl-5 text-center" id="classTileAnnounce">
+                            <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
+                                <p><img src="img/icons/information.svg" class="mr-1 classTileAnnounceIcon"> <span id="classTileAnnounceText">Info: Todays Class will finish at 9:30pm due to dental appointment. </span> </p>
+                            </div>
+                        </div>
+                        <div class="mt-xl-4 mx-xl-5 text-center" id="classTileNewAnnounce">
+                            <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
+                                <p><img src="img/icons/add-button.svg" class="mr-1 classTileAnnounceIcon"> <span id="classTileAnnounceText">New Announcement </span> </p>
                             </div>
                         </div>
                         <div class="classTileBody my-3 my-xl-4 mx-xl-5 text-left">
@@ -231,44 +236,42 @@
                                     <a class="dropdown-item" href="#">Week 1 - Data</a>
                                     <a class="dropdown-item" href="#">Week 2 - Variables</a>
                                     <a class="dropdown-item" href="#">Week 3 - Arrays</a>
+                                    <a class="dropdown-item" href="#"><img src="img/icons/add-button.svg" class="classTileNewTaskDropIcon"> <span style="margin-left:0.25rem;">New Task List</span>
+                                    </a>
                                 </div>
                             </div>
                             <div class="row my-1 mx-4 my-xl-3 mx-xl-5">
-                                    <div class="classTileGoal custom-control-lg custom-checkbox col">
+                                    <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
                                         <input type="checkbox" class="custom-control-input" id="customCheck">
                                         <label class="custom-control-label" for="customCheck">Write</label>
                                     </div>
-                                    <div class="classTileGoal custom-control-lg custom-checkbox col">
+                                    <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
                                         <input type="checkbox" class="custom-control-input" id="customCheck2">
                                         <label class="custom-control-label" for="customCheck2">Write</label>
                                     </div>
-                                    <div class="classTileGoal custom-control-lg custom-checkbox col">
+                                    <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
                                         <input type="checkbox" class="custom-control-input" id="customCheck3">
                                         <label class="custom-control-label" for="customCheck3">Write</label>
                                     </div>
-                                    <div class="w-100 my-1"></div>
-                                    <div class="classTileGoal custom-control-lg custom-checkbox col">
+                                    <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
                                         <input type="checkbox" class="custom-control-input" id="customCheck4">
                                         <label class="custom-control-label" for="customCheck4">Write</label>
                                     </div>
-                                    <div class="classTileGoal custom-control-lg custom-checkbox col">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                        <label class="custom-control-label" for="customCheck5">Write</label>
-                                    </div>
-                                    <div class="classTileGoal custom-control-lg custom-checkbox col">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                        <label class="custom-control-label" for="customCheck6">Write</label>
+                                    <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
+                                        <img src="img/icons/add-button.svg" class="classTileNewTaskIcon"> <span style="margin-left:0.5rem;">New Task</span>
                                     </div>
                             </div>
                         </div>
-                        <div class="text-left mx-5">
+                        <div class="text-center text-xl-left m-1 mx-xl-5">
                             <a style="color:black;" data-toggle="collapse" href="#commentCollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <img src="img/icons/thread.svg" class="ml-2 mr-2 classTileCommentIcon">Show Comments (<span id="commentNum">14</span>)
+                                <img src="img/icons/thread.svg" class="mr-1 ml-xl-2 mr-xl-2 classTileCommentIcon">Show Comments (<span id="commentNum">14</span>)
                             </a>
                         </div>
-                        <div class="collapse mt-3 mx-n4 mb-n4" id="commentCollapse">
-                            <div class="card card-body">
-                                Comment System goes here. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        <div class="collapse mt-2 mt-n-3 mx-n3 mb-n3 mx-xl-n4 mb-xl-n4" id="commentCollapse">
+                            <div class="card card-body classTileCommentBody p-4">
+                                <div class="step px-xl-5 py-xl-2">
+                                    Comment System goes here. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                                </div>
                             </div>
                         </div>
                     </div>
