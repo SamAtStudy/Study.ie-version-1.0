@@ -164,9 +164,64 @@ $(document).ready(function(){
     $('#createPass').tooltip('disable');
     $('#confirmPass').tooltip('disable');
 
-    //Remember Me Cookie Function
+    //Weekly Tasks dropdown menu function
+    /*
+    //hides dropdown content
+    $(".row my-1 mx-4 my-xl-3 mx-xl-5").hide();
 
+    //unhides first option content
+    $("#week0").show();
 
+    //listen to dropdown for change
+    $("#WeekSelect").change(function(){
+        //rehide content on change
+        $('.row my-1 mx-4 my-xl-3 mx-xl-5').hide();
+        //unhides current item
+        $('#'+$(this).val()).show();
+    });
+
+     */
+//comment system
+    $('#comment_form').on('submit', function(event){
+        event.preventDefault();
+        var form_data = $(this).serialize();
+        $.ajax({
+            url:"add_comment.php",
+            method:"POST",
+            data:form_data,
+            dataType:"JSON",
+            success:function(data)
+            {
+                if(data.error != '')
+                {
+                    $('#comment_form')[0].reset();
+                    $('#comment_message').html(data.error);
+                    $('#comment_id').val('0');
+                    load_comment();
+                }
+            }
+        })
+    });
+
+    load_comment();
+
+    function load_comment()
+    {
+        $.ajax({
+            url:"fetch_comment.php",
+            method:"POST",
+            success:function(data)
+            {
+                $('#display_comment').html(data);
+            }
+        })
+    }
+
+    $(document).on('click', '.reply', function(){
+        var comment_id = $(this).attr("id");
+        $('#comment_id').val(comment_id);
+        $('#comment_name').focus();
+    });
 });
 // Remember me function
 function rememberMe() {
