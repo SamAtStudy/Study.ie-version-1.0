@@ -18,20 +18,20 @@ include 'header.php';
         <br>
 
         <!-- Buttons -->
-        <div class="cards-list container-fluid">
-            <div class="card 1" id="learnOnlineFocus">
+        <div class="cards-list cardButtonList container-fluid">
+            <div class="card 1 cardButton" id="learnOnlineFocus">
                 <div class="card_image"></div>
                 <div class="card_title title-white">
                     <p id="optionButtonText">Learn Online</p>
                 </div>
             </div>
-            <div class="card 1" id="learInPersonFocus">
+            <div class="card 1 cardButton" id="learInPersonFocus">
                 <div class="card_image"></div>
                 <div class="card_title title-white">
                     <p id="optionButtonText">Learn In Person</p>
                 </div>
             </div>
-            <div class="card 1" id="trackLearningFocus">
+            <div class="card 1 cardButton" id="trackLearningFocus">
                 <div class="card_image"></div>
                 <div class="card_title title-white">
                     <p id="optionButtonText">Track Learning</p>

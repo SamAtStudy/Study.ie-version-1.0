@@ -317,8 +317,7 @@ div > .footerMiscInfo{
     text-align:left;
 }
 
-/*
-.cards-list {
+.cardButtonList {
     width: 80%;
     display: flex;
     justify-content: space-around;
@@ -327,7 +326,7 @@ div > .footerMiscInfo{
     margin-left:10vw;
 }
 
-.card {
+.cardButton {
     margin: 30px auto;
     width: 250px;
     height: 126px;
@@ -338,31 +337,31 @@ div > .footerMiscInfo{
     background: #63cbb7;
 }
 
-.card .card_image {
+.cardButton .card_image {
     width: inherit;
     height: inherit;
     border-radius: 40px;
 }
 
-.card .card_image img {
+.cardButton .card_image img {
     width: inherit;
     height: inherit;
     border-radius: 40px;
     object-fit: cover;
 }
 
-.card .card_title {
+.cardButton .card_title {
     text-align: center;
     font-weight: bold;
     font-size: 30px;
     margin-top: -80px;
 }
 
-.card:hover{
+.cardButton:hover{
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25);
     background: #6cb4b0;
-}*/
+}
 .custom-control-lg .custom-control-label::before,
 .custom-control-lg .custom-control-label::after {
     top: 0.1rem !important;
@@ -460,6 +459,13 @@ div > .footerMiscInfo{
     height:25px;
     right:0%;
     cursor:pointer;
+}
+
+#headerUserIcon{
+    height:100px;
+    width:100px;
+    border:4px solid #6ECBB7;
+    background: #6ECBB7;
 }
 
 #sectionThreeStep .col-xl-3 img{
@@ -870,6 +876,24 @@ div > .footerMiscInfo{
         height: 20px;
     }
 
+    #classTileOptionsIcon{
+    height:16px;
+    }
+
+    #headerUserProfile{
+        margin-bottom:-16px;
+    }
+
+    #headerUserIcon{
+        height:75px;
+        width:75px;
+    }
+
+    #classTileOptionsDropdown{
+        top: -20px !important;
+        left: -20px !important;
+    }
+
     .page-header{
         font-size:1.5rem;
         text-decoration: none;
@@ -940,29 +964,28 @@ div > .footerMiscInfo{
     #typeWriterBox{
         margin-left:26vw;
     }
-    /*
-    .cards-list{
+
+    .cardButtonList{
         // On small screens, we are no longer using row direction but column
         flex-direction: column;
         margin-top:16vh;
     }
 
-    .card{
+    .cardButton{
         margin:10px auto;
         width:50vw;
         height:10vh;
     }
 
-    .card .card_title{
+    .cardButton .card_title{
         margin-top:-7vh;
     }
 
-    .card:hover{
+    .cardButton:hover{
         transform: scale(0.9, 0.9);
         box-shadow: 1px 5px 15px 1px rgba(0,0,0,0.25);
         background: #6cb4b0;
     }
-    */
 
     #optionButtonText{
         font-size:4vw;
