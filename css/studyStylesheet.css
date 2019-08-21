@@ -431,6 +431,9 @@ div > .footerMiscInfo{
 .classTileAnnounceIcon{
     height:25px;
     margin-bottom:3px;
+}
+
+#classTileNewAnnounce .classTileAnnounceIcon{
     cursor: pointer;
 }
 
@@ -466,6 +469,21 @@ div > .footerMiscInfo{
     width:100px;
     border:4px solid #6ECBB7;
     background: #6ECBB7;
+}
+
+#classTileAnnounce span#classTileAnnounceText:hover{
+    outline: 2px dashed hsl(206, 79%, 81%) !important;
+    cursor: pointer;
+}
+
+#classTileAnnounce  span#classTileAnnounceText:focus{
+    outline: 2px dashed hsl(206, 79%, 81%) !important;
+    cursor:text;
+}
+
+#taskDropdownMenu{
+    max-height:160px;
+    overflow:auto; /* to get scroll */
 }
 
 #sectionThreeStep .col-xl-3 img{
@@ -857,7 +875,7 @@ div > .footerMiscInfo{
         margin-right:0px;
     }
 
-    #taskDropdownMenu{
+    #taskDropdownMenuBtn{
         font-size: 12px;
         padding:5px;
     }

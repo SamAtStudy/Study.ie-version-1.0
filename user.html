@@ -232,6 +232,7 @@
                         <div class="dropdown show">
                                     <img src="img/icons/menu.svg" id="classTileOptionsIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="dropdown-menu gmd-1" aria-labelledby="classTileOptions" id="classTileOptionsDropdown">
+                                        <a class="dropdown-item" href="#" onclick="editClassTile()">Edit</a>
                                         <a class="dropdown-item" href="#">Pin</a>
                                         <a class="dropdown-item" href="#">Mute Notifications</a>
                                         <a class="dropdown-item" href="#">Delete Class</a>
@@ -241,38 +242,43 @@
                         <!-- Class Tile Header -->
                         <div class="classTileHeader">
                                     <h3 class="card-title classTileTitle" id="classTileName">Class Name<?php echo $data['courseName'] ?></h3>
-                                    <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/calendar.svg" class="classTileIcon" id="classTileDate">Time a <?php echo $data['courseTime'] ?></p>
+                                    <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/calendar.svg" class="classTileIcon" id="classTileDate">Time and Date <?php echo $data['courseTime'] ?></p>
                                     <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/location-point.svg" class="classTileIcon" id="classTileLocation">Location <?php echo $data['Location'] ?></p>
                                     <h3 class="card-title mt-xl-3 mt-2" id="classTileTopic">Current Topic<?php echo $data['courseTopic'] ?></h3>
                                 </div>
 
                         <!-- Class Tile Announcement -->
                         <div class="mt-xl-4 mx-xl-5 text-center" id="classTileAnnounce">
-                                    <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
-                                        <p><img src="img/icons/information.svg" class="mr-1 classTileAnnounceIcon"> <span id="classTileAnnounceText">Announcement <?php echo $data['Announcement'] ?></span> </p>
-                                    </div>
-                                </div>
+                            <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
+                                <p><img src="img/icons/information.svg" class="mr-1 classTileAnnounceIcon"> <span onkeypress="verifyAnnouncement(this)" contenteditable="true" id="classTileAnnounceText">Announcement <?php echo $data['Announcement'] ?></span> </p>
+                            </div>
+                        </div>
                         <div class="mt-xl-4 mx-xl-5 text-center" id="classTileNewAnnounce">
-                                    <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
-                                        <p><img src="img/icons/add-button.svg" class="mr-1 classTileAnnounceIcon"> <span id="classTileAnnounceText">New Announcement </span> </p>
-                                    </div>
-                                </div>
+                            <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
+                                <p><img src="img/icons/add-button.svg" class="mr-1 classTileAnnounceIcon" onclick="newAnnouncement()"> <span id="classTileAnnounceText">New Announcement </span> </p>
+                            </div>
+                        </div>
 
                         <!-- Class Tile Tasks -->
                         <div class="classTileBody my-3 my-xl-4 mx-xl-5 text-left">
                                     <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="taskDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="taskDropdownMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Tasks
                                         </button>
-                                        <div class="dropdown-menu gmd-2" aria-labelledby="taskDropdownMenu">
-                                            <a class="dropdown-item" href="#"><img src="img/icons/add-button.svg" class="classTileNewTaskDropIcon"> <span style="margin-left:0.25rem;">New Task List</span>
+                                        <div class="dropdown-menu gmd-2" aria-labelledby="taskDropdownMenuBtn" id="taskDropdownMenu">
+                                            <a class="dropdown-item" href="#">Week 0</a>
+                                            <a class="dropdown-item dropdownNewTaskList" href="#" onclick="newTaskList()"><img src="img/icons/add-button.svg" class="classTileNewTaskDropIcon"> <span style="margin-left:0.25rem;">New Task List</span>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="row my-1 mx-4 my-xl-3 mx-xl-5">
-                                            <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
-                                                <img src="img/icons/add-button.svg" class="classTileNewTaskIcon"> <span style="margin-left:0.5rem;">New Task</span>
-                                            </div>
+                                    <div class="row my-1 mx-4 my-xl-3 mx-xl-5 w1" id="taskList">
+                                        <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                            <label class="custom-control-label" for="customCheck2">Task 1</label>
+                                        </div>
+                                        <div class="classTileGoal classTileNewTask custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
+                                                <img src="img/icons/add-button.svg" class="classTileNewTaskIcon" onclick="newTask()"> <span style="margin-left:0.5rem;">New Task</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -404,23 +410,14 @@
 <!-- SCRIPTS -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="js/jquery-3.3.1.min.js"></script>
-<script>
-    // language=JQuery-CSS
-    $('.drop-down-show-hide').hide();
-
-    $('#dropDown').change(function () {
-        $(this).find("option").each(function () {
-            $('#' + this.value).hide();
-        });
-        $('#' + this.value).show();
-
-    });
-</script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <script src="js/studyScript.js"></script>
-
+<script>
+    //Load User Profile
+    userProfile();
+</script>
 
 </body>
 </html>

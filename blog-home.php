@@ -114,7 +114,7 @@ include 'blogHeader.php';
 
             <div class="col-md-6">
                 <a href="blog-post2.php">
-                    <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Sam0107.JPG" alt="">
+                    <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Sam0107.jpg" alt="">
                 </a>
             </div><div class="col-md-1 text-center">
         </div>

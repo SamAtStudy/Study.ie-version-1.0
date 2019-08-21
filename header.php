@@ -64,6 +64,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
+                    <a class="dropdown-item" href="#" id="dropdownProfileLink">My Profile</a>
                     <a class="dropdown-item disabled" href="#">Settings</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" id="navLogOut">Log Out</a>

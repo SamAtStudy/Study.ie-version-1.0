@@ -83,13 +83,8 @@ $(document).ready(function(){
         var mailUsername=$("#mailUsername").val();
         var pass=$("#pass").val();
         var option="login";
-        // Remember ME box ticked
-        fillByMemory()
-        if ($('#customCheck1').val()) {
-            rememberMe();
-        }
 
-        $.post("https://167.71.136.73/Server/accRetrieval.php",{
+        $.post("https://study.ie/Server/accRetrieval.php",{
             option: option,
             mailUsername: mailUsername,
             userPass: pass
@@ -103,6 +98,7 @@ $(document).ready(function(){
                 loginStyle("clear");
                 $('#loginModal').modal('hide');
                 $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
+                $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("logged"));
                 $('#navProfile').show();
                 $('#navLogin').hide();
                 swal({
@@ -129,7 +125,7 @@ $(document).ready(function(){
         var conPass=$("#confirmPass").val();
         var option="create";
 
-        $.post("https://167.71.136.73/Server/accRetrieval.php",{
+        $.post("https://study.ie/Server/accRetrieval.php",{
             userName: username,
             userEmail: email,
             userPass: pass,
@@ -164,23 +160,6 @@ $(document).ready(function(){
     $('#createPass').tooltip('disable');
     $('#confirmPass').tooltip('disable');
 
-    //Weekly Tasks dropdown menu function
-    /*
-    //hides dropdown content
-    $(".row my-1 mx-4 my-xl-3 mx-xl-5").hide();
-
-    //unhides first option content
-    $("#week0").show();
-
-    //listen to dropdown for change
-    $("#WeekSelect").change(function(){
-        //rehide content on change
-        $('.row my-1 mx-4 my-xl-3 mx-xl-5').hide();
-        //unhides current item
-        $('#'+$(this).val()).show();
-    });
-
-     */
 //comment system
     $('#comment_form').on('submit', function(event){
         event.preventDefault();
@@ -205,36 +184,22 @@ $(document).ready(function(){
 
     load_comment();
 
-    function load_comment()
-    {
-        $.ajax({
-            url:"fetch_comment.php",
-            method:"POST",
-            success:function(data)
-            {
-                $('#display_comment').html(data);
-            }
-        })
-    }
-
     $(document).on('click', '.reply', function(){
         var comment_id = $(this).attr("id");
         $('#comment_id').val(comment_id);
         $('#comment_name').focus();
     });
 });
-// Remember me function
-function rememberMe() {
-    $.cookie('mU',$('#mailUsername').val());
-    $.cookie('P', $('#pass').val());
 
-}
-function fillByMemory() {
-    if (!!$.cookie('mU'))
-        $('#mailUsername').val($.cookie('mU'));
-
-    if (!!$.cookie('P'))
-        $('#pass').val($.cookie('P'));
+function load_comment(){
+    $.ajax({
+        url:"fetch_comment.php",
+        method:"POST",
+        success:function(data)
+        {
+            $('#display_comment').html(data);
+        }
+    })
 }
 
 function loginStatus(){
@@ -242,7 +207,8 @@ function loginStatus(){
         sessionStorage.setItem("logged","none");
         return "No User Logged In";
     }else{
-        $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
+        $('#dropdownAcc').html("User:"+sessionStorage.getItem("logged"));
+        $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("logged"));
         $('#navProfile').show();
         $('#navLogin').hide();
         return "User "+sessionStorage.getItem("logged")+" is logged in.";
@@ -301,7 +267,74 @@ function loginStyle(x){
     }
 }
 
+function userProfile(){
+    var x=loginStatus();
+    if(x.indexOf("No User Logged In") ==-1){
+        alert("HEY!");
+    }
+}
 
+var saving;
+
+function editClassTile(){
+    var tileName=$('#classTileName');
+    var tileTopic=$('#classTileTopic');
+    tileName.css("outline","2px dashed hsl(206, 79%, 81%)");
+    tileName.attr("contenteditable","true");
+    //tileName.css("cursor","pointer");
+    tileTopic.css("outline","2px dashed hsl(206, 79%, 81%)");
+    tileTopic.attr("contenteditable","true");
+    saving=setInterval(saveClassTile,10000);
+}
+
+function saveClassTile(tileName,tileTopic){
+    alert("changes saved");
+    tileName.css("outline","");
+    tileTopic.css("outline","");
+    tileName.attr("contenteditable","false");
+    tileName.attr("contenteditable","false");
+    //tileGoals.css("outline","");
+    //tileGoals.attr("contenteditable","false");
+    clearInterval(saving);
+}
+
+function newTask(){
+    $(".classTileNewTask").remove();
+    var div=('<div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">\n' +
+        '       Task 1\n' +
+        '     </div>' +
+        '     <div class="classTileGoal classTileNewTask custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">\n' +
+        '           <img src="img/icons/add-button.svg" class="classTileNewTaskIcon" onclick="newTask()"><span style="margin-left:0.5rem;">New Task</span>\n' +
+        '     </div>');
+    $("#taskList").append(div);
+}
+
+function newTaskList(){
+    $(".dropdownNewTaskList").remove();
+    var div=('<a class="dropdown-item" href="#">Week 0</a>\n' +
+        '     <a class="dropdown-item dropdownNewTaskList" href="#" onclick="newTaskList()"><img src="img/icons/add-button.svg" class="classTileNewTaskDropIcon"> <span style="margin-left:0.25rem;">New Task List</span>\n' +
+        '     </a>');
+    $("#taskDropdownMenu").append(div);
+}
+
+function newAnnouncement(){
+    $('#classTileNewAnnounce').hide();
+    $('#classTileAnnounce').show();
+}
+
+function verifyAnnouncement(x){
+    if(x.innerText.length>50){
+         x.innerText=x.innerText.substring(0,49);
+    }
+    setInterval(saveTile,3000);
+}
+
+function saveTile(){
+    var x = document.getElementById("classTileAnnounceText");
+    if(x.innerText.length>50){
+        x.innerText=x.innerText.substring(0,49);
+    }
+}
 
 function courseTileFunctions(){
 
@@ -476,7 +509,6 @@ function checkResults(){
         data=data.substring(1,data.length-1);
         alert("JSON Data: " + data + "\nStatus: " + status);
        return 2000;
-
     });*/
 }
 
