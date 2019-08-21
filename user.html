@@ -232,7 +232,8 @@
                         <div class="dropdown show">
                                     <img src="img/icons/menu.svg" id="classTileOptionsIcon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="dropdown-menu gmd-1" aria-labelledby="classTileOptions" id="classTileOptionsDropdown">
-                                        <a class="dropdown-item" href="#" onclick="editClassTile()">Edit</a>
+                                        <a class="dropdown-item" href="#" id="classTileEdit" onclick="editClassTile()">Edit</a>
+                                        <a class="dropdown-item" href="#" id="classTileSave" onclick="saveClassTile()" style="display:none;">Save</a>
                                         <a class="dropdown-item" href="#">Pin</a>
                                         <a class="dropdown-item" href="#">Mute Notifications</a>
                                         <a class="dropdown-item" href="#">Delete Class</a>
@@ -241,16 +242,16 @@
 
                         <!-- Class Tile Header -->
                         <div class="classTileHeader">
-                                    <h3 class="card-title classTileTitle" id="classTileName">Class Name<?php echo $data['courseName'] ?></h3>
-                                    <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/calendar.svg" class="classTileIcon" id="classTileDate">Time and Date <?php echo $data['courseTime'] ?></p>
-                                    <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/location-point.svg" class="classTileIcon" id="classTileLocation">Location <?php echo $data['Location'] ?></p>
-                                    <h3 class="card-title mt-xl-3 mt-2" id="classTileTopic">Current Topic<?php echo $data['courseTopic'] ?></h3>
+                                    <h3 class="card-title classTileTitle"><span id="classTileName" class="editHighlight" contenteditable="false" data-placeholder="Class Name"></span></h3>
+                                    <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/calendar.svg" class="classTileIcon" ><span id="classTileDate" class="editHighlight" contenteditable="false" data-placeholder="Time and Date"></span></p>
+                                    <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/location-point.svg" class="classTileIcon"><span id="classTileLocation" class="editHighlight" contenteditable="false" data-placeholder="Location"></span></p>
+                                    <h3 class="card-title mt-xl-3 mt-2"><span id="classTileTopic" class="editHighlight" contenteditable="false" data-placeholder="Current Topic"></span></h3>
                                 </div>
 
                         <!-- Class Tile Announcement -->
                         <div class="mt-xl-4 mx-xl-5 text-center" id="classTileAnnounce">
                             <div class="classTileAnnounceStep mt-2 mb-2 mx-2">
-                                <p><img src="img/icons/information.svg" class="mr-1 classTileAnnounceIcon"> <span onkeypress="verifyAnnouncement(this)" contenteditable="true" id="classTileAnnounceText">Announcement <?php echo $data['Announcement'] ?></span> </p>
+                                <p><img src="img/icons/information.svg" class="mr-1 classTileAnnounceIcon"> <span onkeydown="verifyAnnouncement(this)" contenteditable="true" data-placeholder="Announcement" id="classTileAnnounceText"></span></p>
                             </div>
                         </div>
                         <div class="mt-xl-4 mx-xl-5 text-center" id="classTileNewAnnounce">
@@ -273,11 +274,11 @@
                                     </div>
                                     <div class="row my-1 mx-4 my-xl-3 mx-xl-5 w1" id="taskList">
                                         <div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                            <label class="custom-control-label" for="customCheck2">Task 1</label>
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2" disabled>
+                                            <label class="custom-control-label" for="customCheck2"><span contenteditable="false" data-placeholder="Task 1" class="editHighlight" style="color:black;"></span></label>
                                         </div>
                                         <div class="classTileGoal classTileNewTask custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">
-                                                <img src="img/icons/add-button.svg" class="classTileNewTaskIcon" onclick="newTask()"> <span style="margin-left:0.5rem;">New Task</span>
+                                                <img src="img/icons/add-button.svg" class="classTileNewTaskIcon" onclick="newTask()"><span style="margin-left:0.5rem;">New Task</span>
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +292,7 @@
                         <div class="collapse mt-2 mt-n-3 mx-n3 mb-n3 mx-xl-n4 mb-xl-n4" id="commentCollapse">
                                     <div class="card card-body classTileCommentBody p-4">
                                         <div class="step px-xl-5 py-xl-2">
-                                            @Sam/Put User ID and photo here
+                                            @Sam
                                             <form method="POST" id="comment_form">
                                                 <div class="form-group">
                                                     <textarea name="comment_content" id="comment_content" class="form-control" placeholder="Enter Comment" rows="5"></textarea>

@@ -275,43 +275,55 @@ function userProfile(){
 }
 
 var saving;
+var tileName=$('#classTileName');
+var tileTopic=$('#classTileTopic');
 
 function editClassTile(){
-    var tileName=$('#classTileName');
-    var tileTopic=$('#classTileTopic');
-    tileName.css("outline","2px dashed hsl(206, 79%, 81%)");
-    tileName.attr("contenteditable","true");
+    /*var tileName=$('#classTileName');
+    var tileTopic=$('#classTileTopic'); */
+    $('.editHighlight').css("outline","2px dashed hsl(206, 79%, 81%)");
+    $('.editHighlight').attr("contenteditable","true");
+    $('#classTileEdit').hide();
+    $('#classTileSave').show();
     //tileName.css("cursor","pointer");
-    tileTopic.css("outline","2px dashed hsl(206, 79%, 81%)");
-    tileTopic.attr("contenteditable","true");
-    saving=setInterval(saveClassTile,10000);
+    //saving=setInterval(saveClassTile,10000);
 }
 
 function saveClassTile(tileName,tileTopic){
     alert("changes saved");
-    tileName.css("outline","");
-    tileTopic.css("outline","");
+    $('#classTileEdit').show();
+    $('#classTileSave').hide();
+    $('.editHighlight').css("outline","");
+    $('.editHighlight').attr("contenteditable","false");
+    /*clearInterval(saving);
+    tileName.css("outline","none");
     tileName.attr("contenteditable","false");
-    tileName.attr("contenteditable","false");
+    tileTopic.css("outline","none");
+    tileTopic.attr("contenteditable","false");
     //tileGoals.css("outline","");
     //tileGoals.attr("contenteditable","false");
-    clearInterval(saving);
+    clearInterval(saving); */
 }
+var tasks=1;
 
 function newTask(){
     $(".classTileNewTask").remove();
+    tasks++;
     var div=('<div class="classTileGoal custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">\n' +
-        '       Task 1\n' +
-        '     </div>' +
-        '     <div class="classTileGoal classTileNewTask custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">\n' +
-        '           <img src="img/icons/add-button.svg" class="classTileNewTaskIcon" onclick="newTask()"><span style="margin-left:0.5rem;">New Task</span>\n' +
-        '     </div>');
+        '       <input type="checkbox" class="custom-control-input" id="customCheck'+tasks+1+'" disabled>\n' +
+        '       <label class="custom-control-label" for="customCheck2"><span contenteditable="false" data-placeholder="Task '+tasks+'" class="editHighlight" style="color:black;"></span></label>\n' +
+        ' </div>\n' +
+        ' <div class="classTileGoal classTileNewTask custom-control-lg custom-checkbox my-2 col-md-12 col-xl-4">\n' +
+        '       <img src="img/icons/add-button.svg" class="classTileNewTaskIcon" onclick="newTask()"><span style="margin-left:0.5rem;">New Task</span>\n' +
+        ' </div>')
     $("#taskList").append(div);
 }
+var weeks=0;
 
 function newTaskList(){
     $(".dropdownNewTaskList").remove();
-    var div=('<a class="dropdown-item" href="#">Week 0</a>\n' +
+    weeks++;
+    var div=('<a class="dropdown-item" href="#">Week '+weeks+'</a>\n' +
         '     <a class="dropdown-item dropdownNewTaskList" href="#" onclick="newTaskList()"><img src="img/icons/add-button.svg" class="classTileNewTaskDropIcon"> <span style="margin-left:0.25rem;">New Task List</span>\n' +
         '     </a>');
     $("#taskDropdownMenu").append(div);
@@ -325,15 +337,15 @@ function newAnnouncement(){
 function verifyAnnouncement(x){
     if(x.innerText.length>50){
          x.innerText=x.innerText.substring(0,49);
+         return;
     }
-    setInterval(saveTile,3000);
-}
+    //setInterval(saveTile,3000);
 
-function saveTile(){
-    var x = document.getElementById("classTileAnnounceText");
-    if(x.innerText.length>50){
-        x.innerText=x.innerText.substring(0,49);
-    }
+    setTimeout(function(){
+        if(x.innerText.length>50){
+            x.innerText=x.innerText.substring(0,49);
+        }
+    },250);
 }
 
 function courseTileFunctions(){
@@ -450,8 +462,6 @@ var TxtRotate = function(el, toRotate, period) {
     this.isDeleting = false;
 };
 
-
-
 TxtRotate.prototype.tick = function() {
     var i = this.loopNum % this.toRotate.length;
     var fullTxt = this.toRotate[i];
@@ -512,8 +522,7 @@ function checkResults(){
     });*/
 }
 
-function GetURLParameter(sParam)
-{
+function GetURLParameter(sParam){
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++)

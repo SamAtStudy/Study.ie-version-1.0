@@ -9,6 +9,18 @@ body {
     padding-right: 0 !important;
 }
 
+[contenteditable]:empty::before {
+    content: attr(data-placeholder);
+}
+
+[contenteditable=true]:hover {
+    cursor: pointer;
+}
+
+[contenteditable=true]:focus {
+    cursor: text;
+}
+
 /* look into bounce animations when things are clicked */
 
 a{
@@ -473,12 +485,10 @@ div > .footerMiscInfo{
 
 #classTileAnnounce span#classTileAnnounceText:hover{
     outline: 2px dashed hsl(206, 79%, 81%) !important;
-    cursor: pointer;
 }
 
 #classTileAnnounce  span#classTileAnnounceText:focus{
     outline: 2px dashed hsl(206, 79%, 81%) !important;
-    cursor:text;
 }
 
 #taskDropdownMenu{
@@ -885,7 +895,7 @@ div > .footerMiscInfo{
     }
 
     .classTileAnnounceIcon{
-        height: 14px;
+        height: 19px;
         /* top: 4px; */
         /* position: relative; */
     }
