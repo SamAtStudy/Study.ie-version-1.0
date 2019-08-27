@@ -189,6 +189,15 @@ $(document).ready(function(){
         $('#comment_id').val(comment_id);
         $('#comment_name').focus();
     });
+
+    $(".groupTileResTrigger").mouseenter(function () {
+        $(".groupResourceContainer").fadeIn();
+    });
+
+    $(".groupTile").mouseleave(function(){
+        $(".groupResourceContainer").fadeOut();
+        //alert("fade out");
+    });
 });
 
 function load_comment(){
@@ -349,7 +358,6 @@ function verifyAnnouncement(x){
 }
 
 function courseTileFunctions(){
-
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
@@ -534,6 +542,7 @@ function GetURLParameter(sParam){
         }
     }
 }
+
 var totalRows=3476; //Hardcoded number of rows in DB;
 
 function courseResults(){

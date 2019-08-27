@@ -12,7 +12,6 @@ $connectDB=mysqli_connect($dbServername,$dbUsername,$dbPassword,$dbName);
 //Set mysqli charset as UTF-8
 mysqli_set_charset($connectDB,"utf8");*/
 
-
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "Studypand24a";
