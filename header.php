@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
 
     <!-- These meta tags Prevents Caching of web page: Good for development, Not so great for consumer. -->
@@ -28,13 +28,13 @@
     <link rel="stylesheet" type="text/css" href="css/studyStylesheet.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142230907-4"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142230907-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-142230907-4');
+        gtag('config', 'UA-142230907-3');
     </script>
 
 </head>
@@ -111,10 +111,7 @@
                                                 <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password" placeholder="Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
-                                                <div class="custom-control custom-checkbox mr-auto">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                                                    <label class="custom-control-label" for="customCheck1">Remember Me</label>
-                                                </div>
+
                                                 <span style="color:black;"><a href="#" style="color:black;">Forgot password?</a></span>
                                             </div>
                                             <button id="accLoginBtn" type="button" class="btn btn-info btn-block btn-round">Login</button>

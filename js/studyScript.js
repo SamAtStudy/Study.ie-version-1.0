@@ -357,7 +357,7 @@ function verifyAnnouncement(x){
     },250);
 }
 
-function courseTileFunctions(){
+function courseGroupTileFunctions(){
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
@@ -545,11 +545,155 @@ function GetURLParameter(sParam){
 
 var totalRows=3476; //Hardcoded number of rows in DB;
 
-function courseResults(){
+function groupResults(){
     //var totalRows=checkResults();
 
     if(totalRows==0){
         /*Hide load more btn and show no more results txt*/
+        $("#noResults").show();
+        $("#loadMoreResults").hide();
+    }else if(totalRows<4){
+        createGroupTile(totalRows);
+
+        $("#noResults").show();
+        $("#loadMoreResults").hide();
+    }else{
+        createGroupTile(4);
+    }
+}
+
+//FUTURE: script for applying a relevant image for a particular Course Topic if no image available
+function createGroupTile(tilesShown){
+
+    var ar={groupImg:"img/Logo1.png",courseTitle:"Tile Title",courseDesc:"Tile Description",
+        coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
+
+    var div;
+    var numRows=""+totalRows;
+    var tiles=""+tilesShown;
+
+    $.post("https://study.ie/Server/api.php",{
+        tiles: tiles,
+        numRows: numRows
+    },function(dbData,status){
+    },function(dbData,status){
+
+        if(dbData.indexOf("Failed to connect") !==-1){
+            console.log("Database Error"); //This is not working...
+        }else {
+            alert(dbData);
+            var decodedJSON = JSON.parse(dbData);
+            //alert(tilesShown);
+            //console.log(decodedJSON); //Use Console Log to Debug array structure
+            //alert(decodedJSON);
+            //$('#test').html(decodedJSON[1]['courseTitle']);
+            /*
+            var strSplit;
+
+            for(i=5; i>=0; i--){
+
+                if(decodedJSON[i]['courseFee'].indexOf("€") !==-1){
+                    strSplit=decodedJSON[i]['courseFee'].split("€");
+                    strSplit=strSplit[1].split(" ");
+                    strSplit=strSplit[0].split(".");
+                    decodedJSON[i]['coursePrice']="€"+strSplit[0];
+                }else{
+                    decodedJSON[i]['coursePrice']=" ";
+                }
+
+                //Truncates Card Desc
+                if(decodedJSON[i]['courseDesc'].length<2){
+                    decodedJSON[i]['courseDesc']="Course Description Not Available.";
+                }else if(decodedJSON[i]['courseDesc'].length>250){
+                    decodedJSON[i]['courseDesc']=decodedJSON[i]['courseDesc'].substr(0,238)+". . .";
+                }
+                */
+            div = $('<div class="row">' +
+
+                '<div class="col-12 mt-5 mx-auto">\n' +
+                '                <div class="row justify-content-between m-xl-5 m-3">\n' +
+                '                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer">\n' +
+                '                        <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover groupTile">\n' +
+                '                            <img class="courseImg courseTileImg" src="' + ar['groupImg'] + '" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                '                        <div class="card-body groupTileBody">\n' +
+                '                            <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1"><h5 class="card-title text-center groupTileTitle"tyle="font-weight:700;" >' + decodedJSON[i]['className'] + '</h5></a>\n' +
+                '                            <p class="card-text courseDesc">' + decodedJSON[i]['lessonName'] + '</p>\n' +
+                '                            <div class="row my-2">\n' +
+                '                                <img src="img/icons/timer.svg" class="classTileIcon" ><span class="groupTileTime">' + decodedJSON[i]['time'] + '</span>\n' +
+                '                        </div>\n' +
+                '                        <div class="row my-2">\n' +
+                '                            <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">' + decodedJSON[i]['date'] + '</span>\n</div>\n' +
+                '                            <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">Bi-Weekly</span>\n' +
+                '                        </div>\n' +
+                '                         <div class="row my-2">\n' +
+                '                         <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">' + decodedJSON[i]['location'] + '</span>\n' +
+                '                         </div>\n' +
+                '                        <div class="d-flex justify-content-between mt-3 mb-2">\n' +
+                '                            <div class="mt-2 text-muted">\n' +
+                '                                 <span class="groupTileMembers">' + decodedJSON[i]['memNum'] + '</span> Members \n' +
+                '                            </div>\n' +
+                '                            <div>\n' +
+                '                                <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="alert();">Join</button>\n' +
+                '                            </div>\n' +
+                '                          </div>\n' +
+                '                    <div class="row mt-1" style="font-weight:700;">\n' +
+                '                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#resourceCollapse2" role="button" aria-expanded="false" aria-controls="resourceCollapse2">Resources </a>\n' +
+                '                    </div>\n' +
+                '                    <div class="row groupResourceContainer collapse pt-1" id="resourceCollapse2" style="position: relative; z-index: 5;">\n' +
+                '                        <div class="col-12">\n' +
+                '                           ' + decodedJSON[i]['course1'] + ' <span class="ml-1 p-1" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">' + decodedJSON[i]['course1Prov'] + '</span>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-12">\n' +
+                '                           ' + decodedJSON[i]['course2'] + ' <span class="ml-1 p-1" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">' + decodedJSON[i]['course2Prov'] + '</span>\n' +
+                '                        </div>\n' +
+                '                        <div class="col-12">\n' +
+                '                           ' + decodedJSON[i]['course3'] + ' <span class="ml-1 p-1" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">' + decodedJSON[i]['course3Prov'] + '</span>\n' +
+                '                        </div>\n' +
+                '                    </div>\n' +
+                '                    <div class="modal fade groupTileModal" id="groupTileModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' +
+                '                        <div class="modal-dialog" role="document">\n' +
+                '                            <div class="modal-content" id="aboutUsContent">\n' +
+                '                                <div class="modal-body">\n' +
+                '                                    <button type="button" class="loginClose" data-dismiss="modal" aria-label="Close">\n' +
+                '                                        <span aria-hidden="true">&times;</span>\n' +
+                '                                    </button>\n' +
+                '                                    <div id="aboutModalContent">\n' +
+                '                                        <h4>Our Mission</h4>\n' +
+                '                                        <div class="row">\n' +
+                '                                            <div class="col">\n' +
+                '                                                <div class="container-fluid" id="aboutUsText">Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.</div>\n' +
+                '                                                <br/>\n' +
+                '                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">*If you can think, you are a learner.</div>\n' +
+                '                                            </div>\n' +
+                '                                        </div>\n' +
+                '                                    </div>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>\n' +
+                '        </div>\n' +
+                '    </div>\n' +
+                '</div>\n' +
+                '</div>');
+            totalRows = totalRows - 1;
+
+            $("#groupResContainerStep").append(div);
+
+            // add functionality to course tiles
+            courseGroupTileFunctions();
+        }
+    });
+
+}
+
+/*
+function courseResults(){
+    //var totalRows=checkResults();
+
+    if(totalRows==0){
+        /*Hide load more btn and show no more results txt
         $("#noResults").show();
         $("#loadMoreResults").hide();
     }else if(totalRows<6){
@@ -638,7 +782,7 @@ function createTile(tilesShown){
     });
 
 }
-
+*/
 function createCoursePage(){
 
     var data={courseID:0,courseImg:"https://via.placeholder.com/320x180",courseTitle:"Course Title",
@@ -652,7 +796,7 @@ function createCoursePage(){
     var courseId=GetURLParameter('id');
 
     $.post("https://study.ie/Server/api.php",{
-        courseID: courseId
+        classId: classId
     },function(dbData,status){
 
         if(dbData.indexOf("Failed to connect") !==-1){

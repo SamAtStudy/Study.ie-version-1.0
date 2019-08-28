@@ -1,8 +1,20 @@
 <?php
 include 'header.php';
 ?>
-
-<div class = "container-fluid">
+<div id="courseResContainer">
+    <div class="container-fluid" id="resContainerStep">
+        <!-- FUTURE: Expandable thread preview tile-->
+        <!-- FIX: Data target removed from a tags surrounding course thread icon until unique selector is fixed 'href="#collapseExample" '-->
+    </div>
+    <div class="row">
+        <div class="col-12 my-5 mx-auto">
+            <div id="test"></div>
+            <button id="loadMoreResults" onclick="groupResults();" type="button" class="mx-auto btn btn-lrg my-5 gmd-1" style="display:block; width:60%; background: teal; color:white; border-radius: 30px; height:70px; font-size: 1.5rem; padding:10px;">Load More</button>
+            <h1 id="noResults" class="my-5 text-center" style="display:none;"> No More Results . . .</h1>
+        </div>
+    </div>
+</div>
+<div class = "container-fluid"id="groupResContainerStep">
     <div class="row justify-content-between m-xl-5 m-3">
         <!-- GROUP TILE CONTAINER -->
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer"> <!-- Add Unique Id Attribute to each create tile -->
