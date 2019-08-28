@@ -532,6 +532,37 @@ div > .footerMiscInfo{
     padding:0px;
 }
 
+#modalTitle{
+    margin-bottom:20px;
+    font-weight: 700;
+}
+
+/* Reddit Style Modal (Couldn't See on codepen, maybe i should add it?)
+.groupTileModal {
+    top:-0%;
+    position:fixed;
+}
+
+.groupModalContent{
+    border-radius:0px !important;
+    height:100vh;
+}
+
+.groupTileClose{
+    top:0px !important;
+    right:20px !important;
+}
+
+.groupModalDialog{
+    max-width: 800px;
+    margin: 0px auto !important;
+}
+
+.groupModalBody {
+    position:relative;
+    padding:0px;
+}
+*/
 #loginClose{
     color:green;
     font-size:3rem;
