@@ -43,8 +43,12 @@
 <!-- NAV BAR-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.php">
-        <img src="img/Logo2White.png" alt="Study.ie" class="studyLogo" width="115" height="36">
+        <img src="img/Logo2White.png" alt="Study.ie" class="studyLogo" width="125" height="36">
     </a>
+    <div class="my-auto ml-3" id="navbarSearchContainer">
+        <input class="px-3 py-1" type="text" id="navbarSearch" size="10" placeholder="Search...">
+        <a href="#" id="navbarSearchIcon" class="mr-1"><img src="img/icons/search.svg" style="height:70%;"></a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -297,52 +301,34 @@
                         <div class="modal-dialog groupModalDialog" role="document">
                             <div class="modal-content groupModalContent">
                                 <div class="modal-body groupModalBody">
-                                    <button type="button" class="close groupTileClose" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close groupModalClose" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
-                                    <div id="aboutModalContent">
-                                        <!--Our Mission-->
-                                        <h4>Our Mission</h4>
-                                        <!-- <hr style="width: 40%"> -->
+                                    <div class="groupModalContent mb-5">
+                                        <!--Modal Title and Icon-->
+                                        <h2 class="groupModalTitle text-center mt-5 mb-3">CS50 Game Development Dublin</h2>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="container-fluid" id="aboutUsText">
-                                                    Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
-                                                </div>
-                                                <br>
-                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
-                                                    *If you can think, you are a learner.
-                                                </div>
-                                            </div>
+                                            <img src="img/Logo1.png" alt="Card image cap" style="width:12rem; height:12rem;" class="mx-auto groupModalLogo">
                                         </div>
 
-
-                                        <!-- About Study -->
-                                        <h4>About Study</h4>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="container-fluid" id="aboutUsText">
-                                                    We believe in the learner's natural need for the best learning.<br>
-                                                    <br>
-                                                    We quench this thirst by having all the best resources in one searchable location<br>
-                                                    <br>
-                                                    We then help them track not only what they've done in the past and present, but more importantly where their learning can advance to in the future.<br>
-                                                </div>
-                                            </div>
+                                        <div class="groupModalInfo ml-5">
+                                        <!--Group Tile Time -->
+                                        <div class="row my-2">
+                                            <img src="img/icons/timer.svg" class="classTileIcon"><span class="groupTileTime">5:00 - 7:00pm</span>
                                         </div>
 
-                                        <!-- Our Team -->
-                                        <h4>Our Team</h4>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="container-fluid" id="aboutUsText">
-                                                    A small bunch on college students who are determined to help individuals see the value in what they're learning,
-                                                    and how their learning can take them to their deepest goals. You could call us the 'Avengers of Learning',
-                                                    or more realistically just your regular local boyband.
-                                                </div>
-                                            </div>
+                                        <!-- Group Tile Date -->
+                                        <div class="row my-2">
+                                            <img src="img/icons/calendar.svg" class="classTileIcon"><span class="groupTileDate">5th of September</span>
+                                            <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">Bi-Weekly</span>
                                         </div>
 
+                                        <!-- Group Tile Location -->
+                                        <div class="row my-2">
+                                            <img src="img/icons/location-point.svg" class="classTileIcon"><span class="groupTileLoc">Dublin City, Castle</span>
+                                        </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>

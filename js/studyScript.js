@@ -73,6 +73,7 @@ $(document).ready(function(){
                     timer: 2500,
                     buttons:false
                 });
+                $('#navSettings').hide();
                 $('#navProfile').hide();
                 $('#navLogin').show();
                 sessionStorage.setItem("logged","none");
@@ -99,6 +100,7 @@ $(document).ready(function(){
                 $('#loginModal').modal('hide');
                 $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
                 $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("logged"));
+                $('#navSettings').show();
                 $('#navProfile').show();
                 $('#navLogin').hide();
                 swal({
@@ -227,6 +229,7 @@ function loginStatus(){
     }else{
         $('#dropdownAcc').html("User:"+sessionStorage.getItem("logged"));
         $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("logged"));
+        $('#navSettings').show();
         $('#navProfile').show();
         $('#navLogin').hide();
         return "User "+sessionStorage.getItem("logged")+" is logged in.";

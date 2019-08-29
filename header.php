@@ -52,20 +52,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
-                <a class="nav-link" href="courseResults.php">Courses</a>
+                <a class="nav-link" href="groupResults.php">Groups</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.php">Blog</a>
             </li>
+            <li class="nav-item" style="display:none" id="navProfile">
+                <a class="nav-link" href="user.php">Profile</a>
+            </li>
             <li class="nav-item" id="navLogin">
                 <a id="loginModalBtn" class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
-            <li class="nav-item dropdown" id="navProfile" style="display:none">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+            <li class="nav-item dropdown" id="navSettings" style="display:none">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
-                    <a class="dropdown-item" href="#" id="dropdownProfileLink">My Profile</a>
-                    <a class="dropdown-item disabled" href="#">Settings</a>
+                    <a class="dropdown-item" href="#" id="dropdownProfileLink">Privacy</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" id="navLogOut">Log Out</a>
                 </div>
