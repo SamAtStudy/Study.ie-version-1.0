@@ -98,6 +98,9 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <script src="js/studyScript.js"></script>
+<script>
+    groupResults(8);
+</script>
 
 </body>
 </html>

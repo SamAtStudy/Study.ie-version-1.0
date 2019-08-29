@@ -563,6 +563,11 @@ div > .footerMiscInfo{
     padding:0px;
 }
 */
+.groupTileClose{
+    top:5px !important;
+    right:20px !important;
+}
+
 #loginClose{
     color:green;
     font-size:3rem;

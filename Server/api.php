@@ -2,20 +2,35 @@
 include 'Server.php';
 header("Access-Control-Allow-Origin: *");
 
-
 if(!$connectDB){
     echo "Failed to connect to MySQL: Error" . mysqli_connect_error();
 }
-
+/*
 if(isset($_POST['classId'])) {
     retrieveGroup();
-}
+}*/
 
 if(isset($_POST['tiles']) && isset($_POST['numRows'])) {
-    retrieveGroupTiles();
+   retrieveGroupTiles();
 }
+
+if(isset($_POST['rowHeight'])){
+   checkRowHeight();
+}
+
 if(isset($_POST['email'])){
-Updatemail();
+    Updatemail();
+}
+
+function checkRowHeight(){
+    include 'Server.php';
+    $rowHeight=$_POST['rowHeight'];
+
+    $sql = "SELECT groupId FROM groups";
+    $result = mysqli_query($connectDB, $sql);
+    $num_rows = mysqli_num_rows($result);
+
+    echo $num_rows;
 }
 
 function retrieveGroupTiles(){
@@ -25,14 +40,19 @@ function retrieveGroupTiles(){
     //$numRows=$_POST['numRows'];
     //echo $numRows;
 
-
     include 'Server.php';
     $tiles=$_POST['tiles'];
     $numRows=$_POST['numRows'];
-    $numRows=$numRows-7;
+    //echo $tiles;
 
+    if(7<$numRows){
+        $numRows=$numRows-8;
+    }else{
+        $tiles=$numRows;
+        $numRows=0;
+    }
 
-    $sql = "SELECT * FROM class LIMIT ".$numRows.",".$tiles;
+    $sql = "SELECT * FROM groups LIMIT ".$numRows.",".$tiles;
     $result = mysqli_query($connectDB, $sql);
 
     $resultAr= array();
@@ -44,6 +64,7 @@ function retrieveGroupTiles(){
     //print_r($resultAr);
 
     //header("Location: ./index.php?bookInfo=success");
+    //print_r($resultAr);
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
 /*

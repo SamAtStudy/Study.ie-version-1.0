@@ -190,6 +190,15 @@ $(document).ready(function(){
         $('#comment_name').focus();
     });
 
+    /*
+    $(".groupTile").mouseleave(function(){
+        $(".groupResourceContainer").fadeOut();
+        //alert("fade out");
+    }); */
+});
+
+/*
+function groupTileFunctions(){
     $(".groupTileResTrigger").mouseenter(function () {
         $(".groupResourceContainer").fadeIn();
     });
@@ -198,7 +207,7 @@ $(document).ready(function(){
         $(".groupResourceContainer").fadeOut();
         //alert("fade out");
     });
-});
+}*/
 
 function load_comment(){
     $.ajax({
@@ -543,29 +552,39 @@ function GetURLParameter(sParam){
     }
 }
 
-var totalRows=3476; //Hardcoded number of rows in DB;
+var totalRows=-1; //Hardcoded number of rows in DB;
 
 function groupResults(){
     //var totalRows=checkResults();
+    //alert("checking total number of rows..");
+    var rowHeightOf="groups";
+    $.post("https://study.ie/Server/api.php",{
+        rowHeight: rowHeightOf
+    },function(rows,status){
+        //alert("total number of rows is: "+totalRows);
 
-    if(totalRows==0){
-        /*Hide load more btn and show no more results txt*/
-        $("#noResults").show();
-        $("#loadMoreResults").hide();
-    }else if(totalRows<4){
-        createGroupTile(totalRows);
+        if(totalRows==-1){
+            totalRows=rows;
+        }
 
-        $("#noResults").show();
-        $("#loadMoreResults").hide();
-    }else{
-        createGroupTile(4);
-    }
+        if(totalRows==0){
+            //Hide load more btn and show no more results txt
+            $("#noResults").show();
+            $("#loadMoreResults").hide();
+        }else if(totalRows<8){
+            createGroupTile(totalRows);
+            $("#noResults").show();
+            $("#loadMoreResults").hide();
+        }else{
+            createGroupTile(8);
+        }
+    });
 }
 
 //FUTURE: script for applying a relevant image for a particular Course Topic if no image available
 function createGroupTile(tilesShown){
 
-    var ar={groupImg:"img/Logo1.png",courseTitle:"Tile Title",courseDesc:"Tile Description",
+    var ar={courseImg:"img/Logo1.png",courseTitle:"Tile Title",courseDesc:"Tile Description",
         coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
 
     var div;
@@ -576,124 +595,173 @@ function createGroupTile(tilesShown){
         tiles: tiles,
         numRows: numRows
     },function(dbData,status){
-    },function(dbData,status){
 
         if(dbData.indexOf("Failed to connect") !==-1){
             console.log("Database Error"); //This is not working...
-        }else {
-            alert(dbData);
-            var decodedJSON = JSON.parse(dbData);
-            //alert(tilesShown);
-            //console.log(decodedJSON); //Use Console Log to Debug array structure
+        }else{
+            //alert(dbData);
+            //console.log(dbData);
+            var decodedJSON=JSON.parse(dbData);
+            console.log(decodedJSON); //Use Console Log to Debug array structure
             //alert(decodedJSON);
-            //$('#test').html(decodedJSON[1]['courseTitle']);
-            /*
-            var strSplit;
+            //$('#loadMoreResults').html(decodedJSON[1]['groupName']);
+            //var strSplit;
+            //strSplit=groupTileIds.split(",");
 
-            for(i=5; i>=0; i--){
-
-                if(decodedJSON[i]['courseFee'].indexOf("€") !==-1){
-                    strSplit=decodedJSON[i]['courseFee'].split("€");
-                    strSplit=strSplit[1].split(" ");
-                    strSplit=strSplit[0].split(".");
-                    decodedJSON[i]['coursePrice']="€"+strSplit[0];
-                }else{
-                    decodedJSON[i]['coursePrice']=" ";
+            for(i=tilesShown-1; i>=0; i--){
+                console.log(i);
+                if(decodedJSON[i]['groupImg']===null || decodedJSON[i]['groupImg']===""){
+                    decodedJSON[i]['groupImg']=ar['courseImg'];
                 }
 
-                //Truncates Card Desc
-                if(decodedJSON[i]['courseDesc'].length<2){
-                    decodedJSON[i]['courseDesc']="Course Description Not Available.";
-                }else if(decodedJSON[i]['courseDesc'].length>250){
-                    decodedJSON[i]['courseDesc']=decodedJSON[i]['courseDesc'].substr(0,238)+". . .";
-                }
-                */
-            div = $('<div class="row">' +
+                div = $('<!-- GROUP TILE CONTAINER -->\n' +
+                    '        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer"> <!-- Add Unique Id Attribute to each create tile -->\n' +
+                    '            <!-- GROUP TILE -->\n' +
+                    '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
+                    '\n' +
+                    '                <!-- Group Logo -->\n' +
+                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '\n' +
+                    '                <!-- Group Tile Body -->\n' +
+                    '                <div class="card-body groupTileBody">\n' +
+                    '                    <!-- Group Tile Modal Trigger and Title -->\n' +
+                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">\n' +
+                    '                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >'+decodedJSON[i]['groupName']+'</h5>\n' +
+                    '                    </a>\n' +
+                    '\n' +
+                    '                    <!--Group Tile Time -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/timer.svg" class="classTileIcon" ><span class="groupTileTime">'+decodedJSON[i]['groupStart']+' - '+decodedJSON[i]['groupEnd']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Date -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
+                    '                        <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Location -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">'+decodedJSON[i]['groupLocation']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!--Group Tile Members and Join Btn -->\n' +
+                    '                    <div class="d-flex justify-content-between mt-3 mb-2">\n' +
+                    '                        <div class="mt-2 text-muted">\n' +
+                    '                            <span class="groupTileMembers">13</span> Members\n' +
+                    '                        </div>\n' +
+                    '                        <div>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="alert(\'How you doin?\');">Join</button>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Resources Trigger -->\n' +
+                    '                    <div class="row mt-1" style="font-weight:700;">\n' +
+                    '                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#groupTileCol'+decodedJSON[i]['groupId']+'" role="button" aria-expanded="false" aria-controls="groupTileCol'+decodedJSON[i]['groupId']+'" id="groupTileTrig'+decodedJSON[i]['groupId']+'">Resources </a>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Resources -->\n' +
+                    '                    <div class="row groupResourceContainer collapse pt-1" id="groupTileCol'+decodedJSON[i]['groupId']+'" style="position: relative; z-index: 5;">\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>\n' +
+                    '                            <span class="groupResources">CS50</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>\n' +
+                    '                            <span class="groupResources">Python - A begineers route</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>\n' +
+                    '                            <span class="groupResources">Unity Basics</span>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Modal -->\n' +
+                    '                    <!-- FUTUTRE: Display modal as swipable sidenav on moile that takes up 100% of the screen -->\n' +
+                    '                    <div class="modal fade groupTileModal" id="groupTileModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' +
+                    '                        <div class="modal-dialog groupModalDialog" role="document">\n' +
+                    '                            <div class="modal-content groupModalContent">\n' +
+                    '                                <div class="modal-body groupModalBody">\n' +
+                    '                                    <button type="button" class="close groupTileClose" data-dismiss="modal" aria-label="Close">\n' +
+                    '                                        <span aria-hidden="true">&times;</span>\n' +
+                    '                                    </button>\n' +
+                    '                                    <div id="aboutModalContent">\n' +
+                    '                                        <!--Our Mission-->\n' +
+                    '                                        <h4>Our Mission</h4>\n' +
+                    '                                        <!-- <hr style="width: 40%"> -->\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.\n' +
+                    '                                                </div>\n' +
+                    '                                                <br/>\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">\n' +
+                    '                                                    *If you can think, you are a learner.\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                        <!-- About Study -->\n' +
+                    '                                        <h4>About Study</h4>\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    We believe in the learner\'s natural need for the best learning.<br/>\n' +
+                    '                                                    <br/>\n' +
+                    '                                                    We quench this thirst by having all the best resources in one searchable location<br/>\n' +
+                    '                                                    <br/>\n' +
+                    '                                                    We then help them track not only what they\'ve done in the past and present, but more importantly where their learning can advance to in the future.<br/>\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                        <!-- Our Team -->\n' +
+                    '                                        <h4>Our Team</h4>\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    A small bunch on college students who are determined to help individuals see the value in what they\'re learning,\n' +
+                    '                                                    and how their learning can take them to their deepest goals. You could call us the \'Avengers of Learning\',\n' +
+                    '                                                    or more realistically just your regular local boyband.\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                    </div>\n' +
+                    '                                </div>\n' +
+                    '                            </div>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>\n' +
+                    '        </div>');
+                totalRows = totalRows - 1;
 
-                '<div class="col-12 mt-5 mx-auto">\n' +
-                '                <div class="row justify-content-between m-xl-5 m-3">\n' +
-                '                    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer">\n' +
-                '                        <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover groupTile">\n' +
-                '                            <img class="courseImg courseTileImg" src="' + ar['groupImg'] + '" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
-                '                        <div class="card-body groupTileBody">\n' +
-                '                            <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1"><h5 class="card-title text-center groupTileTitle"tyle="font-weight:700;" >' + decodedJSON[i]['className'] + '</h5></a>\n' +
-                '                            <p class="card-text courseDesc">' + decodedJSON[i]['lessonName'] + '</p>\n' +
-                '                            <div class="row my-2">\n' +
-                '                                <img src="img/icons/timer.svg" class="classTileIcon" ><span class="groupTileTime">' + decodedJSON[i]['time'] + '</span>\n' +
-                '                        </div>\n' +
-                '                        <div class="row my-2">\n' +
-                '                            <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">' + decodedJSON[i]['date'] + '</span>\n</div>\n' +
-                '                            <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">Bi-Weekly</span>\n' +
-                '                        </div>\n' +
-                '                         <div class="row my-2">\n' +
-                '                         <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">' + decodedJSON[i]['location'] + '</span>\n' +
-                '                         </div>\n' +
-                '                        <div class="d-flex justify-content-between mt-3 mb-2">\n' +
-                '                            <div class="mt-2 text-muted">\n' +
-                '                                 <span class="groupTileMembers">' + decodedJSON[i]['memNum'] + '</span> Members \n' +
-                '                            </div>\n' +
-                '                            <div>\n' +
-                '                                <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="alert();">Join</button>\n' +
-                '                            </div>\n' +
-                '                          </div>\n' +
-                '                    <div class="row mt-1" style="font-weight:700;">\n' +
-                '                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#resourceCollapse2" role="button" aria-expanded="false" aria-controls="resourceCollapse2">Resources </a>\n' +
-                '                    </div>\n' +
-                '                    <div class="row groupResourceContainer collapse pt-1" id="resourceCollapse2" style="position: relative; z-index: 5;">\n' +
-                '                        <div class="col-12">\n' +
-                '                           ' + decodedJSON[i]['course1'] + ' <span class="ml-1 p-1" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">' + decodedJSON[i]['course1Prov'] + '</span>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-12">\n' +
-                '                           ' + decodedJSON[i]['course2'] + ' <span class="ml-1 p-1" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">' + decodedJSON[i]['course2Prov'] + '</span>\n' +
-                '                        </div>\n' +
-                '                        <div class="col-12">\n' +
-                '                           ' + decodedJSON[i]['course3'] + ' <span class="ml-1 p-1" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">' + decodedJSON[i]['course3Prov'] + '</span>\n' +
-                '                        </div>\n' +
-                '                    </div>\n' +
-                '                    <div class="modal fade groupTileModal" id="groupTileModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' +
-                '                        <div class="modal-dialog" role="document">\n' +
-                '                            <div class="modal-content" id="aboutUsContent">\n' +
-                '                                <div class="modal-body">\n' +
-                '                                    <button type="button" class="loginClose" data-dismiss="modal" aria-label="Close">\n' +
-                '                                        <span aria-hidden="true">&times;</span>\n' +
-                '                                    </button>\n' +
-                '                                    <div id="aboutModalContent">\n' +
-                '                                        <h4>Our Mission</h4>\n' +
-                '                                        <div class="row">\n' +
-                '                                            <div class="col">\n' +
-                '                                                <div class="container-fluid" id="aboutUsText">Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.</div>\n' +
-                '                                                <br/>\n' +
-                '                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">*If you can think, you are a learner.</div>\n' +
-                '                                            </div>\n' +
-                '                                        </div>\n' +
-                '                                    </div>\n' +
-                '                                </div>\n' +
-                '                            </div>\n' +
-                '                        </div>\n' +
-                '                    </div>\n' +
-                '                </div>\n' +
-                '            </div>\n' +
-                '        </div>\n' +
-                '    </div>\n' +
-                '</div>\n' +
-                '</div>');
-            totalRows = totalRows - 1;
+                $("#groupResTileContainer").append(div);
 
-            $("#groupResContainerStep").append(div);
+                //Event Listeners for each tile
+                (function(j) {
+                    $("#groupTileTrig"+decodedJSON[j]['groupId']).mouseenter(function (){
+                        $("#groupTileCol"+decodedJSON[j]['groupId']).fadeIn();
+                    });
 
-            // add functionality to course tiles
-            courseGroupTileFunctions();
+                    $("#groupTile"+decodedJSON[j]['groupId']).mouseleave(function(){
+                        $(".groupResourceContainer").fadeOut();
+                    });
+                })(i);
+
+            }
+            //groupTileFunctions();
         }
     });
 
 }
 
-/*
 function courseResults(){
     //var totalRows=checkResults();
 
     if(totalRows==0){
-        /*Hide load more btn and show no more results txt
+        //Hide load more btn and show no more results txt
         $("#noResults").show();
         $("#loadMoreResults").hide();
     }else if(totalRows<6){
@@ -782,7 +850,7 @@ function createTile(tilesShown){
     });
 
 }
-*/
+
 function createCoursePage(){
 
     var data={courseID:0,courseImg:"https://via.placeholder.com/320x180",courseTitle:"Course Title",
