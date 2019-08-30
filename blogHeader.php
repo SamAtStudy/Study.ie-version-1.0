@@ -52,32 +52,48 @@
 </head>
 <body>
 
-
 <!-- NAV BAR-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.php">
         <img src=img/Logo2White.png alt="Study.ie" class="studyLogo" width="115" height="36">
     </a>
+
+    <!-- Navbar Search -->
+    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer" style="display:block;">
+        <input class="px-3 py-1" type="text" id="navbarSearch" size="10" placeholder="Search...">
+        <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
+    </div>
+    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchExtendedContainer" style="display: none;">
+        <input class="px-3 py-1" type="text" id="navbarSearchExtended" size="10" placeholder="Search...">
+        <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
+    </div>
+    <div id="livesearch" style="display:none;background: grey;padding: 15px;padding-top: 25px;width: 275px;color: white;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;position: absolute;top: 32px;left: 163px;">test</div>
+
+    <!-- Mobile Navbar Toggle -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navbar Optionns -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
-                <a class="nav-link" href="courseResults.php">Courses</a>
+                <a class="nav-link" href="groupResults.php">Groups</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.php">Blog</a>
             </li>
-            <li class="nav-item" id="navLogin">
+            <li class="nav-item" style="display:none" id="navProfile">
+                <a class="nav-link" href="user.php">Profile</a>
+            </li>
+            <li class="nav-item" id="navLogin" style="display: block;">
                 <a id="loginModalBtn" class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
-            <li class="nav-item dropdown" id="navProfile" style="display:none">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+            <li class="nav-item dropdown" id="navSettings" style="display:none;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/icons/settings.svg" style="height:25px; padding-bottom: 3px;"></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
-                    <a class="dropdown-item disabled" href="#">Settings</a>
+                    <a class="dropdown-item" href="#" id="dropdownProfileLink">Privacy</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" id="navLogOut">Log Out</a>
                 </div>
@@ -95,7 +111,7 @@
         <div class="modal-content" id="loginModalContent">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
                 <div id="loginModalBody">
                     <div class="form-title text-center">
@@ -117,14 +133,14 @@
                                                  <input type="email" class="form-control loginForm" id="email1" placeholder="Email">
                                              </div> -->
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Username / Email">
+                                                <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="" placeholder="Username / Email" data-original-title="User Doesn't Exist">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="" placeholder="Password" data-original-title="Incorrect Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="custom-control custom-checkbox mr-auto">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
                                                     <label class="custom-control-label" for="customCheck1">Remember Me</label>
                                                 </div>
                                                 <span style="color:black;"><a href="#" style="color:black;">Forgot password?</a></span>
@@ -163,21 +179,21 @@
                                     <div class="d-flex flex-column">
                                         <form id="loginFormContainer">
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="createUsername" data-toggle="tooltip" data-placement="right" title="Username Shouldn't Contain Any Special Characters" placeholder="Username">
+                                                <input type="email" class="form-control loginForm" id="createUsername" data-toggle="tooltip" data-placement="right" title="" placeholder="Username" data-original-title="Username Shouldn't Contain Any Special Characters">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="createEmail" data-toggle="tooltip" data-placement="right" title="Invalid Email Address" placeholder="Email">
+                                                <input type="email" class="form-control loginForm" id="createEmail" data-toggle="tooltip" data-placement="right" title="" placeholder="Email" data-original-title="Invalid Email Address">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="createPass" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="createPass" data-toggle="tooltip" data-placement="right" title="" placeholder="Password" data-original-title="User Doesn't Exist">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="confirmPass" data-toggle="tooltip" data-placement="right" title="Passwords Doesn't Match" placeholder="Confirm Password">
+                                                <input type="password" class="form-control loginForm" id="confirmPass" data-toggle="tooltip" data-placement="right" title="" placeholder="Confirm Password" data-original-title="Passwords Doesn't Match">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="mx-auto">
                                                     <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="#" style="color:blue;">User Agreement</a><span>
-                                                </div>
+                                                </span></span></div>
                                             </div>
                                             <button id="accCreateBtn" type="button" class="btn btn-info btn-block btn-round">Create Account</button>
                                         </form>
