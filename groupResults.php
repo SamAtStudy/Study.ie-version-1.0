@@ -39,7 +39,6 @@ include 'header.php';
     </div>
 </div>
 <br>
-<br>
 <?php
 include 'groupResFooter.php';
 ?>

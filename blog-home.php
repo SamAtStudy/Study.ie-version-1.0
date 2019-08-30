@@ -1,7 +1,5 @@
 <?php
-
 include 'blogHeader.php';
-
 ?>
 
     <!-- Page Content -->
