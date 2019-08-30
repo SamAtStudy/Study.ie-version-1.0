@@ -696,7 +696,7 @@ function createGroupTile(tilesShown){
                     '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
                     '                        <div>\n' +
-                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="<?php echo "Hello ?>">Join</button>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="alert(\'How you doin?\');">Join</button>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
                     '\n' +

@@ -47,6 +47,7 @@ $classes = mysqli_query($connectDB, "SELECT groupMembers.groupId, groups.groupNa
         gtag('config', 'UA-142230907-4');
     </script>
 
+
 </head>
 <body>
 <!-- NAV BAR-->
@@ -248,9 +249,8 @@ $classes = mysqli_query($connectDB, "SELECT groupMembers.groupId, groups.groupNa
         <div id="headerUserProfile" class="mt-xl-5 mt-4">
             <img src="img/yuna.jpg" class="rounded-circle float-left gmd-1 ml-n4" id="headerUserIcon">
             <div class="ml-3 mt-1 float-left" style="color:white;">
-                <span style="font-size:24px;">Yuna Marble</span>
-                <p style="opacity:0.85;" class="mt-n1"><span style="font-size:16px;"><span
-                            style="font-size:12px;">@</span>yunarino</span></p>
+                <span id ="firstName" style="font-size:24px;">Yuna Marble</span>
+                <p style="opacity:0.85;" class="mt-n1"><span style="font-size:16px;"><span id = "userName" style="font-size:12px;">@</span></span></p>
             </div>
         </div>
     </div>
@@ -513,4 +513,6 @@ $classes = mysqli_query($connectDB, "SELECT groupMembers.groupId, groups.groupNa
     //Load User Profile
     userProfile();
     UsergroupResults();
+    document.getElementById("userName").innerHTML = "@" + sessionStorage.getItem("mailUsername");
+    document.getElementById("firstName").innerHTML = "@" + sessionStorage.getItem("mailUsername");
 </script>
