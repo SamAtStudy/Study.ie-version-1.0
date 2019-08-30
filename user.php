@@ -11,10 +11,10 @@ include 'header.php';
 <div id="headerContainer" style="background-color: teal;">
     <div id="headerBody" class="mx-auto d-flex justify-content-center">
         <div id="headerUserProfile" class="mt-xl-5 mt-4">
-            <img src="img/yuna.jpg" class="rounded-circle float-left gmd-1 ml-n4" id="headerUserIcon">
+            <img src="img/Andriy.jpg" class="rounded-circle float-left gmd-1 ml-n4" id="headerUserIcon">
             <div class="ml-3 mt-1 float-left" style="color:white;">
-                <span id ="firstName" style="font-size:24px;">Yuna Marble</span>
-                <p style="opacity:0.85;" class="mt-n1"><span style="font-size:16px;"><span id = "userName" style="font-size:12px;">@</span></span></p>
+                <span id ="firstName" style="font-size:24px;"></span>
+                <p style="opacity:0.85;" class="mt-n1"><span style="font-size:16px;"><span id = "userName" style="font-size:12px;"></span></span></p>
             </div>
         </div>
     </div>
@@ -278,5 +278,5 @@ include 'header.php';
     userProfile();
     UsergroupResults();
     document.getElementById("userName").innerHTML = "@" + sessionStorage.getItem("mailUsername");
-    document.getElementById("firstName").innerHTML = "@" + sessionStorage.getItem("mailUsername");
+    document.getElementById("firstName").innerHTML = sessionStorage.getItem("mailUsername");
 </script>
