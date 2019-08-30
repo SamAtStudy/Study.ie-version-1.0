@@ -198,7 +198,7 @@ $(document).ready(function(){
 
     var searchContainer=$("#navbarSearchContainer");
     $( "#navbarSearch" ).click(function() {
-        searchContainer.animate({width: "350px", borderRadius: "20px"}, 60).animate({height: "115px"}, 30 );
+        searchContainer.animate({width: "350px", borderRadius: "20px"}, 60).animate({height: "115px"}, 30 ); //animate border radius first. hierarchy of animations
         searchContainer.toggleClass("extended");
     });
 
@@ -681,13 +681,13 @@ function createGroupTile(tilesShown){
                     '\n' +
                     '                    <!-- Group Tile Date -->\n' +
                     '                    <div class="row my-2">\n' +
-                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
-                    '                        <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>\n' +
+                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class="pl-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>,&nbsp\n' +
+                    '                        <span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
                     '                    </div>\n' +
                     '\n' +
                     '                    <!-- Group Tile Location -->\n' +
                     '                    <div class="row my-2">\n' +
-                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">'+decodedJSON[i]['groupLocation']+'</span>\n' +
+                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc text-truncate">'+decodedJSON[i]['groupLocation']+'</span>\n' +
                     '                    </div>\n' +
                     '\n' +
                     '                    <!--Group Tile Members and Join Btn -->\n' +
@@ -696,7 +696,7 @@ function createGroupTile(tilesShown){
                     '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
                     '                        <div>\n' +
-                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="alert(\'How you doin?\');">Join</button>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" id="groupTileJoin'+decodedJSON[i]['groupId']+'" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;">Join</button>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
                     '\n' +
@@ -796,6 +796,10 @@ function createGroupTile(tilesShown){
                 })(i);
 
             }
+            //checkee
+            $('.groupTileJoinBtn').click(function(e){
+                var groupTileJoinId=e.target.id;
+            });
             //groupTileFunctions();
         }
     });
@@ -874,7 +878,7 @@ function createUserGroupTile(tilesShown){
                     '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
                     '                        <div>\n' +
-                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="alert(\'How you doin?\');">Join</button>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" id="groupTileJoin'+decodedJSON[i]['groupId']+'" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;">Join</button>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
                     '\n' +

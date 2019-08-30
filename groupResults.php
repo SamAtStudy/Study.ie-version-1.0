@@ -20,7 +20,6 @@ include 'header.php';
                     Sort By
                 </button>
                 <div class="dropdown-menu gmd-2" aria-labelledby="sortDropdownMenuBtn" id="sortDropdownMenu">
-                    <a class="dropdown-item" href="#">Featured</a>
                     <a class="dropdown-item" href="#">Most Members</a>
                     <a class="dropdown-item" href="#">Least Members</a>
                     <a class="dropdown-item" href="#">Newest</a>

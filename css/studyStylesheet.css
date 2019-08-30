@@ -703,6 +703,14 @@ div > .footerMiscInfo{
     border-radius:20px;
 }
 
+.groupTileTitle{
+    height:50px;
+}
+
+.groupTileLoc{
+    width:85%;
+}
+
 #socialLinkBox{
     height:6vh;
     margin:auto;
