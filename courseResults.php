@@ -13,7 +13,7 @@ include 'courseResultsHeader.php';
                         <input class="search_input" type="text" id="input" size="30" placeholder="Search...">
                         <a href="#" class="search_icon"><img src="img/icons/search.svg" style="height:70%;"></a>
                     </div>
-                    <div id="livesearch" style="background:grey;margin-top:-30px;padding:20px; padding-top:40px;width:510px;color:white; border-bottom-left-radius:30px;border-bottom-right-radius:30px;"></div>
+                    <div id="livesearch" style="background: grey;padding: 15px;padding-top: 25px;width: 275px;color: white;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;position: absolute;top: 32px;left: 163px;"></div>
                 </div>
             </div>
         </div>

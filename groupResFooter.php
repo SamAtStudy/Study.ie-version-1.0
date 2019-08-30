@@ -99,7 +99,7 @@
 <script src="js/sweetalert.min.js"></script>
 <script src="js/studyScript.js"></script>
 <script>
-    groupResults(8);
+    groupResults();
 </script>
 
 </body>

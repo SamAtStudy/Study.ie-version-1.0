@@ -1,6 +1,14 @@
 <?php
 include 'header.php';
 ?>
+
+<!-- HEADER -->
+<div id="header" style="height:200px;background-color: hsla(166, 51%, 75%, 1);color:white;" class="pt-5">
+    <h2 class="text-center" style="opacity:0.8">You Searched For</h2>
+    <h1 class="text-center">" <span id="userSearchRes"></span> "</h1>
+</div>
+
+<br>
 <div class = "container-fluid">
     <div class="row m-xl-5 m-3" id="groupResTileContainer">
     </div>
@@ -12,9 +20,8 @@ include 'header.php';
         </div>
     </div>
 </div>
-<script>
-    createGroupTile(8);
-</script>
+<br>
+<br>
 <?php
 include 'groupResFooter.php';
 ?>

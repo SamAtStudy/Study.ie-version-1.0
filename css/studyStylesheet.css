@@ -71,11 +71,11 @@ a:hover{
 #navbarSearchContainer{
     background-color:  white;
     border-radius: 30px;
-    border:2px solid;
+    border:3px solid;
     border-color:hsla(166, 51%, 78%, 1);
     position:relative;
     z-index:5;
-    height:35px;
+    height:38px;
     width:275px;
 }
 
@@ -86,7 +86,8 @@ a:hover{
     background: none;
     caret-color:teal;
     border-radius: 15px;
-    width:85%;
+    width:87%;
+    font-size: 0.96rem;
 }
 
 #navbarSearchIcon{
@@ -97,7 +98,44 @@ a:hover{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: white;
+    background: transparent;
+    margin-right: 2px;
+}
+
+#navbarSearchExtendedContainer{
+    background-color:  white;
+    border-radius: 20px;
+    border:3px solid;
+    border-color:hsla(166, 51%, 78%, 1);
+    position:relative;
+    z-index:5;
+    height: 115px;
+    width: 350px;
+}
+
+#navbarSearchExtended{
+    color: black;
+    border: 0;
+    outline: 0;
+    background: none;
+    caret-color:teal;
+    border-radius: 15px;
+    width:87%;
+    font-size: 0.96rem;
+    padding-top: 0.5rem !important;
+}
+
+#navbarSearchExtendedIcon{
+    height: 32px;
+    width: 32px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 50%; */
+    background: transparent;
+    margin-right: 3px;
+    margin-top: 2px;
 }
 
 #loginSocialBox button{
@@ -300,6 +338,11 @@ div > .footerMiscInfo{
     opacity: 1;
 }
 
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: white;
+}
+
+
 .navbar-light .navbar-nav a:before {
     content: "";
     position: absolute;
@@ -450,8 +493,8 @@ div > .footerMiscInfo{
 #classTileNewAnnounce{
     margin-left:0px;
     margin-right:0px;
-     display:block;
- }
+    display:block;
+}
 
 .classTileAnnounceStep p{
     margin-bottom:-3px;
@@ -511,6 +554,18 @@ div > .footerMiscInfo{
 #taskDropdownMenu{
     max-height:160px;
     overflow:auto; /* to get scroll */
+}
+
+#sortDropdownMenu{
+    max-height:160px;
+    overflow:auto;
+    left:-60px!important;;
+}
+
+#sortDropdownMenuBtn{
+    border-radius: 20px;
+    background-color: hsla(166, 51%, 75%, 1);
+    border-color: hsla(166, 51%, 78%, 1);
 }
 
 #sectionThreeStep .col-xl-3 img{
@@ -635,8 +690,8 @@ div > .footerMiscInfo{
 
 .close {
     position:absolute;
-    right:-20px;
-    top:-20px;
+    right:-30px;
+    top:-45px;
     z-index:999;
     font-size:2.7rem;
     font-weight: normal;
@@ -988,6 +1043,11 @@ div > .footerMiscInfo{
         padding:5px;
     }
 
+    #sortDropdownMenuBtn{
+        font-size: 12px;
+        padding: 5px;
+    }
+
     .classTileBody{
         font-size:12px;
     }
@@ -1003,7 +1063,7 @@ div > .footerMiscInfo{
     }
 
     #classTileOptionsIcon{
-    height:16px;
+        height:16px;
     }
 
     #headerUserProfile{
@@ -1092,8 +1152,8 @@ div > .footerMiscInfo{
     }
 
     .cardButtonList{
-        // On small screens, we are no longer using row direction but column
-        flex-direction: column;
+    // On small screens, we are no longer using row direction but column
+    flex-direction: column;
         margin-top:16vh;
     }
 

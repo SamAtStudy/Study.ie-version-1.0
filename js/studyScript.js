@@ -196,11 +196,19 @@ $(document).ready(function(){
         $('#comment_name').focus();
     });
 
-    /*
-    $(".groupTile").mouseleave(function(){
-        $(".groupResourceContainer").fadeOut();
-        //alert("fade out");
-    }); */
+    var searchContainer=$("#navbarSearchContainer");
+    $( "#navbarSearch" ).click(function() {
+        searchContainer.animate({width: "350px", borderRadius: "20px"}, 60).animate({height: "115px"}, 30 );
+        searchContainer.toggleClass("extended");
+    });
+
+    $(document).click(function (e) {
+        if(!searchContainer.is(e.target) && searchContainer.has(e.target).length === 0 && searchContainer.hasClass("extended")) {
+            searchContainer.animate({height: "38px"}, 30 ).animate({width: "275px", borderRadius: "30px"}, 60);
+            searchContainer.toggleClass("extended");
+        }
+    });
+
 });
 
 /*

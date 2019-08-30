@@ -43,33 +43,45 @@
 <!-- NAV BAR-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.php">
-        <img src="img/Logo2White.png" alt="Study.ie" class="studyLogo" width="125" height="36">
+        <img src=img/Logo2White.png alt="Study.ie" class="studyLogo" width="115" height="36">
     </a>
-    <div class="my-auto ml-3" id="navbarSearchContainer">
+
+    <!-- Navbar Search -->
+    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer" style="display:block;">
         <input class="px-3 py-1" type="text" id="navbarSearch" size="10" placeholder="Search...">
-        <a href="#" id="navbarSearchIcon" class="mr-1"><img src="img/icons/search.svg" style="height:70%;"></a>
+        <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
     </div>
+    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchExtendedContainer" style="display: none;">
+        <input class="px-3 py-1" type="text" id="navbarSearchExtended" size="10" placeholder="Search...">
+        <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
+    </div>
+    <div id="livesearch" style="display:none;background: grey;padding: 15px;padding-top: 25px;width: 275px;color: white;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;position: absolute;top: 32px;left: 163px;">test</div>
+
+    <!-- Mobile Navbar Toggle -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navbar Optionns -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
-                <a class="nav-link" href="courseResults.php">Courses</a>
+                <a class="nav-link" href="groupResults.php">Groups</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="blog-home.php">Blog</a>
             </li>
-            <li class="nav-item" id="navLogin">
+            <li class="nav-item" style="display:none" id="navProfile">
+                <a class="nav-link" href="user.php">Profile</a>
+            </li>
+            <li class="nav-item" id="navLogin" style="display: none;">
                 <a id="loginModalBtn" class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
-            <li class="nav-item dropdown" id="navProfile" style="display:none">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+            <li class="nav-item dropdown" id="navSettings" style="display:block;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/icons/settings.svg" style="height:25px; padding-bottom: 3px;"></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
-                    <a class="dropdown-item" href="#" id="dropdownProfileLink">My Profile</a>
-                    <a class="dropdown-item disabled" href="#">Settings</a>
+                    <a class="dropdown-item" href="#" id="dropdownProfileLink">Privacy</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" id="navLogOut">Log Out</a>
                 </div>
@@ -209,19 +221,31 @@
         </div>
     </div>
 </div>
-<div style="height:200px;background-color: hsla(166, 51%, 75%, 1);color:white;" class="pt-5">
+
+<!-- HEADER -->
+<div id="header" style="height:200px;background-color: hsla(166, 51%, 75%, 1);color:white;" class="pt-5">
     <h2 class="text-center" style="opacity:0.8">You Searched For</h2>
-    <h1 class="text-center">" Memes "</h1>
+    <h1 class="text-center">" <span id="userSearchRes"></span> "</h1>
 </div>
 
-
+<br>
 <div class="container-fluid">
     <div class="row justify-content-between mx-xl-5 mx-3 mt-xl-5 mt-3">
         <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
-            <h2 class="ml-3 mb-2" style="font-weight:700;">Groups</h2>
+            <h2 class="ml-3 mb-3" style="font-weight:700;">Groups</h2>
         </div>
         <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
-            <h2 class="mb-3 mr-3">Groups</h2>
+            <div class="dropdown mr-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdownMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sort By
+                </button>
+                <div class="dropdown-menu gmd-2" aria-labelledby="sortDropdownMenuBtn" id="sortDropdownMenu">
+                    <a class="dropdown-item" href="#">Featured</a>
+                    <a class="dropdown-item" href="#">Most Members</a>
+                    <a class="dropdown-item" href="#">Least Members</a>
+                    <a class="dropdown-item" href="#">Newest</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="m-xl-5 m-3">
@@ -339,7 +363,8 @@
         </div>
     </div>
 </div>
-
+<br>
+<br>
 
 <!--SECTION 4 FOOTER -->
 <div id="footerBox">
