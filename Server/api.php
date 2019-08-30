@@ -10,13 +10,27 @@ if(isset($_POST['classId'])) {
     retrieveGroup();
 }*/
 
-if(isset($_POST['tiles']) && isset($_POST['numRows'])) {
-   retrieveGroupTiles();
+if(isset($_POST['tiles']) && isset($_POST['numRows'])  && isset($_POST['retrieveOption'])) {
+    $retrieveOption=$_POST['retrieveOption'];
+    if($retrieveOption=='userGroups' && isset($_POST['userId'])){
+        retrieveUserGroupTiles();
+    }else if($retrieveOption=='groups'){
+        retrieveGroupTiles();
+    }
+
 }
 
+
 if(isset($_POST['rowHeight'])){
-   checkRowHeight();
+    $rowHeight=$_POST['rowHeight'];
+    if($rowHeight=='users' && isset($_POST['userId']) ){
+        checkUserRowHeight();
+    }else if($rowHeight=='groups'){
+        checkRowHeight();
+    }
+
 }
+
 
 if(isset($_POST['email'])){
     Updatemail();
@@ -27,6 +41,17 @@ function checkRowHeight(){
     $rowHeight=$_POST['rowHeight'];
 
     $sql = "SELECT groupId FROM groups";
+    $result = mysqli_query($connectDB, $sql);
+    $num_rows = mysqli_num_rows($result);
+
+    echo $num_rows;
+}
+
+function checkUserRowHeight(){
+    include 'Server.php';
+    $userId=$_POST['userId'];
+
+    $sql = "SELECT groupMembers.groupId FROM groups JOIN groupMembers on groups.groupId = groupMembers.groupId JOIN userlogin on groupMembers.userId = userlogin.userId WHERE groupMembers.userId =  ".$userId.";";
     $result = mysqli_query($connectDB, $sql);
     $num_rows = mysqli_num_rows($result);
 
@@ -65,6 +90,39 @@ function retrieveGroupTiles(){
 
     //header("Location: ./index.php?bookInfo=success");
     //print_r($resultAr);
+    echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
+}
+function retrieveUserGroupTiles(){
+    //$tiles=$_POST['tiles'];
+    //echo $tiles;
+
+    //$numRows=$_POST['numRows'];
+    //echo $numRows;
+
+    include 'Server.php';
+    $userId= $_POST['userId'];
+    $tiles=$_POST['tiles'];
+    $numRows=$_POST['numRows'];
+
+    if(2<$numRows){
+        $numRows=$numRows-3;
+    }else{
+        $tiles=$numRows;
+        $numRows=0;
+    }
+
+
+    $sql = "SELECT groupMembers.groupId, groups.groupName,groups.groupDescription, groups.groupLocation, groups.groupDate,groups.groupFrequency,groups.groupEnd,groups.groupStart,groups.groupImg,groups.groupResource1,groups.groupResource2,groups.groupResource3,groups.dateCreated FROM groups JOIN groupMembers on groups.groupId = groupMembers.groupId JOIN userlogin on groupMembers.userId = userlogin.userId WHERE groupMembers.userId = ".$userId." LIMIT ".$numRows.",".$tiles;
+    $result = mysqli_query($connectDB, $sql);
+
+    $resultAr= array();
+    while ( $row = $result->fetch_assoc()){
+        $resultAr[]=$row;
+    }
+
+    //Debugging array
+    //print_r($resultAr);
+
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
 /*
@@ -117,7 +175,7 @@ function retrieveCourse(){
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
 }
 */
-function retrieveGroup(){
+function retrieveClass(){
     include 'Server.php';
     $classId=$_POST['classId'];
 

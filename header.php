@@ -164,7 +164,7 @@
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="mx-auto">
-                                                    <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="#" style="color:blue;">User Agreement</a><span>
+                                                    <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="/UserAgreement.php" style="color:blue;">User Agreement</a><span>
                                                 </div>
                                             </div>
                                             <button id="accCreateBtn" type="button" class="btn btn-info btn-block btn-round">Create Account</button>

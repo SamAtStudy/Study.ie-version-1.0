@@ -1,7 +1,7 @@
 <?php
 include('Server.php');
-$results = mysqli_query($connectDB, "SELECT * FROM class where classId = '1'");
-
+$results = mysqli_query($connectDB, "SELECT * FROM groups where groupId = '1'");
+$classes = mysqli_query($connectDB, "SELECT groupMembers.groupId, groups.groupName,groups.groupDescription, groups.groupLocation, groups.groupDate,groups.groupFrequency,groups.groupEnd,groups.groupStart,groups.groupImg,groups.groupResource1,groups.groupResource2,groups.groupResource3,groups.dateCreated FROM groups JOIN groupMembers on groups.groupId = groupMembers.groupId JOIN userlogin on groupMembers.userId = userlogin.userId WHERE groupMembers.userId = x");
 ?>
 
 <!DOCTYPE html>
@@ -257,6 +257,22 @@ $results = mysqli_query($connectDB, "SELECT * FROM class where classId = '1'");
 </div>
 
 <div id="bodyContainer" style="min-height: 75vh;">
+
+    <div class = "container-fluid">
+        <div class="row m-xl-5 m-3" id="groupResTileContainer">
+        </div>
+        <div class="row">
+            <div class="col-12 my-5 mx-auto">
+                <div id="test"></div>
+                <button id="loadMoreResults" onclick="UsergroupResults();" type="button" class="mx-auto btn btn-lrg my-5 gmd-1" style="display:block; width:60%; background: teal; color:white; border-radius: 30px; height:70px; font-size: 1.5rem; padding:10px;">Load More</button>
+                <h1 id="noResults" class="my-5 text-center" style="display:none;"> No More Results . . .</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div id="classTileContainer">
         <!-- CLASS TILE ROW -->
         <div class="row classTileRow" style="display:block;">
@@ -283,7 +299,7 @@ $results = mysqli_query($connectDB, "SELECT * FROM class where classId = '1'");
                         <div class="classTileHeader">
                             <h3 class="card-title classTileTitle"><span id="classTileName" class="editHighlight"
                                                                         contenteditable="false"
-                                                                        data-placeholder="Class Name"></span><?php echo $row['className'];?></h3>
+                                                                        data-placeholder="<?php echo $row['groupName'];?>"></span></h3>
                             <p class="card-subtitle text-muted classTileSubtitle"><img src="img/icons/calendar.svg"
                                                                                        class="classTileIcon"><span
                                     id="classTileDate" class="editHighlight" contenteditable="false"
@@ -496,4 +512,5 @@ $results = mysqli_query($connectDB, "SELECT * FROM class where classId = '1'");
 <script>
     //Load User Profile
     userProfile();
+    UsergroupResults();
 </script>

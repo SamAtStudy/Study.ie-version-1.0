@@ -110,7 +110,7 @@ function login(){
                     $_SESSION['userId']=$row['userId'];
                     $_SESSION['userName']=$row['userName'];
 
-                    echo("login success");
+                    echo("login success:".$row['userId']);
                 }else{
                     echo("login error");
                 }

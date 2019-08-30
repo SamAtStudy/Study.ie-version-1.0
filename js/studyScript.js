@@ -79,7 +79,7 @@ $(document).ready(function(){
                 sessionStorage.setItem("logged","none");
         });
     });
-
+    // Login button
     $("#accLoginBtn").click(function(){
         var mailUsername=$("#mailUsername").val();
         var pass=$("#pass").val();
@@ -91,15 +91,19 @@ $(document).ready(function(){
             userPass: pass
         },function(data,status){
             //alert("Data: " + data + "\nStatus: " + status);
-            if(data==="login success"){
-                sessionStorage.setItem("logged",mailUsername);
+            var strSpilt;
+            strSpilt = data.split(":");
+           // alert(strSpilt[0] + strSpilt[1]);
+            if(strSpilt[0]==="login success"){
+                sessionStorage.setItem("mailUsername", mailUsername);
+                sessionStorage.setItem("logged",strSpilt[1]);
                 //alert(sessionStorage.getItem("logged"))f;
                 //getUserData(sessionStorage.getItem("logged"));
                 loginStyle("revert");
                 loginStyle("clear");
                 $('#loginModal').modal('hide');
-                $('#dropdownAcc').html("User: "+sessionStorage.getItem("logged"));
-                $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("logged"));
+                $('#dropdownAcc').html("User: "+mailUsername);
+                $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+mailUsername);
                 $('#navSettings').show();
                 $('#navProfile').show();
                 $('#navLogin').hide();
@@ -227,12 +231,12 @@ function loginStatus(){
         sessionStorage.setItem("logged","none");
         return "No User Logged In";
     }else{
-        $('#dropdownAcc').html("User:"+sessionStorage.getItem("logged"));
-        $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("logged"));
+        $('#dropdownAcc').html("User:"+sessionStorage.getItem("mailUsername"));
+        $('#dropdownProfileLink').attr("href", "https://www.study.ie/user.html/"+sessionStorage.getItem("mailUsername"));
         $('#navSettings').show();
         $('#navProfile').show();
         $('#navLogin').hide();
-        return "User "+sessionStorage.getItem("logged")+" is logged in.";
+        return "User "+sessionStorage.getItem("mailUsername")+" is logged in.";
     }
 }
 
@@ -583,6 +587,34 @@ function groupResults(){
         }
     });
 }
+var UsertotalRows =-1;
+function UsergroupResults(){
+    //var totalRows=checkResults();
+    //alert("checking total number of rows..");
+    var rowHeightOf="users";
+    var userId=""+sessionStorage.getItem("logged");
+    $.post("https://study.ie/Server/api.php",{
+        rowHeight: rowHeightOf,
+        userId: userId
+    },function(rows,status){
+
+        if(UsertotalRows==-1){
+            UsertotalRows=rows;
+        }
+        alert("total number of rows is: "+UsertotalRows);
+        if(UsertotalRows==0){
+            //Hide load more btn and show no more results txt
+            $("#noResults").show();
+            $("#loadMoreResults").hide();
+        }else if(UsertotalRows<3){
+            createUserGroupTile(UsertotalRows);
+            $("#noResults").show();
+            $("#loadMoreResults").hide();
+        }else{
+            createUserGroupTile(3);
+        }
+    });
+}
 
 //FUTURE: script for applying a relevant image for a particular Course Topic if no image available
 function createGroupTile(tilesShown){
@@ -593,17 +625,19 @@ function createGroupTile(tilesShown){
     var div;
     var numRows=""+totalRows;
     var tiles=""+tilesShown;
+    var retrieveOption="groups";
 
     $.post("https://study.ie/Server/api.php",{
         tiles: tiles,
-        numRows: numRows
+        numRows: numRows,
+        retrieveOption: retrieveOption
     },function(dbData,status){
 
         if(dbData.indexOf("Failed to connect") !==-1){
             console.log("Database Error"); //This is not working...
         }else{
             //alert(dbData);
-            //console.log(dbData);
+           // console.log(dbData);
             var decodedJSON=JSON.parse(dbData);
             console.log(decodedJSON); //Use Console Log to Debug array structure
             //alert(decodedJSON);
@@ -613,6 +647,184 @@ function createGroupTile(tilesShown){
 
             for(i=tilesShown-1; i>=0; i--){
                 console.log(i);
+                if(decodedJSON[i]['groupImg']===null || decodedJSON[i]['groupImg']===""){
+                    decodedJSON[i]['groupImg']=ar['courseImg'];
+                }
+
+                div = $('<!-- GROUP TILE CONTAINER -->\n' +
+                    '        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer"> <!-- Add Unique Id Attribute to each create tile -->\n' +
+                    '            <!-- GROUP TILE -->\n' +
+                    '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
+                    '\n' +
+                    '                <!-- Group Logo -->\n' +
+                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '\n' +
+                    '                <!-- Group Tile Body -->\n' +
+                    '                <div class="card-body groupTileBody">\n' +
+                    '                    <!-- Group Tile Modal Trigger and Title -->\n' +
+                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">\n' +
+                    '                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >'+decodedJSON[i]['groupName']+'</h5>\n' +
+                    '                    </a>\n' +
+                    '\n' +
+                    '                    <!--Group Tile Time -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/timer.svg" class="classTileIcon" ><span class="groupTileTime">'+decodedJSON[i]['groupStart']+' - '+decodedJSON[i]['groupEnd']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Date -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
+                    '                        <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Location -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">'+decodedJSON[i]['groupLocation']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!--Group Tile Members and Join Btn -->\n' +
+                    '                    <div class="d-flex justify-content-between mt-3 mb-2">\n' +
+                    '                        <div class="mt-2 text-muted">\n' +
+                    '                            <span class="groupTileMembers">13</span> Members\n' +
+                    '                        </div>\n' +
+                    '                        <div>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="<?php echo "Hello ?>">Join</button>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Resources Trigger -->\n' +
+                    '                    <div class="row mt-1" style="font-weight:700;">\n' +
+                    '                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#groupTileCol'+decodedJSON[i]['groupId']+'" role="button" aria-expanded="false" aria-controls="groupTileCol'+decodedJSON[i]['groupId']+'" id="groupTileTrig'+decodedJSON[i]['groupId']+'">Resources </a>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Resources -->\n' +
+                    '                    <div class="row groupResourceContainer collapse pt-1" id="groupTileCol'+decodedJSON[i]['groupId']+'" style="position: relative; z-index: 5;">\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>\n' +
+                    '                            <span class="groupResources">CS50</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>\n' +
+                    '                            <span class="groupResources">Python - A begineers route</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>\n' +
+                    '                            <span class="groupResources">Unity Basics</span>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Modal -->\n' +
+                    '                    <!-- FUTUTRE: Display modal as swipable sidenav on moile that takes up 100% of the screen -->\n' +
+                    '                    <div class="modal fade groupTileModal" id="groupTileModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' +
+                    '                        <div class="modal-dialog groupModalDialog" role="document">\n' +
+                    '                            <div class="modal-content groupModalContent">\n' +
+                    '                                <div class="modal-body groupModalBody">\n' +
+                    '                                    <button type="button" class="close groupTileClose" data-dismiss="modal" aria-label="Close">\n' +
+                    '                                        <span aria-hidden="true">&times;</span>\n' +
+                    '                                    </button>\n' +
+                    '                                    <div id="aboutModalContent">\n' +
+                    '                                        <!--Our Mission-->\n' +
+                    '                                        <h4>Our Mission</h4>\n' +
+                    '                                        <!-- <hr style="width: 40%"> -->\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.\n' +
+                    '                                                </div>\n' +
+                    '                                                <br/>\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">\n' +
+                    '                                                    *If you can think, you are a learner.\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                        <!-- About Study -->\n' +
+                    '                                        <h4>About Study</h4>\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    We believe in the learner\'s natural need for the best learning.<br/>\n' +
+                    '                                                    <br/>\n' +
+                    '                                                    We quench this thirst by having all the best resources in one searchable location<br/>\n' +
+                    '                                                    <br/>\n' +
+                    '                                                    We then help them track not only what they\'ve done in the past and present, but more importantly where their learning can advance to in the future.<br/>\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                        <!-- Our Team -->\n' +
+                    '                                        <h4>Our Team</h4>\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    A small bunch on college students who are determined to help individuals see the value in what they\'re learning,\n' +
+                    '                                                    and how their learning can take them to their deepest goals. You could call us the \'Avengers of Learning\',\n' +
+                    '                                                    or more realistically just your regular local boyband.\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                    </div>\n' +
+                    '                                </div>\n' +
+                    '                            </div>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>\n' +
+                    '        </div>');
+                totalRows = totalRows - 1;
+
+                $("#groupResTileContainer").append(div);
+
+                //Event Listeners for each tile
+                (function(j) {
+                    $("#groupTileTrig"+decodedJSON[j]['groupId']).mouseenter(function (){
+                        $("#groupTileCol"+decodedJSON[j]['groupId']).fadeIn();
+                    });
+
+                    $("#groupTile"+decodedJSON[j]['groupId']).mouseleave(function(){
+                        $(".groupResourceContainer").fadeOut();
+                    });
+                })(i);
+
+            }
+            //groupTileFunctions();
+        }
+    });
+
+}
+function createUserGroupTile(tilesShown){
+
+    var ar={courseImg:"img/Logo1.png",courseTitle:"Tile Title",courseDesc:"Tile Description",
+        coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
+
+    var div;
+    var numRows=""+UsertotalRows;
+    var tiles=""+tilesShown;
+    var userId=""+sessionStorage.getItem("logged");
+    var retrieveOption="userGroups";
+
+    $.post("https://study.ie/Server/api.php",{
+        tiles: tiles,
+        numRows: numRows,
+        userId: userId,
+        retrieveOption: retrieveOption
+    },function(dbData,status){
+
+        if(dbData.indexOf("Failed to connect") !==-1){
+            console.log("Database Error"); //This is not working...
+        }else{
+           // alert(dbData);
+            console.log(dbData);
+            var decodedJSON=JSON.parse(dbData);
+            //console.log(decodedJSON); //Use Console Log to Debug array structure
+            //alert(decodedJSON);
+            //$('#loadMoreResults').html(decodedJSON[1]['groupName']);
+            //var strSplit;
+            //strSplit=groupTileIds.split(",");
+
+            for(i=tilesShown-1; i>=0; i--){
+                //console.log(i);
                 if(decodedJSON[i]['groupImg']===null || decodedJSON[i]['groupImg']===""){
                     decodedJSON[i]['groupImg']=ar['courseImg'];
                 }
@@ -759,7 +971,6 @@ function createGroupTile(tilesShown){
     });
 
 }
-
 function courseResults(){
     //var totalRows=checkResults();
 
