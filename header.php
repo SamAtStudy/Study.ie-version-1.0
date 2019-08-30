@@ -108,6 +108,7 @@
                                              </div> -->
                                             <div class="form-group">
                                                 <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Username / Email">
+
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password" placeholder="Password">
