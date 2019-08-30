@@ -43,8 +43,12 @@
 <!-- NAV BAR-->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
     <a class="navbar-brand" href="index.php">
-        <img src=img/Logo2White.png alt="Study.ie" class="studyLogo" width="115" height="36">
+        <img src="img/Logo2White.png" alt="Study.ie" class="studyLogo" width="125" height="36">
     </a>
+    <div class="my-auto ml-3" id="navbarSearchContainer">
+        <input class="px-3 py-1" type="text" id="navbarSearch" size="10" placeholder="Search...">
+        <a href="#" id="navbarSearchIcon" class="mr-1"><img src="img/icons/search.svg" style="height:70%;"></a>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -83,7 +87,7 @@
         <div class="modal-content" id="loginModalContent">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
                 <div id="loginModalBody">
                     <div class="form-title text-center">
@@ -105,14 +109,14 @@
                                                  <input type="email" class="form-control loginForm" id="email1" placeholder="Email">
                                              </div> -->
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Username / Email">
+                                                <input type="email" class="form-control loginForm" id="mailUsername" data-toggle="tooltip" data-placement="right" title="" placeholder="Username / Email" data-original-title="User Doesn't Exist">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="Incorrect Password" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="" placeholder="Password" data-original-title="Incorrect Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="custom-control custom-checkbox mr-auto">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
                                                     <label class="custom-control-label" for="customCheck1">Remember Me</label>
                                                 </div>
                                                 <span style="color:black;"><a href="#" style="color:black;">Forgot password?</a></span>
@@ -151,21 +155,21 @@
                                     <div class="d-flex flex-column">
                                         <form id="loginFormContainer">
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="createUsername" data-toggle="tooltip" data-placement="right" title="Username Shouldn't Contain Any Special Characters" placeholder="Username">
+                                                <input type="email" class="form-control loginForm" id="createUsername" data-toggle="tooltip" data-placement="right" title="" placeholder="Username" data-original-title="Username Shouldn't Contain Any Special Characters">
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control loginForm" id="createEmail" data-toggle="tooltip" data-placement="right" title="Invalid Email Address" placeholder="Email">
+                                                <input type="email" class="form-control loginForm" id="createEmail" data-toggle="tooltip" data-placement="right" title="" placeholder="Email" data-original-title="Invalid Email Address">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="createPass" data-toggle="tooltip" data-placement="right" title="User Doesn't Exist" placeholder="Password">
+                                                <input type="password" class="form-control loginForm" id="createPass" data-toggle="tooltip" data-placement="right" title="" placeholder="Password" data-original-title="User Doesn't Exist">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control loginForm" id="confirmPass" data-toggle="tooltip" data-placement="right" title="Passwords Doesn't Match" placeholder="Confirm Password">
+                                                <input type="password" class="form-control loginForm" id="confirmPass" data-toggle="tooltip" data-placement="right" title="" placeholder="Confirm Password" data-original-title="Passwords Doesn't Match">
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="mx-auto">
                                                     <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="#" style="color:blue;">User Agreement</a><span>
-                                                </div>
+                                                </span></span></div>
                                             </div>
                                             <button id="accCreateBtn" type="button" class="btn btn-info btn-block btn-round">Create Account</button>
                                         </form>
@@ -205,38 +209,51 @@
         </div>
     </div>
 </div>
+<div style="height:200px;background-color: hsla(166, 51%, 75%, 1);color:white;" class="pt-5">
+    <h2 class="text-center" style="opacity:0.8">You Searched For</h2>
+    <h1 class="text-center">" Memes "</h1>
+</div>
 
-<div class = "container-fluid">
-    <div class="row justify-content-between m-xl-5 m-3">
-        <!-- GROUP TILE CONTAINER -->
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer"> <!-- Add Unique Id Attribute to each create tile -->
+
+<div class="container-fluid">
+    <div class="row justify-content-between mx-xl-5 mx-3 mt-xl-5 mt-3">
+        <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
+            <h2 class="ml-3 mb-2" style="font-weight:700;">Groups</h2>
+        </div>
+        <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
+            <h2 class="mb-3 mr-3">Groups</h2>
+        </div>
+    </div>
+    <div class="m-xl-5 m-3">
+        <!-- GROUP TILE CONTAINER VERSION PULLED FROM GROUP RESULTS PHP ON THE 29TH AT 10:50-->
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer" id="groupTileContainer"> <!-- Add Unique Id Attribute to each create tile -->
             <!-- GROUP TILE -->
             <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover groupTile">
 
                 <!-- Group Logo -->
-                <img src="img/Logo1.png" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">
+                <img src="img/Logo1.png" alt="Card image cap" style="width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">
 
                 <!-- Group Tile Body -->
                 <div class="card-body groupTileBody">
                     <!-- Group Tile Modal Trigger and Title -->
                     <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">
-                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >CS50 Game Development Dublin</h5>
+                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;">CS50 Game Development Dublin</h5>
                     </a>
 
                     <!--Group Tile Time -->
                     <div class="row my-2">
-                        <img src="img/icons/timer.svg" class="classTileIcon" ><span class="groupTileTime">5:00 - 7:00pm</span>
+                        <img src="img/icons/timer.svg" class="classTileIcon"><span class="groupTileTime">5:00 - 7:00pm</span>
                     </div>
 
                     <!-- Group Tile Date -->
                     <div class="row my-2">
-                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">5th of September</span>
+                        <img src="img/icons/calendar.svg" class="classTileIcon"><span class="groupTileDate&quot;">5th of September</span>
                         <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">Bi-Weekly</span>
                     </div>
 
                     <!-- Group Tile Location -->
                     <div class="row my-2">
-                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">Dublin City, Castle</span>
+                        <img src="img/icons/location-point.svg" class="classTileIcon"><span class="groupTileLoc">Dublin City, Castle</span>
                     </div>
 
                     <!--Group Tile Members and Join Btn -->
@@ -251,20 +268,20 @@
 
                     <!-- Group Tile Resources Trigger -->
                     <div class="row mt-1" style="font-weight:700;">
-                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#resourceCollapse2" role="button" aria-expanded="false" aria-controls="resourceCollapse2">Resources </a>
+                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#groupTile0" role="button" aria-expanded="false" aria-controls="groupTile0" id="groupTile0Trig">Resources </a>
                     </div>
 
                     <!-- Group Tile Resources -->
-                    <div class="row groupResourceContainer collapse pt-1" id="resourceCollapse2" style="position: relative; z-index: 5;">
-                        <div class="col-12">
+                    <div class="row groupResourceContainer collapse pt-1" id="groupTile0" style="position: relative; z-index: 5;">
+                        <div class="col-12 my-2">
                             <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>
                             <span class="groupResources">CS50</span>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 my-2">
                             <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>
                             <span class="groupResources">Python - A begineers route</span>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 my-2">
                             <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>
                             <span class="groupResources">Unity Basics</span>
                         </div>
@@ -274,7 +291,8 @@
                         has bought a group package then they will first have the group section at the top of the group page
                         with all the groups the user owns/moderates. A button on the top left to start a group and then groups
                         below of the most popular ones atm. button in the top left for that which sorts groups. when a user
-                        searches for a group a header appears with "you searched for 'x'" -->
+                        searches for a group a header appears with "you searched for 'x'"
+                         also need to add bootstrap concate or hide overlowing text-->
                     </div>
 
                     <!-- Group Tile Modal -->
@@ -283,52 +301,34 @@
                         <div class="modal-dialog groupModalDialog" role="document">
                             <div class="modal-content groupModalContent">
                                 <div class="modal-body groupModalBody">
-                                    <button type="button" class="close groupTileClose" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                    <button type="button" class="close groupModalClose" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
                                     </button>
-                                    <div id="aboutModalContent">
-                                        <!--Our Mission-->
-                                        <h4>Our Mission</h4>
-                                        <!-- <hr style="width: 40%"> -->
+                                    <div class="groupModalContent mb-5">
+                                        <!--Modal Title and Icon-->
+                                        <h2 class="groupModalTitle text-center mt-5 mb-3">CS50 Game Development Dublin</h2>
                                         <div class="row">
-                                            <div class="col">
-                                                <div class="container-fluid" id="aboutUsText">
-                                                    Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
-                                                </div>
-                                                <br/>
-                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
-                                                    *If you can think, you are a learner.
-                                                </div>
-                                            </div>
+                                            <img src="img/Logo1.png" alt="Card image cap" style="width:12rem; height:12rem;" class="mx-auto groupModalLogo">
                                         </div>
 
-
-                                        <!-- About Study -->
-                                        <h4>About Study</h4>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="container-fluid" id="aboutUsText">
-                                                    We believe in the learner's natural need for the best learning.<br/>
-                                                    <br/>
-                                                    We quench this thirst by having all the best resources in one searchable location<br/>
-                                                    <br/>
-                                                    We then help them track not only what they've done in the past and present, but more importantly where their learning can advance to in the future.<br/>
-                                                </div>
-                                            </div>
+                                        <div class="groupModalInfo ml-5">
+                                        <!--Group Tile Time -->
+                                        <div class="row my-2">
+                                            <img src="img/icons/timer.svg" class="classTileIcon"><span class="groupTileTime">5:00 - 7:00pm</span>
                                         </div>
 
-                                        <!-- Our Team -->
-                                        <h4>Our Team</h4>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="container-fluid" id="aboutUsText">
-                                                    A small bunch on college students who are determined to help individuals see the value in what they're learning,
-                                                    and how their learning can take them to their deepest goals. You could call us the 'Avengers of Learning',
-                                                    or more realistically just your regular local boyband.
-                                                </div>
-                                            </div>
+                                        <!-- Group Tile Date -->
+                                        <div class="row my-2">
+                                            <img src="img/icons/calendar.svg" class="classTileIcon"><span class="groupTileDate">5th of September</span>
+                                            <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">Bi-Weekly</span>
                                         </div>
 
+                                        <!-- Group Tile Location -->
+                                        <div class="row my-2">
+                                            <img src="img/icons/location-point.svg" class="classTileIcon"><span class="groupTileLoc">Dublin City, Castle</span>
+                                        </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -348,10 +348,10 @@
             <div id="socialBox">
                 <h4 id="socialLinkHeader">Follow Us On</h4>
                 <div id="socialLinkBox" class="d-flex justify-content-center">
-                    &nbsp
+                    &nbsp;
                     <button id="fbBtn" class="btn btn-primary" style="border-radius: 12px; background-color:white; border-color: #b4e4da;"><img src="img/icons/fbLogo.svg"></button>
-                    <button id="twBtn" class="btn btn-primary buttonLeft" ><img src="img/icons/twitterLogo.svg"></button>
-                    <button id="inBtn" class="btn btn-primary buttonLeft" ><img src="img/icons/Instagram.svg"></button>
+                    <button id="twBtn" class="btn btn-primary buttonLeft"><img src="img/icons/twitterLogo.svg"></button>
+                    <button id="inBtn" class="btn btn-primary buttonLeft"><img src="img/icons/Instagram.svg"></button>
                     <button id="lnBtn" class="btn btn-primary buttonLeft"><img src="img/icons/linkedin-logo.svg"></button>
                 </div>
             </div>
@@ -359,7 +359,7 @@
         <div class="col-12 col-xl-4 order-md-1">
             <div id="aboutUsBox">
                 <img src="img/Logo2White.png" style="width:100%;">
-                <a href="#" id="aboutUsBtn" data-toggle="modal" data-target="#aboutModal" > Who Are We? </a>
+                <a href="#" id="aboutUsBtn" data-toggle="modal" data-target="#aboutModal"> Who Are We? </a>
             </div>
 
             <!-- About Us Modal-->
@@ -368,7 +368,7 @@
                     <div class="modal-content" id="aboutUsContent">
                         <div class="modal-body">
                             <button type="button" class="loginClose" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true">×</span>
                             </button>
                             <div id="aboutModalContent">
 
@@ -380,7 +380,7 @@
                                         <div class="container-fluid" id="aboutUsText">
                                             Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.
                                         </div>
-                                        <br/>
+                                        <br>
                                         <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">
                                             *If you can think, you are a learner.
                                         </div>
@@ -393,11 +393,11 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="container-fluid" id="aboutUsText">
-                                            We believe in the learner's natural need for the best learning.<br/>
-                                            <br/>
-                                            We quench this thirst by having all the best resources in one searchable location<br/>
-                                            <br/>
-                                            We then help them track not only what they've done in the past and present, but more importantly where their learning can advance to in the future.<br/>
+                                            We believe in the learner's natural need for the best learning.<br>
+                                            <br>
+                                            We quench this thirst by having all the best resources in one searchable location<br>
+                                            <br>
+                                            We then help them track not only what they've done in the past and present, but more importantly where their learning can advance to in the future.<br>
                                         </div>
                                     </div>
                                 </div>
@@ -422,11 +422,11 @@
         </div>
         <div class="col-12 col-xl-4 order-md-3" style="margin-top:4vh;">
             <div style="margin:auto; margin-left:10px;">
-                <span class="footerMiscInfo" > Contact: sam@study.ie</span>
+                <span class="footerMiscInfo"> Contact: sam@study.ie</span>
                 <br>
-                <span class="footerMiscInfo" ><a href="https://google.com" style="color:white;">Privacy Policy</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp <a href="https://google.com" style="color:white;">Terms of Use</a></span>
+                <span class="footerMiscInfo"><a href="https://google.com" style="color:white;">Privacy Policy</a> &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://google.com" style="color:white;">Terms of Use</a></span>
                 <br>
-                <span class="footerMiscInfo" > Copyright © 2019 Study.ie. All rights reserved. </span>
+                <span class="footerMiscInfo"> Copyright © 2019 Study.ie. All rights reserved. </span>
             </div>
         </div>
     </div>
@@ -440,8 +440,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <script src="js/studyScript.js"></script>
-
-
 </body>
 </html>
 

@@ -68,6 +68,38 @@ a:hover{
     font-size: 16px;
 }
 
+#navbarSearchContainer{
+    background-color:  white;
+    border-radius: 30px;
+    border:2px solid;
+    border-color:hsla(166, 51%, 78%, 1);
+    position:relative;
+    z-index:5;
+    height:35px;
+    width:275px;
+}
+
+#navbarSearch{
+    color: black;
+    border: 0;
+    outline: 0;
+    background: none;
+    caret-color:teal;
+    border-radius: 15px;
+    width:85%;
+}
+
+#navbarSearchIcon{
+    height: 31px;
+    width: 31px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: white;
+}
+
 #loginSocialBox button{
     font-size:1.3rem;
     font-family: 'Nunito', sans-serif;
@@ -563,6 +595,38 @@ div > .footerMiscInfo{
     padding:0px;
 }
 */
+
+.groupTileModal{
+    padding:0px !important;
+}
+
+.groupModalClose{
+    top:0px !important;
+    right:15px !important;
+}
+
+.groupModalTitle{
+    color:Black;
+    font-weight: 700;
+}
+
+.groupModalContent{
+    margin:auto;
+    max-width: 750px;
+}
+
+.groupModalClose{
+    position:absolute;
+    right:15px !important;
+    top:0px !important;
+    z-index:999;
+    font-size:2.7rem;
+    font-weight: normal;
+    color:green;
+    opacity:1;
+}
+
+
 #loginClose{
     color:green;
     font-size:3rem;
