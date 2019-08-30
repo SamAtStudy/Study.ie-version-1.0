@@ -74,10 +74,10 @@
             <li class="nav-item" style="display:none" id="navProfile">
                 <a class="nav-link" href="user.php">Profile</a>
             </li>
-            <li class="nav-item" id="navLogin" style="display: none;">
+            <li class="nav-item" id="navLogin" style="display: block;">
                 <a id="loginModalBtn" class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
             </li>
-            <li class="nav-item dropdown" id="navSettings" style="display:block;">
+            <li class="nav-item dropdown" id="navSettings" style="display:none;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/icons/settings.svg" style="height:25px; padding-bottom: 3px;"></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
