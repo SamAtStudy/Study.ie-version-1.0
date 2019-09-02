@@ -98,6 +98,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/sweetalert.min.js"></script>
 <script src="js/studyScript.js"></script>
+<script src="js/responsiveslides.min.js"></script>
 
 </body>
 </html>

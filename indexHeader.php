@@ -40,13 +40,13 @@
 <body>
 
 <!-- NAV BAR-->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top navbarHome" id="mainNavbar">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top navbarHome" id="mainNavbar" style="background: transparent !important;">
     <a class="navbar-brand" href="index.php">
         <img src=img/Logo2White.png alt="Study.ie" id="studyLogo" width="115" height="36">
     </a>
 
     <!-- Navbar Search -->
-    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer">
+    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer" style="opacity: 0;">
         <input class="px-3 py-1 searchGroups" type="text" id="navbarSearch" size="10" placeholder="Search...">
         <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
     </div>

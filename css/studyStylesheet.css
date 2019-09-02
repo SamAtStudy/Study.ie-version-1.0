@@ -51,10 +51,6 @@ a:hover{
     opacity:1;
 }
 
-/*.form-control:focus{
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
-} */
-
 .loginForm{
     font-weight: bold;
     width: 400px;
@@ -89,6 +85,15 @@ a:hover{
     width:87%;
     font-size: 0.96rem;
 }
+
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem hsla(166, 51%, 85%, 1) !important;
+}
+
+
+/*.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+} */
 
 #navbarSearchIcon{
     height: 31px;
@@ -125,6 +130,23 @@ a:hover{
     padding-top: 0.5rem !important;
 }
 
+#livesearch{
+    background: grey;
+    padding: 15px;
+    padding-top: 25px;
+    width: 275px;
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;top: 32px;
+    left: 163px;
+}
+
+#livesearch:empty{
+    display:none;
+}
+
+
 #navbarSearchExtendedIcon{
     height: 32px;
     width: 32px;
@@ -150,6 +172,12 @@ a:hover{
 #loginSocialBox img{
     margin-top:-5px;
     margin-right:7px;
+}
+
+#groupResultsHeader{
+    height:200px;
+    background-color: hsla(166, 51%, 75%, 1);
+    color:white;
 }
 
 /*
@@ -317,6 +345,11 @@ div > .footerMiscInfo{
     font-family: 'Varela Round', sans-serif;
     font-size: 22px;
 }
+
+.navbarHome{
+    background-color: transparent;
+}
+
 .navbar-custom
 {
     background-color: #63cbb7;
@@ -363,7 +396,7 @@ div > .footerMiscInfo{
 }
 
 .navbar-collapse {
-    background: #63cbb7;
+    background: transparent;
     border-bottom-left-radius:25px;
     border-bottom-right-radius:25px;
     text-align: center;
@@ -956,6 +989,76 @@ div > .footerMiscInfo{
     font-weight: 600;
 }
 
+.rslides {
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.rslides li {
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    display: none;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.rslides li:first-child {
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.rslides img {
+    display: block;
+    height: auto;
+    float: left;
+    width: 100%;
+    border: 0;
+}
+
+#studyLogo{
+    position: relative;
+    z-index:5;
+}
+
+#headerForm{
+    font-weight: bold;
+    width: 400px;
+    height: 45px;
+    padding: 6px 15px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background: #F6F7F9;
+    color: #748194;
+    font-size: 16px;
+}
+#headerCardTitle{
+    position: relative;
+}
+#headerCardBtn{
+    background-color: grey;
+    border-color: grey;
+    border-radius: 10px;
+    width:90%;
+    font-size: 1.2rem;
+}
+
+#headerCardTitle:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: hsl(216, 13%, 75%);
+    border-radius: 26px;
+}
 
 @media screen and (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .dropdown-menu {
@@ -965,6 +1068,7 @@ div > .footerMiscInfo{
 
 @media screen and (max-width: 992px) {
     .navbar-collapse {
+        background: #63cbb7;
         margin-right:-1.75vw;
     }
 }
@@ -1103,7 +1207,7 @@ div > .footerMiscInfo{
         font-size: 14px;
     }
 
-    .studyLogo{
+    #studyLogo{
         margin-left:0px;
         margin-top:-0.5vh;
     }

@@ -11,27 +11,23 @@ $resultNum = 0;
 //lookup all links from the xml file if length of q>0
 if (strlen($q) > 2) {
 
-    $sql = "SELECT groupId,groupName,groupLocation FROM groups WHERE groupName LIKE '%".$q."%' OR groupLocation LIKE '%".$q."%' LIMIT 3";
+    $sql = "SELECT courseID,courseTitle,courseProvider FROM coursedata WHERE courseTitle LIKE '%".$q."%' OR courseProvider LIKE '%".$q."%' LIMIT 6";
     $result = mysqli_query($connectDB, $sql);
 
     $resultAr= array();
     while ( $row = $result->fetch_assoc()){
         //$resultAr[]=$row;
         if ($hint=="") {
-            $hint="<a href='https://www.study.ie/groupResults.php?search=".
-                $q.
-                "&id=".
-                $row['groupId'] .
+            $hint="<a href='https://www.study.ie/course.php?id=" .
+                $row['courseID'] .
                 "' target='_blank'>" .
-                $row['groupName'] . " (" . $row['groupLocation'] . ")" . "</a>";
+                $row['courseTitle'] . " (" . $row['courseProvider'] . ")" . "</a>";
             $resultNum++;
         } else {
-            $hint=$hint . "<br /><a href='https://www.study.ie/groupResults.php?search=".
-                $q.
-                "&id=".
-                $row['groupId'] .
+            $hint=$hint . "<br /><a href='https://www.study.ie/course.php?id=" .
+                $row['courseID'] .
                 "' target='_blank'>" .
-                $row['groupName'] . " (" . $row['groupLocation'] . ")" . "</a>";
+                $row['courseTitle'] . " (" . $row['courseProvider'] . ")" . "</a>";
             $resultNum++;
         }
     }

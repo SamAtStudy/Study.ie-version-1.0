@@ -14,6 +14,8 @@ if(isset($_POST['tiles']) && isset($_POST['numRows'])  && isset($_POST['retrieve
     $retrieveOption=$_POST['retrieveOption'];
     if($retrieveOption=='userGroups' && isset($_POST['userId'])){
         retrieveUserGroupTiles();
+    }else if($retrieveOption=='searchGroups' && isset($_POST['search'])){
+        retrieveSearchGroupTiles();
     }else if($retrieveOption=='groups'){
         retrieveGroupTiles();
     }
@@ -25,6 +27,8 @@ if(isset($_POST['rowHeight'])){
     $rowHeight=$_POST['rowHeight'];
     if($rowHeight=='users' && isset($_POST['userId']) ){
         checkUserRowHeight();
+    }else if($rowHeight=='search' && isset($_POST['search']) ){
+        checkSearchRowHeight();
     }else if($rowHeight=='groups'){
         checkRowHeight();
     }
@@ -52,6 +56,17 @@ function checkUserRowHeight(){
     $userId=$_POST['userId'];
 
     $sql = "SELECT groupMembers.groupId FROM groups JOIN groupMembers on groups.groupId = groupMembers.groupId JOIN userlogin on groupMembers.userId = userlogin.userId WHERE groupMembers.userId =  ".$userId.";";
+    $result = mysqli_query($connectDB, $sql);
+    $num_rows = mysqli_num_rows($result);
+
+    echo $num_rows;
+}
+
+function checkSearchRowHeight(){
+    include 'Server.php';
+    $q=$_POST['search'];
+
+    $sql = "SELECT groupId,groupName,groupLocation FROM groups WHERE groupName LIKE '%".$q."%' OR groupLocation LIKE '%".$q."%'";
     $result = mysqli_query($connectDB, $sql);
     $num_rows = mysqli_num_rows($result);
 
@@ -113,6 +128,39 @@ function retrieveUserGroupTiles(){
 
 
     $sql = "SELECT groupMembers.groupId, groups.groupName,groups.groupDescription, groups.groupLocation, groups.groupDate,groups.groupFrequency,groups.groupEnd,groups.groupStart,groups.groupImg,groups.groupResource1,groups.groupResource2,groups.groupResource3,groups.dateCreated FROM groups JOIN groupMembers on groups.groupId = groupMembers.groupId JOIN userlogin on groupMembers.userId = userlogin.userId WHERE groupMembers.userId = ".$userId." LIMIT ".$numRows.",".$tiles;
+    $result = mysqli_query($connectDB, $sql);
+
+    $resultAr= array();
+    while ( $row = $result->fetch_assoc()){
+        $resultAr[]=$row;
+    }
+
+    //Debugging array
+    //print_r($resultAr);
+
+    echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
+}
+function retrieveSearchGroupTiles(){
+    //$tiles=$_POST['tiles'];
+    //echo $tiles;
+
+    //$numRows=$_POST['numRows'];
+    //echo $numRows;
+
+    include 'Server.php';
+    $q=$_POST['search'];
+    $tiles=$_POST['tiles'];
+    $numRows=$_POST['numRows'];
+
+    if(7<$numRows){
+        $numRows=$numRows-8;
+    }else{
+        $tiles=$numRows;
+        $numRows=0;
+    }
+
+
+    $sql = "SELECT * FROM groups WHERE groupName LIKE '%".$q."%' OR groupLocation LIKE '%".$q."%'";
     $result = mysqli_query($connectDB, $sql);
 
     $resultAr= array();

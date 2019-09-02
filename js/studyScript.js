@@ -1,4 +1,8 @@
+
 $(document).ready(function(){
+
+    // CACHED SELECTORS
+    var navSearch=$("#navbarSearch");
 
     $("#fbBtn").click(function(){
         window.location.href = "https://www.facebook.com/studyire/";
@@ -197,7 +201,7 @@ $(document).ready(function(){
     });
 
     var searchContainer=$("#navbarSearchContainer");
-    $( "#navbarSearch" ).click(function() {
+    navSearch.click(function() {
         searchContainer.animate({width: "350px", borderRadius: "20px"}, 60).animate({height: "115px"}, 30 ); //animate border radius first. hierarchy of animations
         searchContainer.toggleClass("extended");
     });
@@ -209,19 +213,64 @@ $(document).ready(function(){
         }
     });
 
+    // SLIDE FUNCTION. I <3 rslides sm
+    $(function() {
+        $(".rslides").responsiveSlides({
+            speed:1500,
+            timeout: 6000
+        });
+    });
+
+    var mainNavbar=$("#mainNavbar");
+    /* TODO: Hidden navbar when scrolls past a point but reapers when user scrolls up
+    if ($(document).scrollTop() > 1.5 * $(window).height()) {
+        mainNavbar.hide();
+    }*/
+
+    //TRANSPARENT NAVBAR
+    var homeHeader=$("#homeHeader");
+    if (homeHeader.length ) {
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > homeHeader.height()) {
+                mainNavbar.css("-webkit-transition","all 0.85s ease");
+                mainNavbar.css("transition","all 0.85s ease");
+                mainNavbar.css("background","#63cbb7");
+                navSearch.prop("disabled", false);
+                searchContainer.css("opacity","0.65");
+                searchContainer.animate({opacity: "1"},7);
+            }else{
+                navSearch.prop("disabled", true);
+                mainNavbar.css("background","transparent");
+                searchContainer.css("opacity","0.35");
+                searchContainer.animate({opacity: "0"},7);
+            }
+        });
+    }
+
+    //SEARCH RESULTS
+    var groupHeader=$("#groupResultsHeader");
+    var userSearchRes=$("#userSearchRes");
+    if (groupHeader.length) {
+        var groupSearch = GetURLParameter("search");
+        console.log("user searched for:"+groupSearch);
+        var groupSearchId = GetURLParameter("id");
+        if (groupSearch === undefined) {
+            groupHeader.hide();
+            groupResults("example");
+        }else{
+            userSearchRes.html(""+groupSearch);
+            groupResults("search");
+        }
+    }
+
+    /*var test=GetURLParameter("id");
+    if(test===undefined){
+        alert("It works!!");
+    }else{
+        alert("It no works!!");
+        alert(GetURLParameter("id"));
+    }*/
 });
-
-/*
-function groupTileFunctions(){
-    $(".groupTileResTrigger").mouseenter(function () {
-        $(".groupResourceContainer").fadeIn();
-    });
-
-    $(".groupTile").mouseleave(function(){
-        $(".groupResourceContainer").fadeOut();
-        //alert("fade out");
-    });
-}*/
 
 function load_comment(){
     $.ajax({
@@ -273,7 +322,7 @@ function loginStyle(x){
         //Tooltip colors are currently working.
         $tooltip.css("background-color","hsla(44, 95%, 85%, 1)");
         $tooltip.css("color","hsl(43, 64%, 34%)");
-        $$tooltip.css("font-weight","700");
+        $tooltip.css("font-weight","700");
     }else if(x==="danger tooltip"){
         $tooltip.css("background-color","hsla(0, 89%, 77%, 1)");
         $tooltip.css("color","hsl(0, 56%, 36%)");
@@ -381,166 +430,6 @@ function verifyAnnouncement(x){
     },250);
 }
 
-function courseGroupTileFunctions(){
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
-
-    $(".bookmarkIcon").click(function(){
-        if($(this).attr("value")==="notBookmarked"){
-            $(this).attr("src", "img/icons/bookmark.png");
-            $(this).attr("value", "bookmarked");
-            $(this).tooltip('disable');
-        }else if($(this).attr("value")==="bookmarked"){
-            $(this).attr("src", "img/icons/unbookmark.png");
-            $(this).attr("value", "notBookmarked");
-            $(this).tooltip('enable');
-        }
-    });
-
-    $(".bookmarkIcon").hover(function(){
-        if($(this).attr("value")==="notBookmarked"){
-            $(this).attr("src", "img/icons/bookmark.png");
-        }
-    },function(){
-        if($(this).attr("value")==="notBookmarked"){
-            $(this).attr("src", "img/icons/notBookmarked.png");
-        }
-    });
-
-    $(".recommendIcon").click(function(){
-        if($(this).attr("value")==="notRecommended"){
-            $(this).attr("src", "img/icons/Recommend.svg");
-            $(this).attr("value", "recommended");
-            $(this).tooltip('disable');
-        }else if($(this).attr("value")==="recommended"){
-            $(this).attr("src", "img/icons/recommend.svg");
-            $(this).attr("value", "notRecommended");
-            $(this).tooltip('enable');
-        }
-    });
-
-    $(".recommendIcon").hover(function(){
-        if($(this).attr("value")==="notRecommended"){
-            $(this).attr("src", "img/icons/recommend.svg");
-        }
-    },function(){
-        if($(this).attr("value")==="notRecommended"){
-            $(this).attr("src", "img/icons/notRecommended.svg");
-        }
-    });
-}
-
-function coursePageFunctions(){
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    });
-
-    $(".bookmarkIcon").click(function(){
-        if($(this).attr("value")==="notBookmarked"){
-            $(this).attr("src", "img/icons/bookmark.png");
-            $(this).attr("value", "bookmarked");
-            $(this).tooltip('disable');
-        }else if($(this).attr("value")==="bookmarked"){
-            $(this).attr("src", "img/icons/unbookmark.png");
-            $(this).attr("value", "notBookmarked");
-            $(this).tooltip('enable');
-        }
-    });
-
-    $(".bookmarkIcon").hover(function(){
-        if($(this).attr("value")==="notBookmarked"){
-            $(this).attr("src", "img/icons/bookmark.png");
-        }
-    },function(){
-        if($(this).attr("value")==="notBookmarked"){
-            $(this).attr("src", "img/icons/notBookmarked.png");
-        }
-    });
-
-    $(".recommendIcon").click(function(){
-        if($(this).attr("value")==="notRecommended"){
-            $(this).attr("src", "img/icons/Recommend.svg");
-            $(this).attr("value", "recommended");
-            $(this).tooltip('disable');
-        }else if($(this).attr("value")==="recommended"){
-            $(this).attr("src", "img/icons/recommend.svg");
-            $(this).attr("value", "notRecommended");
-            $(this).tooltip('enable');
-        }
-    });
-
-    $(".recommendIcon").hover(function(){
-        if($(this).attr("value")==="notRecommended"){
-            $(this).attr("src", "img/icons/recommend.svg");
-        }
-    },function(){
-        if($(this).attr("value")==="notRecommended"){
-            $(this).attr("src", "img/icons/notRecommended.svg");
-        }
-    });
-
-
-}
-
-var TxtRotate = function(el, toRotate, period) {
-    this.toRotate = toRotate;
-    this.el = el;
-    this.loopNum = 0;
-    this.period = parseInt(period, 10) || 2000;
-    this.txt = '';
-    this.tick();
-    this.isDeleting = false;
-};
-
-TxtRotate.prototype.tick = function() {
-    var i = this.loopNum % this.toRotate.length;
-    var fullTxt = this.toRotate[i];
-
-    if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
-
-    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
-    var that = this;
-    var delta = 300 - Math.random() * 100;
-
-    if (this.isDeleting) { delta /= 2; }
-
-    if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-    }
-
-    setTimeout(function() {
-        that.tick();
-    }, delta);
-};
-
-window.onload = function() {
-    var elements = document.getElementsByClassName('txt-rotate');
-    for (var i=0; i<elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-rotate');
-        var period = elements[i].getAttribute('data-period');
-        if (toRotate) {
-            new TxtRotate(elements[i], JSON.parse(toRotate), period);
-        }
-    }
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-    document.body.appendChild(css);
-};
-
 function checkResults(){
     /* Number of results/rows is cached here */
     //return 6;
@@ -568,32 +457,68 @@ function GetURLParameter(sParam){
 }
 
 var totalRows=-1; //Hardcoded number of rows in DB;
+function groupResults(x){
+    var loadMoreBtn=$("#loadMoreResults");
+    var noResults=$("#noResults");
+    if(x==="example"){
+        //var totalRows=checkResults();
+        console.log("checking total number of rows..");
+        var rowHeightOf="groups";
+        $.post("https://study.ie/Server/api.php",{
+            rowHeight: rowHeightOf
+        },function(rows,status){
+            //alert("total number of rows is: "+totalRows);
 
-function groupResults(){
-    //var totalRows=checkResults();
-    //alert("checking total number of rows..");
-    var rowHeightOf="groups";
-    $.post("https://study.ie/Server/api.php",{
-        rowHeight: rowHeightOf
-    },function(rows,status){
-        //alert("total number of rows is: "+totalRows);
+            if(totalRows==-1){
+                totalRows=rows;
+            }
 
-        if(totalRows==-1){
-            totalRows=rows;
+            if(totalRows==0){
+                //Hide load more btn and show no more results txt
+                noResults.show();
+                loadMoreBtn.hide();
+            }else if(totalRows<8){
+                createGroupTile(totalRows);
+                noResults.show();
+                loadMoreBtn.hide();
+            }else{
+                createGroupTile(8);
+            }
+        });
+    }else{
+        var type=x;
+        console.log(type);
+
+        if(type==="search"){
+            var search = GetURLParameter("search");
+            loadMoreBtn.attr("onclick","groupResults('search');");
+
+            var rowHeightOf="search";
+            $.post("https://study.ie/Server/api.php",{
+                rowHeight: rowHeightOf,
+                search:search
+            },function(rows,status){
+                //alert("total number of rows is: "+totalRows);
+
+                if(totalRows==-1){
+                    totalRows=rows;
+                }
+                console.log("Row Height: "+rows);
+
+                if(totalRows==0){
+                    //Hide load more btn and show no more results txt
+                    noResults.show();
+                    loadMoreBtn.hide();
+                }else if(totalRows<8){
+                    createGroupTileSearch(totalRows);
+                    noResults.show();
+                    loadMoreBtn.hide();
+                }else{
+                    createGroupTileSearch(8);
+                }
+            });
         }
-
-        if(totalRows==0){
-            //Hide load more btn and show no more results txt
-            $("#noResults").show();
-            $("#loadMoreResults").hide();
-        }else if(totalRows<8){
-            createGroupTile(totalRows);
-            $("#noResults").show();
-            $("#loadMoreResults").hide();
-        }else{
-            createGroupTile(8);
-        }
-    });
+    }
 }
 var UsertotalRows =-1;
 function UsergroupResults(){
@@ -623,7 +548,6 @@ function UsergroupResults(){
         }
     });
 }
-
 //FUTURE: script for applying a relevant image for a particular Course Topic if no image available
 function createGroupTile(tilesShown){
 
@@ -983,181 +907,189 @@ function createUserGroupTile(tilesShown){
     });
 
 }
-function courseResults(){
-    //var totalRows=checkResults();
+function createGroupTileSearch(tilesShown){
 
-    if(totalRows==0){
-        //Hide load more btn and show no more results txt
-        $("#noResults").show();
-        $("#loadMoreResults").hide();
-    }else if(totalRows<6){
-        createTile(totalRows);
-
-        $("#noResults").show();
-        $("#loadMoreResults").hide();
-    }else{
-        createTile(6);
-    }
-}
-
-//FUTURE: script for applying a relevant image for a particular Course Topic if no image available
-function createTile(tilesShown){
-
-    var ar={courseImg:"https://via.placeholder.com/320x180",courseTitle:"Tile Title",courseDesc:"Tile Description",
+    var ar={courseImg:"img/Logo1.png",courseTitle:"Tile Title",courseDesc:"Tile Description",
         coursePrice:"€0",courseRecommend:"notRecommended",courseThread:"0",courseBookmark:"notBookmarked"};
 
     var div;
     var numRows=""+totalRows;
     var tiles=""+tilesShown;
+    var retrieveOption="searchGroups";
+    var search = GetURLParameter("search"); //if user changes the url mid exucution, error ensues?
 
     $.post("https://study.ie/Server/api.php",{
         tiles: tiles,
-        numRows: numRows
+        numRows: numRows,
+        retrieveOption: retrieveOption,
+        search:search
     },function(dbData,status){
+        console.log(search);
 
         if(dbData.indexOf("Failed to connect") !==-1){
             console.log("Database Error"); //This is not working...
         }else{
             //alert(dbData);
+            // console.log(dbData);
             var decodedJSON=JSON.parse(dbData);
-            //alert(tilesShown);
-            //console.log(decodedJSON); //Use Console Log to Debug array structure
+            console.log(decodedJSON); //Use Console Log to Debug array structure
             //alert(decodedJSON);
-            //$('#test').html(decodedJSON[1]['courseTitle']);
-            var strSplit;
+            //$('#loadMoreResults').html(decodedJSON[1]['groupName']);
+            //var strSplit;
+            //strSplit=groupTileIds.split(",");
 
-            for(i=5; i>=0; i--){
-
-                if(decodedJSON[i]['courseFee'].indexOf("€") !==-1){
-                    strSplit=decodedJSON[i]['courseFee'].split("€");
-                    strSplit=strSplit[1].split(" ");
-                    strSplit=strSplit[0].split(".");
-                    decodedJSON[i]['coursePrice']="€"+strSplit[0];
-                }else{
-                    decodedJSON[i]['coursePrice']=" ";
+            for(i=tilesShown-1; i>=0; i--){
+                console.log(i);
+                if(decodedJSON[i]['groupImg']===null || decodedJSON[i]['groupImg']===""){
+                    decodedJSON[i]['groupImg']=ar['courseImg'];
                 }
 
-                //Truncates Card Desc
-                if(decodedJSON[i]['courseDesc'].length<2){
-                    decodedJSON[i]['courseDesc']="Course Description Not Available.";
-                }else if(decodedJSON[i]['courseDesc'].length>250){
-                    decodedJSON[i]['courseDesc']=decodedJSON[i]['courseDesc'].substr(0,238)+". . .";
-                }
-
-                div = $('<div class="row">' +
-                    '<div class="col-12 mt-5 mx-auto">\n' +
-                    '                <div class="card gmd-1 courseTile">\n' +
-                    '                    <div class="card-horizontal">\n' +
-                    '                        <div class="img-square-wrapper">\n' +
-                    '                            <img class="courseImg courseTileImg" src="'+ar['courseImg']+'" alt="Card image cap">\n' +
+                div = $('<!-- GROUP TILE CONTAINER -->\n' +
+                    '        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 groupTileContainer"> <!-- Add Unique Id Attribute to each create tile -->\n' +
+                    '            <!-- GROUP TILE -->\n' +
+                    '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
+                    '\n' +
+                    '                <!-- Group Logo -->\n' +
+                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '\n' +
+                    '                <!-- Group Tile Body -->\n' +
+                    '                <div class="card-body groupTileBody">\n' +
+                    '                    <!-- Group Tile Modal Trigger and Title -->\n' +
+                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">\n' +
+                    '                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >'+decodedJSON[i]['groupName']+'</h5>\n' +
+                    '                    </a>\n' +
+                    '\n' +
+                    '                    <!--Group Tile Time -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/timer.svg" class="classTileIcon" ><span class="groupTileTime">'+decodedJSON[i]['groupStart']+' - '+decodedJSON[i]['groupEnd']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Date -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class="pl-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>,&nbsp\n' +
+                    '                        <span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Location -->\n' +
+                    '                    <div class="row my-2">\n' +
+                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc text-truncate">'+decodedJSON[i]['groupLocation']+'</span>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!--Group Tile Members and Join Btn -->\n' +
+                    '                    <div class="d-flex justify-content-between mt-3 mb-2">\n' +
+                    '                        <div class="mt-2 text-muted">\n' +
+                    '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
-                    '                        <div class="card-body" style="position: relative;">\n' +
-                    '                            <a class="removeColor" href="course.php?id='+numRows+'"><h3 class="courseTitle">'+decodedJSON[i]['courseTitle']+'<br><span style="opacity:0.8; font-size:1rem;">'+decodedJSON[i]['courseProvider']+' </span></h3></a>\n' +
-                    '                            <p class="card-text courseDesc">'+decodedJSON[i]['courseDesc']+'</p>\n' +
-                    '                            <div class="courseBotTileInfo">\n' +
-                    '                                <img class="courseTileIconBottom recommendIcon courseRecommend" src="img/icons/'+ar['courseRecommend']+'.svg" value="'+ar['courseRecommend']+'" data-toggle="tooltip" data-placement="bottom" title="Recommend This">&nbsp<span id="courseRecommend">0</span> Recommended\n' +
-                    '                                <a data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"><img class="courseTileIconBottom ml-3 mr-1 threadIcon" src="img/icons/thread.svg" data-toggle="tooltip" data-placement="bottom" title="Show Threads"></a>&nbsp<span id="courseThread">'+ar['courseThread']+'</span> Threads\n' +                    '                            </div>\n' +
-                    '                        </div>\n' +
-                    '                        <div class="courseSideTileInfo">\n' +
-                    '                            <div class="courseTileIconSide"><img class="bookmarkIcon courseBookmark" src="img/icons/'+ar['courseBookmark']+'.png" value="'+ar['courseBookmark']+'" data-toggle="tooltip" data-placement="bottom" title="Bookmark"></div>\n' +
-                    '                            <div class="align-items-end courseTilePrice"><span id="coursePrice">'+decodedJSON[i]['coursePrice']+'</span></div>\n' +
+                    '                        <div>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" id="groupTileJoin'+decodedJSON[i]['groupId']+'" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;">Join</button>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
-                    '                </div>' +
-                    '</div>');
-                totalRows=totalRows-1;
+                    '\n' +
+                    '                    <!-- Group Tile Resources Trigger -->\n' +
+                    '                    <div class="row mt-1" style="font-weight:700;">\n' +
+                    '                        <a class="text-muted text-center groupTileResTrigger" style="color:black; width:100%; position: relative; z-index: 5;" data-toggle="collapse" href="#groupTileCol'+decodedJSON[i]['groupId']+'" role="button" aria-expanded="false" aria-controls="groupTileCol'+decodedJSON[i]['groupId']+'" id="groupTileTrig'+decodedJSON[i]['groupId']+'">Resources </a>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Resources -->\n' +
+                    '                    <div class="row groupResourceContainer collapse pt-1" id="groupTileCol'+decodedJSON[i]['groupId']+'" style="position: relative; z-index: 5;">\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>\n' +
+                    '                            <span class="groupResources">CS50</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>\n' +
+                    '                            <span class="groupResources">Python - A begineers route</span>\n' +
+                    '                        </div>\n' +
+                    '                        <div class="col-12 my-2">\n' +
+                    '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>\n' +
+                    '                            <span class="groupResources">Unity Basics</span>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '\n' +
+                    '                    <!-- Group Tile Modal -->\n' +
+                    '                    <!-- FUTUTRE: Display modal as swipable sidenav on moile that takes up 100% of the screen -->\n' +
+                    '                    <div class="modal fade groupTileModal" id="groupTileModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\n' +
+                    '                        <div class="modal-dialog groupModalDialog" role="document">\n' +
+                    '                            <div class="modal-content groupModalContent">\n' +
+                    '                                <div class="modal-body groupModalBody">\n' +
+                    '                                    <button type="button" class="close groupTileClose" data-dismiss="modal" aria-label="Close">\n' +
+                    '                                        <span aria-hidden="true">&times;</span>\n' +
+                    '                                    </button>\n' +
+                    '                                    <div id="aboutModalContent">\n' +
+                    '                                        <!--Our Mission-->\n' +
+                    '                                        <h4>Our Mission</h4>\n' +
+                    '                                        <!-- <hr style="width: 40%"> -->\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    Empower any learner* to effortlessly find the best resources and help them visualise their learning journey.\n' +
+                    '                                                </div>\n' +
+                    '                                                <br/>\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText" style="font-size:0.6vw; opacity: 0.8;">\n' +
+                    '                                                    *If you can think, you are a learner.\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                        <!-- About Study -->\n' +
+                    '                                        <h4>About Study</h4>\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    We believe in the learner\'s natural need for the best learning.<br/>\n' +
+                    '                                                    <br/>\n' +
+                    '                                                    We quench this thirst by having all the best resources in one searchable location<br/>\n' +
+                    '                                                    <br/>\n' +
+                    '                                                    We then help them track not only what they\'ve done in the past and present, but more importantly where their learning can advance to in the future.<br/>\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                        <!-- Our Team -->\n' +
+                    '                                        <h4>Our Team</h4>\n' +
+                    '                                        <div class="row">\n' +
+                    '                                            <div class="col">\n' +
+                    '                                                <div class="container-fluid" id="aboutUsText">\n' +
+                    '                                                    A small bunch on college students who are determined to help individuals see the value in what they\'re learning,\n' +
+                    '                                                    and how their learning can take them to their deepest goals. You could call us the \'Avengers of Learning\',\n' +
+                    '                                                    or more realistically just your regular local boyband.\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>\n' +
+                    '\n' +
+                    '                                    </div>\n' +
+                    '                                </div>\n' +
+                    '                            </div>\n' +
+                    '                        </div>\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>\n' +
+                    '        </div>');
+                totalRows = totalRows - 1;
 
-                $("#resContainerStep").append(div);
+                $("#groupResTileContainer").append(div);
+
+                //Event Listeners for each tile
+                (function(j) {
+                    $("#groupTileTrig"+decodedJSON[j]['groupId']).mouseenter(function (){
+                        $("#groupTileCol"+decodedJSON[j]['groupId']).fadeIn();
+                    });
+
+                    $("#groupTile"+decodedJSON[j]['groupId']).mouseleave(function(){
+                        $(".groupResourceContainer").fadeOut();
+                    });
+                })(i);
+
             }
-
-            // add functionality to course tiles
-            courseTileFunctions();
+            //checke
+            $('.groupTileJoinBtn').click(function(e){
+                var groupTileJoinId=e.target.id;
+                console.log("joining group id: "+groupTileJoinId+"...");
+            });
+            //groupTileFunctions();
         }
     });
 
-}
-
-function createCoursePage(){
-
-    var data={courseID:0,courseImg:"https://via.placeholder.com/320x180",courseTitle:"Course Title",
-        courseDesc:"Course Description", courseProvider:"Course Provider",coursePrice:"€0",courseRecommend:"notRecommended",
-        courseThread:"0", courseBookmark:"notBookmarked", courseSubjects:"Course Subjects/Modules",
-        courseFeeInfo:"Info on Fees",courseDuration:"Info on duration", courseLink:"https://www.google.com/search?q=study.ie",
-        courseCode:"XY000",coursePoints:"000", courseLocation:"Course Location",courseSetting:"Online",courseType:"Learning"};
-
-    var strSplit;
-
-    var courseId=GetURLParameter('id');
-
-    $.post("https://study.ie/Server/api.php",{
-        classId: classId
-    },function(dbData,status){
-
-        if(dbData.indexOf("Failed to connect") !==-1){
-            console.log("Database Error"); //This is not working...
-        }else{
-            dbData=dbData.substring(1,dbData.length-1);
-            var decodedJSON=JSON.parse(dbData);
-            //alert("JSON Data: " + dbData + "\nStatus: " + status);
-
-            //look into caching selectors for improved performance
-            $(".courseTitle").html(decodedJSON['courseTitle']);
-
-            //These features have to be added to the database
-            //$("#courseImg").attr("src",decodedJSON['courseImg']);
-            //$("#courseSetting").html(decodedJSON['courseSetting']);
-            //$("#courseBookmark").attr("value",decodedJSON['courseBookmark']);
-            //var bookmarkImg="img/icons/"+decodedJSON['courseBookmark']+".png";
-            //$("#courseBookmark").attr("src",bookmarkImg);
-
-            if(decodedJSON['courseDesc'].length<2){
-                $("#courseDesc").html("Course Description Not Available.");
-            }else{
-                $("#courseDesc").html(decodedJSON['courseDesc']);
-            }
-
-            if(decodedJSON['courseProvider'].length<2){
-                $("#courseProvider").html("Course Provider n/a");
-            }else{
-                $("#courseProvider").html(decodedJSON['courseProvider']);
-            }
-
-            if(decodedJSON['courseSubjects'].length<2){
-                $("#courseSubjects").html("Course Structure n/a");
-            }else{
-                $("#courseSubjects").html(decodedJSON['courseSubjects']);
-            }
-
-            var moreInfo="";
-            if(decodedJSON['courseFee'].length<2 || decodedJSON['courseDuration'].length<2){
-                moreInfo=moreInfo+decodedJSON['courseFee'];
-                moreInfo=moreInfo+decodedJSON['courseDuration'];
-                moreInfo=moreInfo+"<br><br>More Information can be found on the course providers website.";
-            }else{
-                moreInfo=moreInfo+decodedJSON['courseDuration']+"<br><br>";
-                moreInfo=moreInfo+decodedJSON['courseFee'];
-            }
-
-
-            $("#courseMoreInfo").html(moreInfo);
-            if(decodedJSON['courseFee'].indexOf("€") !==-1){
-                strSplit=decodedJSON['courseFee'].split("€");
-                strSplit=strSplit[1].split(" ");
-                strSplit=strSplit[0].split(".");
-                $("#coursePrice").html("€"+strSplit[0]);
-            }else{
-                $("#coursePrice").html("");
-            }
-
-            strSplit=decodedJSON['courseLink'].split("~");
-            $("#courseLink").attr("href",strSplit[strSplit.length-1]);
-
-            // add functionality to course page
-            coursePageFunctions();
-            //FUTURE: need to add columns and tables for recommendation system and threads to database for this functionality
-            //FUTURE: script for applying a relevant image for a particular course provider
-        }
-    });
 }
 
 function showResult(str) {
@@ -1174,6 +1106,7 @@ function showResult(str) {
     }
     xmlhttp.onreadystatechange=function() {
         if (this.readyState==4 && this.status==200) {
+            console.log("waluigggo");
             document.getElementById("livesearch").innerHTML=this.responseText;
             document.getElementById("livesearch").style.border="1px solid #A5ACB2";
         }
@@ -1193,6 +1126,11 @@ function delay(callback, ms) {
     };
 }
 
-$('#input').keyup(delay(function (e) {
+$('.searchGroups').keyup(delay(function (e) {
     showResult(this.value);
 }, 500));
+
+function searchHomeHeader(){
+    var headerSearch=$("#headerForm").val();
+    window.location.replace("https://study.ie/groupResults.php?search="+headerSearch);
+}
