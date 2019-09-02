@@ -16,6 +16,8 @@ if(isset($_POST['tiles']) && isset($_POST['numRows'])  && isset($_POST['retrieve
         retrieveUserGroupTiles();
     }else if($retrieveOption=='groups'){
         retrieveGroupTiles();
+    }else if($groupTileJoinId !==null && isset($_post['suserId'])){
+      joinGroup();
     }
 
 }
@@ -124,6 +126,20 @@ function retrieveUserGroupTiles(){
     //print_r($resultAr);
 
     echo json_encode($resultAr,JSON_UNESCAPED_UNICODE);
+}
+function joinGroup(){
+    include 'Server.php';
+    $userId= $_POST['userId'];
+    $groupId= $_POST['targetId'];
+
+    $sql = "INSERT INTO `groupMembers` (`userId`, `groupId`, `admin`) VALUES (".$userId.", ".$groupId.", 0)";
+    if(mysqli_query($connectDB, $sql)){
+        echo "New record created successfully";
+    }else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+
+
 }
 /*
 function retrieveTiles(){
