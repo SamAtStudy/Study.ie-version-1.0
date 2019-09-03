@@ -274,7 +274,7 @@ $(document).ready(function(){
 
 function load_comment(){
     $.ajax({
-        url:"fetch_comment.php",
+        url:"Server/fetch_comment.php",
         method:"POST",
         success:function(data)
         {
@@ -558,11 +558,15 @@ function createGroupTile(tilesShown){
     var numRows=""+totalRows;
     var tiles=""+tilesShown;
     var retrieveOption="groups";
+    //may not work just trying something out
+    var groupTileJoinId = null;
 
     $.post("https://study.ie/Server/api.php",{
         tiles: tiles,
         numRows: numRows,
-        retrieveOption: retrieveOption
+        retrieveOption: retrieveOption,
+        //may not work just trying something out
+        groupTileJoinId: groupTileJoinId
     },function(dbData,status){
 
         if(dbData.indexOf("Failed to connect") !==-1){
@@ -724,6 +728,7 @@ function createGroupTile(tilesShown){
             $('.groupTileJoinBtn').click(function(e){
                 var groupTileJoinId=e.target.id;
             });
+
             //groupTileFunctions();
         }
     });
