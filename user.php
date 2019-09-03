@@ -8,8 +8,8 @@ $classes = mysqli_query($connectDB, "SELECT groupMembers.groupId, groups.groupNa
 include 'header.php';
 ?>
 
-<div id="headerContainer" style="background-color: teal;">
-    <div id="headerBody" class="mx-auto d-flex justify-content-center">
+<div id="userHeaderContainer">
+    <div id="userHeaderBody" class="mx-auto d-flex justify-content-center">
         <div id="headerUserProfile" class="mt-xl-5 mt-4">
             <img src="img/Andriy.jpg" class="rounded-circle float-left gmd-1 ml-n4" id="headerUserIcon">
             <div class="ml-3 mt-1 float-left" style="color:white;">
@@ -33,8 +33,6 @@ include 'header.php';
             </div>
         </div>
     </div>
-
-
 
 
     <div id="classTileContainer">

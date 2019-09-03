@@ -49,6 +49,7 @@
     <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer">
         <input class="px-3 py-1 searchGroups" type="text" id="navbarSearch" size="10" placeholder="Search...">
         <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
+        <div id="navbarLiveSearch"></div>
     </div>
     <!--
     <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchExtendedContainer" style="display: none;">

@@ -210,6 +210,7 @@ $(document).ready(function(){
         if(!searchContainer.is(e.target) && searchContainer.has(e.target).length === 0 && searchContainer.hasClass("extended")) {
             searchContainer.animate({height: "38px"}, 30 ).animate({width: "275px", borderRadius: "30px"}, 60);
             searchContainer.toggleClass("extended");
+            $("#navbarLiveSearch").html("");
         }
     });
 
@@ -261,6 +262,13 @@ $(document).ready(function(){
             userSearchRes.html(""+groupSearch);
             groupResults("search");
         }
+    }
+
+
+    if($("#userHeaderContainer").length){
+        $("#groupTileJoin9").click(function(){
+            alert("clicked!");
+        });
     }
 
     /*var test=GetURLParameter("id");
@@ -534,14 +542,14 @@ function UsergroupResults(){
         if(UsertotalRows==-1){
             UsertotalRows=rows;
         }
-        alert("total number of rows is: "+UsertotalRows);
+        //alert("total number of rows is: "+UsertotalRows);
         if(UsertotalRows==0){
             //Hide load more btn and show no more results txt
-            $("#noResults").show();
+            //$("#noResults").show();
             $("#loadMoreResults").hide();
         }else if(UsertotalRows<3){
             createUserGroupTile(UsertotalRows);
-            $("#noResults").show();
+            //$("#noResults").show();
             $("#loadMoreResults").hide();
         }else{
             createUserGroupTile(3);
@@ -1099,7 +1107,7 @@ function createGroupTileSearch(tilesShown){
 
 function showResult(str) {
     if (str.length==0) {
-        document.getElementById("livesearch").innerHTML="";
+        document.getElementById("navbarLiveSearch").innerHTML="";
         document.getElementById("livesearch").style.border="0px";
         return;
     }
@@ -1112,7 +1120,7 @@ function showResult(str) {
     xmlhttp.onreadystatechange=function() {
         if (this.readyState==4 && this.status==200) {
             console.log("waluigggo");
-            document.getElementById("livesearch").innerHTML=this.responseText;
+            document.getElementById("navbarLiveSearch").innerHTML=this.responseText;
             document.getElementById("livesearch").style.border="1px solid #A5ACB2";
         }
     }
