@@ -40,7 +40,7 @@
 <body>
 
 <!-- NAV BAR-->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top navbarHome" id="mainNavbar">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom navbarHome" id="mainNavbar">
     <a class="navbar-brand" href="index.php">
         <img src=img/Logo2White.png alt="Study.ie" id="studyLogo" width="115" height="36">
     </a>

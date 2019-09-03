@@ -352,7 +352,7 @@ function loginStyle(x){
 function userProfile(){
     var x=loginStatus();
     if(x.indexOf("No User Logged In") ==-1){
-        alert("HEY!");
+        console.log("testing user profile status");
     }
 }
 
