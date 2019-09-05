@@ -813,11 +813,11 @@ function createUserGroupTile(tilesShown){
                     '                    </div>\n' +
                     '\n' +
                     '                    <!--Group Tile Members and Join Btn -->\n' +
-                    '                    <div class="d-flex justify-content-between mt-3 mb-2">\n' +
+                    '                    <div class="row text-left mt-3 mb-2">\n' +
                     '                        <div class="mt-2 text-muted">\n' +
                     '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
-                    '                        <div>\n' +
+                    '                    </div>\n' +
                     '\n' +
                     '                    <!-- Group Tile Resources Trigger -->\n' +
                     '                    <div class="row mt-1" style="font-weight:700;">\n' +
