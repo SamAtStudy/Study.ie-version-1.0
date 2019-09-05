@@ -751,6 +751,9 @@ div > .footerMiscInfo{
 .groupTileLoc{
     width:85%;
 }
+.groupTileLogo{
+    border-radius: 5px;
+}
 
 #socialLinkBox{
     height:6vh;

@@ -214,14 +214,6 @@ $(document).ready(function(){
         }
     });
 
-    // SLIDE FUNCTION. I <3 rslides sm
-    $(function() {
-        $(".rslides").responsiveSlides({
-            speed:1500,
-            timeout: 6000
-        });
-    });
-
     var mainNavbar=$("#mainNavbar");
     /* TODO: Hidden navbar when scrolls past a point but reapers when user scrolls up
     if ($(document).scrollTop() > 1.5 * $(window).height()) {
@@ -231,6 +223,15 @@ $(document).ready(function(){
     //TRANSPARENT NAVBAR
     var homeHeader=$("#homeHeader");
     if (homeHeader.length ) {
+        // SLIDE FUNCTION. I <3 rslides sm
+        $(function() {
+            $(".rslides").responsiveSlides({
+                speed:1500,
+                timeout: 6000
+            });
+        });
+
+
         $(window).scroll(function() {
             if ($(document).scrollTop() > homeHeader.height()) {
                 mainNavbar.css("-webkit-transition","all 0.85s ease");
@@ -265,11 +266,13 @@ $(document).ready(function(){
     }
 
 
-    if($("#userHeaderContainer").length){
+    /*if($("#userHeaderContainer").length){
         $("#groupTileJoin9").click(function(){
             alert("clicked!");
         });
-    }
+
+        $("#groupTileJoin9").attr("onclick","groupResults('search');");
+    } */
 
     /*var test=GetURLParameter("id");
     if(test===undefined){
@@ -632,7 +635,7 @@ function createGroupTile(tilesShown){
                     '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
                     '                        <div>\n' +
-                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" id="groupTileJoin'+decodedJSON[i]['groupId']+'" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;">Join</button>\n' +
+                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" id="groupTileJoin'+decodedJSON[i]['groupId']+'" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;" onclick="swalAlertTester();">Join</button>\n' +
                     '                        </div>\n' +
                     '                    </div>\n' +
                     '\n' +
@@ -815,9 +818,6 @@ function createUserGroupTile(tilesShown){
                     '                            <span class="groupTileMembers">13</span> Members\n' +
                     '                        </div>\n' +
                     '                        <div>\n' +
-                    '                            <button type="button" class="btn btn-info px-4 groupTileJoinBtn" id="groupTileJoin'+decodedJSON[i]['groupId']+'" style="border-radius: 20px; position: relative; z-index: 5; font-size:1.1rem;">Join</button>\n' +
-                    '                        </div>\n' +
-                    '                    </div>\n' +
                     '\n' +
                     '                    <!-- Group Tile Resources Trigger -->\n' +
                     '                    <div class="row mt-1" style="font-weight:700;">\n' +
@@ -920,6 +920,18 @@ function createUserGroupTile(tilesShown){
     });
 
 }
+
+function swalAlertTester(){
+    swal({
+        title: "Joined Group !",
+        text:" ",
+        icon:"success",
+        timer: 2500,
+        //showConfirmButton: false
+        buttons:false
+    });
+}
+
 function createGroupTileSearch(tilesShown){
 
     var ar={courseImg:"img/Logo1.png",courseTitle:"Tile Title",courseDesc:"Tile Description",
