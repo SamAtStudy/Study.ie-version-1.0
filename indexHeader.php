@@ -64,7 +64,7 @@
     </button>
 
     <!-- Navbar Options -->
-    <div class="collapse navbar-collapse" id="collapseNavbar">
+    <div class="collapse navbar-collapse" id="collapseNavbar" style="background: black;opacity:0.6;">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
                 <a class="nav-link" href="groupResults.php">Groups</a>

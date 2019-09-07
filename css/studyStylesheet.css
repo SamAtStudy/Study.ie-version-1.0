@@ -65,6 +65,7 @@ a:hover{
 }
 
 #navbarSearchContainer{
+    display:block;
     background-color:  white;
     border-radius: 30px;
     border:3px solid;
@@ -753,6 +754,8 @@ div > .footerMiscInfo{
 }
 .groupTileLogo{
     border-radius: 5px;
+    height:10rem;
+    width:16rem;
 }
 
 #socialLinkBox{
@@ -1104,7 +1107,6 @@ div > .footerMiscInfo{
 }
 
 #indexDevContainer{
-    height:60vh;
     position: relative;
     z-index: 5;
 }
@@ -1112,6 +1114,10 @@ div > .footerMiscInfo{
 #indexDevImg{
     height:280px;
     width:280px;
+}
+
+.indexHeaderImg{
+    height:110vh !important;
 }
 
 @media screen and (min-width: 992px) {
@@ -1563,5 +1569,9 @@ div > .footerMiscInfo{
     #headerCardContainer{
         margin-top:0px;
         position: relative;
+    }
+
+    #navbarSearchContainer{
+        display:none;
     }
 }

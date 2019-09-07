@@ -604,7 +604,7 @@ function createGroupTile(tilesShown){
                     '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
                     '\n' +
                     '                <!-- Group Logo -->\n' +
-                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
                     '\n' +
                     '                <!-- Group Tile Body -->\n' +
                     '                <div class="card-body groupTileBody">\n' +
@@ -787,7 +787,7 @@ function createUserGroupTile(tilesShown){
                     '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
                     '\n' +
                     '                <!-- Group Logo -->\n' +
-                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
                     '\n' +
                     '                <!-- Group Tile Body -->\n' +
                     '                <div class="card-body groupTileBody">\n' +
@@ -975,7 +975,7 @@ function createGroupTileSearch(tilesShown){
                     '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
                     '\n' +
                     '                <!-- Group Logo -->\n' +
-                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" style= "width:10rem; height:10rem;" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
                     '\n' +
                     '                <!-- Group Tile Body -->\n' +
                     '                <div class="card-body groupTileBody">\n' +
