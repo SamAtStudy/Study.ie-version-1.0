@@ -202,7 +202,7 @@ $(document).ready(function(){
 
     var searchContainer=$("#navbarSearchContainer");
     navSearch.click(function() {
-        searchContainer.animate({width: "350px", borderRadius: "20px"}, 60).animate({height: "115px"}, 30 ); //animate border radius first. hierarchy of animations
+        searchContainer.animate({width: "350px", borderRadius: "20px"}, 60).animate({height: "140px"}, 30 ); //animate border radius first. hierarchy of animations
         searchContainer.toggleClass("extended");
     });
 
@@ -240,11 +240,15 @@ $(document).ready(function(){
                 navSearch.prop("disabled", false);
                 searchContainer.css("opacity","0.65");
                 searchContainer.animate({opacity: "1"},7);
+                $('.show').css("background","#63cbb7");
+                $('.collapsing').css("background","#63cbb7");
             }else{
                 navSearch.prop("disabled", true);
                 mainNavbar.css("background","transparent");
                 searchContainer.css("opacity","0.35");
                 searchContainer.animate({opacity: "0"},7);
+                $('.show').css("background","hsla(0, 0%, 34%, 0.51) !important");
+                $('.collapsing').css("background","hsla(0, 0%, 34%, 0.51) !important");
             }
         });
     }
@@ -603,13 +607,15 @@ function createGroupTile(tilesShown){
                     '            <!-- GROUP TILE -->\n' +
                     '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
                     '\n' +
+                    '<div class="groupTileLogoContainer py-2 px-3"> \n'+
                     '                <!-- Group Logo -->\n' +
                     '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '</div> \n'+
                     '\n' +
                     '                <!-- Group Tile Body -->\n' +
                     '                <div class="card-body groupTileBody">\n' +
                     '                    <!-- Group Tile Modal Trigger and Title -->\n' +
-                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">\n' +
+                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal">\n' +
                     '                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >'+decodedJSON[i]['groupName']+'</h5>\n' +
                     '                    </a>\n' +
                     '\n' +
@@ -646,15 +652,15 @@ function createGroupTile(tilesShown){
                     '\n' +
                     '                    <!-- Group Tile Resources -->\n' +
                     '                    <div class="row groupResourceContainer collapse pt-1" id="groupTileCol'+decodedJSON[i]['groupId']+'" style="position: relative; z-index: 5;">\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>\n' +
                     '                            <span class="groupResources">CS50</span>\n' +
                     '                        </div>\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>\n' +
                     '                            <span class="groupResources">Python - A begineers route</span>\n' +
                     '                        </div>\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>\n' +
                     '                            <span class="groupResources">Unity Basics</span>\n' +
                     '                        </div>\n' +
@@ -786,13 +792,15 @@ function createUserGroupTile(tilesShown){
                     '            <!-- GROUP TILE -->\n' +
                     '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
                     '\n' +
+                    '<div class="groupTileLogoContainer py-2 px-3"> \n'+
                     '                <!-- Group Logo -->\n' +
                     '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '</div> \n'+
                     '\n' +
                     '                <!-- Group Tile Body -->\n' +
                     '                <div class="card-body groupTileBody">\n' +
                     '                    <!-- Group Tile Modal Trigger and Title -->\n' +
-                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">\n' +
+                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal">\n' +
                     '                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >'+decodedJSON[i]['groupName']+'</h5>\n' +
                     '                    </a>\n' +
                     '\n' +
@@ -803,13 +811,13 @@ function createUserGroupTile(tilesShown){
                     '\n' +
                     '                    <!-- Group Tile Date -->\n' +
                     '                    <div class="row my-2">\n' +
-                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
-                    '                        <span class="ml-5 px-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>\n' +
+                    '                        <img src="img/icons/calendar.svg" class="classTileIcon" ><span class="pl-1 groupTileFreq" style="border-bottom:2px solid green; font-size: 1rem;">'+decodedJSON[i]['groupFrequency']+'</span>,&nbsp\n' +
+                    '                        <span class=groupTileDate">'+decodedJSON[i]['groupDate']+'</span>\n' +
                     '                    </div>\n' +
                     '\n' +
                     '                    <!-- Group Tile Location -->\n' +
                     '                    <div class="row my-2">\n' +
-                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc">'+decodedJSON[i]['groupLocation']+'</span>\n' +
+                    '                        <img src="img/icons/location-point.svg" class="classTileIcon" ><span class="groupTileLoc text-truncate">'+decodedJSON[i]['groupLocation']+'</span>\n' +
                     '                    </div>\n' +
                     '\n' +
                     '                    <!--Group Tile Members and Join Btn -->\n' +
@@ -826,15 +834,15 @@ function createUserGroupTile(tilesShown){
                     '\n' +
                     '                    <!-- Group Tile Resources -->\n' +
                     '                    <div class="row groupResourceContainer collapse pt-1" id="groupTileCol'+decodedJSON[i]['groupId']+'" style="position: relative; z-index: 5;">\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>\n' +
                     '                            <span class="groupResources">CS50</span>\n' +
                     '                        </div>\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>\n' +
                     '                            <span class="groupResources">Python - A begineers route</span>\n' +
                     '                        </div>\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>\n' +
                     '                            <span class="groupResources">Unity Basics</span>\n' +
                     '                        </div>\n' +
@@ -974,13 +982,15 @@ function createGroupTileSearch(tilesShown){
                     '            <!-- GROUP TILE -->\n' +
                     '            <div class="card groupTile mx-md-4 mx-lg-3 mx-xl-4 my-3 my-lg-4 my-xl-5 gmd-1-hover" id="groupTile'+decodedJSON[i]['groupId']+'">\n' +
                     '\n' +
+                    '<div class="groupTileLogoContainer py-2 px-3"> \n'+
                     '                <!-- Group Logo -->\n' +
                     '                <img src="'+decodedJSON[i]['groupImg']+'" alt="Card image cap" class="m-auto pt-2 px-1 pb-1 groupTileLogo">\n' +
+                    '</div> \n'+
                     '\n' +
                     '                <!-- Group Tile Body -->\n' +
                     '                <div class="card-body groupTileBody">\n' +
                     '                    <!-- Group Tile Modal Trigger and Title -->\n' +
-                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal1">\n' +
+                    '                    <a class="stretched-link groupTileModalTrigger" style="color:black" href="#" data-toggle="modal" data-target="#groupTileModal">\n' +
                     '                        <h5 class="card-title text-center groupTileTitle" style="font-weight:700;" >'+decodedJSON[i]['groupName']+'</h5>\n' +
                     '                    </a>\n' +
                     '\n' +
@@ -1017,15 +1027,15 @@ function createGroupTileSearch(tilesShown){
                     '\n' +
                     '                    <!-- Group Tile Resources -->\n' +
                     '                    <div class="row groupResourceContainer collapse pt-1" id="groupTileCol'+decodedJSON[i]['groupId']+'" style="position: relative; z-index: 5;">\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">EDX</span>\n' +
                     '                            <span class="groupResources">CS50</span>\n' +
                     '                        </div>\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Udemy</span>\n' +
                     '                            <span class="groupResources">Python - A begineers route</span>\n' +
                     '                        </div>\n' +
-                    '                        <div class="col-12 my-2">\n' +
+                    '                        <div class="col-12 my-xl-2 my-4">\n' +
                     '                            <span class="ml-1 p-1 groupResourceType" style="border-style: solid; border-radius: 12px; border-width: 2px; border-color: hsl(206, 79%, 81%); color:hsl(206, 79%, 81%);background-color: hsl(206, 100%, 97%); font-size: 0.9rem;">Skillshare</span>\n' +
                     '                            <span class="groupResources">Unity Basics</span>\n' +
                     '                        </div>\n' +
@@ -1157,5 +1167,10 @@ $('.searchGroups').keyup(delay(function (e) {
 
 function searchHomeHeader(){
     var headerSearch=$("#headerForm").val();
+    window.location.replace("https://study.ie/groupResults.php?search="+headerSearch);
+}
+
+function searchHomeMobileHeader(){
+    var headerSearch=$("#headerMobileForm").val();
     window.location.replace("https://study.ie/groupResults.php?search="+headerSearch);
 }

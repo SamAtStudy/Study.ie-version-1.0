@@ -9,7 +9,7 @@ include 'blogHeader.php';
         <!-- Blog Post Row -->
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <a href="blog-post6.php">
                     <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Knowledge.png" alt="">
                 </a>
@@ -34,7 +34,7 @@ include 'blogHeader.php';
         <!-- Blog Post Row -->
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <a href="blog-post5.php">
                     <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/MykolaBoring.jpg" alt="">
                 </a>
@@ -60,7 +60,7 @@ include 'blogHeader.php';
         <!-- Blog Post Row -->
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <a href="blog-post4.php">
                     <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Business%20Office%20Workplace%20Desk.jpg" alt="">
                 </a>
@@ -85,7 +85,7 @@ include 'blogHeader.php';
         <!-- Blog Post Row -->
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <a href="blog-post3.php">
                     <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Stack%20Of%20Books.jpg" alt="" >
                 </a>
@@ -110,7 +110,7 @@ include 'blogHeader.php';
         <!-- Blog Post Row -->
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <a href="blog-post2.php">
                     <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Sam0107.jpg" alt="">
                 </a>
@@ -135,7 +135,7 @@ include 'blogHeader.php';
         <!-- Blog Post Row -->
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <a href="blog-post1.php">
                     <img class="gmd-2 img-fluid img-hover blogHomeImg" src="blogimg/Andriy0107.jpeg" alt="" >
                 </a>

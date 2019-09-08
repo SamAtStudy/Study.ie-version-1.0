@@ -22,22 +22,32 @@ include 'header.php';
 
 <div id="bodyContainer" style="min-height: 75vh;">
 
-    <div class = "container-fluid">
-        <div class="row m-xl-5 m-3" id="groupResTileContainer">
+    <div class="row justify-content-between mx-xl-5 mx-3 mt-xl-5 mt-5">
+        <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
+            <h2 class="ml-xl-3" style="font-weight:700;">Groups</h2>
         </div>
-        <div class="row">
-            <div class="col-12 my-5 mx-auto">
-                <div id="test"></div>
-                <button id="loadMoreResults" onclick="UsergroupResults();" type="button" class="mx-auto btn btn-lrg my-5 gmd-1" style="display:block; width:60%; background: teal; color:white; border-radius: 30px; height:70px; font-size: 1.5rem; padding:10px;">Load More</button>
-                <h1 id="noResults" class="my-5 text-center" style="display:none;"> No More Results . . .</h1>
-            </div>
+        <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
+            &nbsp
         </div>
     </div>
 
+    <div class = "container-fluid">
+        <div class="row m-xl-5 m-3" id="groupResTileContainer">
+        </div>
+    </div>
+
+    <div class="row justify-content-xl-center justify-content-between mx-xl-5 mx-3 mt-xl-5 mt-5">
+        <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
+            <h2 class="ml-xl-3 mb-xl-5" style="font-weight:700;">Classes</h2>
+        </div>
+        <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
+            &nbsp
+        </div>
+    </div>
 
     <div id="classTileContainer">
         <!-- CLASS TILE ROW -->
-        <div class="row classTileRow" style="display:block;">
+        <div class="row classTileRow pb-5 mb-5" style="display:block;">
             <div class="col-11 col-xl-7 mx-auto my-5">
                 <div class="classTile card text-center gmd-1">
                     <form class="card-body m-xl-2">

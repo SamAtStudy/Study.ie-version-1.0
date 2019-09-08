@@ -12,10 +12,10 @@ include 'header.php';
 <div class = "container-fluid">
     <div class="row justify-content-between mx-xl-5 mx-3 mt-xl-5 mt-3">
         <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
-            <h2 class="ml-3 mb-3" style="font-weight:700;">Groups</h2>
+            <h2 class="ml-xl-3 mb-3" style="font-weight:700;">Groups</h2>
         </div>
         <div class="mx-md-4 mx-lg-3 mx-xl-4 mb-n3 mb-lg-n4 mb-xl-n5">
-            <div class="dropdown mr-3">
+            <div class="dropdown mr-xl-3">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="sortDropdownMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sort By
                 </button>

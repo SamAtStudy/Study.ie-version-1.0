@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <!-- These meta tags Prevents Caching of web page: Good for development, Not so great for consumer. -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <title>Study.ie</title>
     <link rel="icon" href="img/Logo1.png">
 
@@ -14,6 +19,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--Googles Valera Round Font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,700&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
     <!-- Study.ie Stylesheet -->
@@ -53,29 +60,31 @@
 <body>
 
 <!-- NAV BAR-->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom navbarHome" id="mainNavbar">
     <a class="navbar-brand" href="index.php">
-        <img src=img/Logo2White.png alt="Study.ie" class="studyLogo" width="115" height="36">
+        <img src=img/Logo2White.png alt="Study.ie" id="studyLogo" width="115" height="36">
     </a>
 
     <!-- Navbar Search -->
-    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer" style="display:block;">
-        <input class="px-3 py-1" type="text" id="navbarSearch" size="10" placeholder="Search...">
+    <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchContainer">
+        <input class="px-3 py-1 searchGroups" type="text" id="navbarSearch" size="10" placeholder="Search...">
         <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
+        <div id="navbarLiveSearch" class="text-truncate"></div>
     </div>
+    <!--
     <div class="my-auto ml-3 gmd-1-hover" id="navbarSearchExtendedContainer" style="display: none;">
         <input class="px-3 py-1" type="text" id="navbarSearchExtended" size="10" placeholder="Search...">
         <a id="navbarSearchIcon" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><img src="img/icons/magnifier-tool.svg" style="height:70%;"></a>
-    </div>
-    <div id="livesearch" style="display:none;background: grey;padding: 15px;padding-top: 25px;width: 275px;color: white;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px;position: absolute;top: 32px;left: 163px;">test</div>
+    </div> -->
+    <div id="livesearch"></div>
 
     <!-- Mobile Navbar Toggle -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNavbar" aria-controls="collapseNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar Optionns -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- Navbar Options -->
+    <div class="collapse navbar-collapse" id="collapseNavbar">
         <ul class="navbar-nav ml-auto" style="margin-left:15px;">
             <li class="nav-item" id="courseNav">
                 <a class="nav-link" href="groupResults.php">Groups</a>
@@ -91,7 +100,7 @@
             </li>
             <li class="nav-item dropdown" id="navSettings" style="display:none;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/icons/settings.svg" style="height:25px; padding-bottom: 3px;"></a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownMenu">
                     <a class="dropdown-item disabled" href="#" id="dropdownAcc">Account</a>
                     <a class="dropdown-item" href="#" id="dropdownProfileLink">Privacy</a>
                     <div class="dropdown-divider"></div>
@@ -139,16 +148,13 @@
                                                 <input type="password" class="form-control loginForm" id="pass" data-toggle="tooltip" data-placement="right" title="" placeholder="Password" data-original-title="Incorrect Password">
                                             </div>
                                             <div class="d-flex flex-row my-3">
-                                                <div class="custom-control custom-checkbox mr-auto">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
-                                                    <label class="custom-control-label" for="customCheck1">Remember Me</label>
-                                                </div>
-                                                <span style="color:black;"><a href="#" style="color:black;">Forgot password?</a></span>
+                                                <span class="m-auto" style="color:black;"><a href="#" style="color:black;">Forgot password?</a></span>
                                             </div>
                                             <button id="accLoginBtn" type="button" class="btn btn-info btn-block btn-round">Login</button>
                                         </form>
 
                                         <!-- Or Divider -->
+                                        <!-- SOCIAL MEDIA LOGIN
                                         <div class="strike my-4">
                                             <span style="font-weight: 400">Or</span>
                                         </div>
@@ -172,7 +178,8 @@
                                                 <img src="img/icons/fbLogo.svg">
                                                 Facebook
                                             </button>
-                                        </div>
+                                        </div> -->
+
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -192,13 +199,14 @@
                                             </div>
                                             <div class="d-flex flex-row my-3">
                                                 <div class="mx-auto">
-                                                    <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="#" style="color:blue;">User Agreement</a><span>
+                                                    <span style="font-size: 0.8rem;">By creating an account, you agree you've accepted our <a href="UserAgreement.php" style="color:blue;">User Agreement</a><span>
                                                 </span></span></div>
                                             </div>
                                             <button id="accCreateBtn" type="button" class="btn btn-info btn-block btn-round">Create Account</button>
                                         </form>
 
                                         <!-- Or Divider -->
+                                        <!-- SOCIAL MEDIA LOGIN
                                         <div class="strike my-4">
                                             <span style="font-weight: 400">Or</span>
                                         </div>
@@ -222,7 +230,8 @@
                                                 <img src="img/icons/fbLogo.svg">
                                                 Facebook
                                             </button>
-                                        </div>
+                                        </div>-->
+
                                     </div>
                                 </div>
                             </div>

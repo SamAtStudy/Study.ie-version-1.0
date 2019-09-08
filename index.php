@@ -31,29 +31,32 @@ include 'indexHeader.php';
                 <h3 id="headerMobileCardTitle">Find the right group for you</h3>
             </div>
             <div class="p-2 d-flex justify-content-center">
-                <input class="form-control" id="headerForm" data-toggle="tooltip" data-placement="right" title="" placeholder="Search">
+                <input class="form-control" id="headerMobileForm" data-toggle="tooltip" data-placement="right" title="" placeholder="Search">
             </div>
             <div>
-                <button id="headerMobileCardBtn" type="button" class="btn btn-info btn-block btn-round mx-auto mt-2" onclick="searchHomeHeader();">Search</button>
+                <button id="headerMobileCardBtn" type="button" class="btn btn-info btn-block btn-round mx-auto mt-2" onclick="searchHomeMobileHeader();">Search</button>
             </div>
         </div>
     </div>
 
 
-    <div class="my-auto mb-5" id="indexDevContainer">
-        <div class="d-flex justify-content-center">
-            <img src="img/icons/development.png" id="indexDevImg" class="p-2 m-xl-4 m-5">
-        </div>
-        <div class="mb-sm-3 mt-sm-1 mb-5 mt-3">
-            <h2 id="indexDevContent" class="text-center">
-                Website is currently under development.
-                <br>
-                All Groups currently on the site are
-                <br>
-                for demo purposes only.
-            </h2>
+    <div class="my-auto py-5" id="indexDevContainer">
+        <div class="my-5">
+            <div class="d-flex justify-content-center">
+                <img src="img/icons/development.png" id="indexDevImg" class="p-2 my-xl-4 my-5 ml-xl-5 ml-3">
+            </div>
+            <div class="mb-sm-3 mt-sm-1 mb-5 mt-3" id="indexDevContentContainer">
+                <h2 id="indexDevContent" class="text-center">
+                    Website is currently under development.
+                    <br>
+                    All Groups currently on the site are
+                    <br>
+                    for demo purposes only.
+                </h2>
+            </div>
         </div>
     </div>
+    <br>
     <br>
 <?php
 include 'footer.php';
