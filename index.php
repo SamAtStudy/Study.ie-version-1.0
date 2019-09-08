@@ -47,11 +47,11 @@ include 'indexHeader.php';
             </div>
             <div class="mb-sm-3 mt-sm-1 mb-5 mt-3" id="indexDevContentContainer">
                 <h2 id="indexDevContent" class="text-center">
-                    Website is currently under development.
+                    This Website is currently in development.
                     <br>
-                    All Groups currently on the site are
+                    All Groups on the site are for
                     <br>
-                    for demo purposes only.
+                    demo purposes only.
                 </h2>
             </div>
         </div>
