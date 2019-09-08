@@ -84,7 +84,7 @@ a:hover{
     caret-color:teal;
     border-radius: 15px;
     width:87%;
-    font-size: 0.96rem;
+    font-size: 1.1rem;
 }
 
 #navbarLiveSearch a{
@@ -93,6 +93,14 @@ a:hover{
 
 #navbarLiveSearch a:hover{
     color:blue !important;
+}
+
+.navbar-light .navbar-toggler{
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-light .navbar-toggler-icon{
+    background-image: url("../img/icons/hamburger-white.svg");
 }
 
 #navbarLiveSearch{
